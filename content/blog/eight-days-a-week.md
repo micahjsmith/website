@@ -74,7 +74,7 @@ made in the modern era.
 Obviously it is far-fetched to believe that anyone would actually overhaul the calendar to
 accommodate eight-day weeks. In one sense, it wouldn't make that much of a difference --
 January 9 would stay January 9, a year would have the same number of months, and a month
-would have the same number of years.
+would have the same number of days.
 
 Sure, maybe under my proposal a November beginning on a Friday or Saturday wouldn't have a
 Thanksgiving. Sure, maybe every piece of software to ever use a date would have to be
