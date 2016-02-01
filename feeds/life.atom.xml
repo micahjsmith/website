@@ -1,3 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Micah Smith</title><link href="http://micahsmith.com/" rel="alternate"></link><link href="http://micahsmith.com/feeds/life.atom.xml" rel="self"></link><id>http://micahsmith.com/</id><updated>2016-01-08T00:00:00-05:00</updated><entry><title>Welcome</title><link href="http://micahsmith.com/blog/2016/01/hello-world/" rel="alternate"></link><updated>2016-01-08T00:00:00-05:00</updated><author><name>Micah Smith</name></author><id>tag:micahsmith.com,2016-01-08:blog/2016/01/hello-world/</id><summary type="html">&lt;p&gt;Welcome to my site. I'll be writing about various topics, such as the world to which we are
-all party.&lt;/p&gt;</summary><category term="life"></category></entry></feed>
