@@ -52,6 +52,113 @@
 
 <article>
   <header>
+    <h2><a href="http://micahsmith.com/blog/2016/02/vim-diff-silly-paths/#vim-diff-silly-paths">Using vimdiff with silly paths</a></h2>
+    <p>
+      Posted on Tue 02 February 2016 in <a href="http://micahsmith.com/category/coding.html">coding</a>
+      &#8226; Tagged with
+      <a href="http://micahsmith.com/tag/vim.html">vim</a>,      <a href="http://micahsmith.com/tag/git.html">git</a>,      <a href="http://micahsmith.com/tag/matlab.html">matlab</a>      &#8226; <a href="http://micahsmith.com/blog/2016/02/vim-diff-silly-paths/#disqus_thread">Leave a comment</a>
+    </p>
+  </header>
+  <div>
+      <p>I've been loving vimdiff as my git difftool for a while.</p>
+<h2>Vimdiff and Matlab packages</h2>
+<p>Vimdiff runs into some problems when working with Matlab code. Matlab considers
+directories with names beginning with <code>+</code> as "packages", a natural way to organize
+projects. However, this means that many paths relative to the git top-level directory begin
+with <code>+</code>. Of course, this applies to any path beginning with a <code>+</code>, though this is otherwise an
+uncommon naming convention.</p>
+<p>Suppose that your project looks like this:</p>
+<div class="highlight"><pre>+code/
+  foo.m
+  bar.m
+</pre></div>
+
+
+<p>You might want to use vim to diff your two files:</p>
+<div class="highlight"><pre>vimdiff +code/foo.m +code/bar.m
+</pre></div>
+
+
+<p>But vim will tell you:</p>
+<div class="highlight"><pre>Error detected while processing command line:
+E492: Not an editor comamnd: code/foo.m
+E492: Not an editor comamnd: code/bar.m
+</pre></div>
+
+
+<p>What's going on? Vim interprets <code>+</code> as the start of a command-line argument (beyond
+the typical <code>-</code>) and fails to find options/commands called <code>code/foo.m</code> and <code>code/bar.m</code>.</p>
+<h2>The vimdiff solution</h2>
+<p>Simply tell vimdiff somehow that the paths you are specifying are not options. (By the way,
+note that vimdiff is pretty much just an alias for <code>vim -d</code>.)</p>
+<p>We could prefix them with the current directory:</p>
+<div class="highlight"><pre>vimdiff ./+code/foo.m ./+code/bar.m
+</pre></div>
+
+
+<p>Better yet, note that the <code>--</code> option</p>
+<blockquote>
+<p>Denotes the end of the options.  Arguments after this will be handled as
+a file  name. This can be used to edit a filename that starts with a '-'.</p>
+</blockquote>
+<p>Or, in our case, to edit a filename that starts with a <code>+</code>:</p>
+<div class="highlight"><pre>vimdiff -- +code/foo.m +code/bar.m
+</pre></div>
+
+
+<h2>Bringing git into the picture</h2>
+<p>We now update <code>+code/foo.m</code> and want to compare to the previous commit. Using git's
+<code>difftool</code> command, we diff all modified git-tracked files using a tool of our choice:</p>
+<div class="highlight"><pre>git difftool --tool=vimdiff
+</pre></div>
+
+
+<p>Unfortunately, we run into the same problem as before.</p>
+<div class="highlight"><pre>&quot;/private/var/folders/7v/cjvpqzt57c5fsb7qvsjmm5sw0000gn/T/7i6IKG_foo.m&quot; [readonly] 1L, 6C
+Error detected while processing command line:
+E492: Not an editor comamnd: code/foo.m
+</pre></div>
+
+
+<p>Since you haven't specified the file names yourself, you can't use either of the solutions
+from the previous section!</p>
+<h2>The git solution</h2>
+<p>Git is basically writing the "before" state of the file to a temporary location and invoking
+a typical vimdiff command. If we can modify this command, we can use one of our solutions
+above.</p>
+<p>One possibility is to set git's <code>difftool.&lt;tool&gt;.cmd</code> config option:</p>
+<blockquote>
+<p>Specify the command to invoke the specified diff tool. The specified command is evaluated in
+shell with the following variables available: LOCAL is set to the name of the temporary file
+containing the contents of the diff pre-image and REMOTE is set to the name of the temporary
+file containing the contents of the diff post-image.</p>
+</blockquote>
+<p>We can do</p>
+<div class="highlight"><pre><span class="x">git config --global difftool.vimdiff.cmd &#39;vimdiff -- </span><span class="p">$</span><span class="nv">LOCAL</span><span class="x"> </span><span class="p">$</span><span class="nv">REMOTE</span><span class="x">&#39;</span>
+</pre></div>
+
+
+<p>That'll do it. While you're at it, why not update your <code>~/.gitconfig</code> with the following handy
+diff-related settings:</p>
+<div class="highlight"><pre><span class="k">[alias]</span>
+    <span class="na">d</span>   <span class="o">=</span> <span class="s">difftool</span>
+<span class="k">[diff]</span>
+    <span class="na">tool</span> <span class="o">=</span> <span class="s">vimdiff</span>
+<span class="k">[difftool]</span>
+    <span class="na">prompt</span> <span class="o">=</span> <span class="s">false</span>
+<span class="k">[difftool &quot;vimdiff&quot;]</span>
+    <span class="na">cmd</span> <span class="o">=</span> <span class="s">vimdiff -- $LOCAL $REMOTE</span>
+</pre></div>
+
+
+<p>Most people will likely never come across this problem: none of their paths are this crazy,
+they use a different (read: graphical) difftool, they even use an external diff wrapper.
+But this simple solution is all I need.</p>
+  </div>
+  <hr />
+</article>
+<article>
+  <header>
     <h2><a href="http://micahsmith.com/blog/2016/01/iced-tbills/#iced-tbills">How Goldman stays cool</a></h2>
     <p>
       Posted on Mon 11 January 2016 in <a href="http://micahsmith.com/category/buildings.html">buildings</a>
@@ -60,8 +167,30 @@
     </p>
   </header>
   <div>
-      <p>Goldman literally has a vault full of ice cubes</p>
-      <a class="btn" href="http://micahsmith.com/blog/2016/01/iced-tbills/#iced-tbills">Continue reading</a>
+      <p>Goldman literally has a vault full of ice cubes.</p>
+<p>I wasn't sure if I had imagined this fun fact or not, but sure enough, Goldman's FiDi
+headquarters is literally air conditioned in hot weather by the melting of massive ice
+blocks in their basement.</p>
+<p>According <a href="http://www.wsj.com/articles/SB10001424052702303828304575180581255747658">to the
+WSJ</a>, which covers
+such fun topics,</p>
+<blockquote>
+<p>The basement houses 92 storage tanks that hold 1.7 million pounds of ice made each night
+when electricity rates are lower than during daytime hours. Air cooled by the melting ice
+circulates throughout the building.</p>
+</blockquote>
+<p>That would only fill an Olympic-sized swimming pool one third of the way.</p>
+<p>Without knowing anything about the economics of air conditioning, this sounds at first like
+nothing more than a gimmick. But
+<a href="http://money.cnn.com/2013/07/30/news/companies/new-york-ice-cooling/">apparently</a>,
+the system can be as much as 40 percent cheaper compared to traditional methods. The system,
+called <em>thermal storage</em>, freezes the water into ice at night to take advantage of lower
+electricity costs.</p>
+<blockquote>
+<p>"It requires about 150 to 400 pounds of ice to cool down a person in an office building
+every day," said Mark MacCracken, chief executive of Calmac.</p>
+</blockquote>
+<p>Same.</p>
   </div>
   <hr />
 </article>
@@ -76,7 +205,145 @@
   </header>
   <div>
       <p>What would you give up for a three-day weekend?</p>
-      <a class="btn" href="http://micahsmith.com/blog/2016/01/eight-days-a-week/#eight-days-a-week">Continue reading</a>
+<h2>The problem</h2>
+<p>How great are three-day weekends? For me, at least, they recall the days in undergrad in
+which Thursday at 2pm was the end of the work week. The rejuvenation of those three-day
+weekends is certainly a step above the normal weekend of the 21st century corporate drone.</p>
+<p>If only we could do something about our real-life weekends...</p>
+<h2>The proposal</h2>
+<p>With that in mind, <strong>I propose a three-day weekend for all workers</strong>. Now hang with me here.</p>
+<p>No employer would be happy to just give all of their employees Friday off each week - an
+extra 52 vacation days! They might be open to weekly "flex days", with working hours
+Monday-Thursday extended from 7 to 8.75 hours per day. This arrangement might be too much
+for some workers but is not altogether unreasonable.</p>
+<p>There are two balancing incentives:
+- employees' desire for longer contiguous time off
+- employers' desire for a minimum amount of hours worked by employees</p>
+<p>(Though on the latter point, it is not clear that this is the best proxy for productive
+output.)</p>
+<h3>Micahday</h3>
+<p>I propose <strong>an eighth day of the week</strong>, which we can tentatively name "Micahday."
+(Alternate names are welcome.) Micahday would be inserted between Saturday and Sunday. The
+key: <span class="math">\(\frac{4}{7}&lt;\frac{5}{8}&lt;\frac{5}{7}\)</span>.</p>
+<p>We maintain our 5-day work week, and add a full, luxurious 3-day weekend. Fly, fool --
+travel every weekend if you want to!</p>
+<h3>Hours worked</h3>
+<p>Assume a typical US employee works 35 hours/week for 50 weeks/year for a total of 1,750 hours. (This roughly
+corresponds to the actual <a href="http://www.bls.gov/news.release/empsit.t18.htm">average work
+week</a> of 34.5 hours and actual <a href="https://stats.oecd.org/Index.aspx?DataSetCode=ANHRS">average work
+year</a> of 1,789 hours.) We want to make our
+proposal attractive to employers by not substantially changing the total number of hours
+worked. A calendar with eight-day weeks would have about 43.5 work weeks per year
+(excluding two weeks of vacation). So the average workday under this proposal would increase
+from 7 hours to a few minutes over 8 hours. More reasonable.</p>
+<table>
+<thead>
+<tr>
+<th>System</th>
+<th>Hours/week</th>
+<th>Weeks/year</th>
+<th>Total hours</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Normal</td>
+<td>35</td>
+<td>50</td>
+<td>1,750</td>
+</tr>
+<tr>
+<td>Proposal</td>
+<td>40</td>
+<td>43.5</td>
+<td>1,750</td>
+</tr>
+</tbody>
+</table>
+<h3>Previous attempts</h3>
+<p>Apparently the Romans at one point used the <a href="https://en.wikipedia.org/wiki/Roman_calendar#Nundinal_cycle">Nundinal
+Cycle</a> until the introduction
+of the Julian calendar. The <em>nundinum</em> ("market day", yes, please attempt to use that in context
+tomorrow) was</p>
+<blockquote>
+<p>the day when city people would buy their eight days' worth of groceries.</p>
+</blockquote>
+<p>Sounds like a typical TJ's run to me.</p>
+<p>Some more or less <a href="http://www.theeightdayweek.com/">crazy</a>
+<a href="https://blogs.mentor.com/colinwalls/blog/2009/06/25/the-8-day-week/">attempts</a> have also been
+made in the modern era.</p>
+<h2>Problems, duh</h2>
+<p>Obviously it is far-fetched to believe that anyone would actually overhaul the calendar to
+accommodate eight-day weeks. In one sense, it wouldn't make that much of a difference --
+January 9 would stay January 9, a year would have the same number of months, and a month
+would have the same number of days.</p>
+<p>Sure, maybe under my proposal a November beginning on a Friday or Saturday wouldn't have a
+Thanksgiving. Sure, maybe every piece of software to ever use a date would have to be
+patched.</p>
+<p>But think about those long weekends...</p>
+<h2>Try it out</h2>
+<p>There's nothing to stop a forward-thinking employer from simply scheduling their employees
+5 days on and 3 days off under the existing calendar. A company with less need for constant
+interface with the outside world (in terms of banks, markets, clients), such as a software
+company doing initial product development, could give this a shot. Make sure to pay me
+the fat consulting fees if you do.</p>
+<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "center",
+        indent = "0em",
+        linebreak = "false";
+
+    if (false) {
+        align = (screen.width < 768) ? "left" : align;
+        indent = (screen.width < 768) ? "0em" : indent;
+        linebreak = (screen.width < 768) ? 'true' : linebreak;
+    }
+
+    var mathjaxscript = document.createElement('script');
+    var location_protocol = (false) ? 'https' : document.location.protocol;
+    if (location_protocol !== 'http' && location_protocol !== 'https') location_protocol = 'https:';
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = location_protocol + '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+</script>
   </div>
   <hr />
 </article>
