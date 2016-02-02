@@ -3,7 +3,8 @@ Date: 2016-01-11
 Category: buildings
 Tags: buildings, ice, cubes, ice cubes
 Slug: iced-tbills
-Summary: Goldman literally has a vault full of ice cubes
+
+Goldman literally has a vault full of ice cubes.
 
 I wasn't sure if I had imagined this fun fact or not, but sure enough, Goldman's FiDi
 headquarters is literally air conditioned in hot weather by the melting of massive ice

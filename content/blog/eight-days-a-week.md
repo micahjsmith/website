@@ -4,9 +4,10 @@ Category: economics
 Tags: life, economics, corporate drones, nundinum
 Slug: eight-days-a-week
 Authors: Micah Smith
-Summary: What would you give up for a three-day weekend?
 
-# The problem
+What would you give up for a three-day weekend?
+
+## The problem
 
 How great are three-day weekends? For me, at least, they recall the days in undergrad in
 which Thursday at 2pm was the end of the work week. The rejuvenation of those three-day
@@ -14,7 +15,7 @@ weekends is certainly a step above the normal weekend of the 21st century corpor
 
 If only we could do something about our real-life weekends...
 
-# The proposal
+## The proposal
 
 With that in mind, **I propose a three-day weekend for all workers**. Now hang with me here.
 
@@ -69,7 +70,7 @@ Some more or less [crazy](http://www.theeightdayweek.com/)
 [attempts](https://blogs.mentor.com/colinwalls/blog/2009/06/25/the-8-day-week/) have also been
 made in the modern era.
 
-# Problems, duh
+## Problems, duh
 
 Obviously it is far-fetched to believe that anyone would actually overhaul the calendar to
 accommodate eight-day weeks. In one sense, it wouldn't make that much of a difference --
@@ -82,7 +83,7 @@ patched.
 
 But think about those long weekends...
 
-# Try it out
+## Try it out
 
 There's nothing to stop a forward-thinking employer from simply scheduling their employees
 5 days on and 3 days off under the existing calendar. A company with less need for constant
