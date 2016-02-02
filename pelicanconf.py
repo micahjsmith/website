@@ -16,7 +16,7 @@ TIMEZONE = "America/New_York"
 DEFAULT_LANG = "en"
 
 # Theme
-THEME = "flex"
+THEME = "themes/Flex/"
 
 # Feed generation is usually not desired when developing
 FEED_ALL_ATOM = None
