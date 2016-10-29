@@ -1,6 +1,6 @@
 [submodule "plugins/render_math"]
 	path = plugins/render_math
-	url = https://github.com/barrysteyn/pelican_plugin-render_math.git
+	url = git@github.com:barrysteyn/pelican_plugin-render_math.git
 [submodule "themes"]
 	path = themes
-	url = https://github.com/getpelican/pelican-themes.git
+	url = git@github.com:getpelican/pelican-themes.git
