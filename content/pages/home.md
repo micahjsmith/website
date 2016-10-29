@@ -5,15 +5,13 @@ save_as: index.html
 
 #
 
-I am a recent graduate of Columbia University, now living in historic Little Italy and
-drinking large quantities of espresso. I currently work as a Research Analyst at the Federal
-Reserve Bank of New York. I'm interested in machine learning, data analysis, security,
-cryptography, and policy.
+I am a first year PhD student in computer science at MIT. I work with Kalyan
+Veeramachaneni in the Data To AI lab.
 
-I like espresso (see above), public transit, crosswords, BBQ, and sports. One of my greatest
-fears in life is that my fantasy football team performs no better than random chance, but
-we'll see about that now, won't we. I code in Julia, Matlab, Python, Bash, C/C++, Java, and
-R.
+I'm interested in machine learning, data science, software engineering, espresso,
+public transit, crosswords, BBQ, sports, and so on. One of my greatest fears in life is that
+my fantasy football teams perform no better than random chance, but we'll see about that
+now, won't we. I code in Julia, Matlab, Python, Bash, C/C++, Java, and R.
 
 Everything on this site reflects my personal views only.
 
