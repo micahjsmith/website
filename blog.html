@@ -52,6 +52,126 @@
 
 <article>
   <header>
+    <h2><a href="http://micahsmith.com/blog/2016/11/why-im-bailing-on-julia-for-machine-learning/#why-im-bailing-on-julia-for-machine-learning">Why I'm bailing on Julia for machine learning</a></h2>
+    <p>
+      Posted on Fri 04 November 2016 in <a href="http://micahsmith.com/category/programming-ml.html">programming, ml</a>
+      &#8226; Tagged with
+      <a href="http://micahsmith.com/tag/julia.html">julia</a>,      <a href="http://micahsmith.com/tag/python.html">python</a>,      <a href="http://micahsmith.com/tag/ml.html">ml</a>      &#8226; <a href="http://micahsmith.com/blog/2016/11/why-im-bailing-on-julia-for-machine-learning/#disqus_thread">Leave a comment</a>
+    </p>
+  </header>
+  <div>
+      <p>I'm bailing on Julia for machine learning — just for my one class, that is. Don't worry
+~too much~!</p>
+<p>I'm taking graduate machine learning (6.867) this semester at MIT. There are three homework
+assignments in the course that are structured as mini-projects, in which students
+implement canonical algorithms from scratch and then use them to analyze datasets or
+explore the effects of hyperparameters. "Official support" — in the sense of skeleton code,
+plotting routines, and TA assistance — is provided for MATLAB and Python only. Working in
+Julia (or another language) is allowed, but <em>the going is solo</em>.</p>
+<p>After sticking with Julia for the first two assignments, I'm bailing for
+the rest of the semester.  Although Julia is great-looking, fun to write, and
+performant as ever, there were a lot of challenges I ran into in using existing
+functionality within my assignments. Specifically, I found the stats/ML packages pale in
+comparison to <code>sklearn</code> in terms of functionality and ease of use. While it was great to use
+Julia to implement my own algorithms, it turned out to be a real hassle to tie in with
+existing functionality.</p>
+<p>As one of several small issues, here's the trouble I went through just to use
+pre-existing functionality to fit a logistic regression model.</p>
+<h3>Logistic regression case study</h3>
+<p>What's the quickest way to fit a logistic regression model for classification? A quick
+<a href="http://lmgtfy.com/?q=logistic+regression+julia">search</a> brings up the
+<a href="juliastats.github.io">JuliaStats</a> page (as my first result, at least) with a variety of
+packages listed. From the descriptions, it seems like our candidates for logistic regression
+solvers are <em>GLM.jl</em> and <em>RegERMs.jl.</em> The next search results are for <em>Regression.jl</em> and a
+couple DIY logistic regression examples.</p>
+<p>Let's assess our options:</p>
+<ul>
+<li><em>GLM.jl</em>: Has most of the goods, but as we'll see, it didn't have all the features I needed
+    for my assignment.</li>
+<li><em>RegERMs.jl</em>: Doesn't even load on Julia 0.5, last commit over a year ago.</li>
+</ul>
+<div class="highlight"><pre><span></span>julia&gt; Pkg.add(&quot;RegERMs&quot;)
+ERROR: unsatisfiable package requirements detected: no feasible version could be found
+for package: Optim
+</pre></div>
+
+
+<ul>
+<li><em>Regression.jl</em>: Doesn't even load on Julia 0.5, last commit over a year ago.</li>
+</ul>
+<div class="highlight"><pre><span></span>julia&gt; using Regression
+ERROR: LoadError: LoadError: LoadError: UndefVarError: FloatingPoint not defined
+</pre></div>
+
+
+<p>So <em>GLM.jl</em> is our only option. And at this, a new Julia user might be lucky to even find it.
+It's not immediate from the JuliaStats blurb that <em>GLM.jl</em> can be used for logistic regression,
+and there's no mention of "logistic" neither in the documentation nor in the repo itself
+besides a comment in a test case. (An astute user, of course, may note that <code>LogitLink</code> is
+relevant, and will likely be aware of the features of the popular R package.)</p>
+<p>But it's not too bad to fit a logistic regression model using <em>GLM.jl</em>:</p>
+<div class="highlight"><pre><span></span>using GLM, DataFrames
+df = DataFrame(x = rand(10,1), y = rand([0,1], 10))
+model = fit(GeneralizedLinearModel, y ~ x, df, Binomial(), LogitLink())
+</pre></div>
+
+
+<p>Note as well that the DIY logistic regression attempts that rank highly in search results (like
+<a href="http://stackoverflow.com/questions/32703119/logistic-regression-in-julia-using-optim-jl">here</a>
+and <a href="http://int8.io/logstic-regression-with-gradient-descent-in-julia/">here</a>) are not super
+helpful for the purposes of quickly fitting a model, but are typical of the content that
+comes up in results for Julia queries.</p>
+<h3>Adding L1/L2 regularization</h3>
+<p>In one of the 6.867 assignments, we are asked to apply logistic regression with L1/L2
+regularization. <em>GLM.jl</em> doesn't provide this functionality and the other seeming possibilities
+were non-functional <em>RegERMs.jl</em>. I was out of luck. I switched to <code>sklearn</code> for the rest of
+the problem.</p>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LogisticRegression</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="kp">round</span><span class="p">()</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">(</span><span class="n">penalty</span><span class="o">=</span><span class="s1">&#39;l1&#39;</span><span class="p">)</span>
+<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">)</span>
+</pre></div>
+
+
+<p>After later investigation, I did realize that <em>GLMNet.jl</em>, which wraps the <code>glmnet</code> Fortran library,
+would have done the job, with sufficient user effort. </p>
+<h3>The pieces are there, the whole is missing</h3>
+<p>We were able to fit our logistic regression classifier after a fair amount of digging. But
+this digging shouldn't be necessary. It should have been easier to find a logistic
+regression <em>that works</em> from the JuliaStats landing page, given that this is a pretty
+standard learning algorithm. And inconsistencies within the JuliaStats organization seem to
+be a fair problem. A user might start by using <em>GLM.jl</em>. But to add regularization to the
+loss function requires to switch to a different package, with a slightly different API so
+that the old code can't be dropped in. The
+<a href="http://statsbasejl.readthedocs.io/en/latest/statmodels.html">"interface"</a> in StatsBase.jl
+isn't totally implemented in some of these more niche packages (<em>GLMNet.jl</em>, <em>Lasso.jl</em>), or isn't
+particularly followed at all, especially when the package wraps some underlying library
+(<em>LIBSVM.jl</em>).</p>
+<p>Then, we have the entirely different entity that is <a href="juliaml.github.io">JuliaML</a>. Here, we
+have a design and API that seem to be in direct competition with JuliaStats
+(<em>StatsBase.jl</em>/<em>MLBase.jl</em> vs <em>LearnBase.jl</em>, <em>Distances.jl</em> vs <em>LossFunctions.jl</em>,
+<em>RegERMs.jl</em> vs <em>MLRisk.jl</em>, etc.). I wasn't sure how to even start using it, let alone
+attempt to theoretically combine <em>LossFunctions.jl</em>, <em>StochasticOptimization.jl</em>, and
+<em>MLMetrics.jl</em> into something resembling an end-to-end model. I can't quite figure out what
+space JuliaML is trying to fit.</p>
+<p>Overall, I think that JuliaStats is doing a very good job and is <em>almost there</em>. Packages
+like <em>StatsBase.jl</em>, <em>DataFrames.jl</em>, and <em>Distributions.jl</em> are really great to use. Certainly,
+the obvious response to the difficulties I had above is that more community support is
+needed. Can't argue with that.</p>
+<h3>Conclusion</h3>
+<p>Julia has been perfectly suited for quickly coding up ML algorithms from scratch and really
+getting my hands dirty. But when I wanted to quickly and easily drop in robust community
+packages, I found that the functionality wasn't there.</p>
+<p>I'll be using the Python ecosystem for the next assignment, in which we implement neural
+nets/backprop. If I find myself having to bust out <code>sklearn</code> more regularly, I better figure
+out how to use it fluidly.</p>
+  </div>
+  <hr />
+</article>
+<article>
+  <header>
     <h2><a href="http://micahsmith.com/blog/2016/06/eight-days-a-week-revisited/#eight-days-a-week-revisited">Eight days a week, revisited</a></h2>
     <p>
       Posted on Thu 02 June 2016 in <a href="http://micahsmith.com/category/economics.html">economics</a>
