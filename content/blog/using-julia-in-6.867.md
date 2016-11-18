@@ -1,6 +1,6 @@
 Title: Why I'm bailing on Julia for machine learning
 Date: 2016-11-04
-Category: programming, ml
+Category: programming
 Tags: julia, python, ml
 Slug: why-im-bailing-on-julia-for-machine-learning
 Authors: Micah Smith
