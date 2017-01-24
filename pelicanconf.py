@@ -60,3 +60,6 @@ PLUGIN_PATHS = ["./pelican-plugins"]
 # Plugins
 PLUGIN_PATHS = ["plugins"]
 PLUGINS = ["render_math"]
+
+# Static content
+STATIC_PATHS = ["images", "files"]
