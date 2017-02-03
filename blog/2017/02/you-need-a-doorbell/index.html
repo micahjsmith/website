@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,400italic' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="http://micahsmith.com/theme/css/style.min.css">
+  <link rel="stylesheet" type="text/css" href="http://micahsmith.com/theme/css/pygments.min.css">
+  <link rel="stylesheet" type="text/css" href="http://micahsmith.com/theme/css/font-awesome.min.css">
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="" />
+<meta name="author" content="Micah Smith" />
+<meta name="description" content="Sometimes a dumb technical approach can be a solution to a real world problem. I live in a graduate residence that doesn't have a buzzer system. To be granted access, my guests have to text/call me directly and I have to walk downstairs to let them in. Though ..." />
+<meta name="keywords" content="life, programming, python, twilio, flask">
+<meta property="og:site_name" content="Micah Smith"/>
+<meta property="og:title" content="You need a doorbell"/>
+<meta property="og:description" content="Sometimes a dumb technical approach can be a solution to a real world problem. I live in a graduate residence that doesn't have a buzzer system. To be granted access, my guests have to text/call me directly and I have to walk downstairs to let them in. Though ..."/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:url" content="http://micahsmith.com/blog/2017/02/you-need-a-doorbell/"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2017-02-03 00:00:00-05:00"/>
+<meta property="article:modified_time" content=""/>
+<meta property="article:author" content="http://micahsmith.com/author/micah-smith.html">
+<meta property="article:section" content="programming"/>
+<meta property="article:tag" content="life"/>
+<meta property="article:tag" content="programming"/>
+<meta property="article:tag" content="python"/>
+<meta property="article:tag" content="twilio"/>
+<meta property="article:tag" content="flask"/>
+<meta property="og:image" content="http://micahsmith.com/images/micah.jpg">  <title>Micah Smith &ndash; You need a doorbell</title>
+</head>
+<body>
+  <aside>
+    <div>
+      <a href="http://micahsmith.com">
+        <img src="http://micahsmith.com/images/micah.jpg" alt="Micah J. Smith" title="Micah J. Smith">
+      </a>
+      <h1><a href="http://micahsmith.com">Micah J. Smith</a></h1>
+      <p></p>
+      <nav>
+        <ul class="list">
+          <li><a href="http://micahsmith.com/contact/#contact">contact</a></li>
+        </ul>
+      </nav>
+      <ul class="social">
+        <li><a class="sc-twitter" href="https://twitter.com/micahjsmith" target="_blank"><i class="fa fa-twitter"></i></a></li>
+        <li><a class="sc-github" href="https://github.com/micahjsmith" target="_blank"><i class="fa fa-github"></i></a></li>
+        <li><a class="sc-stack-overflow" href="https://stackoverflow.com/users/2514228/micah-smith" target="_blank"><i class="fa fa-stack-overflow"></i></a></li>
+        <li><a class="sc-linkedin" href="https://www.linkedin.com/in/micahjsmith" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+      </ul>
+    </div>
+  </aside>
+  <main>
+    <nav>
+      <a href="http://micahsmith.com">Home</a>
+      <a href="/blog.html">Blog</a>
+      <a href="/archives.html">Archives</a>
+      <a href="/categories.html">Categories</a>
+      <a href="/tags.html">Tags</a>
+    </nav>
+
+<article>
+  <header>
+    <h1 id="you-need-a-doorbell">You need a doorbell</h1>
+    <p>Posted on Fri 03 February 2017 in <a href="http://micahsmith.com/category/programming.html">programming</a></p>
+  </header>
+  <div>
+    <p>Sometimes a dumb technical approach can be a solution to a real world problem.</p>
+<p>I live in a graduate residence that doesn't have a buzzer system. To be granted access, my
+guests have to text/call me directly and I have to walk downstairs to let them in. Though
+this may not seem like a big deal, if I'm having more than just a couple people over, it can
+be a bit much to continuously be checking my phone and interrupting conversations to sprint
+through hallways to the door.</p>
+<p>I know it's not just me. Two of my friends had an apartment near me, when I lived in New
+York, on Mott Street. Their apartment building, which was built in 1900, had no buzzer
+system, even though it probably housed 50 people or more (and cost more than your parents'
+mortgage payment per month for about 12 square feet of space). When friends were coming
+over, the new arrivals would text to announce that they were outside, and my friends would
+<em>drop the front door key in a sock out the window</em> onto the busy street. Somehow no one was
+ever injured, and it sure was a lot of fun.</p>
+<p>The approach I take here is to make the arrival process more seamless and transfer
+burden of opening the door off the party hosts and onto the guests. Go ahead and design a
+robot that turns a doorknob on command at your own peril.</p>
+<h2>Introducing <em>you-need-a-doorbell</em></h2>
+<p><a href="https://github.com/micahjsmith/you-need-a-doorbell"><em>you-need-a-doorbell</em></a> is a simple app
+that uses text messages and audio alerts to manage your guests' arrival to the party. When
+they arrive, guests text a phone number that you have registered through Twilio. (Not your
+own cell!) Their contact information is validated against permission lists, and if the guest
+is authorized to enter the party, an announced is made from your computer speakers.</p>
+<blockquote>
+<p>DING DONG! Guest Flo Rida has arrived to the party.</p>
+</blockquote>
+<p>Since everybody in the party can hear this announcement, it gives you, the host, latitude to
+spin on your heels and point to some unsuspecting soul: "Go let Flo Rida in!"</p>
+<p>The host can even have the app randomly assign responsibility to open the door from the
+list of guests who have already arrived. This further removes responsibility from your plate
+as now, not only are you not running down to open the door, but you're not even pointing
+a finger at anyone! (And everyone knows computers are blameless.)</p>
+<p><a href="https://github.com/micahjsmith/you-need-a-doorbell">Check out <em>you-need-a-doorbell</em> on GitHub.</a></p>
+<h2>Making the app</h2>
+<p>A simple Flask web server runs on my macOS desktop. Then, when a guest sends a text to the
+party-specific phone number, the text message number and body are packaged into a POST
+request to a URL on my server. After validation of the phone number, a text-to-speech
+utility like <code>say</code> is used to play a message out of the speakers. The original version I
+whipped up for a small kickback at my place was only 49 lines of code.</p>
+<p>I added new features after my own alpha test and packaged things more nicely so that options
+could be specified in a config file. I really enjoyed making this, as I learned a bit about
+Flask and admired the simplicity of the Twilio API.</p>
+<p>Going forward, I would re-design this so that the app was hosted in the cloud and party
+hosts could access everything through a web interface. The server could run on EC2 or some
+other service, listening for requests from Twilio. Simultaneously, the party host would log
+in to the server. A connection would be kept open using a web socket. There, they could
+manage permissions for potential guests, view those who had arrived (or those that were
+still expected), and listen for arrival messages. One could even import attendance info from
+a Facebook event. Perhaps, as I continue to learn more about web development, I'll create
+this interface. For now, I'm happy with what I have, and I hope you may be too.</p>
+<p>Since I added new features after my alpha test and didn't do very thorough testing, you may
+find some bugs. Please let me know if that's the case.</p>
+<p>I found that the text message interface for guests worked really well. It's interesting how
+everyone and their mother releases iOS/Android apps to facilitate just simple messaging with
+their organization and access to static resources like maps or schedules. I'm not sure that
+this interface is any better than a text message hotline and a website. As "bots" are
+becoming the rage for many simple tasks, maybe we'll see the lowly SMS make more of a
+resurgence.</p>
+  </div>
+  <div class="tag-cloud">
+    <p>
+      <a href="http://micahsmith.com/tag/life.html">life</a>
+      <a href="http://micahsmith.com/tag/programming.html">programming</a>
+      <a href="http://micahsmith.com/tag/python.html">python</a>
+      <a href="http://micahsmith.com/tag/twilio.html">twilio</a>
+      <a href="http://micahsmith.com/tag/flask.html">flask</a>
+    </p>
+  </div>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'micahsmith';
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+</article>
+
+    <footer>
+      <p>&copy; Micah Smith 2016</p>
+<p>Built using <a href="http://getpelican.com" target="_blank">Pelican</a> - <a href="https://github.com/alexandrevicenzi/flex" target="_blank">Flex</a> theme by <a href="http://alexandrevicenzi.com" target="_blank">Alexandre Vicenzi</a></p>    </footer>
+  </main>
+<script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-57970396-1', 'auto');
+  ga('send', 'pageview');
+</script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "name": "You need a doorbell",
+  "headline": "You need a doorbell",
+  "datePublished": "2017-02-03 00:00:00-05:00",
+  "dateModified": "",
+  "author": {
+    "@type": "Person",
+    "name": "Micah Smith",
+    "url": "http://micahsmith.com/author/micah-smith.html"
+  },
+  "image": "http://micahsmith.com/images/micah.jpg",
+  "url": "http://micahsmith.com/blog/2017/02/you-need-a-doorbell/",
+  "description": "Sometimes a dumb technical approach can be a solution to a real world problem. I live in a graduate residence that doesn't have a buzzer system. To be granted access, my guests have to text/call me directly and I have to walk downstairs to let them in. Though ..."
+}
+</script></body>
+</html>
