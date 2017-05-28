@@ -11,7 +11,7 @@ sys.path.append(os.curdir)
 from pelicanconf import *
 
 SITEURL = "https://www.micahsmith.com"
-SITELOGO = SITEURL + "/images/micah.jpg"
+SITELOGO = "/images/micah.jpg"
 RELATIVE_URLS = False
 
 #FEED_ALL_ATOM = "feeds/all.atom.xml"

@@ -5,18 +5,21 @@ from __future__ import unicode_literals
 AUTHOR = "Micah Smith"
 SITENAME = "Micah Smith"
 SITEURL = "http://localhost:8000"
-SITELOGO = SITEURL + "/images/micah.jpg"
+SITELOGO = "/images/micah.jpg"
 SITETITLE = "Micah J. Smith"
 COPYRIGHT_YEAR = 2016
+TIMEZONE = "America/New_York"
+DEFAULT_LANG = "en"
 
 PATH = "content"
 
-TIMEZONE = "America/New_York"
-
-DEFAULT_LANG = "en"
-
 # Theme
 THEME = "themes/Flex/"
+
+EXTRA_PATH_METADATA = {
+    "extra/custom.css": {"path": "static/custom.css"},
+}
+CUSTOM_CSS = "static/custom.css"
 
 # Feed generation is usually not desired when developing
 FEED_ALL_ATOM = None
@@ -46,10 +49,13 @@ ARTICLE_SAVE_AS = "blog/{date:%Y}/{date:%m}/{slug}/index.html"
 # Social widget
 GITHUB_URL = "https://github.com/micahjsmith"
 TWITTER_USERNAME = "micahjsmith"
-SOCIAL = (("twitter", "https://twitter.com/micahjsmith"),
-          ("github", "https://github.com/micahjsmith"),
-          ("stack-overflow", "https://stackoverflow.com/users/2514228/micah-smith"),
-          ("linkedin", "https://www.linkedin.com/in/micahjsmith"))
+SOCIAL = (
+    ("twitter", "https://twitter.com/micahjsmith"),
+    ("github", "https://github.com/micahjsmith"),
+    ("stack-overflow", "https://stackoverflow.com/users/2514228/micah-smith"),
+    ("linkedin", "https://www.linkedin.com/in/micahjsmith"),
+    ("key", "https://keybase.io/micahjsmith"), # use fa-key for keybase.io
+)
 
 DEFAULT_PAGINATION = False
 PLUGIN_PATHS = ["./pelican-plugins"]
@@ -62,4 +68,4 @@ PLUGIN_PATHS = ["plugins"]
 PLUGINS = ["render_math"]
 
 # Static content
-STATIC_PATHS = ["images", "files"]
+STATIC_PATHS = ["extra", "images", "files"]
