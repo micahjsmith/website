@@ -31,12 +31,14 @@ AUTHOR_FEED_RSS = None
 # Main page
 MAIN_MENU = True
 DISPLAY_PAGES_ON_MENU = True
+PAGE_ORDER_BY = "order" # doesn't work
 
 MENUITEMS = (("Blog", "/blog.html"),
              ("Archives", "/archives.html"),
              ("Categories", "/categories.html"),
              ("Tags", "/tags.html"),)
 
+INDEX_URL = "blog/"
 INDEX_SAVE_AS = "blog.html"
 PAGE_URL = "{slug}/"
 PAGE_SAVE_AS = "{slug}/index.html"
