@@ -1,4 +1,5 @@
 Title: research
+Slug: research
 Order: 01
 
 ### Computer Science

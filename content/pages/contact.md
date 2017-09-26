@@ -1,4 +1,5 @@
 Title: contact
+Slug: contact
 Order: 02
 
 ### Email

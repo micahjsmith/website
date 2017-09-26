@@ -7,7 +7,7 @@ SITENAME = "Micah Smith"
 SITEURL = "http://localhost:8000"
 SITELOGO = "/images/micah.jpg"
 SITETITLE = "Micah J. Smith"
-COPYRIGHT_YEAR = 2016
+COPYRIGHT_YEAR = 2017
 TIMEZONE = "America/New_York"
 DEFAULT_LANG = "en"
 
@@ -38,11 +38,11 @@ MENUITEMS = (("Blog", "/blog.html"),
              ("Categories", "/categories.html"),
              ("Tags", "/tags.html"),)
 
-INDEX_URL = "blog/"
+INDEX_URL = "blog"
 INDEX_SAVE_AS = "blog.html"
-PAGE_URL = "{slug}/"
+PAGE_URL = "{slug}"
 PAGE_SAVE_AS = "{slug}/index.html"
-ARTICLE_URL = "blog/{date:%Y}/{date:%m}/{slug}/"
+ARTICLE_URL = "blog/{date:%Y}/{date:%m}/{slug}"
 ARTICLE_SAVE_AS = "blog/{date:%Y}/{date:%m}/{slug}/index.html"
 
 # Blogroll
