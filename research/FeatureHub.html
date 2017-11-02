@@ -19,7 +19,7 @@
 <meta property="og:locale" content="en_US"/>
 <meta property="og:url" content="https://www.micahsmith.com"/>
 <meta property="og:image" content="/images/micah.jpg">
-  <title>Micah Smith &ndash; Tag: cubes</title>
+  <title>Micah Smith &ndash; FeatureHub</title>
 </head>
 <body>
   <aside>
@@ -55,24 +55,50 @@
 
 <article>
   <header>
-    <h2><a href="https://www.micahsmith.com/blog/2016/01/iced-tbills#iced-tbills">How Goldman stays cool</a></h2>
-    <p>
-      Posted on Mon 11 January 2016 in <a href="https://www.micahsmith.com/category/buildings.html">buildings</a>
-      &#8226; Tagged with
-      <a href="https://www.micahsmith.com/tag/buildings.html">buildings</a>,      <a href="https://www.micahsmith.com/tag/ice.html">ice</a>,      <a href="https://www.micahsmith.com/tag/cubes.html">cubes</a>,      <a href="https://www.micahsmith.com/tag/ice-cubes.html">ice cubes</a>      &#8226; <a href="https://www.micahsmith.com/blog/2016/01/iced-tbills#disqus_thread">Leave a comment</a>
-    </p>
+    <h1 id="featurehub">FeatureHub</h1>
   </header>
   <div>
-      <p>Goldman literally has a vault full of ice cubes.</p>
-<p>I wasn't sure if I had imagined this fun fact or not, but sure enough, Goldman's FiDi
-headquarters is literally air conditioned in hot weather by the melting of massive ice
-blocks in their basement.</p>
-<p>According <a href="http://www.wsj.com/articles/SB10001424052702303828304575180581255747658">to the
-WSJ ...</a></p>
-      <a class="btn" href="https://www.micahsmith.com/blog/2016/01/iced-tbills#iced-tbills">Continue reading</a>
+    <p><a href="https://hdi-project.github.io/FeatureHub"><em>FeatureHub</em></a> is a new paradigm for collaborative
+feature engineering and an associate proof-of-concept cloud platform. In our approach,
+independent data scientists collaborate on a feature engineering task, viewing and
+discussing each others’ features in real-time.  Feature engineering source code created by
+independent data scientists is then integrated into a single predictive machine learning
+model. Our platform includes an automated machine learning backend which abstracts model
+training, selection, and tuning, allowing users to focus on feature engineering while still
+receiving immediate feedback on the performance of their features.</p>
+<p>Here are slides from my presentation at IEEE DSAA 2017.</p>
+<!-- 
+ Adapted from pdf.js demo.
+ Source: https://mozilla.github.io/pdf.js/examples/
+  -->
+
+<div>
+  <button id="prev">Previous</button>
+  <button id="next">Next</button>
+  &nbsp; &nbsp;
+  <span>Page: <span id="page_num"></span> / <span id="page_count"></span></span>
+</div>
+
+<canvas id="the-canvas" style="border: 1px solid black;"></canvas>
+
+<!-- Retarded trick to get pelican to link to file -->
+
+<div style="display: none;">
+<a id='url-junk' href='https://www.micahsmith.com/files/featurehub-dsaa-presentation-oct-2017.pdf'></a>
+</div>
+
+<script src="https://mozilla.github.io/pdf.js/build/pdf.js"></script>
+
+<script>
+    // If absolute URL from the remote server is provided, configure the CORS
+    // header on that server.
+    var element=document.getElementById("url-junk");
+    var url=element.href;
+</script>
+
+<script src="https://www.micahsmith.com/extra/slides.js"></script>
   </div>
 </article>
-
 
     <footer>
       <p>&copy; Micah Smith 2017</p>
@@ -86,24 +112,6 @@ WSJ ...</a></p>
 
   ga('create', 'UA-57970396-1', 'auto');
   ga('send', 'pageview');
-</script>
-<script type="application/ld+json">
-{
-  "@context" : "http://schema.org",
-  "@type" : "Blog",
-  "name": " Micah Smith ",
-  "url" : "https://www.micahsmith.com",
-  "image": "/images/micah.jpg",
-  "description": ""
-}
-</script><script type="text/javascript">
-    var disqus_shortname = 'micahsmith';
-    (function () {
-        var s = document.createElement('script'); s.async = true;
-        s.type = 'text/javascript';
-        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
-        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
-    }());
 </script>
 </body>
 </html>
