@@ -66,8 +66,8 @@ PLUGIN_PATHS = ["./pelican-plugins"]
 # RELATIVE_URLS = True
 
 # Plugins
-PLUGIN_PATHS = ["plugins"]
-PLUGINS = ["render_math"]
+PLUGIN_PATHS = ["plugins", "plugins/pelican-embed-tweet"]
+PLUGINS = ["render_math", "embed_tweet"]
 
 # Static content
 STATIC_PATHS = ["extra", "images", "files"]

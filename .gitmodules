@@ -1,9 +1,11 @@
 [submodule "plugins/render_math"]
 	path = plugins/render_math
 	url = git@github.com:barrysteyn/pelican_plugin-render_math.git
-[submodule "themes"]
-	path = themes
-	url = git@github.com:getpelican/pelican-themes.git
+    ignore = dirty
 [submodule "plugins/pelican-embed-tweet"]
 	path = plugins/pelican-embed-tweet
 	url = git@github.com:lqez/pelican-embed-tweet.git
+    ignore = dirty
+[submodule "themes"]
+	path = themes
+	url = git@github.com:getpelican/pelican-themes.git
