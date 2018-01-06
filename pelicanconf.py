@@ -29,7 +29,7 @@ AUTHOR_FEED_ATOM = None
 AUTHOR_FEED_RSS = None
 
 # Main page
-MAIN_MENU = True
+MAIN_MENU = False
 DISPLAY_PAGES_ON_MENU = True
 PAGE_ORDER_BY = "order" # doesn't work
 
