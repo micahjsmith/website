@@ -6,6 +6,3 @@
 	path = plugins/pelican-embed-tweet
 	url = git@github.com:lqez/pelican-embed-tweet.git
     ignore = dirty
-[submodule "themes"]
-	path = themes
-	url = git@github.com:getpelican/pelican-themes.git
