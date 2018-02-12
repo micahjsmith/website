@@ -7,8 +7,7 @@ Order: 01
 ### Publications
 
 __M. Smith__, R. Wedge, and K. Veeramachaneni. "FeatureHub: towards collaborative data
-    science." Data Science and Advanced Analytics (DSAA), 2017. IEEE International Conference
-    on, pp. 1-11. IEEE 2017.
+    science." IEEE International Conference on Data Science and Advanced Analytics (DSAA), pp. 590-600.
     <a target="_blank" href="{filename}/files/featurehub-smith.pdf"><i class="fa fa-file-pdf-o fa-1" aria-hidden="true"></i></a>
     <a target="_blank" href="{filename}/files/smith2017feature.bib"><i class="fa fa-quote-right fa-1" aria-hidden="true"></i></a>
     <a href="{filename}/pages/research/featurehub.md"><i class="fa fa-film fa-1" aria-hidden="true"></i></a>
