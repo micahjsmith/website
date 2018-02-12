@@ -1,18 +1,41 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,400italic' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" type="text/css" href="https://www.micahsmith.com/theme/css/style.min.css">
-  <link rel="stylesheet" type="text/css" href="https://www.micahsmith.com/theme/css/pygments.min.css">
-  <link rel="stylesheet" type="text/css" href="https://www.micahsmith.com/theme/css/font-awesome.min.css">
-  <link href="https://www.micahsmith.com/static/custom.css" rel="stylesheet">
-
   <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="robots" content="" />
+    <meta name="robots" content="" />
+
+  <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,400italic' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" type="text/css" href="https://www.micahsmith.com/theme/stylesheet/style.min.css">
+
+  <link rel="stylesheet" type="text/css" href="https://www.micahsmith.com/theme/pygments/github.min.css">
+  <link rel="stylesheet" type="text/css" href="https://www.micahsmith.com/theme/font-awesome/css/font-awesome.min.css">
+
+    <link href="https://www.micahsmith.com/static/custom.css" rel="stylesheet">
+
+
+
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-57970396-1', 'auto');
+  ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
 <meta name="author" content="Micah Smith" />
 <meta name="description" content="I frequently see blog posts from Julia language users and evangelists that compare a Julia solution to some programming problem to a Python solution to that same problem. My impression is that these posts aim to demonstrate how a fundamental problem that one encounters when using Python or some other ..." />
 <meta name="keywords" content="julia, python">
+
 <meta property="og:site_name" content="Micah Smith"/>
 <meta property="og:title" content="Julia and Python code comparison blogs"/>
 <meta property="og:description" content="I frequently see blog posts from Julia language users and evangelists that compare a Julia solution to some programming problem to a Python solution to that same problem. My impression is that these posts aim to demonstrate how a fundamental problem that one encounters when using Python or some other ..."/>
@@ -25,7 +48,10 @@
 <meta property="article:section" content="programming"/>
 <meta property="article:tag" content="julia"/>
 <meta property="article:tag" content="python"/>
-<meta property="og:image" content="/images/micah.jpg">  <title>Micah Smith &ndash; Julia and Python code comparison blogs</title>
+<meta property="og:image" content="/images/micah.jpg">
+
+  <title>Micah Smith &ndash; Julia and Python code comparison blogs</title>
+
 </head>
 <body>
   <aside>
@@ -34,13 +60,16 @@
         <img src="/images/micah.jpg" alt="Micah J. Smith" title="Micah J. Smith">
       </a>
       <h1><a href="https://www.micahsmith.com">Micah J. Smith</a></h1>
-      <p></p>
+
+
       <nav>
         <ul class="list">
           <li><a href="https://www.micahsmith.com/contact#contact">contact</a></li>
           <li><a href="https://www.micahsmith.com/research/#research">research</a></li>
+
         </ul>
       </nav>
+
       <ul class="social">
         <li><a class="sc-twitter" href="https://twitter.com/micahjsmith" target="_blank"><i class="fa fa-twitter"></i></a></li>
         <li><a class="sc-github" href="https://github.com/micahjsmith" target="_blank"><i class="fa fa-github"></i></a></li>
@@ -49,14 +78,24 @@
         <li><a class="sc-key" href="https://keybase.io/micahjsmith" target="_blank"><i class="fa fa-key"></i></a></li>
       </ul>
     </div>
+
+
   </aside>
   <main>
 
-<article>
+
+<article class="single">
   <header>
+      
     <h1 id="julia-python-code-comparison-blogs">Julia and Python code comparison blogs</h1>
-    <p>Posted on Tue 31 October 2017 in <a href="https://www.micahsmith.com/category/programming.html">programming</a></p>
+    <p>
+          Posted on Tue 31 October 2017 in <a href="https://www.micahsmith.com/category/programming.html">programming</a>
+
+
+    </p>
   </header>
+
+
   <div>
     <p>I frequently see blog posts from Julia language users and evangelists that
 compare a Julia solution to some programming problem to a Python solution to that same
@@ -82,52 +121,52 @@ solving the problem.</p>
 separately inherit from the top-level <code>object</code>. Immediately, by not using the most basic
 abstractions in object-oriented programming, the author starts running into problems. For
 example, the existing implementations use</p>
-<div class="highlight"><pre><span></span><span class="k">class</span> <span class="n">Celsius</span>(<span class="n">object</span>):
-    <span class="n">def</span> <span class="n">__init__</span>(<span class="k">self</span>, <span class="k">temp</span>):
-        <span class="n">super</span>(<span class="n">Celsius</span>, <span class="k">self</span>).<span class="n">__init__</span>()
-        <span class="k">if</span> <span class="n">type</span>(<span class="k">temp</span>) == <span class="n">float</span> <span class="o">or</span> <span class="n">type</span>(<span class="k">temp</span>) == <span class="n">int:</span>
-            <span class="k">self</span>.<span class="nb">value</span> = <span class="k">temp</span>
-        <span class="n">else:</span>
-            <span class="k">self</span>.<span class="nb">value</span> = <span class="k">temp</span>.<span class="n">to_celsius</span>().<span class="nb">value</span>
+<div class="highlight"><pre><span></span><span class="kr">class</span> <span class="nx">Celsius</span><span class="p">(</span><span class="nx">object</span><span class="p">)</span><span class="o">:</span>
+    <span class="nx">def</span> <span class="nx">__init__</span><span class="p">(</span><span class="nx">self</span><span class="p">,</span> <span class="nx">temp</span><span class="p">)</span><span class="o">:</span>
+        <span class="kr">super</span><span class="p">(</span><span class="nx">Celsius</span><span class="p">,</span> <span class="nx">self</span><span class="p">).</span><span class="nx">__init__</span><span class="p">()</span>
+        <span class="k">if</span> <span class="nx">type</span><span class="p">(</span><span class="nx">temp</span><span class="p">)</span> <span class="o">==</span> <span class="kr">float</span> <span class="nx">or</span> <span class="nx">type</span><span class="p">(</span><span class="nx">temp</span><span class="p">)</span> <span class="o">==</span> <span class="kr">int</span><span class="o">:</span>
+            <span class="nx">self</span><span class="p">.</span><span class="nx">value</span> <span class="o">=</span> <span class="nx">temp</span>
+        <span class="k">else</span><span class="o">:</span>
+            <span class="nx">self</span><span class="p">.</span><span class="nx">value</span> <span class="o">=</span> <span class="nx">temp</span><span class="p">.</span><span class="nx">to_celsius</span><span class="p">().</span><span class="nx">value</span>
 
-    <span class="n">def</span> <span class="n">__repr__</span>(<span class="k">self</span>):
-        <span class="k">return</span> <span class="s">&quot;Celsius({0})&quot;</span>.<span class="n">format</span>(<span class="k">self</span>.<span class="nb">value</span>)
+    <span class="nx">def</span> <span class="nx">__repr__</span><span class="p">(</span><span class="nx">self</span><span class="p">)</span><span class="o">:</span>
+        <span class="k">return</span> <span class="s2">&quot;Celsius({0})&quot;</span><span class="p">.</span><span class="nx">format</span><span class="p">(</span><span class="nx">self</span><span class="p">.</span><span class="nx">value</span><span class="p">)</span>
 
-    <span class="c c-Singleline"># ... more stuff ...</span>
+    <span class="err">#</span> <span class="p">...</span> <span class="nx">more</span> <span class="nx">stuff</span> <span class="p">...</span>
 
-<span class="k">class</span> <span class="n">Kelvin</span>(<span class="n">object</span>):
-    <span class="n">def</span> <span class="n">__init__</span>(<span class="k">self</span>, <span class="k">temp</span>):
-        <span class="n">super</span>(<span class="n">Kelvin</span>, <span class="k">self</span>).<span class="n">__init__</span>()
-        <span class="k">if</span> <span class="n">type</span>(<span class="k">temp</span>) == <span class="n">float</span> <span class="o">or</span> <span class="n">type</span>(<span class="k">temp</span>) == <span class="n">int:</span>
-            <span class="k">self</span>.<span class="nb">value</span> = <span class="k">temp</span>
-        <span class="n">else:</span>
-            <span class="k">self</span>.<span class="nb">value</span> = <span class="k">temp</span>.<span class="n">to_kelvin</span>().<span class="nb">value</span>
+<span class="kr">class</span> <span class="nx">Kelvin</span><span class="p">(</span><span class="nx">object</span><span class="p">)</span><span class="o">:</span>
+    <span class="nx">def</span> <span class="nx">__init__</span><span class="p">(</span><span class="nx">self</span><span class="p">,</span> <span class="nx">temp</span><span class="p">)</span><span class="o">:</span>
+        <span class="kr">super</span><span class="p">(</span><span class="nx">Kelvin</span><span class="p">,</span> <span class="nx">self</span><span class="p">).</span><span class="nx">__init__</span><span class="p">()</span>
+        <span class="k">if</span> <span class="nx">type</span><span class="p">(</span><span class="nx">temp</span><span class="p">)</span> <span class="o">==</span> <span class="kr">float</span> <span class="nx">or</span> <span class="nx">type</span><span class="p">(</span><span class="nx">temp</span><span class="p">)</span> <span class="o">==</span> <span class="kr">int</span><span class="o">:</span>
+            <span class="nx">self</span><span class="p">.</span><span class="nx">value</span> <span class="o">=</span> <span class="nx">temp</span>
+        <span class="k">else</span><span class="o">:</span>
+            <span class="nx">self</span><span class="p">.</span><span class="nx">value</span> <span class="o">=</span> <span class="nx">temp</span><span class="p">.</span><span class="nx">to_kelvin</span><span class="p">().</span><span class="nx">value</span>
 
-    <span class="n">def</span> <span class="n">__repr__</span>(<span class="k">self</span>):
-        <span class="k">return</span> <span class="s">&quot;Kelvin({0})&quot;</span>.<span class="n">format</span>(<span class="k">self</span>.<span class="nb">value</span>)
+    <span class="nx">def</span> <span class="nx">__repr__</span><span class="p">(</span><span class="nx">self</span><span class="p">)</span><span class="o">:</span>
+        <span class="k">return</span> <span class="s2">&quot;Kelvin({0})&quot;</span><span class="p">.</span><span class="nx">format</span><span class="p">(</span><span class="nx">self</span><span class="p">.</span><span class="nx">value</span><span class="p">)</span>
 
-    <span class="c c-Singleline"># ... more stuff ...</span>
+    <span class="err">#</span> <span class="p">...</span> <span class="nx">more</span> <span class="nx">stuff</span> <span class="p">...</span>
 </pre></div>
 
 
 <p>Instead, it is natural to define an abstract parent class, <code>Temperature</code>, which greatly
 simplifies things. In particular, we no longer need to reimplement the constructor and the
 <code>__repr__</code> function for each subclass. </p>
-<div class="highlight"><pre><span></span><span class="k">class</span> <span class="n">Temperature</span>(<span class="n">object</span>):
-    <span class="n">def</span> <span class="n">__init__</span>(<span class="k">self</span>, <span class="k">temp</span>):
-        <span class="k">self</span>.<span class="k">temp</span> = <span class="k">temp</span>
+<div class="highlight"><pre><span></span><span class="kr">class</span> <span class="nx">Temperature</span><span class="p">(</span><span class="nx">object</span><span class="p">)</span><span class="o">:</span>
+    <span class="nx">def</span> <span class="nx">__init__</span><span class="p">(</span><span class="nx">self</span><span class="p">,</span> <span class="nx">temp</span><span class="p">)</span><span class="o">:</span>
+        <span class="nx">self</span><span class="p">.</span><span class="nx">temp</span> <span class="o">=</span> <span class="nx">temp</span>
 
-    <span class="n">def</span> <span class="n">__repr__</span>(<span class="k">self</span>):
-        <span class="k">return</span> <span class="s">&quot;{classname}({value})&quot;</span>.<span class="n">format</span>(
-            <span class="n">classname</span>=<span class="k">self</span>.<span class="n">__class__</span>.<span class="n">__name__</span>,
-            <span class="nb">value</span>=<span class="k">self</span>.<span class="nb">value</span>,
-        )
+    <span class="nx">def</span> <span class="nx">__repr__</span><span class="p">(</span><span class="nx">self</span><span class="p">)</span><span class="o">:</span>
+        <span class="k">return</span> <span class="s2">&quot;{classname}({value})&quot;</span><span class="p">.</span><span class="nx">format</span><span class="p">(</span>
+            <span class="nx">classname</span><span class="o">=</span><span class="nx">self</span><span class="p">.</span><span class="nx">__class__</span><span class="p">.</span><span class="nx">__name__</span><span class="p">,</span>
+            <span class="nx">value</span><span class="o">=</span><span class="nx">self</span><span class="p">.</span><span class="nx">value</span><span class="p">,</span>
+        <span class="p">)</span>
 
-<span class="k">class</span> <span class="n">Celsius</span>(<span class="n">Temperature</span>):
-    <span class="nb">pass</span>
+<span class="kr">class</span> <span class="nx">Celsius</span><span class="p">(</span><span class="nx">Temperature</span><span class="p">)</span><span class="o">:</span>
+    <span class="nx">pass</span>
 
-<span class="k">class</span> <span class="n">Kelvin</span>(<span class="n">Temperature</span>):
-    <span class="nb">pass</span>
+<span class="kr">class</span> <span class="nx">Kelvin</span><span class="p">(</span><span class="nx">Temperature</span><span class="p">)</span><span class="o">:</span>
+    <span class="nx">pass</span>
 </pre></div>
 
 
@@ -157,6 +196,13 @@ suboptimal design.</p><script src="//platform.twitter.com/widgets.js" charset="u
       <a href="https://www.micahsmith.com/tag/python.html">python</a>
     </p>
   </div>
+
+
+
+    <div class="addthis_relatedposts_inline">
+
+
+<!-- Disqus -->
 <div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'micahsmith';
@@ -166,38 +212,32 @@ suboptimal design.</p><script src="//platform.twitter.com/widgets.js" charset="u
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     })();
 </script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+<noscript>
+        Please enable JavaScript to view comments.
+
+</noscript>
+<!-- End Disqus -->
 </article>
 
     <footer>
-      <p>&copy; Micah Smith 2017</p>
-<p>Built using <a href="http://getpelican.com" target="_blank">Pelican</a> - <a href="https://github.com/alexandrevicenzi/flex" target="_blank">Flex</a> theme by <a href="http://alexandrevicenzi.com" target="_blank">Alexandre Vicenzi</a></p>    </footer>
+<p>&copy;  2017</p>
+<p>    Powered by <a href="http://getpelican.com" target="_blank">Pelican</a> - <a href="https://github.com/alexandrevicenzi/flex" target="_blank">Flex</a> theme by <a href="http://alexandrevicenzi.com" target="_blank">Alexandre Vicenzi</a>
+</p>    </footer>
   </main>
-<script type="text/javascript">
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-  ga('create', 'UA-57970396-1', 'auto');
-  ga('send', 'pageview');
-</script>
+
+
+
 <script type="application/ld+json">
 {
-  "@context": "http://schema.org",
-  "@type": "BlogPosting",
-  "name": "Julia and Python code comparison blogs",
-  "headline": "Julia and Python code comparison blogs",
-  "datePublished": "2017-10-31 00:00:00-04:00",
-  "dateModified": "",
-  "author": {
-    "@type": "Person",
-    "name": "Micah Smith",
-    "url": "https://www.micahsmith.com/author/micah-smith.html"
-  },
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " Micah Smith ",
+  "url" : "https://www.micahsmith.com",
   "image": "/images/micah.jpg",
-  "url": "https://www.micahsmith.com/drafts/julia-python-code-comparison-blogs.html",
-  "description": "I frequently see blog posts from Julia language users and evangelists that compare a Julia solution to some programming problem to a Python solution to that same problem. My impression is that these posts aim to demonstrate how a fundamental problem that one encounters when using Python or some other ..."
+  "description": ""
 }
-</script></body>
+</script>
+
+</body>
 </html>
