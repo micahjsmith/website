@@ -67,6 +67,7 @@ DEFAULT_PAGINATION = False
 # Plugins
 PLUGIN_PATHS = ["plugins", "plugins/pelican-embed-tweet"]
 PLUGINS = ["render_math", "embed_tweet"]
+JINJA_ENVIRONMENT = {}
 
 # Static content
 STATIC_PATHS = ["extra", "images", "files", "extra/CNAME"]
