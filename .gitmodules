@@ -1,10 +1,10 @@
 [submodule "plugins/render_math"]
 	path = plugins/render_math
-	url = git@github.com:barrysteyn/pelican_plugin-render_math.git
+	url = https://github.com/barrysteyn/pelican_plugin-render_math.git
     ignore = dirty
 [submodule "plugins/pelican-embed-tweet"]
 	path = plugins/pelican-embed-tweet
-	url = git@github.com:lqez/pelican-embed-tweet.git
+	url = https://github.com/lqez/pelican-embed-tweet.git
     ignore = dirty
 [submodule "themes/Flex"]
 	path = themes/Flex
