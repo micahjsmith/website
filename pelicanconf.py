@@ -15,10 +15,6 @@ PATH = "content"
 
 # Theme
 THEME = "themes/Flex/"
-
-EXTRA_PATH_METADATA = {
-    "extra/custom.css": {"path": "static/custom.css"},
-}
 CUSTOM_CSS = "static/custom.css"
 
 # Feed generation is usually not desired when developing
@@ -73,4 +69,5 @@ JINJA_ENVIRONMENT = {}
 STATIC_PATHS = ["extra", "images", "files", "extra/CNAME"]
 EXTRA_PATH_METADATA = {
     "extra/CNAME": { "path" : "CNAME" },
+    "extra/custom.css": {"path": "static/custom.css"},
 }
