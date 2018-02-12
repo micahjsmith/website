@@ -29,7 +29,7 @@ AUTHOR_FEED_ATOM = None
 AUTHOR_FEED_RSS = None
 
 # Main page
-MAIN_MENU = True
+MAIN_MENU = False
 DISPLAY_PAGES_ON_MENU = True
 PAGE_ORDER_BY = "order" # doesn't work
 
@@ -60,14 +60,16 @@ SOCIAL = (
 )
 
 DEFAULT_PAGINATION = False
-PLUGIN_PATHS = ["./pelican-plugins"]
 
 # Uncomment following line if you want document-relative URLs when developing
 # RELATIVE_URLS = True
 
 # Plugins
-PLUGIN_PATHS = ["plugins"]
-PLUGINS = ["render_math"]
+PLUGIN_PATHS = ["plugins", "plugins/pelican-embed-tweet"]
+PLUGINS = ["render_math", "embed_tweet"]
 
 # Static content
-STATIC_PATHS = ["extra", "images", "files"]
+STATIC_PATHS = ["extra", "images", "files", "extra/CNAME"]
+EXTRA_PATH_METADATA = {
+    "extra/CNAME": { "path" : "CNAME" },
+}
