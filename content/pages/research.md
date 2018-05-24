@@ -6,6 +6,9 @@ Order: 01
 
 ### Publications
 
+__M. Smith__. "Scaling Collaborative Open Data Science". MIT S.M. Thesis. 2018.
+    <a target="_blank" href="{filename}/files/Micah J Smith SM Thesis.pdf"><i class="fa fa-file-pdf-o fa-1" aria-hidden="true"></i></a>
+
 __M. Smith__, R. Wedge, and K. Veeramachaneni. "FeatureHub: towards collaborative data
     science." IEEE International Conference on Data Science and Advanced Analytics (DSAA), pp. 590-600.
     <a target="_blank" href="{filename}/files/featurehub-smith.pdf"><i class="fa fa-file-pdf-o fa-1" aria-hidden="true"></i></a>
