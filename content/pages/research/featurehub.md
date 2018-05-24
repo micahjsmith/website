@@ -14,7 +14,7 @@ receiving immediate feedback on the performance of their features.
 
 Here are slides from my presentation at IEEE DSAA 2017.
 
-<!-- 
+<!--
  Adapted from pdf.js demo.
  Source: https://mozilla.github.io/pdf.js/examples/
   -->
@@ -32,7 +32,7 @@ Here are slides from my presentation at IEEE DSAA 2017.
 <a id='url-junk' href='{filename}/files/featurehub-dsaa-presentation-oct-2017.pdf'></a>
 </div>
 
-<script src="https://mozilla.github.io/pdf.js/build/pdf.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.0.489/pdf.min.js"></script>
 <script>
     // If absolute URL from the remote server is provided, configure the CORS
     // header on that server.
