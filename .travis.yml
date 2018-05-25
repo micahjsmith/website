@@ -22,8 +22,5 @@ after_success:
             "Host github.com" \
             "  IdentityFile $SSH_FILE" \
             "  LogLevel ERROR" >> ~/.ssh/config
-  - |
-    git remote set-url origin "git@github.com:${TRAVIS_REPO_SLUG}.git"
-    git remote -v
-  - git fetch origin master:master
+  - git remote set-url origin "git@github.com:${TRAVIS_REPO_SLUG}.git"
   - make github

@@ -77,6 +77,7 @@ publish:
 	$(PELICAN) $(INPUTDIR) -o $(OUTPUTDIR) -s $(PUBLISHCONF) $(PELICANOPTS)
 
 github: publish
+	git fetch origin $(GITHUB_PAGES_BRANCH):$(GITHUB_PAGES_BRANCH)
 	ghp-import -m "Generate Pelican site" -b $(GITHUB_PAGES_BRANCH) -p $(OUTPUTDIR)
 
 .PHONY: html help clean regenerate serve serve-global devserver publish ssh_upload rsync_upload dropbox_upload ftp_upload s3_upload cf_upload github
