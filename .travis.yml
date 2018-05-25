@@ -25,5 +25,5 @@ after_success:
   - |
     git remote set-url origin "git@github.com:${TRAVIS_REPO_SLUG}.git"
     git remote -v
-  - git fetch origin master
+  - git fetch origin master:master
   - make github
