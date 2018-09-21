@@ -61,8 +61,14 @@ DEFAULT_PAGINATION = False
 # RELATIVE_URLS = True
 
 # Plugins
-PLUGIN_PATHS = ["plugins", "plugins/pelican-embed-tweet"]
-PLUGINS = ["render_math", "embed_tweet"]
+PLUGIN_PATHS = [
+    "plugins",
+    "plugins/pelican-embed-tweet",
+    "plugins/jinja2content"
+    "plugins/jsondata",
+]
+PLUGINS = ["render_math", "embed_tweet", "jinja2content", "jsondata"]
+JINJA2CONTENT_TEMPLATES = []
 JINJA_ENVIRONMENT = {}
 
 # Static content
@@ -71,3 +77,6 @@ EXTRA_PATH_METADATA = {
     "extra/CNAME": { "path" : "CNAME" },
     "extra/custom.css": {"path": "static/custom.css"},
 }
+
+# Data content
+DATA_PATHS = ["data"]

@@ -1,0 +1,12 @@
+{
+  "authors": ["M. Smith"],
+  "title": "Scaling Collaborative Open Data Science",
+  "venue": "MIT S.M. Thesis",
+  "year": 2018,
+  "icons": [
+    {
+      "href": "{filename}/files/Micah J Smith SM Thesis.pdf",
+      "class": "fa fa-file-pdf-o fa-1"
+    }
+  ]
+}
