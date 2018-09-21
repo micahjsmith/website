@@ -1,6 +1,6 @@
 Title: research
 Slug: research
-url: research/
+url: research
 save_as: research/index.html
 Order: 01
 

@@ -7,6 +7,7 @@ SITENAME = 'Micah Smith'
 SITEURL = 'http://localhost:8000'
 SITELOGO = '/images/micah.jpg'
 SITETITLE = 'Micah J. Smith'
+COPYRIGHT_NAME = 'Micah Smith'
 COPYRIGHT_YEAR = 2018
 TIMEZONE = 'America/New_York'
 DEFAULT_LANG = 'en'
@@ -28,15 +29,10 @@ AUTHOR_FEED_RSS = None
 # Main page
 MAIN_MENU = False
 DISPLAY_PAGES_ON_MENU = True
-PAGE_ORDER_BY = 'order' # doesn't work
-
-MENUITEMS = (('Blog', '/blog.html'),
-             ('Archives', '/archives.html'),
-             ('Categories', '/categories.html'),
-             ('Tags', '/tags.html'),)
+PAGES_SORT_ATTRIBUTE = 'order'
 
 INDEX_URL = 'blog'
-INDEX_SAVE_AS = 'blog.html'
+INDEX_SAVE_AS = 'blog/index.html'
 PAGE_URL = '{slug}'
 PAGE_SAVE_AS = '{slug}/index.html'
 ARTICLE_URL = 'blog/{date:%Y}/{date:%m}/{slug}'
