@@ -16,6 +16,7 @@ PATH = 'content'
 # Theme
 THEME = 'themes/Flex/'
 CUSTOM_CSS = 'static/custom.css'
+DISABLE_URL_HASH = True
 
 # Feed generation is usually not desired when developing
 FEED_ALL_ATOM = None
