@@ -1,13 +1,17 @@
 Title: research
-Slug: research
-url: research
 save_as: research/index.html
 Order: 01
 
 ### Publications
 
-__M. Smith__. "Scaling Collaborative Open Data Science". MIT S.M. Thesis. 2018.
+__M. Smith__, K. Lu, and K. Veeramachaneni. "Ballet: A lightweight framework for
+    open-source, collaborative feature engineering." Workshop on Systems for ML and Open Source Software at NeurIPS 2018.
+    <a target="_blank" href="http://learningsys.org/nips18/assets/papers/15CameraReadySubmissionneurips_sysml_2018-8.pdf"><i class="fa fa-file-pdf-o fa-1" aria-hidden="true"></i></a>
+    <a target="_blank" href="{filename}/files/smith2018ballet.bib"><i class="fa fa-quote-right fa-1" aria-hidden="true"></i></a>
+
+__M. Smith__. "Scaling Collaborative Open Data Science." MIT S.M. Thesis. 2018.
     <a target="_blank" href="{filename}/files/Micah J Smith SM Thesis.pdf"><i class="fa fa-file-pdf-o fa-1" aria-hidden="true"></i></a>
+    <a target="_blank" href="{filename}/files/smith2018scaling.bib"><i class="fa fa-quote-right fa-1" aria-hidden="true"></i></a>
 
 __M. Smith__, R. Wedge, and K. Veeramachaneni. "FeatureHub: towards collaborative data
     science." IEEE International Conference on Data Science and Advanced Analytics (DSAA), pp. 590-600.
@@ -15,7 +19,7 @@ __M. Smith__, R. Wedge, and K. Veeramachaneni. "FeatureHub: towards collaborativ
     <a target="_blank" href="{filename}/files/smith2017feature.bib"><i class="fa fa-quote-right fa-1" aria-hidden="true"></i></a>
     <a href="{filename}/pages/research/featurehub.md"><i class="fa fa-film fa-1" aria-hidden="true"></i></a>
 
-J. Cambronero, J. Feser, __M. Smith__, and S. Madden. "Query optimization for
+J. Cambronero*, J. Feser*, __M. Smith*__, and S. Madden. "Query optimization for
     dynamic imputation." Proceedings of the VLDB Endowment 10, no. 11 (2017): 1310-1321.
     <a target="_blank" href="http://www.vldb.org/pvldb/vol10/p1310-feser.pdf"><i class="fa fa-file-pdf-o fa-1" aria-hidden="true"></i></a>
     <a target="_blank" href="{filename}/files/cambronero2017query.bib"><i class="fa fa-quote-right fa-1" aria-hidden="true"></i></a>
