@@ -17,7 +17,7 @@ __M. Smith__, R. Wedge, and K. Veeramachaneni. "FeatureHub: towards collaborativ
     science." IEEE International Conference on Data Science and Advanced Analytics (DSAA), pp. 590-600.
     <a target="_blank" href="{filename}/files/featurehub-smith.pdf"><i class="fa fa-file-pdf-o fa-1" aria-hidden="true"></i></a>
     <a target="_blank" href="{filename}/files/smith2017feature.bib"><i class="fa fa-quote-right fa-1" aria-hidden="true"></i></a>
-    <a href="{filename}/pages/research/featurehub.md"><i class="fa fa-film fa-1" aria-hidden="true"></i></a>
+    <a target="_blank" href="{filename}/files/featurehub-dsaa-presentation-oct-2017.pdf"><i class="fa fa-film fa-1" aria-hidden="true"></i></a>
 
 J. Cambronero*, J. Feser*, __M. Smith*__, and S. Madden. "Query optimization for
     dynamic imputation." Proceedings of the VLDB Endowment 10, no. 11 (2017): 1310-1321.
