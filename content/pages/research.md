@@ -19,7 +19,7 @@ __M. Smith__, R. Wedge, and K. Veeramachaneni. "FeatureHub: towards collaborativ
     <a target="_blank" href="{filename}/files/smith2017feature.bib"><i class="fa fa-quote-right fa-1" aria-hidden="true"></i></a>
     <a target="_blank" href="{filename}/files/featurehub-dsaa-presentation-oct-2017.pdf"><i class="fa fa-film fa-1" aria-hidden="true"></i></a>
 
-J. Cambronero*, J. Feser*, __M. Smith*__, and S. Madden. "Query optimization for
+J. Cambronero\*, J. Feser\*, __M. Smith\*__, and S. Madden. "Query optimization for
     dynamic imputation." Proceedings of the VLDB Endowment 10, no. 11 (2017): 1310-1321.
     <a target="_blank" href="http://www.vldb.org/pvldb/vol10/p1310-feser.pdf"><i class="fa fa-file-pdf-o fa-1" aria-hidden="true"></i></a>
     <a target="_blank" href="{filename}/files/cambronero2017query.bib"><i class="fa fa-quote-right fa-1" aria-hidden="true"></i></a>
