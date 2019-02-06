@@ -4,6 +4,11 @@ Order: 01
 
 ### Publications
 
+Q. Wang, Y. Ming, Z. Jin, Q. Shen, D. Liu, __M. Smith__, K. Veeramachaneni, and H.Qu.
+    "ATMSeer: Increasing Transparency and Controllability in Automated Machine Learning".
+    Proceedings of the 2019 ACM Conference on Human Factors in Computing Systems (CHI 2019).
+    (to appear)
+
 __M. Smith__, K. Lu, and K. Veeramachaneni. "Ballet: A lightweight framework for
     open-source, collaborative feature engineering." Workshop on Systems for ML and Open Source Software at NeurIPS 2018.
     <a target="_blank" href="http://learningsys.org/nips18/assets/papers/15CameraReadySubmissionneurips_sysml_2018-8.pdf"><i class="fa fa-file-pdf-o fa-1" aria-hidden="true"></i></a>
@@ -14,7 +19,7 @@ __M. Smith__. "Scaling Collaborative Open Data Science." MIT S.M. Thesis. 2018.
     <a target="_blank" href="{filename}/files/smith2018scaling.bib"><i class="fa fa-quote-right fa-1" aria-hidden="true"></i></a>
 
 __M. Smith__, R. Wedge, and K. Veeramachaneni. "FeatureHub: towards collaborative data
-    science." IEEE International Conference on Data Science and Advanced Analytics (DSAA), pp. 590-600.
+    science." IEEE International Conference on Data Science and Advanced Analytics (DSAA 2017), pp. 590-600.
     <a target="_blank" href="{filename}/files/featurehub-smith.pdf"><i class="fa fa-file-pdf-o fa-1" aria-hidden="true"></i></a>
     <a target="_blank" href="{filename}/files/smith2017feature.bib"><i class="fa fa-quote-right fa-1" aria-hidden="true"></i></a>
     <a target="_blank" href="{filename}/files/featurehub-dsaa-presentation-oct-2017.pdf"><i class="fa fa-film fa-1" aria-hidden="true"></i></a>
