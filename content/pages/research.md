@@ -7,7 +7,7 @@ Order: 01
 Q. Wang, Y. Ming, Z. Jin, Q. Shen, D. Liu, __M. Smith__, K. Veeramachaneni, and H.Qu.
     "ATMSeer: Increasing Transparency and Controllability in Automated Machine Learning."
     CHI 2019.
-    (to appear)
+    <a target="_blank" href="https://arxiv.org/abs/1902.05009"><i class="fa fa-file-pdf-o fa-1"></i></a>
 
 __M. Smith__, K. Lu, and K. Veeramachaneni.
     "Ballet: A lightweight framework for open-source, collaborative feature engineering."
