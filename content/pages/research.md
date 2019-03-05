@@ -18,6 +18,7 @@ __M. Smith__, K. Lu, and K. Veeramachaneni.
 __M. Smith__.
     "Scaling Collaborative Open Data Science."
     MIT S.M. Thesis 2018.
+    <a target="_blank" href="https://dspace.mit.edu/handle/1721.1/117819"><i class="fa fa-link fa-1" aria-hidden="true"></i></a>
     <a target="_blank" href="{filename}/files/Micah J Smith SM Thesis.pdf"><i class="fa fa-file-pdf-o fa-1" aria-hidden="true"></i></a>
     <a target="_blank" href="{filename}/files/smith2018scaling.bib"><i class="fa fa-quote-right fa-1" aria-hidden="true"></i></a>
 
