@@ -13,7 +13,7 @@ __M. Smith__, K. Lu, and K. Veeramachaneni.
     "Ballet: A lightweight framework for open-source, collaborative feature engineering."
     Workshop on Systems for ML and Open Source Software at NeurIPS 2018.
     <a target="_blank" href="http://learningsys.org/nips18/assets/papers/15CameraReadySubmissionneurips_sysml_2018-8.pdf"><i class="fa fa-file-pdf-o fa-1" aria-hidden="true"></i></a>
-    <a target="_blank" href="{filename}/files/ballet-neurips-sysml-2018-poster.pdf"><i class="fas fa-tv fa-1" aria-hidden="true"></i></a>
+    <a target="_blank" href="{filename}/files/ballet-neurips-sysml-2018-poster.pdf"><i class="fa fa-television fa-1" aria-hidden="true"></i></a>
     <a target="_blank" href="{filename}/files/smith2018ballet.bib"><i class="fa fa-quote-right fa-1" aria-hidden="true"></i></a>
 
 __M. Smith__.
