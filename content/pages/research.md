@@ -4,6 +4,13 @@ Order: 01
 
 ### Publications
 
+__M. Smith__, C. Sala, J.M. Kanter, and K. Veeramachaneni.
+    "The Machine Learning Bazaar: Harnessing the ML Ecosystem for Effective System Development."
+    arXiv Preprint 1905.08942. 2019.
+    <a target="_blank" href="https://arxiv.org/abs/1905.08942"><i class="fa fa-file-pdf-o fa-1"></i></a>
+    <a target="_blank" href="{filename}/files/smith2019mlbazaar.bib"><i class="fa fa-quote-right fa-1" aria-hidden="true"></i></a>
+
+
 Q. Wang, Y. Ming, Z. Jin, Q. Shen, D. Liu, __M. Smith__, K. Veeramachaneni, and H.Qu.
     "ATMSeer: Increasing Transparency and Controllability in Automated Machine Learning."
     CHI 2019.
