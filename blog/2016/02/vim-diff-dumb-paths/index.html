@@ -107,9 +107,9 @@ projects. However, this means that many paths relative to the git top-level dire
 with <code>+</code>. Of course, this applies to any path beginning with a <code>+</code>, though this is otherwise an
 uncommon naming convention.</p>
 <p>Suppose that your project looks like this:</p>
-<div class="highlight"><pre><span></span>+code/
-  foo.m
-  bar.m
+<div class="highlight"><pre><span></span><span class="o">+</span><span class="n">code</span><span class="o">/</span>
+  <span class="n">foo</span><span class="p">.</span><span class="n">m</span>
+  <span class="n">bar</span><span class="p">.</span><span class="n">m</span>
 </pre></div>
 
 
@@ -119,9 +119,9 @@ uncommon naming convention.</p>
 
 
 <p>But vim will tell you:</p>
-<div class="highlight"><pre><span></span>Error detected while processing command line:
-E492: Not an editor comamnd: code/foo.m
-E492: Not an editor comamnd: code/bar.m
+<div class="highlight"><pre><span></span><span class="nv">Error</span> <span class="nv">detected</span> <span class="k">while</span> <span class="nv">processing</span> <span class="nv">command</span> <span class="nv">line</span>:
+<span class="nv">E492</span>: <span class="nv">Not</span> <span class="nv">an</span> <span class="nv">editor</span> <span class="nv">comamnd</span>: <span class="nv">code</span><span class="o">/</span><span class="nv">foo</span>.<span class="nv">m</span>
+<span class="nv">E492</span>: <span class="nv">Not</span> <span class="nv">an</span> <span class="nv">editor</span> <span class="nv">comamnd</span>: <span class="nv">code</span><span class="o">/</span><span class="nv">bar</span>.<span class="nv">m</span>
 </pre></div>
 
 
@@ -131,7 +131,7 @@ the typical <code>-</code>) and fails to find options/commands called <code>code
 <p>Simply tell vimdiff somehow that the paths you are specifying are not options. (By the way,
 note that vimdiff is pretty much just an alias for <code>vim -d</code>.)</p>
 <p>We could prefix them with the current directory:</p>
-<div class="highlight"><pre><span></span>vimdiff ./+code/foo.m ./+code/bar.m
+<div class="highlight"><pre><span></span><span class="n">vimdiff</span> <span class="p">.</span><span class="o">/+</span><span class="n">code</span><span class="o">/</span><span class="n">foo</span><span class="p">.</span><span class="n">m</span> <span class="p">.</span><span class="o">/+</span><span class="n">code</span><span class="o">/</span><span class="n">bar</span><span class="p">.</span><span class="n">m</span>
 </pre></div>
 
 
@@ -141,21 +141,21 @@ note that vimdiff is pretty much just an alias for <code>vim -d</code>.)</p>
 a file  name. This can be used to edit a filename that starts with a '-'.</p>
 </blockquote>
 <p>Or, in our case, to edit a filename that starts with a <code>+</code>:</p>
-<div class="highlight"><pre><span></span>vimdiff -- +code/foo.m +code/bar.m
+<div class="highlight"><pre><span></span><span class="n">vimdiff</span> <span class="c1">-- +code/foo.m +code/bar.m</span>
 </pre></div>
 
 
 <h2>Bringing git into the picture</h2>
 <p>We now update <code>+code/foo.m</code> and want to compare to the previous commit. Using git's
 <code>difftool</code> command, we diff all modified git-tracked files using a tool of our choice:</p>
-<div class="highlight"><pre><span></span>git difftool --tool=vimdiff
+<div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">difftool</span> <span class="c1">--tool=vimdiff</span>
 </pre></div>
 
 
 <p>Unfortunately, we run into the same problem as before.</p>
-<div class="highlight"><pre><span></span>&quot;/private/var/folders/7v/cjvpqzt57c5fsb7qvsjmm5sw0000gn/T/7i6IKG_foo.m&quot; [readonly] 1L, 6C
-Error detected while processing command line:
-E492: Not an editor comamnd: code/foo.m
+<div class="highlight"><pre><span></span><span class="s2">&quot;</span><span class="s">/private/var/folders/7v/cjvpqzt57c5fsb7qvsjmm5sw0000gn/T/7i6IKG_foo.m</span><span class="s2">&quot;</span> [<span class="nv">readonly</span>] <span class="mi">1</span><span class="nv">L</span>, <span class="mi">6</span><span class="nv">C</span>
+<span class="nv">Error</span> <span class="nv">detected</span> <span class="k">while</span> <span class="nv">processing</span> <span class="nv">command</span> <span class="nv">line</span>:
+<span class="nv">E492</span>: <span class="nv">Not</span> <span class="nv">an</span> <span class="nv">editor</span> <span class="nv">comamnd</span>: <span class="nv">code</span><span class="o">/</span><span class="nv">foo</span>.<span class="nv">m</span>
 </pre></div>
 
 
@@ -173,7 +173,7 @@ containing the contents of the diff pre-image and REMOTE is set to the name of t
 file containing the contents of the diff post-image.</p>
 </blockquote>
 <p>We can do</p>
-<div class="highlight"><pre><span></span>git config --global difftool.vimdiff.cmd &#39;vimdiff -- $LOCAL $REMOTE&#39;
+<div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">config</span> <span class="c1">--global difftool.vimdiff.cmd &#39;vimdiff -- $LOCAL $REMOTE&#39;</span>
 </pre></div>
 
 
