@@ -64,7 +64,7 @@ days) are either 2-1 or 3-1. Here, it is interesting note that both decreasing a
 increasing the share of vacation relative to work days as compared to the current 5-2 week
 can lead to welfare gains.
 
-![welfare table]({filename}/images/eden_welfare_table.png)
+![welfare table]({static}/images/eden_welfare_table.png)
 
 My beloved proposition for a 5-3 week did not meet with as much support as I had hoped. In
 the table above, you can see that the 5-3 cell has some mass on welfare increasing but is

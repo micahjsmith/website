@@ -46,8 +46,8 @@ would show no mercy on several of my answers.
 
 Are you hungry for a crossword by now? Well, get the puzzle!
 
-- as a [PDF]({filename}/files/whos_hungry_crossword.pdf)
-- in [Across Lite format]({filename}/files/whos_hungry_crossword.puz)
+- as a [PDF]({static}/files/whos_hungry_crossword.pdf)
+- in [Across Lite format]({static}/files/whos_hungry_crossword.puz)
 
 You can download Across Lite for free [here](http://www.litsoft.com/across/alite/download/).
 

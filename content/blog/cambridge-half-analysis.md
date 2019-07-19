@@ -19,7 +19,7 @@ running with their daughters or sons. How fast were the older runners in this ra
 especially compared to runners in their "primes"? To answer this, I plot the estimated
 distribution of pace (minutes per mile) across age groups.
 
-<object data="{filename}/images/density_age_v2.js.svg" type="image/svg+xml"></object>
+<object data="{static}/images/density_age_v2.js.svg" type="image/svg+xml"></object>
 
 It's interesting to note that, besides the literal elderly, runners from very different age
 groups have similar distributions of paces. Sure, there's a little more mass on faster paces for the youngest
@@ -40,7 +40,7 @@ With those oldies speeding by, it's important not to lose track of my own peers.
 estimated distribution of pace for the group of 23-year old males, and show the pace of
 several key individuals.
 
-<object data="{filename}/images/density_micah.js.svg" type="image/svg+xml"></object>
+<object data="{static}/images/density_micah.js.svg" type="image/svg+xml"></object>
 
 I turn out to not be the last of the pack for my group, for which I'm relieved. However,
 while I handily beat the oldest racer of the day — a 71-year old man —, I get crushed by
