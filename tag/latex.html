@@ -42,7 +42,7 @@
 <meta property="og:url" content="https://www.micahsmith.com"/>
 <meta property="og:image" content="/images/micah.jpg">
 
-  <title>Micah Smith &ndash;     Categories
+  <title>Micah Smith &ndash;     Tag latex
 </title>
 
 </head>
@@ -78,24 +78,38 @@
   <main>
 
 
-<article class="single">
+
+
+<article>
   <header>
-    <h1>    Categories
-</h1>
+    <h2><a href="https://www.micahsmith.com/blog/2019/09/trim-figure-in-latex">Trim graphics in LaTeX</a></h2>
+    <p>
+          Posted on Fri 13 September 2019 in <a href="https://www.micahsmith.com/category/programming.html">programming</a>
+
+
+          &#8226;     Tagged with
+
+              <a href="https://www.micahsmith.com/tag/latex.html">latex</a>
+    </p>
   </header>
   <div>
-    <ul class="list">
-      <li><a href="https://www.micahsmith.com/category/buildings.html">buildings</a> (1)</li>
-      <li><a href="https://www.micahsmith.com/category/coding.html">coding</a> (1)</li>
-      <li><a href="https://www.micahsmith.com/category/crossword.html">crossword</a> (1)</li>
-      <li><a href="https://www.micahsmith.com/category/dataviz.html">dataviz</a> (1)</li>
-      <li><a href="https://www.micahsmith.com/category/economics.html">economics</a> (2)</li>
-      <li><a href="https://www.micahsmith.com/category/general.html">general</a> (1)</li>
-      <li><a href="https://www.micahsmith.com/category/life.html">life</a> (3)</li>
-      <li><a href="https://www.micahsmith.com/category/programming.html">programming</a> (3)</li>
-    </ul>
+      <p>How to trim a figure in LaTeX.</p>
+<p>You've already inserted the figure into a <code>figure</code> environment and now want to trim excess whitespace.</p>
+<p>Start adjusting from here:</p>
+<div class="highlight"><pre><span></span><span class="err">\</span><span class="n">fbox</span><span class="err">{\</span><span class="n">includegraphics</span><span class="p">[</span><span class="n">clip</span><span class="o">=</span><span class="k">true</span><span class="p">,</span> <span class="k">trim</span><span class="o">=</span><span class="err">{</span><span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span><span class="err">}</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="err">\</span><span class="n">linewidth</span><span class="p">]</span><span class="err">{</span><span class="n">myfigure</span><span class="err">}}</span>
+</pre></div>
+
+
+<p><code>fbox</code> is a black box around the float content so you …</p>
+      <br>
+      <a class="btn" href="https://www.micahsmith.com/blog/2019/09/trim-figure-in-latex">    Continue reading
+</a>
   </div>
 </article>
+
+
+
+
 
     <footer>
 <p>&copy; Micah Smith 2018</p>
