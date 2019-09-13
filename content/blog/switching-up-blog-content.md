@@ -1,5 +1,5 @@
 Title: Switching up blog content
-Date: 2019-09-13
+Date: 2019-09-12
 Category: general
 Slug: switching-up-blog-content
 Authors: Micah Smith
