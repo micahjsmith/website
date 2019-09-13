@@ -32,18 +32,26 @@
 </script>
 <!-- End Google Analytics -->
 
-    <meta name="author" content="Micah Smith" />
-    <meta name="description" content="" />
+<meta name="author" content="Micah Smith" />
+<meta name="description" content="Using the autoreload extension. %load_ext autoreload %aimport mymodule %autoreload 1 The autoreload command understands three levels: - 0 -&gt; extension is disabled - 1 -&gt; reload modules that were marked with %aimport - 2 -&gt; reload everything The easiest usage of autoreload is to not aimport anything and set %autoreload 2, which causes the extension to …" />
+<meta name="keywords" content="python, ipython, jupyter">
+
 <meta property="og:site_name" content="Micah Smith"/>
-<meta property="og:type" content="blog"/>
-<meta property="og:title" content="Micah Smith"/>
-<meta property="og:description" content=""/>
+<meta property="og:title" content="Using autoreload in IPython"/>
+<meta property="og:description" content="Using the autoreload extension. %load_ext autoreload %aimport mymodule %autoreload 1 The autoreload command understands three levels: - 0 -&gt; extension is disabled - 1 -&gt; reload modules that were marked with %aimport - 2 -&gt; reload everything The easiest usage of autoreload is to not aimport anything and set %autoreload 2, which causes the extension to …"/>
 <meta property="og:locale" content="en_US"/>
-<meta property="og:url" content="https://www.micahsmith.com"/>
+<meta property="og:url" content="https://www.micahsmith.com/blog/2019/09/using-autoreload-in-ipython"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2019-09-13 00:00:00-04:00"/>
+<meta property="article:modified_time" content=""/>
+<meta property="article:author" content="https://www.micahsmith.com/author/micah-smith.html">
+<meta property="article:section" content="programming"/>
+<meta property="article:tag" content="python"/>
+<meta property="article:tag" content="ipython"/>
+<meta property="article:tag" content="jupyter"/>
 <meta property="og:image" content="/images/micah.jpg">
 
-  <title>Micah Smith &ndash;     Tag python
-</title>
+  <title>Micah Smith &ndash; Using autoreload in IPython</title>
 
 </head>
 <body>
@@ -78,22 +86,20 @@
   <main>
 
 
-
-
-<article>
+<article class="single">
   <header>
-    <h2><a href="https://www.micahsmith.com/blog/2019/09/using-autoreload-in-ipython">Using autoreload in IPython</a></h2>
+      
+    <h1 id="using-autoreload-in-ipython">Using autoreload in IPython</h1>
     <p>
           Posted on Fri 13 September 2019 in <a href="https://www.micahsmith.com/category/programming.html">programming</a>
 
 
-          &#8226;     Tagged with
-
-              <a href="https://www.micahsmith.com/tag/python.html">python</a>,              <a href="https://www.micahsmith.com/tag/ipython.html">ipython</a>,              <a href="https://www.micahsmith.com/tag/jupyter.html">jupyter</a>
     </p>
   </header>
+
+
   <div>
-      <p>Using the autoreload extension.</p>
+    <p>Using the autoreload extension.</p>
 <div class="highlight"><pre><span></span><span class="o">%</span><span class="n">load_ext</span> <span class="n">autoreload</span>
 <span class="o">%</span><span class="n">aimport</span> <span class="n">mymodule</span>
 <span class="o">%</span><span class="n">autoreload</span> <span class="mi">1</span>
@@ -104,63 +110,37 @@
 - 0 -&gt; extension is disabled
 - 1 -&gt; reload modules that were marked with %aimport
 - 2 -&gt; reload everything</p>
-<p>The easiest usage of autoreload is to not <code>aimport</code> anything and set <code>%autoreload 2</code>, which causes the extension to …</p>
-      <br>
-      <a class="btn" href="https://www.micahsmith.com/blog/2019/09/using-autoreload-in-ipython">    Continue reading
-</a>
+<p>The easiest usage of autoreload is to not <code>aimport</code> anything and set <code>%autoreload 2</code>, which causes the extension to reload <em>all</em> code before any Python code is run. This <em>seems</em> excessive but I have not necessarily noticed any performance issues from doing so. Regardless, I'm often only developing one library at a time, so marking that library only with <code>%aimport</code> and using level 1 seems more explicit.</p>
+<p>Source: https://ipython.readthedocs.io/en/stable/config/extensions/autoreload.html</p><script src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
   </div>
-  <hr />
-</article>
-<article>
-  <header>
-    <h2><a href="https://www.micahsmith.com/blog/2017/02/you-need-a-doorbell">You need a doorbell</a></h2>
+  <div class="tag-cloud">
     <p>
-          Posted on Fri 03 February 2017 in <a href="https://www.micahsmith.com/category/programming.html">programming</a>
-
-
-          &#8226;     Tagged with
-
-              <a href="https://www.micahsmith.com/tag/life.html">life</a>,              <a href="https://www.micahsmith.com/tag/programming.html">programming</a>,              <a href="https://www.micahsmith.com/tag/python.html">python</a>,              <a href="https://www.micahsmith.com/tag/twilio.html">twilio</a>,              <a href="https://www.micahsmith.com/tag/flask.html">flask</a>
+      <a href="https://www.micahsmith.com/tag/python.html">python</a>
+      <a href="https://www.micahsmith.com/tag/ipython.html">ipython</a>
+      <a href="https://www.micahsmith.com/tag/jupyter.html">jupyter</a>
     </p>
-  </header>
-  <div>
-      <p>Sometimes a dumb technical approach can be a solution to a real world problem.</p>
-<p>I live in a graduate residence that doesn't have a buzzer system. To be granted access, my
-guests have to text/call me directly and I have to walk downstairs to let them in. Though
-this …</p>
-      <br>
-      <a class="btn" href="https://www.micahsmith.com/blog/2017/02/you-need-a-doorbell">    Continue reading
-</a>
   </div>
-  <hr />
+
+
+
+
+
+<!-- Disqus -->
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'micahsmith';
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>
+        Please enable JavaScript to view comments.
+
+</noscript>
+<!-- End Disqus -->
 </article>
-<article>
-  <header>
-    <h2><a href="https://www.micahsmith.com/blog/2016/11/why-im-bailing-on-julia-for-machine-learning">Why I'm bailing on Julia for machine learning</a></h2>
-    <p>
-          Posted on Fri 04 November 2016 in <a href="https://www.micahsmith.com/category/programming.html">programming</a>
-
-
-          &#8226;     Tagged with
-
-              <a href="https://www.micahsmith.com/tag/julia.html">julia</a>,              <a href="https://www.micahsmith.com/tag/python.html">python</a>,              <a href="https://www.micahsmith.com/tag/ml.html">ml</a>
-    </p>
-  </header>
-  <div>
-      <p>I'm bailing on Julia for machine learning — just for my one class, that is. Don't worry
-~too much~!</p>
-<p>I'm taking graduate machine learning (6.867) this semester at MIT. There are three homework
-assignments in the course that are structured as mini-projects, in which students
-implement canonical algorithms from scratch …</p>
-      <br>
-      <a class="btn" href="https://www.micahsmith.com/blog/2016/11/why-im-bailing-on-julia-for-machine-learning">    Continue reading
-</a>
-  </div>
-</article>
-
-
-
-
 
     <footer>
 <p>&copy; Micah Smith 2018</p>
