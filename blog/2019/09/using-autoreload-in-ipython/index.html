@@ -33,12 +33,12 @@
 <!-- End Google Analytics -->
 
 <meta name="author" content="Micah Smith" />
-<meta name="description" content="Using the autoreload extension. %load_ext autoreload %aimport mymodule %autoreload 1 The autoreload command understands three levels: - 0 -&gt; extension is disabled - 1 -&gt; reload modules that were marked with %aimport - 2 -&gt; reload everything The easiest usage of autoreload is to not aimport anything and set %autoreload 2, which causes the extension to …" />
+<meta name="description" content="Using the autoreload extension. %load_ext autoreload %aimport mymodule %autoreload 1 The autoreload command understands three levels: 0 -&gt; extension is disabled 1 -&gt; reload modules that were marked with %aimport 2 -&gt; reload everything The easiest usage of autoreload is to not aimport anything and set %autoreload 2, which causes the extension to …" />
 <meta name="keywords" content="python, ipython, jupyter">
 
 <meta property="og:site_name" content="Micah Smith"/>
 <meta property="og:title" content="Using autoreload in IPython"/>
-<meta property="og:description" content="Using the autoreload extension. %load_ext autoreload %aimport mymodule %autoreload 1 The autoreload command understands three levels: - 0 -&gt; extension is disabled - 1 -&gt; reload modules that were marked with %aimport - 2 -&gt; reload everything The easiest usage of autoreload is to not aimport anything and set %autoreload 2, which causes the extension to …"/>
+<meta property="og:description" content="Using the autoreload extension. %load_ext autoreload %aimport mymodule %autoreload 1 The autoreload command understands three levels: 0 -&gt; extension is disabled 1 -&gt; reload modules that were marked with %aimport 2 -&gt; reload everything The easiest usage of autoreload is to not aimport anything and set %autoreload 2, which causes the extension to …"/>
 <meta property="og:locale" content="en_US"/>
 <meta property="og:url" content="https://www.micahsmith.com/blog/2019/09/using-autoreload-in-ipython"/>
 <meta property="og:type" content="article"/>
@@ -106,12 +106,14 @@
 </pre></div>
 
 
-<p>The <code>autoreload</code> command understands three levels:
-- 0 -&gt; extension is disabled
-- 1 -&gt; reload modules that were marked with %aimport
-- 2 -&gt; reload everything</p>
+<p>The <code>autoreload</code> command understands three levels:</p>
+<ul>
+<li>0 -&gt; extension is disabled</li>
+<li>1 -&gt; reload modules that were marked with %aimport</li>
+<li>2 -&gt; reload everything</li>
+</ul>
 <p>The easiest usage of autoreload is to not <code>aimport</code> anything and set <code>%autoreload 2</code>, which causes the extension to reload <em>all</em> code before any Python code is run. This <em>seems</em> excessive but I have not necessarily noticed any performance issues from doing so. Regardless, I'm often only developing one library at a time, so marking that library only with <code>%aimport</code> and using level 1 seems more explicit.</p>
-<p>Source: https://ipython.readthedocs.io/en/stable/config/extensions/autoreload.html</p><script src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+<p>Source: <a href="https://ipython.readthedocs.io/en/stable/config/extensions/autoreload.html">https://ipython.readthedocs.io/en/stable/config/extensions/autoreload.html</a></p><script src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
   </div>
   <div class="tag-cloud">
     <p>

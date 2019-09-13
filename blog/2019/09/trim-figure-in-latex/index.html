@@ -100,12 +100,12 @@
     <p>How to trim a figure in LaTeX.</p>
 <p>You've already inserted the figure into a <code>figure</code> environment and now want to trim excess whitespace.</p>
 <p>Start adjusting from here:</p>
-<div class="highlight"><pre><span></span><span class="err">\</span><span class="n">fbox</span><span class="err">{\</span><span class="n">includegraphics</span><span class="p">[</span><span class="n">clip</span><span class="o">=</span><span class="k">true</span><span class="p">,</span> <span class="k">trim</span><span class="o">=</span><span class="err">{</span><span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span><span class="err">}</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="err">\</span><span class="n">linewidth</span><span class="p">]</span><span class="err">{</span><span class="n">myfigure</span><span class="err">}}</span>
+<div class="highlight"><pre><span></span><span class="err">\fbox{\includegraphics[clip=true, trim={0 0 0 0}, width=\linewidth]{myfigure}}</span>
 </pre></div>
 
 
 <p><code>fbox</code> is a black box around the float content so you can see where your figure ends and where the rest of the page begins. Now, adjust the numbers in the <code>trim</code> option and recompile. The four numbers represent pixels to trim off from the left, bottom, right and top of the figure. After you have trimmed your figure as close as you can to the actual content, remove the <code>fbox</code> and you are set.</p>
-<p>Source: http://mirror.las.iastate.edu/tex-archive/macros/latex/required/graphics/grfguide.pdf</p><script src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+<p>Source: <a href="http://mirror.las.iastate.edu/tex-archive/macros/latex/required/graphics/grfguide.pdf">http://mirror.las.iastate.edu/tex-archive/macros/latex/required/graphics/grfguide.pdf</a></p><script src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
   </div>
   <div class="tag-cloud">
     <p>
