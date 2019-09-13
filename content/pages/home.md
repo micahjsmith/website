@@ -18,10 +18,10 @@ machine learning to the open-source development paradigm?
 
 I'm interested in machine learning, data science, software engineering, open source, and
 human-computer interaction... as well as public transit, crosswords, BBQ, running,
-basketball, fantasy sports, house plants, reading, and more. 
+basketball, fantasy sports, house plants, reading, and more.
 
 Everything on this site reflects my personal views only.
 
 # Blog
 
-Read my [blog](/blog.html).
+Read my [blog](/blog).
