@@ -10,7 +10,7 @@ How to trim a figure in LaTeX.
 You've already inserted the figure into a `figure` environment and now want to trim excess whitespace.
 
 Start adjusting from here:
-```raw
+```tex
 \fbox{\includegraphics[clip=true, trim={0 0 0 0}, width=\linewidth]{myfigure}}
 ```
 
