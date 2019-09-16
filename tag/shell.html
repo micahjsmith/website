@@ -42,7 +42,7 @@
 <meta property="og:url" content="https://www.micahsmith.com"/>
 <meta property="og:image" content="/images/micah.jpg">
 
-  <title>Micah Smith &ndash;     Authors
+  <title>Micah Smith &ndash;     Tag shell
 </title>
 
 </head>
@@ -78,17 +78,36 @@
   <main>
 
 
-<article class="single">
+
+
+<article>
   <header>
-    <h1>    Authors
-</h1>
+    <h2><a href="https://www.micahsmith.com/blog/2019/09/find-ports-in-use-on-macos">Find ports in use on macOS</a></h2>
+    <p>
+          Posted on Mon 16 September 2019 in <a href="https://www.micahsmith.com/category/programming.html">programming</a>
+
+
+          &#8226;     Tagged with
+
+              <a href="https://www.micahsmith.com/tag/macos.html">macos</a>,              <a href="https://www.micahsmith.com/tag/shell.html">shell</a>
+    </p>
   </header>
   <div>
-    <ul class="list">
-      <li><a href="https://www.micahsmith.com/author/micah-smith.html">Micah Smith</a> (15)</li>
-    </ul>
+      <p>How to find ports that are already "in use" on macOS:</p>
+<div class="highlight"><pre><span></span>sudo lsof -P -i TCP -s TCP:LISTEN
+</pre></div>
+
+
+<p>This is helpful if you are trying to figure out which process is using a port so that you can kill that process — for example, if you have a web server …</p>
+      <br>
+      <a class="btn" href="https://www.micahsmith.com/blog/2019/09/find-ports-in-use-on-macos">    Continue reading
+</a>
   </div>
 </article>
+
+
+
+
 
     <footer>
 <p>&copy; Micah Smith 2018</p>

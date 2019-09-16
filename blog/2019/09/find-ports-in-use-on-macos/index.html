@@ -1,0 +1,179 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="" />
+
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="https://www.micahsmith.com/theme/stylesheet/style.min.css">
+
+  <link rel="stylesheet" type="text/css" href="https://www.micahsmith.com/theme/pygments/github.min.css">
+  <link rel="stylesheet" type="text/css" href="https://www.micahsmith.com/theme/font-awesome/css/font-awesome.min.css">
+
+    <link href="https://www.micahsmith.com/static/custom.css" rel="stylesheet">
+
+
+
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-57970396-1', 'auto');
+  ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+<meta name="author" content="Micah Smith" />
+<meta name="description" content="How to find ports that are already &#34;in use&#34; on macOS: sudo lsof -P -i TCP -s TCP:LISTEN This is helpful if you are trying to figure out which process is using a port so that you can kill that process — for example, if you have a web server …" />
+<meta name="keywords" content="macos, shell">
+
+<meta property="og:site_name" content="Micah Smith"/>
+<meta property="og:title" content="Find ports in use on macOS"/>
+<meta property="og:description" content="How to find ports that are already &#34;in use&#34; on macOS: sudo lsof -P -i TCP -s TCP:LISTEN This is helpful if you are trying to figure out which process is using a port so that you can kill that process — for example, if you have a web server …"/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:url" content="https://www.micahsmith.com/blog/2019/09/find-ports-in-use-on-macos"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2019-09-16 00:00:00-04:00"/>
+<meta property="article:modified_time" content=""/>
+<meta property="article:author" content="https://www.micahsmith.com/author/micah-smith.html">
+<meta property="article:section" content="programming"/>
+<meta property="article:tag" content="macos"/>
+<meta property="article:tag" content="shell"/>
+<meta property="og:image" content="/images/micah.jpg">
+
+  <title>Micah Smith &ndash; Find ports in use on macOS</title>
+
+</head>
+<body>
+  <aside>
+    <div>
+      <a href="https://www.micahsmith.com">
+        <img src="/images/micah.jpg" alt="Micah J. Smith" title="Micah J. Smith">
+      </a>
+      <h1><a href="https://www.micahsmith.com">Micah J. Smith</a></h1>
+
+
+      <nav>
+        <ul class="list">
+          <li><a href="https://www.micahsmith.com/blog">blog</a></li>
+          <li><a href="https://www.micahsmith.com/research">research</a></li>
+          <li><a href="https://www.micahsmith.com/contact">contact</a></li>
+
+        </ul>
+      </nav>
+
+      <ul class="social">
+        <li><a class="sc-twitter" href="https://twitter.com/micahjsmith" target="_blank"><i class="fa fa-twitter"></i></a></li>
+        <li><a class="sc-github" href="https://github.com/micahjsmith" target="_blank"><i class="fa fa-github"></i></a></li>
+        <li><a class="sc-stack-overflow" href="https://stackoverflow.com/users/2514228/micah-smith" target="_blank"><i class="fa fa-stack-overflow"></i></a></li>
+        <li><a class="sc-linkedin" href="https://www.linkedin.com/in/micahjsmith" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+        <li><a class="sc-key" href="https://keybase.io/micahjsmith" target="_blank"><i class="fa fa-key"></i></a></li>
+      </ul>
+    </div>
+
+
+  </aside>
+  <main>
+
+
+<article class="single">
+  <header>
+      
+    <h1 id="find-ports-in-use-on-macos">Find ports in use on macOS</h1>
+    <p>
+          Posted on Mon 16 September 2019 in <a href="https://www.micahsmith.com/category/programming.html">programming</a>
+
+
+    </p>
+  </header>
+
+
+  <div>
+    <p>How to find ports that are already "in use" on macOS:</p>
+<div class="highlight"><pre><span></span>sudo lsof -P -i TCP -s TCP:LISTEN
+</pre></div>
+
+
+<p>This is helpful if you are trying to figure out which process is using a port so that you can kill that process — for example, if you have a web server running in the background but now want to re-use that port for a different server.</p>
+<p>Output of this command looks as follows:</p>
+<div class="highlight"><pre><span></span>COMMAND     PID       USER   FD   TYPE             DEVICE SIZE/OFF NODE NAME
+node      65167 micahsmith   23u  IPv4 0x86f43d8b9392d21f      0t0  TCP *:8080 (LISTEN)
+</pre></div>
+
+
+<p>This shows the results for a node http-server listening on port 8080. One could then kill this server using the PID shown.</p>
+<h2>Explanation</h2>
+<p><code>lsof</code> is a program to "list open files" and variants exist for major UNIX dialects such as macOS and Linux.</p>
+<ul>
+<li><code>sudo</code>: you need sudo privileges to determine which files are open by other users on your system (and ports are just open files in a large sense)</li>
+<li><code>-P</code>: "inhibits the conversion of port numbers to port names for network files". Port numbers can be mapped to names for commonly used services, such as <code>http</code> for port <code>80</code>. If you are trying to find which which process is running on a port number, it makes it more difficult if you need to think through the names as well. You can see which names are mapped on your system by viewing the <code>/etc/services</code> files.</li>
+<li><code>-i TCP</code>: filter the listing of files to internet addresses matching the argument. The argument here is just <code>TCP</code> but more general internet addresses of the form <code>[46][protocol][<a href="https://twitter.com/hostname">@hostname</a>|hostaddr][:service|port]</code> are accepted as well. For example, if you are looking for processes using port <code>8080</code>, you could provide that here, such as <code>-i TCP:8080</code>.</li>
+<li><code>-s TCP:LISTEN</code>: used together with <code>-i TCP</code>, causes only network files with TCP state LISTEN to be listed.</li>
+</ul>
+<p>The command output varies significantly based on the type of file, but here, as we have filtered to only TCP network files with a LISTEN state, the output can be understood as follows:</p>
+<ul>
+<li><code>command</code>: partial command name</li>
+<li><code>PID</code>: process ID</li>
+<li><code>NAME</code>: the local host name or IP number followed by a colon, the port, and the two-part remote address (if applicable)</li>
+</ul>
+<p>Source: <code>man lsof</code></p><script src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+  </div>
+  <div class="tag-cloud">
+    <p>
+      <a href="https://www.micahsmith.com/tag/macos.html">macos</a>
+      <a href="https://www.micahsmith.com/tag/shell.html">shell</a>
+    </p>
+  </div>
+
+
+
+
+
+<!-- Disqus -->
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'micahsmith';
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>
+        Please enable JavaScript to view comments.
+
+</noscript>
+<!-- End Disqus -->
+</article>
+
+    <footer>
+<p>&copy; Micah Smith 2018</p>
+<p>    Powered by <a href="http://getpelican.com" target="_blank">Pelican</a> - <a href="https://github.com/alexandrevicenzi/flex" target="_blank">Flex</a> theme by <a href="http://alexandrevicenzi.com" target="_blank">Alexandre Vicenzi</a>
+</p>    </footer>
+  </main>
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " Micah Smith ",
+  "url" : "https://www.micahsmith.com",
+  "image": "/images/micah.jpg",
+  "description": ""
+}
+</script>
+
+</body>
+</html>
