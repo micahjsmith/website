@@ -1,0 +1,186 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="" />
+
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="https://www.micahsmith.com/theme/stylesheet/style.min.css">
+
+  <link rel="stylesheet" type="text/css" href="https://www.micahsmith.com/theme/pygments/github.min.css">
+  <link rel="stylesheet" type="text/css" href="https://www.micahsmith.com/theme/font-awesome/css/font-awesome.min.css">
+
+    <link href="https://www.micahsmith.com/static/custom.css" rel="stylesheet">
+
+
+
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-57970396-1', 'auto');
+  ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+<meta name="author" content="Micah Smith" />
+<meta name="description" content="Vim&#39;s diff mode is a lightweight diffing tool that can be used at the command line, in particular with the git diff command. In a previous post, I wrote about configuring vimdiff as the git difftool for use with Matlab development (yes, way back when I was actually writing Matlab …" />
+<meta name="keywords" content="vim, macos, catalina">
+
+<meta property="og:site_name" content="Micah Smith"/>
+<meta property="og:title" content="Fixing invalid argument iwhite on vimdiff"/>
+<meta property="og:description" content="Vim&#39;s diff mode is a lightweight diffing tool that can be used at the command line, in particular with the git diff command. In a previous post, I wrote about configuring vimdiff as the git difftool for use with Matlab development (yes, way back when I was actually writing Matlab …"/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:url" content="https://www.micahsmith.com/blog/2019/11/fixing-vim-invalid-argument-diffopt-iwhite"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2019-11-07 00:00:00-05:00"/>
+<meta property="article:modified_time" content=""/>
+<meta property="article:author" content="https://www.micahsmith.com/author/micah-smith.html">
+<meta property="article:section" content="programming"/>
+<meta property="article:tag" content="vim"/>
+<meta property="article:tag" content="macos"/>
+<meta property="article:tag" content="catalina"/>
+<meta property="og:image" content="/images/micah.jpg">
+
+  <title>Micah Smith &ndash; Fixing invalid argument iwhite on vimdiff</title>
+
+</head>
+<body>
+  <aside>
+    <div>
+      <a href="https://www.micahsmith.com">
+        <img src="/images/micah.jpg" alt="Micah J. Smith" title="Micah J. Smith">
+      </a>
+      <h1><a href="https://www.micahsmith.com">Micah J. Smith</a></h1>
+
+
+      <nav>
+        <ul class="list">
+          <li><a href="https://www.micahsmith.com/blog">blog</a></li>
+          <li><a href="https://www.micahsmith.com/research">research</a></li>
+          <li><a href="https://www.micahsmith.com/contact">contact</a></li>
+
+        </ul>
+      </nav>
+
+      <ul class="social">
+        <li><a class="sc-twitter" href="https://twitter.com/micahjsmith" target="_blank"><i class="fa fa-twitter"></i></a></li>
+        <li><a class="sc-github" href="https://github.com/micahjsmith" target="_blank"><i class="fa fa-github"></i></a></li>
+        <li><a class="sc-stack-overflow" href="https://stackoverflow.com/users/2514228/micah-smith" target="_blank"><i class="fa fa-stack-overflow"></i></a></li>
+        <li><a class="sc-linkedin" href="https://www.linkedin.com/in/micahjsmith" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+        <li><a class="sc-key" href="https://keybase.io/micahjsmith" target="_blank"><i class="fa fa-key"></i></a></li>
+      </ul>
+    </div>
+
+
+  </aside>
+  <main>
+
+
+<article class="single">
+  <header>
+      
+    <h1 id="fixing-vim-invalid-argument-diffopt-iwhite">Fixing invalid argument iwhite on vimdiff</h1>
+    <p>
+          Posted on Thu 07 November 2019 in <a href="https://www.micahsmith.com/category/programming.html">programming</a>
+
+
+    </p>
+  </header>
+
+
+  <div>
+    <p>Vim's diff mode is a lightweight diffing tool that can be used at the command line, in particular with the <code>git diff</code> command. In a <a href="https://www.micahsmith.com/blog/2016/02/vim-diff-dumb-paths">previous post</a>, I wrote about configuring vimdiff as the git difftool for use with Matlab development (yes, way back when I was actually writing Matlab code).</p>
+<p>Recently, I've been getting errors using vimdiff of the following (showing manual invocation rather than through <code>git diff</code>):</p>
+<div class="highlight"><pre><span></span>$ <span class="nv">vimdiff</span>
+<span class="nv">Error</span> <span class="nv">detected</span> <span class="k">while</span> <span class="nv">processing</span> <span class="o">/</span><span class="nv">Users</span><span class="o">/</span><span class="nv">micahsmith</span><span class="o">/</span>.<span class="nv">vimrc</span>:
+<span class="nv">line</span>   <span class="mi">65</span>:
+<span class="nv">E474</span>: <span class="nv">Invalid</span> <span class="nv">argument</span>: <span class="nv">diffopt</span><span class="o">+=</span><span class="nv">iwhite</span>
+<span class="nv">Press</span> <span class="nv">ENTER</span> <span class="nv">or</span> <span class="nv">type</span> <span class="nv">command</span> <span class="nv">to</span> <span class="k">continue</span>
+</pre></div>
+
+
+<p>The corresponding section of my .vimrc file is as follows:</p>
+<div class="highlight"><pre><span></span><span class="s2">&quot;</span><span class="s">Ignore whitespace with vimdiff</span>
+<span class="k">if</span> <span class="o">&amp;</span><span class="nv">diff</span>
+    <span class="nv">set</span> <span class="nv">diffopt</span><span class="o">+=</span><span class="nv">iwhite</span>
+<span class="k">endif</span>
+</pre></div>
+
+
+<p>Had a new version of vim been released that deprecated this <code>diffopt</code> option? No, <code>iwhite</code> still appeared in the manual under <code>:help diffopt</code>. This error was driving me crazy, as when I ran <code>git diff</code> when there were many changed files, this error message would display for me to acknowledge between every file comparison.</p>
+<p>After beating my head against the wall for a while, I finally figured out the issue. Most of my frustration is environment specific, but it does seem like MacOS Catalina bundled a different version of vim that removed support for the <code>iwhite</code> option. I'm not going to dive into it too thoroughly, but if you confirm that Catalina is to blame, let me know in the comments.</p>
+<p>I don't use the system version of vim anyway, instead using <a href="https://macvim-dev.github.io/macvim/">MacVim</a> installed using Homebrew Cask. So why was this causing me problems? I realized that I had been using an alias to invoke MacVim from the terminal but that my alias did not capture invocation of the form <code>vimdiff</code> which used the system <code>vim</code>. Uninstall MacVim and reinstalling it caused it to re-install symlinks including <code>/usr/local/bin/vim</code>, a command that did not exist as such when I originally installed MacVim.</p>
+<h3>Before</h3>
+<ul>
+<li><code>vim</code> aliased to <code>/usr/bin/local/mvim</code> in <code>~/.bashrc</code></li>
+<li><code>git difftool</code> set to <code>vimdiff</code> which pointed to system <code>/usr/bin/vim</code> and was unaffected by <code>vim</code> alias</li>
+<li>upgrade to MacOS Catalina involved upgrade of system <code>vim</code> which dropped support for <code>iwhite</code></li>
+</ul>
+<h3>After</h3>
+<ul>
+<li>re-install MacVim (<code>brew cask zap macvim &amp;&amp; brew cask install macvim</code>) which created a symlink at <code>/usr/local/bin/vim</code></li>
+<li>deleted <code>vim</code> alias in <code>~/.bashrc</code> as <code>/usr/local/bin</code> already higher on my <code>$PATH</code> than <code>/usr/bin</code></li>
+<li><code>git difftool</code> set to <code>vim -d</code> (equivalent to vimdiff but hopefully less likely to cause future path issues)</li>
+</ul><script src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+  </div>
+  <div class="tag-cloud">
+    <p>
+      <a href="https://www.micahsmith.com/tag/vim.html">vim</a>
+      <a href="https://www.micahsmith.com/tag/macos.html">macos</a>
+      <a href="https://www.micahsmith.com/tag/catalina.html">catalina</a>
+    </p>
+  </div>
+
+
+
+
+
+<!-- Disqus -->
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'micahsmith';
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>
+        Please enable JavaScript to view comments.
+
+</noscript>
+<!-- End Disqus -->
+</article>
+
+    <footer>
+<p>&copy; Micah Smith 2018</p>
+<p>    Powered by <a href="http://getpelican.com" target="_blank">Pelican</a> - <a href="https://github.com/alexandrevicenzi/flex" target="_blank">Flex</a> theme by <a href="http://alexandrevicenzi.com" target="_blank">Alexandre Vicenzi</a>
+</p>    </footer>
+  </main>
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " Micah Smith ",
+  "url" : "https://www.micahsmith.com",
+  "image": "/images/micah.jpg",
+  "description": ""
+}
+</script>
+
+</body>
+</html>
