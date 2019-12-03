@@ -101,19 +101,19 @@
   <div>
     <p>Vim's diff mode is a lightweight diffing tool that can be used at the command line, in particular with the <code>git diff</code> command. In a <a href="https://www.micahsmith.com/blog/2016/02/vim-diff-dumb-paths">previous post</a>, I wrote about configuring vimdiff as the git difftool for use with Matlab development (yes, way back when I was actually writing Matlab code).</p>
 <p>Recently, I've been getting errors using vimdiff of the following (showing manual invocation rather than through <code>git diff</code>):</p>
-<div class="highlight"><pre><span></span>$ <span class="nv">vimdiff</span>
-<span class="nv">Error</span> <span class="nv">detected</span> <span class="k">while</span> <span class="nv">processing</span> <span class="o">/</span><span class="nv">Users</span><span class="o">/</span><span class="nv">micahsmith</span><span class="o">/</span>.<span class="nv">vimrc</span>:
-<span class="nv">line</span>   <span class="mi">65</span>:
-<span class="nv">E474</span>: <span class="nv">Invalid</span> <span class="nv">argument</span>: <span class="nv">diffopt</span><span class="o">+=</span><span class="nv">iwhite</span>
-<span class="nv">Press</span> <span class="nv">ENTER</span> <span class="nv">or</span> <span class="nv">type</span> <span class="nv">command</span> <span class="nv">to</span> <span class="k">continue</span>
+<div class="highlight"><pre><span></span>$ vimdiff
+Error detected <span class="k">while</span> processing /Users/micahsmith/.vimrc:
+line   <span class="m">65</span>:
+E474: Invalid argument: <span class="nv">diffopt</span><span class="o">+=</span>iwhite
+Press ENTER or <span class="nb">type</span> <span class="nb">command</span> to <span class="k">continue</span>
 </pre></div>
 
 
 <p>The corresponding section of my .vimrc file is as follows:</p>
-<div class="highlight"><pre><span></span><span class="s2">&quot;</span><span class="s">Ignore whitespace with vimdiff</span>
-<span class="k">if</span> <span class="o">&amp;</span><span class="nv">diff</span>
-    <span class="nv">set</span> <span class="nv">diffopt</span><span class="o">+=</span><span class="nv">iwhite</span>
-<span class="k">endif</span>
+<div class="highlight"><pre><span></span><span class="err">&quot;Ignore whitespace with vimdiff</span>
+<span class="err">if &amp;diff</span>
+<span class="err">    set diffopt+=iwhite</span>
+<span class="err">endif</span>
 </pre></div>
 
 

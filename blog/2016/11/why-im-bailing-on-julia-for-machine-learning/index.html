@@ -129,17 +129,17 @@ couple DIY logistic regression examples.</p>
     for my assignment.</li>
 <li><em>RegERMs.jl</em>: Doesn't even load on Julia 0.5, last commit over a year ago.</li>
 </ul>
-<div class="highlight"><pre><span></span><span class="nv">julia</span><span class="o">&gt;</span> <span class="nv">Pkg</span>.<span class="nv">add</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">RegERMs</span><span class="s2">&quot;</span><span class="ss">)</span>
-<span class="nv">ERROR</span>: <span class="nv">unsatisfiable</span> <span class="nv">package</span> <span class="nv">requirements</span> <span class="nv">detected</span>: <span class="nv">no</span> <span class="nv">feasible</span> <span class="nv">version</span> <span class="nv">could</span> <span class="nv">be</span> <span class="nv">found</span>
-<span class="k">for</span> <span class="nv">package</span>: <span class="nv">Optim</span>
+<div class="highlight"><pre><span></span><span class="err">julia&gt; Pkg.add(&quot;RegERMs&quot;)</span>
+<span class="c">ERROR: unsatisfiable package requirements detected: no feasible version could be found</span>
+<span class="err">for package: Optim</span>
 </pre></div>
 
 
 <ul>
 <li><em>Regression.jl</em>: Doesn't even load on Julia 0.5, last commit over a year ago.</li>
 </ul>
-<div class="highlight"><pre><span></span><span class="n">julia</span><span class="o">&gt;</span> <span class="k">using</span> <span class="n">Regression</span>
-<span class="n">ERROR</span><span class="p">:</span> <span class="n">LoadError</span><span class="p">:</span> <span class="n">LoadError</span><span class="p">:</span> <span class="n">LoadError</span><span class="p">:</span> <span class="n">UndefVarError</span><span class="p">:</span> <span class="n">FloatingPoint</span> <span class="k">not</span> <span class="k">defined</span>
+<div class="highlight"><pre><span></span><span class="err">julia&gt; using Regression</span>
+<span class="c">ERROR: LoadError: LoadError: LoadError: UndefVarError: FloatingPoint not defined</span>
 </pre></div>
 
 
@@ -149,9 +149,9 @@ and there's no mention of "logistic" neither in the documentation nor in the rep
 besides a comment in a test case. (An astute user, of course, may note that <code>LogitLink</code> is
 relevant, and will likely be aware of the features of the popular R package.)</p>
 <p>But it's not too bad to fit a logistic regression model using <em>GLM.jl</em>:</p>
-<div class="highlight"><pre><span></span><span class="k">using</span> <span class="n">GLM</span><span class="p">,</span> <span class="n">DataFrames</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">rand</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="n">y</span> <span class="o">=</span> <span class="n">rand</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="mi">10</span><span class="p">))</span>
-<span class="n">model</span> <span class="o">=</span> <span class="n">fit</span><span class="p">(</span><span class="n">GeneralizedLinearModel</span><span class="p">,</span> <span class="n">y</span> <span class="o">~</span> <span class="n">x</span><span class="p">,</span> <span class="n">df</span><span class="p">,</span> <span class="n">Binomial</span><span class="p">(),</span> <span class="n">LogitLink</span><span class="p">())</span>
+<div class="highlight"><pre><span></span><span class="err">using GLM, DataFrames</span>
+<span class="err">df = DataFrame(x = rand(10,1), y = rand([0,1], 10))</span>
+<span class="err">model = fit(GeneralizedLinearModel, y ~ x, df, Binomial(), LogitLink())</span>
 </pre></div>
 
 
@@ -165,7 +165,7 @@ comes up in results for Julia queries.</p>
 regularization. <em>GLM.jl</em> doesn't provide this functionality and the other seeming possibilities
 were non-functional <em>RegERMs.jl</em>. I was out of luck. I switched to <code>sklearn</code> for the rest of
 the problem.</p>
-<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LogisticRegression</span>
 <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="kp">round</span><span class="p">()</span>

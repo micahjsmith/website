@@ -121,15 +121,15 @@ Here is my code: <span class="k">\url</span><span class="nb">{</span>https://git
 </ul>
 <p>A better approach is to use a service like <a href="https://anonymous.4open.science">Anonymous GitHub</a>, which proxies requests to your live GitHub repository and strips identifying information based on your custom configuration. To use Anonymous GitHub, paste the URL of a GitHub repository and list of terms to anonymize from every file; terms will be replaced with <code>XXX</code>.</p>
 <p>In our case, we want to anonymize the terms <code>Micah Smith</code> and <code>MIT</code>. So we could start with the following term list:</p>
-<div class="highlight"><pre><span></span><span class="n">Micah</span> <span class="n">Smith</span>
-<span class="n">MIT</span>
+<div class="highlight"><pre><span></span><span class="err">Micah Smith</span>
+<span class="err">MIT</span>
 </pre></div>
 
 
 <p>The problem with this is that the linked software has been released under the MIT License, so a reviewer viewing the README or LICENSE would see the license is called <code>XXX License</code> (because it has been anonymized) and conclude that the author is from MIT, breaking the anonymity. Other substring matches could cause issues in similar situations.</p>
 <p>The solution is to take advantage of the (undocumented) full regex matching that Anonymous GitHub will perform. Each line can contain an <a href="https://docs.python.org/3/library/re.html#regular-expression-syntax">arbitrary Python regex</a>. Thus we can match <code>MIT</code> only when it is <em>not</em> followed by the characters <code>License</code> using a <em>negative lookahead</em>:</p>
-<div class="highlight"><pre><span></span><span class="n">Micah</span> <span class="n">Smith</span>
-<span class="n">MIT</span><span class="p">(</span><span class="o">?!</span> <span class="n">License</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><span class="err">Micah Smith</span>
+<span class="err">MIT(?! License)</span>
 </pre></div>
 
 

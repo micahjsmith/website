@@ -122,52 +122,52 @@ solving the problem.</p>
 separately inherit from the top-level <code>object</code>. Immediately, by not using the most basic
 abstractions in object-oriented programming, the author starts running into problems. For
 example, the existing implementations use</p>
-<div class="highlight"><pre><span></span><span class="nv">class</span> <span class="nv">Celsius</span><span class="ss">(</span><span class="nv">object</span><span class="ss">)</span>:
-    <span class="nv">def</span> <span class="nv">__init__</span><span class="ss">(</span><span class="nv">self</span>, <span class="nv">temp</span><span class="ss">)</span>:
-        <span class="nv">super</span><span class="ss">(</span><span class="nv">Celsius</span>, <span class="nv">self</span><span class="ss">)</span>.<span class="nv">__init__</span><span class="ss">()</span>
-        <span class="k">if</span> <span class="nv">type</span><span class="ss">(</span><span class="nv">temp</span><span class="ss">)</span> <span class="o">==</span> <span class="nv">float</span> <span class="nv">or</span> <span class="nv">type</span><span class="ss">(</span><span class="nv">temp</span><span class="ss">)</span> <span class="o">==</span> <span class="nv">int</span>:
-            <span class="nv">self</span>.<span class="nv">value</span> <span class="o">=</span> <span class="nv">temp</span>
-        <span class="k">else</span>:
-            <span class="nv">self</span>.<span class="nv">value</span> <span class="o">=</span> <span class="nv">temp</span>.<span class="nv">to_celsius</span><span class="ss">()</span>.<span class="nv">value</span>
+<div class="highlight"><pre><span></span><span class="k">class</span> <span class="n">Celsius</span>(<span class="n">object</span>):
+    <span class="n">def</span> <span class="n">__init__</span>(<span class="k">self</span>, <span class="k">temp</span>):
+        <span class="n">super</span>(<span class="n">Celsius</span>, <span class="k">self</span>).<span class="n">__init__</span>()
+        <span class="k">if</span> <span class="n">type</span>(<span class="k">temp</span>) == <span class="n">float</span> <span class="o">or</span> <span class="n">type</span>(<span class="k">temp</span>) == <span class="n">int:</span>
+            <span class="k">self</span>.<span class="nb">value</span> = <span class="k">temp</span>
+        <span class="n">else:</span>
+            <span class="k">self</span>.<span class="nb">value</span> = <span class="k">temp</span>.<span class="n">to_celsius</span>().<span class="nb">value</span>
 
-    <span class="nv">def</span> <span class="nv">__repr__</span><span class="ss">(</span><span class="nv">self</span><span class="ss">)</span>:
-        <span class="k">return</span> <span class="s2">&quot;</span><span class="s">Celsius({0})</span><span class="s2">&quot;</span>.<span class="nv">format</span><span class="ss">(</span><span class="nv">self</span>.<span class="nv">value</span><span class="ss">)</span>
+    <span class="n">def</span> <span class="n">__repr__</span>(<span class="k">self</span>):
+        <span class="k">return</span> <span class="s">&quot;Celsius({0})&quot;</span>.<span class="n">format</span>(<span class="k">self</span>.<span class="nb">value</span>)
 
-    # ... <span class="nv">more</span> <span class="nv">stuff</span> ...
+    <span class="c1"># ... more stuff ...</span>
 
-<span class="nv">class</span> <span class="nv">Kelvin</span><span class="ss">(</span><span class="nv">object</span><span class="ss">)</span>:
-    <span class="nv">def</span> <span class="nv">__init__</span><span class="ss">(</span><span class="nv">self</span>, <span class="nv">temp</span><span class="ss">)</span>:
-        <span class="nv">super</span><span class="ss">(</span><span class="nv">Kelvin</span>, <span class="nv">self</span><span class="ss">)</span>.<span class="nv">__init__</span><span class="ss">()</span>
-        <span class="k">if</span> <span class="nv">type</span><span class="ss">(</span><span class="nv">temp</span><span class="ss">)</span> <span class="o">==</span> <span class="nv">float</span> <span class="nv">or</span> <span class="nv">type</span><span class="ss">(</span><span class="nv">temp</span><span class="ss">)</span> <span class="o">==</span> <span class="nv">int</span>:
-            <span class="nv">self</span>.<span class="nv">value</span> <span class="o">=</span> <span class="nv">temp</span>
-        <span class="k">else</span>:
-            <span class="nv">self</span>.<span class="nv">value</span> <span class="o">=</span> <span class="nv">temp</span>.<span class="nv">to_kelvin</span><span class="ss">()</span>.<span class="nv">value</span>
+<span class="k">class</span> <span class="n">Kelvin</span>(<span class="n">object</span>):
+    <span class="n">def</span> <span class="n">__init__</span>(<span class="k">self</span>, <span class="k">temp</span>):
+        <span class="n">super</span>(<span class="n">Kelvin</span>, <span class="k">self</span>).<span class="n">__init__</span>()
+        <span class="k">if</span> <span class="n">type</span>(<span class="k">temp</span>) == <span class="n">float</span> <span class="o">or</span> <span class="n">type</span>(<span class="k">temp</span>) == <span class="n">int:</span>
+            <span class="k">self</span>.<span class="nb">value</span> = <span class="k">temp</span>
+        <span class="n">else:</span>
+            <span class="k">self</span>.<span class="nb">value</span> = <span class="k">temp</span>.<span class="n">to_kelvin</span>().<span class="nb">value</span>
 
-    <span class="nv">def</span> <span class="nv">__repr__</span><span class="ss">(</span><span class="nv">self</span><span class="ss">)</span>:
-        <span class="k">return</span> <span class="s2">&quot;</span><span class="s">Kelvin({0})</span><span class="s2">&quot;</span>.<span class="nv">format</span><span class="ss">(</span><span class="nv">self</span>.<span class="nv">value</span><span class="ss">)</span>
+    <span class="n">def</span> <span class="n">__repr__</span>(<span class="k">self</span>):
+        <span class="k">return</span> <span class="s">&quot;Kelvin({0})&quot;</span>.<span class="n">format</span>(<span class="k">self</span>.<span class="nb">value</span>)
 
-    # ... <span class="nv">more</span> <span class="nv">stuff</span> ...
+    <span class="c1"># ... more stuff ...</span>
 </pre></div>
 
 
 <p>Instead, it is natural to define an abstract parent class, <code>Temperature</code>, which greatly
 simplifies things. In particular, we no longer need to reimplement the constructor and the
 <code>__repr__</code> function for each subclass. </p>
-<div class="highlight"><pre><span></span><span class="nv">class</span> <span class="nv">Temperature</span><span class="ss">(</span><span class="nv">object</span><span class="ss">)</span>:
-    <span class="nv">def</span> <span class="nv">__init__</span><span class="ss">(</span><span class="nv">self</span>, <span class="nv">temp</span><span class="ss">)</span>:
-        <span class="nv">self</span>.<span class="nv">temp</span> <span class="o">=</span> <span class="nv">temp</span>
+<div class="highlight"><pre><span></span><span class="k">class</span> <span class="n">Temperature</span>(<span class="n">object</span>):
+    <span class="n">def</span> <span class="n">__init__</span>(<span class="k">self</span>, <span class="k">temp</span>):
+        <span class="k">self</span>.<span class="k">temp</span> = <span class="k">temp</span>
 
-    <span class="nv">def</span> <span class="nv">__repr__</span><span class="ss">(</span><span class="nv">self</span><span class="ss">)</span>:
-        <span class="k">return</span> <span class="s2">&quot;</span><span class="s">{classname}({value})</span><span class="s2">&quot;</span>.<span class="nv">format</span><span class="ss">(</span>
-            <span class="nv">classname</span><span class="o">=</span><span class="nv">self</span>.<span class="nv">__class__</span>.<span class="nv">__name__</span>,
-            <span class="nv">value</span><span class="o">=</span><span class="nv">self</span>.<span class="nv">value</span>,
-        <span class="ss">)</span>
+    <span class="n">def</span> <span class="n">__repr__</span>(<span class="k">self</span>):
+        <span class="k">return</span> <span class="s">&quot;{classname}({value})&quot;</span>.<span class="n">format</span>(
+            <span class="n">classname</span>=<span class="k">self</span>.<span class="n">__class__</span>.<span class="n">__name__</span>,
+            <span class="nb">value</span>=<span class="k">self</span>.<span class="nb">value</span>,
+        )
 
-<span class="nv">class</span> <span class="nv">Celsius</span><span class="ss">(</span><span class="nv">Temperature</span><span class="ss">)</span>:
-    <span class="nv">pass</span>
+<span class="k">class</span> <span class="n">Celsius</span>(<span class="n">Temperature</span>):
+    <span class="nb">pass</span>
 
-<span class="nv">class</span> <span class="nv">Kelvin</span><span class="ss">(</span><span class="nv">Temperature</span><span class="ss">)</span>:
-    <span class="nv">pass</span>
+<span class="k">class</span> <span class="n">Kelvin</span>(<span class="n">Temperature</span>):
+    <span class="nb">pass</span>
 </pre></div>
 
 
