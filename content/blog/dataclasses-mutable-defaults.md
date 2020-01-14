@@ -62,8 +62,9 @@ whether `d is None`.
 
 ### Dataclasses
 
-Data classes are like named tuples, but better in every way. One feature I recently
-discovered is the ability to use a default factory to avoid this issue.
+[Dataclasses](https://docs.python.org/3/library/dataclasses.html) are like named tuples, but better in every way. One feature I recently
+discovered is the [ability to use a default
+factory](https://docs.python.org/3/library/dataclasses.html#dataclasses.field) to avoid this issue.
 
 ```python
 from dataclasses import dataclass, field
@@ -73,7 +74,7 @@ class Foo:
     d: Dict = field(default_factory=dict)
 ```
 
-With this paradigm, every time a default needs to be supplied for `d`, by factory function
+With this paradigm, every time a default needs to be supplied for `d`, the factory function
 will be called, creating a new dictionary object each time and side-stepping the gotcha.
 Additionally, consumers of `Foo` can always assume that `d` is a dict and simplify their
 code accordingly.
