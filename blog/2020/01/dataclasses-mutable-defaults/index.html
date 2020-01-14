@@ -34,7 +34,7 @@
 
 <meta name="author" content="Micah Smith" />
 <meta name="description" content="One common Python gotcha is the use of mutable objects as defaults for function keyword arguments. There are approximately one billion questions on SO about this or nice discussions elsewhere. I came across a nice feature in Python&#39;s dataclasses library that addresses a similar problem. Mutable defaults are bad As …" />
-<meta name="keywords" content="pythong">
+<meta name="keywords" content="python">
 
 <meta property="og:site_name" content="Micah Smith"/>
 <meta property="og:title" content="Dataclasses and mutable defaults"/>
@@ -46,7 +46,7 @@
 <meta property="article:modified_time" content=""/>
 <meta property="article:author" content="https://www.micahsmith.com/author/micah-smith.html">
 <meta property="article:section" content="programming"/>
-<meta property="article:tag" content="pythong"/>
+<meta property="article:tag" content="python"/>
 <meta property="og:image" content="/images/micah.jpg">
 
   <title>Micah Smith &ndash; Dataclasses and mutable defaults</title>
@@ -146,8 +146,9 @@ it cannot be inferred from the type signatures.</p>
 single underlying object. Instead, set the default to <code>None</code> and require consumers to check
 whether <code>d is None</code>.</p>
 <h3>Dataclasses</h3>
-<p>Data classes are like named tuples, but better in every way. One feature I recently
-discovered is the ability to use a default factory to avoid this issue.</p>
+<p><a href="https://docs.python.org/3/library/dataclasses.html">Dataclasses</a> are like named tuples, but better in every way. One feature I recently
+discovered is the <a href="https://docs.python.org/3/library/dataclasses.html#dataclasses.field">ability to use a default
+factory</a> to avoid this issue.</p>
 <div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">dataclass</span><span class="p">,</span> <span class="n">field</span>
 
 <span class="nd"><a href="https://twitter.com/dataclass">@dataclass</a></span>
@@ -156,14 +157,14 @@ discovered is the ability to use a default factory to avoid this issue.</p>
 </pre></div>
 
 
-<p>With this paradigm, every time a default needs to be supplied for <code>d</code>, by factory function
+<p>With this paradigm, every time a default needs to be supplied for <code>d</code>, the factory function
 will be called, creating a new dictionary object each time and side-stepping the gotcha.
 Additionally, consumers of <code>Foo</code> can always assume that <code>d</code> is a dict and simplify their
 code accordingly.</p><script src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
   </div>
   <div class="tag-cloud">
     <p>
-      <a href="https://www.micahsmith.com/tag/pythong.html">pythong</a>
+      <a href="https://www.micahsmith.com/tag/python.html">python</a>
     </p>
   </div>
 
