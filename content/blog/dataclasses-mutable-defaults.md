@@ -50,10 +50,10 @@ def foo(d=None):
 A similar gotcha is using mutable defaults for named tuples.
 
 ```python
-from typing import Dict, NamedTuple
+from typing import NamedTuple
 
 class Foo(NamedTuple):
-    d: Dict = {}  # no
+    d: dict = {}  # no
 ```
 
 Again, every instance of `Foo` that uses the default value will share a reference to a
@@ -62,16 +62,17 @@ whether `d is None`.
 
 ### Dataclasses
 
-[Dataclasses](https://docs.python.org/3/library/dataclasses.html) are like named tuples, but better in every way. One feature I recently
-discovered is the [ability to use a default
-factory](https://docs.python.org/3/library/dataclasses.html#dataclasses.field) to avoid this issue.
+[Dataclasses](https://docs.python.org/3/library/dataclasses.html) are like named tuples, but
+better in every way. One feature I recently discovered is the [ability to use a default
+factory](https://docs.python.org/3/library/dataclasses.html#default-factory-functions) to
+avoid this issue.
 
 ```python
 from dataclasses import dataclass, field
 
 @dataclass
 class Foo:
-    d: Dict = field(default_factory=dict)
+    d: dict = field(default_factory=dict)
 ```
 
 With this paradigm, every time a default needs to be supplied for `d`, the factory function
