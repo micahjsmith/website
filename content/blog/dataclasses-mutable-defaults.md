@@ -1,7 +1,7 @@
 Title: Dataclasses and mutable defaults
 Date: 2020-01-14 
 Category: programming
-Tags: pythong
+Tags: python
 Slug: dataclasses-mutable-defaults
 Authors: Micah Smith
 
