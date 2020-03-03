@@ -4,6 +4,11 @@ Order: 01
 
 ### Publications
 
+M. Smith, K. Lu, K. Veeramachaneni.
+    "Demonstration of Ballet: A Framework for Open-source Collaborative Feature Engineering."
+    MLSys 2020.
+    <a target="_blank" href="{static}/files/balletdemo_mlsys2020.pdf"><i class="fa fa-file-pdf-o fa-1" aria-hidden="true"></i></a>
+
 __M. Smith__, C. Sala, J.M. Kanter, and K. Veeramachaneni.
     "The Machine Learning Bazaar: Harnessing the ML Ecosystem for Effective System Development."
     arXiv Preprint 1905.08942. 2019.
