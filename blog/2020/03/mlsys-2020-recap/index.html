@@ -1,0 +1,327 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="" />
+
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="https://www.micahsmith.com/theme/stylesheet/style.min.css">
+
+  <link rel="stylesheet" type="text/css" href="https://www.micahsmith.com/theme/pygments/github.min.css">
+  <link rel="stylesheet" type="text/css" href="https://www.micahsmith.com/theme/font-awesome/css/font-awesome.min.css">
+
+    <link href="https://www.micahsmith.com/static/custom.css" rel="stylesheet">
+
+
+
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-57970396-1', 'auto');
+  ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+<meta name="author" content="Micah Smith" />
+<meta name="description" content="This week, I attended the third Conference on Machine Learning and Systems (MLSys) in Austin, TX. It was a great experience and I thought I would record some of my thoughts and observations from attending the conference. Demonstration of Ballet First off, the reason I was attending in the first …" />
+<meta name="keywords" content="machine learning, mlsys">
+
+<meta property="og:site_name" content="Micah Smith"/>
+<meta property="og:title" content="MLSys 2020 Recap"/>
+<meta property="og:description" content="This week, I attended the third Conference on Machine Learning and Systems (MLSys) in Austin, TX. It was a great experience and I thought I would record some of my thoughts and observations from attending the conference. Demonstration of Ballet First off, the reason I was attending in the first …"/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:url" content="https://www.micahsmith.com/blog/2020/03/mlsys-2020-recap"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2020-03-04 00:00:00-05:00"/>
+<meta property="article:modified_time" content=""/>
+<meta property="article:author" content="https://www.micahsmith.com/author/micah-smith.html">
+<meta property="article:section" content="research"/>
+<meta property="article:tag" content="machine learning"/>
+<meta property="article:tag" content="mlsys"/>
+<meta property="og:image" content="/images/micah.jpg">
+
+  <title>Micah Smith &ndash; MLSys 2020 Recap</title>
+
+</head>
+<body>
+  <aside>
+    <div>
+      <a href="https://www.micahsmith.com">
+        <img src="/images/micah.jpg" alt="Micah J. Smith" title="Micah J. Smith">
+      </a>
+      <h1><a href="https://www.micahsmith.com">Micah J. Smith</a></h1>
+
+
+      <nav>
+        <ul class="list">
+          <li><a href="https://www.micahsmith.com/blog">blog</a></li>
+          <li><a href="https://www.micahsmith.com/research">research</a></li>
+          <li><a href="https://www.micahsmith.com/contact">contact</a></li>
+
+        </ul>
+      </nav>
+
+      <ul class="social">
+        <li><a class="sc-twitter" href="https://twitter.com/micahjsmith" target="_blank"><i class="fa fa-twitter"></i></a></li>
+        <li><a class="sc-github" href="https://github.com/micahjsmith" target="_blank"><i class="fa fa-github"></i></a></li>
+        <li><a class="sc-stack-overflow" href="https://stackoverflow.com/users/2514228/micah-smith" target="_blank"><i class="fa fa-stack-overflow"></i></a></li>
+        <li><a class="sc-linkedin" href="https://www.linkedin.com/in/micahjsmith" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+        <li><a class="sc-key" href="https://keybase.io/micahjsmith" target="_blank"><i class="fa fa-key"></i></a></li>
+      </ul>
+    </div>
+
+
+  </aside>
+  <main>
+
+
+<article class="single">
+  <header>
+      
+    <h1 id="mlsys-2020-recap">MLSys 2020 Recap</h1>
+    <p>
+          Posted on Wed 04 March 2020 in <a href="https://www.micahsmith.com/category/research.html">research</a>
+
+
+    </p>
+  </header>
+
+
+  <div>
+    <p>This week, I attended the third Conference on Machine Learning and Systems (MLSys) in
+Austin, TX. It was a great experience and I thought I would record some of my thoughts and
+observations from attending the conference.</p>
+<h3>Demonstration of Ballet</h3>
+<p>First off, the reason I was attending in the first place was to present a demonstration of
+my research project <a href="https://hdi-project.github.io/ballet">Ballet</a>, a framework for
+open-source collaborative feature engineering. I was really excited to share this project
+with the MLSys community, try out a live demo, and get some feedback. As some brief
+background, this project started from the observation that though open-source software
+development is a highly-collaborative discipline supported by mature workflows and tooling,
+data science projects, in contrast, are usually developed by individuals or small co-located
+teams<sup><a href="#myfootnote1">1</a></sup>. What would it take to scale the number of committers to a
+single data science project to the order of one hundred or one thousand?</p>
+<p>The goal is thus to make data science development more like open-source software
+development: collaborative, modular, tested, scalable. In Ballet, we identity feature
+engineering as one process that can be decomposed into modular pieces: the definition of
+individual features. These features can be written in separate Python source files in 10 or
+so lines of code, using our simple API based on declaring inputs from a fixed data frame and
+specifying a scikit-learn style transformer or sequence of transformers. The underlying
+Ballet framework is then responsible for thoroughly validating submitted features and
+collecting individual features from the file system into an executable feature engineering
+pipeline. Though potential contributors to a Ballet project can hack on the repository
+directly using their preferred toolchain, we also facilitate a workflow that meets data
+scientists "where they are" in terms of development environment, allowing repositories to be
+launched using Binder into an interactive Jupyter Lab environment. Data scientists can
+develop features within the notebook and then submit them to the underlying project using
+our Lab extension, which takes care of formatting the selected source code and submitting it
+as a pull request under the hood.</p>
+<p>In the demo, I invited those who came to my booth to join a live feature engineering
+collaboration to predict house prices for a dataset of homes in Ames, Iowa, given
+characteristics about each house. You can see the exact demo
+<a href="https://github.com/HDI-Project/ballet-predict-house-prices">here</a>. </p>
+<p><img src="https://www.micahsmith.com/images/mlsys2020-ballet-demo-booth.jpg" alt="my booth at mlsys" width="300"/></p>
+<p>In my booth above, you can see the two laptops that I lugged from Cambridge as well as the
+20" monitor that cost an eyepopping <span class="math">\(400 to rent from the conference-approved AV vendor.
+Other demonstrators had received quotes of $1200-\)</span>2000 to rent TVs for the three hour
+demonstration session. One group creatively bought a brand new TV from Target nearby and
+were planning on returning it the next day. Even if one bought a new TV and threw it on the
+street afterwards, it would be less expensive than renting it from the conference vendor...</p>
+<p>Luckily, my booth was fairly well-attended. Whether this is related to the fact that my
+booth was right next to the bar and a table of appetizers including fried chicken sliders
+and mini-enchiladas is left as an exercise to the reader. I had some great conversations
+with a bunch of folks and had some people try to contribute to the
+<code>ballet-predict-house-prices</code> project live in the launched Binder repo. Many people were
+interested in my vision of open-source and collaborative data science. But I also found that
+many people had stopped by my booth as they found feature engineering to be a major
+challenge within their organization or within projects they had worked on.</p>
+<p>You can read more short paper on the demonstration
+<a href="https://www.micahsmith.com/files/balletdemo_mlsys2020.pdf">here</a> and I am always happy to chat about this
+project with anyone who is interested, either in person or via <a href="/contact">email</a>.</p>
+<h3>Everything else</h3>
+<p>I really enjoyed the conference, seeing a lot of great research and meeting a bunch of new
+folks in the systems and ML space. Here are a couple of projects that stood out to me:</p>
+<ul>
+<li>
+<p><a href="https://proceedings.mlsys.org/book/301.pdf">MotherNets: Rapid Deep Ensemble Learning</a>, by
+    Abdul Wasay, Brian Hentschel, Yuze Liao, Sanyuan Chen, Stratos Idreos (Harvard).  This
+    paper focuses on training ensembles of deep neural nets. While ensembles are usually
+    great for everything, in the context of deep learning where training costs are already
+    quite high, training an ensemble usually requires a linear increase in training time,
+    which can be prohibitive. Previous research had proposed methods of speeding up this
+    process, such as by creating snapshot ensembles in which after each <span class="math">\(n\)</span> epochs a
+    snapshot of the model is taken and the snapshots are ensembled together after training
+    is completed. The cost to train a snapshot ensemble is the same as the cost to train a
+    single model, and interestingly they still perform better than a single model. However,
+    they are limited to use a single model architecture. The idea behind MotherNets is to
+    allow many model architectures to be used but still speed up training. First, the
+    "mother net" is extracted out of the separate architectures, this is defines as the
+    "greatest common architecture", such that the separate architectures are all strictly
+    expansions of the common architecture. The MotherNet is then trained to convergence, at
+    which point it is used to "hatch" models of the separate architectures. This is done by
+    a function-preserving transformation, an interesting process in which layers are added
+    or expanded and existing weights are changed such that the function computed by the new,
+    expanded model is the same as that of the original model. Then the hatched models are
+    also trained to convergence. The result is that the desired set of architectures can be
+    collectively trained to convergence faster than if they were each trained separately.
+    The authors show that the MotherNets ensemble allows a practitioner to choose from a
+    Pareto frontier of approaches trading off accuracy and training speed.</p>
+</li>
+<li>
+<p><a href="https://proceedings.mlsys.org/book/296.pdf">What is the State of Neural Network Pruning?</a>,
+    by Davis Blalock, Jose Javier Gonzalez Ortiz, Jonathan Frankle, John Guttag (MIT). The
+    authors, fellow grad students at MIT, tried to figure out what was the best method for
+    neural network pruning.  They ended up instead conducting an extremely thorough survey
+    and meta-analysis of 81 pruning methods. They found that while pruning works, it may be
+    better to just use a model architecture that is more efficient in the first place (i.e.
+    use EfficientNet rather than a pruned version of VGGNet). And due to differences and
+    inconsistencies in evaluation methodology, it was impossible to determine the "best"
+    pruning methods. For example, out of the papers they surveyed that claimed to be new
+    SOTA methods, 40% were never compared against by future works.</p>
+</li>
+<li>
+<p><a href="https://proceedings.mlsys.org/book/312.pdf">Riptide: Fast End-to-end Binarized Neural Networks</a>,
+    by Joshua Fromm, Meghan Cowan, Matthai Philipose, Luis Ceze, Shwetak Patel (UW, MSR).
+    Traditionally, weights in a neural network have been represented by 32-bit floating
+    point numbers. To make conventional neural networks faster and more compact, one can
+    instead quantize these weights, even to the point of representing them as single bits.
+    While previous authors have reported theoretical speedups from this technique, no-one
+    had previously actually run anything faster, due to challenges such as missing library
+    support for operations on binarized weights and lack of targeted optimizations. The
+    authors introduce a bunch of techniques that each contribute to the performance of
+    binarized networks, such as bitpack fusion, fused glue operators, tiling, and
+    vectorization. All together, they are able to achieve speedups of 4-12x compared to
+    full-precision implementations of SOTA models at comparable accuracy.</p>
+</li>
+</ul>
+<p>This is just a selection of the great papers that were presented, and I encourage you to
+look through the full proceedings (which are quite manageable in length, unlike other ML
+conferences <em>cough cough</em>) if you are interested.</p>
+<p>The conference was single track and fairly small, at about 450 registrations, but fewer than
+that actually attended, as the coronavirus scare is ongoing and many also have had travel
+restrictions imposed by their organizations. As a result, we all applied hand sanitizer
+regularly, touched elbows instead of shaking hands, and overall got to talk about machine
+learning and systems in a more intimate setting. There was a significant industry presence
+and a lot of the most interesting work is being done in industry, to be sure. I hope to be
+back next year when the conference will be located in the Bay Area.</p>
+<p><a name="myfootnote1">1</a>: By data science project, I mean an end-to-end pipeline that can
+actually make predictions for new data instances. An ML library like Tensorflow is not a
+data science project in this respect.</p>
+<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "center",
+        indent = "0em",
+        linebreak = "false";
+
+    if (false) {
+        align = (screen.width < 768) ? "left" : align;
+        indent = (screen.width < 768) ? "0em" : indent;
+        linebreak = (screen.width < 768) ? 'true' : linebreak;
+    }
+
+    var mathjaxscript = document.createElement('script');
+    var location_protocol = (false) ? 'https' : document.location.protocol;
+    if (location_protocol !== 'http' && location_protocol !== 'https') location_protocol = 'https:';
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = location_protocol + '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' }, Macros: {} }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+</script><script src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+  </div>
+  <div class="tag-cloud">
+    <p>
+      <a href="https://www.micahsmith.com/tag/machine-learning.html">machine learning</a>
+      <a href="https://www.micahsmith.com/tag/mlsys.html">mlsys</a>
+    </p>
+  </div>
+
+
+
+
+
+<!-- Disqus -->
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'micahsmith';
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>
+        Please enable JavaScript to view comments.
+
+</noscript>
+<!-- End Disqus -->
+</article>
+
+    <footer>
+<p>&copy; Micah Smith 2018</p>
+<p>    Powered by <a href="http://getpelican.com" target="_blank">Pelican</a> - <a href="https://github.com/alexandrevicenzi/flex" target="_blank">Flex</a> theme by <a href="http://alexandrevicenzi.com" target="_blank">Alexandre Vicenzi</a>
+</p>    </footer>
+  </main>
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " Micah Smith ",
+  "url" : "https://www.micahsmith.com",
+  "image": "/images/micah.jpg",
+  "description": ""
+}
+</script>
+
+</body>
+</html>
