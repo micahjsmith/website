@@ -4,7 +4,11 @@ Order: 01
 
 ### Publications
 
-M. Smith, K. Lu, K. Veeramachaneni.
+D. Liu,\* __M. Smith\*__, K. Veeramachaneni.
+    "Understanding User-Bot Interactions for Small-Scale Automation in Open-Source Development."
+    CHI 2020.
+
+__M. Smith__, K. Lu, K. Veeramachaneni.
     "Demonstration of Ballet: A Framework for Open-source Collaborative Feature Engineering."
     MLSys 2020.
     <a target="_blank" href="{static}/files/balletdemo_mlsys2020.pdf"><i class="fa fa-file-pdf-o fa-1" aria-hidden="true"></i></a>
