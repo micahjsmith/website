@@ -5,9 +5,9 @@ Tags: machine learning, mlsys
 Slug: mlsys-2020-recap
 Authors: Micah Smith
 
-This week, I attended the third Conference on Machine Learning and Systems (MLSys) in
-Austin, TX. It was a great experience and I thought I would record some of my thoughts and
-observations from attending the conference.
+This week, I attended the third [Conference on Machine Learning and Systems](https://mlsys.org)
+(MLSys) in Austin, TX. It was a great experience and I thought I would record some of my thoughts
+and observations from attending the conference.
 
 ### Demonstration of Ballet
 
@@ -23,14 +23,14 @@ single data science project to the order of one hundred or one thousand?
 
 The goal is thus to make data science development more like open-source software
 development: collaborative, modular, tested, scalable. In Ballet, we identity feature
-engineering as one process that can be decomposed into modular pieces: the definition of
+engineering as one process that can be decomposed into modular pieces: the definitions of
 individual features. These features can be written in separate Python source files in 10 or
 so lines of code, using our simple API based on declaring inputs from a fixed data frame and
 specifying a scikit-learn style transformer or sequence of transformers. The underlying
 Ballet framework is then responsible for thoroughly validating submitted features and
 collecting individual features from the file system into an executable feature engineering
 pipeline. Though potential contributors to a Ballet project can hack on the repository
-directly using their preferred toolchain, we also facilitate a workflow that meets data
+directly using their preferred tooling, we also facilitate a workflow that meets data
 scientists "where they are" in terms of development environment, allowing repositories to be
 launched using Binder into an interactive Jupyter Lab environment. Data scientists can
 develop features within the notebook and then submit them to the underlying project using
@@ -46,7 +46,7 @@ characteristics about each house. You can see the exact demo
 
 In my booth above, you can see the two laptops that I lugged from Cambridge as well as the
 20" monitor that cost an eyepopping $400 to rent from the conference-approved AV vendor.
-Other demonstrators had received quotes of $1200-$2000 to rent TVs for the three hour
+Other demonstrators had received quotes of $1200 - $2000 to rent TVs for the three hour
 demonstration session. One group creatively bought a brand new TV from Target nearby and
 were planning on returning it the next day. Even if one bought a new TV and threw it on the
 street afterwards, it would be less expensive than renting it from the conference vendor...
@@ -105,7 +105,7 @@ folks in the systems and ML space. Here are a couple of projects that stood out 
     SOTA methods, 40% were never compared against by future works.
 
 - [Riptide: Fast End-to-end Binarized Neural Networks](https://proceedings.mlsys.org/book/312.pdf),
-    by Joshua Fromm, Meghan Cowan, Matthai Philipose, Luis Ceze, Shwetak Patel (UW, MSR).
+    by Joshua Fromm, Meghan Cowan, Matthai Philipose, Luis Ceze, Shwetak Patel (UW, OctoML, MSR).
     Traditionally, weights in a neural network have been represented by 32-bit floating
     point numbers. To make conventional neural networks faster and more compact, one can
     instead quantize these weights, even to the point of representing them as single bits.
