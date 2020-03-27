@@ -6,6 +6,8 @@ Tags: vim, macos, catalina
 Slug: fixing-vim-invalid-argument-diffopt-iwhite
 Authors: Micah Smith
 
+[Update from 2020-03-27 below]
+
 Vim's diff mode is a lightweight diffing tool that can be used at the command line, in particular with the `git diff` command. In a [previous post]({filename}/blog/vim-diff-with-plus.md), I wrote about configuring vimdiff as the git difftool for use with Matlab development (yes, way back when I was actually writing Matlab code).
 
 Recently, I've been getting errors using vimdiff of the following (showing manual invocation rather than through `git diff`):
@@ -99,5 +101,3 @@ VIM - Vi IMproved 8.1 (2018 May 18, compiled Dec 13 2019 14:45:40)
 Included patches: 1-503, 505-680, 682-1312
 Compiled by root@apple.com
 ```
-
-Updated on 2020-03-27.
