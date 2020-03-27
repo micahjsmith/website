@@ -1,5 +1,6 @@
 Title: Fixing invalid argument iwhite on vimdiff
 Date: 2019-11-07
+Modified: 2020-03-27
 Category: programming
 Tags: vim, macos, catalina
 Slug: fixing-vim-invalid-argument-diffopt-iwhite
@@ -19,7 +20,7 @@ Press ENTER or type command to continue
 
 The corresponding section of my .vimrc file is as follows:
 
-```vimscript
+```vim
 "Ignore whitespace with vimdiff
 if &diff
     set diffopt+=iwhite
@@ -43,3 +44,60 @@ I don't use the system version of vim anyway, instead using [MacVim](https://mac
 - re-install MacVim (`brew cask zap macvim && brew cask install macvim`) which created a symlink at `/usr/local/bin/vim`
 - deleted `vim` alias in `~/.bashrc` as `/usr/local/bin` already higher on my `$PATH` than `/usr/bin`
 - `git difftool` set to `vim -d` (equivalent to vimdiff but hopefully less likely to cause future path issues)
+
+---
+
+### Update
+
+I dove deeper into the source of the problem on the version of vim provided by MacOS
+Catalina and I was able to identify the problem more clearly and find a solution. First, the
+Catalina vim version did not drop support for iwhite. Rather, the problem is that somehow 
+the default setting which includes `internal` is invalid for the version of vim installed.
+Here is a log demonstrating the issue.
+
+```
+$ /usr/bin/vim -u NONE
+:set diffopt?
+  diffopt=internal,filler
+:set diffopt+=iwhite
+E474: Invalid argument: diffopt+=iwhite
+:set diffopt=internal
+E474: Invalid argument: diffopt=internal
+:set diffopt=filler
+:set diffopt+=iwhite
+:set diffopt?
+  diffopt=filler,iwhite
+```
+
+Summary
+
+- stock vim with no config defaults to `diffopt=internal,filler`
+- stock vim does not actually support the option `internal` (`:help diffopt` is actually
+    accurate in this regard in that it is not shown as an option, though it is listed as the
+    default)
+- running `:set diffopt+=iwhite` semantically does `:set diffopt=internal,filler,iwhite`
+    which contains an invalid option
+- the error message is highly misleading suggesting that the invalid argument is `iwhite`
+    when it is actually `internal`
+
+A quick fix
+
+- first remove `internal` from the list of options
+- then add your desired options
+
+```vim
+if &diff
+    set diffopt-=internal
+    set diffopt+=iwhite
+endif
+```
+
+My version of vim FWIW:
+```
+$ /usr/bin/vim --version
+VIM - Vi IMproved 8.1 (2018 May 18, compiled Dec 13 2019 14:45:40)
+Included patches: 1-503, 505-680, 682-1312
+Compiled by root@apple.com
+```
+
+Updated on 2020-03-27.
