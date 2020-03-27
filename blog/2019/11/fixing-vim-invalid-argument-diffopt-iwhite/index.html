@@ -43,7 +43,7 @@
 <meta property="og:url" content="https://www.micahsmith.com/blog/2019/11/fixing-vim-invalid-argument-diffopt-iwhite"/>
 <meta property="og:type" content="article"/>
 <meta property="article:published_time" content="2019-11-07 00:00:00-05:00"/>
-<meta property="article:modified_time" content=""/>
+<meta property="article:modified_time" content="2020-03-27 00:00:00-04:00"/>
 <meta property="article:author" content="https://www.micahsmith.com/author/micah-smith.html">
 <meta property="article:section" content="programming"/>
 <meta property="article:tag" content="vim"/>
@@ -110,10 +110,10 @@ Press ENTER or <span class="nb">type</span> <span class="nb">command</span> to <
 
 
 <p>The corresponding section of my .vimrc file is as follows:</p>
-<div class="highlight"><pre><span></span><span class="err">&quot;Ignore whitespace with vimdiff</span>
-<span class="err">if &amp;diff</span>
-<span class="err">    set diffopt+=iwhite</span>
-<span class="err">endif</span>
+<div class="highlight"><pre><span></span><span class="c">&quot;Ignore whitespace with vimdiff</span>
+<span class="k">if</span> &amp;<span class="nb">diff</span>
+    <span class="k">set</span> <span class="nb">diffopt</span><span class="p">+=</span>iwhite
+<span class="k">endif</span>
 </pre></div>
 
 
@@ -131,7 +131,60 @@ Press ENTER or <span class="nb">type</span> <span class="nb">command</span> to <
 <li>re-install MacVim (<code>brew cask zap macvim &amp;&amp; brew cask install macvim</code>) which created a symlink at <code>/usr/local/bin/vim</code></li>
 <li>deleted <code>vim</code> alias in <code>~/.bashrc</code> as <code>/usr/local/bin</code> already higher on my <code>$PATH</code> than <code>/usr/bin</code></li>
 <li><code>git difftool</code> set to <code>vim -d</code> (equivalent to vimdiff but hopefully less likely to cause future path issues)</li>
-</ul><script src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+</ul>
+<hr>
+<h3>Update</h3>
+<p>I dove deeper into the source of the problem on the version of vim provided by MacOS
+Catalina and I was able to identify the problem more clearly and find a solution. First, the
+Catalina vim version did not drop support for iwhite. Rather, the problem is that somehow 
+the default setting which includes <code>internal</code> is invalid for the version of vim installed.
+Here is a log demonstrating the issue.</p>
+<div class="highlight"><pre><span></span>$ /usr/bin/vim -u NONE
+:set diffopt?
+  <span class="nv">diffopt</span><span class="o">=</span>internal,filler
+:set <span class="nv">diffopt</span><span class="o">+=</span>iwhite
+E474: Invalid argument: <span class="nv">diffopt</span><span class="o">+=</span>iwhite
+:set <span class="nv">diffopt</span><span class="o">=</span>internal
+E474: Invalid argument: <span class="nv">diffopt</span><span class="o">=</span>internal
+:set <span class="nv">diffopt</span><span class="o">=</span>filler
+:set <span class="nv">diffopt</span><span class="o">+=</span>iwhite
+:set diffopt?
+  <span class="nv">diffopt</span><span class="o">=</span>filler,iwhite
+</pre></div>
+
+
+<p>Summary</p>
+<ul>
+<li>stock vim with no config defaults to <code>diffopt=internal,filler</code></li>
+<li>stock vim does not actually support the option <code>internal</code> (<code>:help diffopt</code> is actually
+    accurate in this regard in that it is not shown as an option, though it is listed as the
+    default)</li>
+<li>running <code>:set diffopt+=iwhite</code> semantically does <code>:set diffopt=internal,filler,iwhite</code>
+    which contains an invalid option</li>
+<li>the error message is highly misleading suggesting that the invalid argument is <code>iwhite</code>
+    when it is actually <code>internal</code></li>
+</ul>
+<p>A quick fix</p>
+<ul>
+<li>first remove <code>internal</code> from the list of options</li>
+<li>then add your desired options</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="k">if</span> &amp;<span class="nb">diff</span>
+    <span class="k">set</span> <span class="nb">diffopt</span><span class="p">-=</span>internal
+    <span class="k">set</span> <span class="nb">diffopt</span><span class="p">+=</span>iwhite
+<span class="k">endif</span>
+</pre></div>
+
+
+<p>My version of vim FWIW:</p>
+<div class="highlight"><pre><span></span>$ /usr/bin/vim --version
+VIM - Vi IMproved <span class="m">8</span>.1 <span class="o">(</span><span class="m">2018</span> May <span class="m">18</span>, compiled Dec <span class="m">13</span> <span class="m">2019</span> <span class="m">14</span>:45:40<span class="o">)</span>
+Included patches: <span class="m">1</span>-503, <span class="m">505</span>-680, <span class="m">682</span>-1312
+Compiled by root@apple.com
+</pre></div>
+
+
+<p>Updated on 2020-03-27.</p><script src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
   </div>
   <div class="tag-cloud">
     <p>
