@@ -1,8 +1,8 @@
 [![][travis-img]][travis-url]
 
-# micahjsmith.github.io
+# website
 
 See <https://www.micahsmith.com>
 
-[travis-img]: https://travis-ci.org/micahjsmith/micahjsmith.github.io.svg?branch=develop
-[travis-url]: https://travis-ci.org/micahjsmith/micahjsmith.github.io
+[travis-img]: https://travis-ci.com/micahjsmith/website.svg?branch=develop
+[travis-url]: https://travis-ci.com/micahjsmith/website
