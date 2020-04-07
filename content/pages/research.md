@@ -4,21 +4,23 @@ Order: 01
 
 ### Publications
 
+__M. Smith__, C. Sala, J.M. Kanter, and K. Veeramachaneni.
+    "The Machine Learning Bazaar: Harnessing the ML Ecosystem for Effective System Development."
+    SIGMOD 2020.
+    <a target="_blank" href="{static}/files/mlbazaar_sigmod20.pdf"><i class="fa fa-file-pdf-o fa-1" aria-hidden="true"></i></a>
+    <a target="_blank" href="{static}/files/smith2020mlbazaar.bib"><i class="fa fa-quote-right fa-1" aria-hidden="true"></i></a>
+    (arXiv Preprint 1905.08942. 2019. <a target="_blank" href="https://arxiv.org/abs/1905.08942"><i class="fa fa-link fa-1"></i></a>)
+
 D. Liu,\* __M. Smith\*__, K. Veeramachaneni.
     "Understanding User-Bot Interactions for Small-Scale Automation in Open-Source Development."
     CHI 2020.
+    <a target="_blank" href="{static}/files/bots_chi2020.pdf"><i class="fa fa-file-pdf-o fa-1" aria-hidden="true"></i></a>
+    <a target="_blank" href="{static}/files/liu2020bots.bib"><i class="fa fa-quote-right fa-1" aria-hidden="true"></i></a>
 
 __M. Smith__, K. Lu, K. Veeramachaneni.
     "Demonstration of Ballet: A Framework for Open-source Collaborative Feature Engineering."
     MLSys 2020.
     <a target="_blank" href="{static}/files/balletdemo_mlsys2020.pdf"><i class="fa fa-file-pdf-o fa-1" aria-hidden="true"></i></a>
-
-__M. Smith__, C. Sala, J.M. Kanter, and K. Veeramachaneni.
-    "The Machine Learning Bazaar: Harnessing the ML Ecosystem for Effective System Development."
-    arXiv Preprint 1905.08942. 2019.
-    <a target="_blank" href="https://arxiv.org/abs/1905.08942"><i class="fa fa-file-pdf-o fa-1"></i></a>
-    <a target="_blank" href="{static}/files/smith2019mlbazaar.bib"><i class="fa fa-quote-right fa-1" aria-hidden="true"></i></a>
-
 
 Q. Wang, Y. Ming, Z. Jin, Q. Shen, D. Liu, __M. Smith__, K. Veeramachaneni, and H.Qu.
     "ATMSeer: Increasing Transparency and Controllability in Automated Machine Learning."
