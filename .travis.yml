@@ -7,7 +7,7 @@ branches:
 install:
   - pip install -r requirements.txt
 script:
-  - make publish
+  - invoke preview
 after_success:
   # https://github.com/alrra/travis-scripts/blob/master/docs/github-deploy-keys.md
   - |
@@ -23,4 +23,4 @@ after_success:
             "  IdentityFile $SSH_FILE" \
             "  LogLevel ERROR" >> ~/.ssh/config
   - git remote set-url origin "git@github.com:${TRAVIS_REPO_SLUG}.git"
-  - make github
+  - invoke gh_pages
