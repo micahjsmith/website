@@ -106,7 +106,8 @@ def publish(c):
     c.run('pelican -s {settings_publish}'.format(**CONFIG))
     c.run(
         'rsync --delete --exclude ".DS_Store" -pthrvz -c '
-        '{} {production}:{dest_path}'.format(
+        '-e "ssh -p {ssh_port}" '
+        '{} {ssh_user}@{ssh_host}:{ssh_path}'.format(
             CONFIG['deploy_path'].rstrip('/') + '/',
             **CONFIG))
 
@@ -114,6 +115,7 @@ def publish(c):
 def gh_pages(c):
     """Publish to GitHub Pages"""
     preview(c)
+    c.run('git fetch origin {github_pages_branch}:{github_pages_branch}'.format(**CONFIG))
     c.run('ghp-import -b {github_pages_branch} '
           '-m {commit_message} '
-          '{deploy_path} -p'.format(**CONFIG))
+          '-p {deploy_path}'.format(**CONFIG))
