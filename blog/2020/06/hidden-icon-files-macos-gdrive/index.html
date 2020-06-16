@@ -1,0 +1,186 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="" />
+
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="https://www.micahsmith.com/theme/stylesheet/style.min.css">
+
+  <link rel="stylesheet" type="text/css" href="https://www.micahsmith.com/theme/pygments/github.min.css">
+  <link rel="stylesheet" type="text/css" href="https://www.micahsmith.com/theme/font-awesome/css/font-awesome.min.css">
+
+    <link href="https://www.micahsmith.com/static/custom.css" rel="stylesheet">
+
+
+
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-57970396-1', 'auto');
+  ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+<meta name="author" content="Micah Smith" />
+<meta name="description" content="For a while I&#39;ve tolerated files named Icon? that appear in my console ls and git status output on macOS as well as in some IDE file trees like in Atom: $ \ls -Al total 696 -rw------- 1 micahsmith staff 179 Nov 12 2019 Experiment Datasets.gsheet -rw-r--r--@ 1 micahsmith staff …" />
+<meta name="keywords" content="macos">
+
+<meta property="og:site_name" content="Micah Smith"/>
+<meta property="og:title" content="Hidden Icon? files on macOS"/>
+<meta property="og:description" content="For a while I&#39;ve tolerated files named Icon? that appear in my console ls and git status output on macOS as well as in some IDE file trees like in Atom: $ \ls -Al total 696 -rw------- 1 micahsmith staff 179 Nov 12 2019 Experiment Datasets.gsheet -rw-r--r--@ 1 micahsmith staff …"/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:url" content="https://www.micahsmith.com/blog/2020/06/hidden-icon-files-macos-gdrive"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2020-06-15 00:00:00-04:00"/>
+<meta property="article:modified_time" content=""/>
+<meta property="article:author" content="https://www.micahsmith.com/author/micah-smith.html">
+<meta property="article:section" content="programming"/>
+<meta property="article:tag" content="macos"/>
+<meta property="og:image" content="/images/micah.jpg">
+
+  <title>Micah Smith &ndash; Hidden Icon? files on macOS</title>
+
+</head>
+<body>
+  <aside>
+    <div>
+      <a href="https://www.micahsmith.com">
+        <img src="/images/micah.jpg" alt="Micah J. Smith" title="Micah J. Smith">
+      </a>
+      <h1><a href="https://www.micahsmith.com">Micah J. Smith</a></h1>
+
+
+      <nav>
+        <ul class="list">
+          <li><a href="https://www.micahsmith.com/blog">blog</a></li>
+          <li><a href="https://www.micahsmith.com/research">research</a></li>
+          <li><a href="https://www.micahsmith.com/contact">contact</a></li>
+
+        </ul>
+      </nav>
+
+      <ul class="social">
+        <li><a class="sc-twitter" href="https://twitter.com/micahjsmith" target="_blank"><i class="fa fa-twitter"></i></a></li>
+        <li><a class="sc-github" href="https://github.com/micahjsmith" target="_blank"><i class="fa fa-github"></i></a></li>
+        <li><a class="sc-stack-overflow" href="https://stackoverflow.com/users/2514228/micah-smith" target="_blank"><i class="fa fa-stack-overflow"></i></a></li>
+        <li><a class="sc-linkedin" href="https://www.linkedin.com/in/micahjsmith" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+        <li><a class="sc-key" href="https://keybase.io/micahjsmith" target="_blank"><i class="fa fa-key"></i></a></li>
+      </ul>
+    </div>
+
+
+  </aside>
+  <main>
+
+
+<article class="single">
+  <header>
+      
+    <h1 id="hidden-icon-files-macos-gdrive">Hidden Icon? files on macOS</h1>
+    <p>
+          Posted on Mon 15 June 2020 in <a href="https://www.micahsmith.com/category/programming.html">programming</a>
+
+
+    </p>
+  </header>
+
+
+  <div>
+    <p>For a while I've tolerated files named <code>Icon?</code> that appear in my console <code>ls</code> and <code>git status</code> output on macOS as well as in some IDE file trees like in Atom:</p>
+<div class="highlight"><pre><span></span>$ \ls -Al
+total 696
+-rw-------  1 micahsmith  staff  179 Nov 12  2019 Experiment Datasets.gsheet
+-rw-r--r--@ 1 micahsmith  staff    0 Nov  2  2018 Icon?
+-rw-------  1 micahsmith  staff  179 Aug 19  2018 test_20180818193120513976.gsheet
+-rw-------  1 micahsmith  staff  179 Nov 12  2019 test_20180818193120513976_v1.gsheet
+</pre></div>
+
+
+<p>Why does the file <code>Icon?</code> appear and what is responsible for creating it? There is a nice discussion I found <a href="https://superuser.com/q/298785">on superuser</a>. The short answer is that in my case, the Google Drive desktop client ("Backup and Sync") for MacOS takes advantage of built-in Finder functionality to use a special icon for folders that are shared in Drive. The file that appears as <code>Icon?</code> <a href="https://superuser.com/a/298798">is actually</a> a "hidden file" with the icon image itself stored in a non-empty "resource fork".</p>
+<p>Though the Superuser answer does not expand on this, the reason the literal carriage return character appears as a <code>?</code> is because the default behavior of <code>ls</code> is equivalent to <code>ls -q</code> which sets:</p>
+<blockquote>
+<p>Force printing of non-graphic characters in file names as the character '?'</p>
+</blockquote>
+<p>I don't care about these details and I appreciate the integration with Drive, Dropbox, etc. with Finder. But I don't want these to show up in my console output.</p>
+<h3>Ignoring <code>Icon?</code> files in <code>git status</code></h3>
+<p>Add to your global gitignore in <code>~/.gitignore</code>:</p>
+<div class="highlight"><pre><span></span>Icon[^M]
+</pre></div>
+
+
+<p>Gitignore uses <a href="https://docs.python.org/3/library/fnmatch.html">fnmatch</a> syntax<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>, so to match a literal carriage return character it can be enclosed within square brackets. To enter the literal carriage return character into Vim, for example, I use <kbd>Ctrl</kbd> <kbd>k</kbd> <kbd>C</kbd> <kbd>R</kbd> (see <code>:help digraphs</code> and  <code>:help digraph-table</code>) which then appears as <code>^M</code>.<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup></p>
+<p>If you entered the literal <code>Icon?</code> into a <code>.gitignore</code> file, it would also hide this file, but only by accident, because the <code>?</code> pattern matches any character, so the pattern would also match <code>Iconz</code> for example.</p>
+<h3>Ignoring <code>Icon?</code> files in <code>ls -A</code></h3>
+<p>I couldn't figure out how to do this easily from <code>man ls</code> by modifying any <code>ls</code> aliases I have. But I decided that I can tolerate this as long as it does not show up in in <code>git status</code> output. Let me know if you figure out a good way to do this!</p>
+<div class="footnote">
+<hr>
+<ol>
+<li id="fn:1">
+<p>this is not the relevant fnmatch library but is a helpful reference&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:2">
+<p>In this code snippet we instead have literal characters <kbd>^</kbd> <kbd>M</kbd>, so copy and pasting will not work.&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div><script src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+  </div>
+  <div class="tag-cloud">
+    <p>
+      <a href="https://www.micahsmith.com/tag/macos.html">macos</a>
+    </p>
+  </div>
+
+
+
+
+
+<!-- Disqus -->
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'micahsmith';
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>
+        Please enable JavaScript to view comments.
+
+</noscript>
+<!-- End Disqus -->
+</article>
+
+    <footer>
+<p>&copy; Micah Smith 2018</p>
+<p>    Powered by <a href="http://getpelican.com" target="_blank">Pelican</a> - <a href="https://github.com/alexandrevicenzi/flex" target="_blank">Flex</a> theme by <a href="http://alexandrevicenzi.com" target="_blank">Alexandre Vicenzi</a>
+</p>    </footer>
+  </main>
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " Micah Smith ",
+  "url" : "https://www.micahsmith.com",
+  "image": "/images/micah.jpg",
+  "description": ""
+}
+</script>
+
+</body>
+</html>
