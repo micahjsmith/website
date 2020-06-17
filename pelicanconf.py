@@ -2,13 +2,15 @@
 # -*- coding: utf-8 -*- #
 from __future__ import unicode_literals
 
+import datetime
+
 AUTHOR = 'Micah Smith'
 SITENAME = 'Micah Smith'
 SITEURL = 'http://localhost:8000'
 SITELOGO = '/images/micah.jpg'
 SITETITLE = 'Micah J. Smith'
 COPYRIGHT_NAME = 'Micah Smith'
-COPYRIGHT_YEAR = 2018
+COPYRIGHT_YEAR = datetime.date.today().year
 TIMEZONE = 'America/New_York'
 DEFAULT_LANG = 'en'
 
