@@ -9,6 +9,7 @@ __M. Smith__, C. Sala, J.M. Kanter, and K. Veeramachaneni.
     SIGMOD 2020.
     <a target="_blank" href="https://doi.org/10.1145/3318464.3386146"><i class="fa fa-link fa-1"></i></a>
     <a target="_blank" href="{static}/files/mlbazaar_sigmod20.pdf"><i class="fa fa-file-pdf-o fa-1" aria-hidden="true"></i></a>
+    <a target="_blank" href="{static}/files/mlbazaar-sigmod-presentation-2020-06-16.pdf"><i class="fa fa-film fa-1" aria-hidden="true"></i></a>
     <a target="_blank" href="{static}/files/smith2020mlbazaar.bib"><i class="fa fa-quote-right fa-1" aria-hidden="true"></i></a>
     (arXiv Preprint 1905.08942. 2019. <a target="_blank" href="https://arxiv.org/abs/1905.08942"><i class="fa fa-link fa-1"></i></a>)
 
