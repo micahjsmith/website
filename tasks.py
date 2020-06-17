@@ -112,7 +112,7 @@ def publish(c):
             **CONFIG))
 
 @task
-def gh_pages(c):
+def github(c):
     """Publish to GitHub Pages"""
     preview(c)
     c.run('git fetch origin {github_pages_branch}:{github_pages_branch}'.format(**CONFIG))
