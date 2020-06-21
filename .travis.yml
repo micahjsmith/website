@@ -5,7 +5,9 @@ branches:
     only:
         - develop
 install:
-  - pip install -r requirements.txt
+  - pip install --upgrade pip
+  - pip install pipenv
+  - pipenv install --system
 script:
   - invoke preview
 after_success:

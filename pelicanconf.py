@@ -40,6 +40,12 @@ PAGE_SAVE_AS = '{slug}/index.html'
 ARTICLE_URL = 'blog/{date:%Y}/{date:%m}/{slug}'
 ARTICLE_SAVE_AS = 'blog/{date:%Y}/{date:%m}/{slug}/index.html'
 
+# drafts
+DRAFT_URL = 'blog/drafts/{slug}'
+DRAFT_SAVE_AS = 'blog/drafts/{slug}/index.html'
+DRAFT_PAGE_URL = 'drafts/{slug}'
+DRAFT_PAGE_SAVE_AS = 'drafts/{slug}/index.html'
+
 # Blogroll
 # LINKS = (('blog', '/blog.html'),)
 
