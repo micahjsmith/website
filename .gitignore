@@ -7,3 +7,5 @@
 *.py[cod]
 *.pid
 output
+
+!Pipfile.lock

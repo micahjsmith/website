@@ -7,7 +7,7 @@ branches:
 install:
   - pip install --upgrade pip
   - pip install pipenv
-  - pipenv install --system
+  - pipenv install --dev --system
 script:
   - invoke preview
 after_success:
