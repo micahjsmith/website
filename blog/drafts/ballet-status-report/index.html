@@ -1,0 +1,299 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="" />
+
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="https://www.micahsmith.com/theme/stylesheet/style.min.css">
+
+  <link rel="stylesheet" type="text/css" href="https://www.micahsmith.com/theme/pygments/github.min.css">
+  <link rel="stylesheet" type="text/css" href="https://www.micahsmith.com/theme/font-awesome/css/font-awesome.min.css">
+
+    <link href="https://www.micahsmith.com/static/custom.css" rel="stylesheet">
+
+
+
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-57970396-1', 'auto');
+  ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+<meta name="author" content="Micah Smith" />
+<meta name="description" content="At MIT, we recently marked the close of one of the most turbulent academic years on record, in which academic and research activities were significantly disrupted by the emergence of the COVID-19 pandemic, which has by now, killed over 400,000 people globally and over 100,000 people in the …" />
+<meta name="keywords" content="ballet, feature engineering, machine learning">
+
+<meta property="og:site_name" content="Micah Smith"/>
+<meta property="og:title" content="Invitation to dance: a status report on the Ballet project"/>
+<meta property="og:description" content="At MIT, we recently marked the close of one of the most turbulent academic years on record, in which academic and research activities were significantly disrupted by the emergence of the COVID-19 pandemic, which has by now, killed over 400,000 people globally and over 100,000 people in the …"/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:url" content="https://www.micahsmith.com/blog/drafts/ballet-status-report"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2020-05-22 00:00:00-04:00"/>
+<meta property="article:modified_time" content=""/>
+<meta property="article:author" content="https://www.micahsmith.com/author/micah-smith.html">
+<meta property="article:section" content="research"/>
+<meta property="article:tag" content="ballet"/>
+<meta property="article:tag" content="feature engineering"/>
+<meta property="article:tag" content="machine learning"/>
+<meta property="og:image" content="/images/micah.jpg">
+
+  <title>Micah Smith &ndash; Invitation to dance: a status report on the Ballet project</title>
+
+</head>
+<body>
+  <aside>
+    <div>
+      <a href="https://www.micahsmith.com">
+        <img src="/images/micah.jpg" alt="Micah J. Smith" title="Micah J. Smith">
+      </a>
+      <h1><a href="https://www.micahsmith.com">Micah J. Smith</a></h1>
+
+
+      <nav>
+        <ul class="list">
+          <li><a href="https://www.micahsmith.com/blog">blog</a></li>
+          <li><a href="https://www.micahsmith.com/research">research</a></li>
+          <li><a href="https://www.micahsmith.com/contact">contact</a></li>
+
+        </ul>
+      </nav>
+
+      <ul class="social">
+        <li><a class="sc-twitter" href="https://twitter.com/micahjsmith" target="_blank"><i class="fa fa-twitter"></i></a></li>
+        <li><a class="sc-github" href="https://github.com/micahjsmith" target="_blank"><i class="fa fa-github"></i></a></li>
+        <li><a class="sc-stack-overflow" href="https://stackoverflow.com/users/2514228/micah-smith" target="_blank"><i class="fa fa-stack-overflow"></i></a></li>
+        <li><a class="sc-linkedin" href="https://www.linkedin.com/in/micahjsmith" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+        <li><a class="sc-key" href="https://keybase.io/micahjsmith" target="_blank"><i class="fa fa-key"></i></a></li>
+      </ul>
+    </div>
+
+
+  </aside>
+  <main>
+
+
+<article class="single">
+  <header>
+      
+    <h1 id="ballet-status-report">Invitation to dance: a status report on the Ballet project</h1>
+    <p>
+          Posted on Fri 22 May 2020 in <a href="https://www.micahsmith.com/category/research.html">research</a>
+
+
+    </p>
+  </header>
+
+
+  <div>
+    <p>At MIT, we recently marked the close of one of the most turbulent academic years on record, in which academic and research activities were significantly disrupted by the emergence of the COVID-19 pandemic, which has by now, killed over 400,000 people globally and over 100,000 people in the US. As neighbors and loved ones got sick, we all asked ourselves the question, "what can I do to help?" For many of my colleagues at MIT, this mean accelerating engineering and design work on <a href="https://project-manus.mit.edu/">personal protective equipment and medical devices</a> or contact tracing apps or vaccines and therapeutics. However the expertise of many others did not lend itself to these direct responses. Instead, a swarm of academic and independent data scientists took to putting their skills to use to try to predict the trajectory of new infections, identify positive cases from chest X-rays, generate heat maps from foot traffic data or satellite imagery, or aggregate signs of pre-symptomatic individuals -- with varying degrees of success and statistical rigor. <!-- TODO links --></p>
+<p><blockquote class="twitter-tweet" align="center"><a href="https://twitter.com/masonporter/status/1273054551583555585">Tweet of masonporter/1273054551583555585</a></blockquote></p>
+<p>What happens when hundreds or thousands of people try to collaborate on similar data science projects in real time? As we found here -- and as we have found in similar prior situations -- the result is a lot of noise. TODO</p>
+<p>I've been following these efforts closely, especially because I've been thinking about some of these exact same issues as part of my PhD research for several years now. The project I've been working on is <em>Ballet</em>, a software framework for collaborative data science. I'm taking this moment to provide a status update on the project and inviting you to learn more about this work.</p>
+<h2>Introduction to Ballet</h2>
+<p>While the open-source model for software development has led to successful, large-scale collaborations in most software projects, it has not been nearly as successful in data science and in particular, predictive/supervised machine learning.<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup></p>
+<p>I am always struck by the order of magnitude differences in the table below. It shows the number of unique contributors to projects in software engineering and data science that I identified as the largest open-source collaborations through extensive research. While there are many reasons for this disparity, I'd like to focus on two of them.</p>
+<table>
+<thead>
+<tr>
+<th>Software engineering</th>
+<th></th>
+<th>Data science</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Linux kernel</td>
+<td>20,000+</td>
+<td>drug-spending</td>
+<td>20</td>
+</tr>
+<tr>
+<td>Ruby on Rails</td>
+<td>3,800+</td>
+<td>police-eis</td>
+<td>19</td>
+</tr>
+<tr>
+<td>kubernetes</td>
+<td>2,200 +</td>
+<td>crash-model</td>
+<td>17</td>
+</tr>
+<tr>
+<td>tensorflow</td>
+<td>2,100+</td>
+<td>food-inspections</td>
+<td>8</td>
+</tr>
+</tbody>
+</table>
+<p>The first is that it is difficult to decompose data science pipelines into small modular patches. Unlike software engineering, where a patch can be applied to introduce a new software feature or fix a bug, its less apparent how to "patch" a data science pipeline to improve its performance. This is especially challenging as many parts of the data science process are usually implemented in end-to-end scripts. Without the ability to apply modular patches, it is difficult or impossible to use version control tools to collaborative on a single project.</p>
+<p>This leads to the second reason, which is that the primary development environment and workflow for data scientists is prototyping and exploration in computational notebooks. I love Jupyter Notebooks, and use them all of the time in my work, but <a href="web.eecs.utk.edu/~azh/pubs/Chattopadhyay2020CHI_NotebookPainpoints.pdf">many writers</a> have <a href="https://dl.acm.org/doi/10.1145/3290605.3300500">pointed out</a> their <a href="https://dl.acm.org/doi/10.1145/3359141">drawbacks</a>: difficulty managing code, sharing code and receiving feedback, replicating results, cleaning up "messes", productionizing models and analyses. And notebooks simply don't fit in traditional software engineering workflows. The telltale sign of this mismatch in a project is a directory named <code>notebooks/</code> containing notebooks each authored by a single person.</p>
+<p>To address these challenges, I've been working on a new way to facilitate collaboration in data science projects. The first part of the approach is based on finding ways to decompose the data science process into modular patches -- standalone units of contribution -- that can be intelligently combined, representing objects like "feature", "labeling function", or "prediction task definition". Prospective contributors work in parallel to write patches and submit them to an open-source repo where our framework provides functionality to identify and merge high-quality contributions and compose the accepted patches into a single product. The second part of the approach is meeting data scientists where they are -- the notebook -- as the primary IDE. After prototyping a new feature, say, within a notebook, using our interface a data scientist can transparently submit the code that defines that feature only as a pull request to the upstream project repo without bothering themselves with any git details.</p>
+<p>In the rest of this post I will go through many of these ideas in an end-to-end example of collaborating on a house price prediction problem.</p>
+<h2>Collaborating on feature engineering for house price prediction</h2>
+<p>Let's take a closer look at these ideas through the case of a collaboration on feature engineering for house price prediction. Here the data is raw characteristics of houses and their selling prices in Ames, IA. This messy, real-world dataset requires significant feature engineering by experts before a usable feature matrix can be input to a learning algorithm.</p>
+<div style="text-align: center;">
+<object type="image/svg+xml" data="https://gh-card.dev/repos/HDI-Project/ballet-predict-house-prices.svg?link_target=_blank"></object>
+</div>
+
+<h3>Completed feature engineering pipeline</h3>
+<p>Let's first imagine the project has already been completed. What is the product that has been made available to the data science community? It is an end-to-end feature engineering pipeline that can be fit on existing house price data and used to extract feature values from unseen house records. The project can be pip-installed by a totally different set of developers, and the feature engineering pipeline can then be inserted into some other ML pipeline.</p>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ballet_predict_house_prices.load_data</span> <span class="kn">import</span> <span class="n">load_data</span>
+<span class="n">X_df_tr</span><span class="p">,</span> <span class="n">y_df_tr</span> <span class="o">=</span> <span class="n">load_data</span><span class="p">(</span><span class="n">input_dir</span><span class="o">=</span><span class="s1">&#39;./data/train&#39;</span><span class="p">)</span>
+<span class="n">X_df_te</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">load_data</span><span class="p">(</span><span class="n">input_dir</span><span class="o">=</span><span class="s1">&#39;./data/test&#39;</span><span class="p">)</span>
+
+<span class="kn">from</span> <span class="nn">ballet_predict_house_prices.features</span> <span class="kn">import</span> <span class="n">build</span>
+<span class="n">mapper</span> <span class="o">=</span> <span class="n">build</span><span class="p">(</span><span class="n">X_df_tr</span><span class="p">,</span> <span class="n">y_df_tr</span><span class="p">)</span><span class="o">.</span><span class="n">mapper_X</span>
+
+<span class="n">mapper</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_df_te</span><span class="p">)</span>
+</pre></div>
+
+
+<h3>One feature at a time</h3>
+<p>Well that's great. We have a robust feature engineering pipeline that can be fit on training data and applied on unseen data instances to extract feature values. Our downstream collaborators can use this as a key input to their modeling process. But how did we build this pipeline in the first place?</p>
+<p>The key here is the insight that feature engineering can be represented as a dataflow graph over individual features. We structure code that extracts a group of feature values as an individual patch, calling these <em>logical features</em>. Individual features are represented as individual Python modules, stored in the git source, and "collected" dynamically by the Ballet framework.</p>
+<p>As one plugin for Ballet, we create a small embedded language for feature engineering. Users are responsible for declaring one or more input columns to their feature and one or more sklearn-style transformers that sequentially operate on these columns. We supplement the many high-quality transformers available in <code>sklearn</code> and elsewhere with feature engineering primitives. This makes it easier to rewrite imperative Pandas code to be modular and robust to unseen data.</p>
+<p>Here's how it looks. The user has requested the <code>Lot Area</code> variable from the raw dataset, which contains noisy measurements of each house's lot area. They propose to first conditionally unskew this variable by taking the log of the lot area if the skew on the training data is greater than some threshold (here at <code>0.75</code>). Then any houses that have missing lot areas are imputed with the mean of the training lot area. (If the imputation were done first, the level of skew in the training data would be artificially less as new observations would be added at the mean.)</p>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ballet</span> <span class="kn">import</span> <span class="n">Feature</span>
+<span class="kn">from</span> <span class="nn">ballet.eng</span> <span class="kn">import</span> <span class="n">ConditionalTransformer</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">sklearn.impute</span> <span class="kn">import</span> <span class="n">SimpleImputer</span>
+
+<span class="nb">input</span> <span class="o">=</span> <span class="s1">&#39;Lot Area&#39;</span>
+<span class="n">transformer</span> <span class="o">=</span> <span class="p">[</span>
+  <span class="n">ConditionalTransformer</span><span class="p">(</span>
+    <span class="k">lambda</span> <span class="n">ser</span><span class="p">:</span> <span class="n">ser</span><span class="o">.</span><span class="n">skew</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mf">0.75</span><span class="p">,</span>
+    <span class="k">lambda</span> <span class="n">ser</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">log1p</span><span class="p">(</span><span class="n">ser</span><span class="p">)),</span>
+  <span class="n">SimpleImputer</span><span class="p">(</span><span class="n">strategy</span><span class="o">=</span><span class="s1">&#39;mean&#39;</span><span class="p">),</span>
+<span class="p">]</span>
+<span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;Lot area unskewed&#39;</span>
+<span class="n">feature</span> <span class="o">=</span> <span class="n">Feature</span><span class="p">(</span><span class="nb">input</span><span class="o">=</span><span class="nb">input</span><span class="p">,</span> <span class="n">transformer</span><span class="o">=</span><span class="n">transformer</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">)</span>
+</pre></div>
+
+
+<p><code>Feature</code> objects can then be composed as part of a <code>FeatureEngineeringPipeline</code>, which in turn provides a transformer API:</p>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ballet.pipeline</span> <span class="kn">import</span> <span class="n">FeatureEngineeringPipeline</span>
+<span class="n">pipeline</span> <span class="o">=</span> <span class="n">FeatureEngineeringPipeline</span><span class="p">([</span><span class="n">feature1</span><span class="p">,</span> <span class="n">feature2</span><span class="p">,</span> <span class="n">feature3</span><span class="p">])</span>
+<span class="n">pipeline</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X_df</span><span class="p">)</span>
+</pre></div>
+
+
+<p>The pipeline extracts feature values more or less as follows (replacing <code>fit_transform</code> with just <code>transform</code> after training).</p>
+<div class="highlight"><pre><span></span><span class="c1"># pseudocode</span>
+<span class="k">for</span> <span class="n">feature</span> <span class="ow">in</span> <span class="n">features</span><span class="p">:</span>
+  <span class="n">x</span> <span class="o">=</span> <span class="n">X_df</span><span class="p">[</span><span class="nb">input</span><span class="p">]</span>
+  <span class="k">for</span> <span class="n">transformer</span> <span class="ow">in</span> <span class="n">feature</span><span class="o">.</span><span class="n">transformer</span><span class="p">:</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">transformer</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+  <span class="k">yield</span> <span class="n">x</span>
+</pre></div>
+
+
+<p>The Ballet <a href="https://hdi-project.github.io/ballet/feature_engineering_guide.html">Feature Engineering Guide</a> provides a more full discussion.</p>
+<p>So a feature engineering pipeline is composed of many individual features. These features are developed independently and in parallel by contributors to the project.</p>
+<h3>Experiment and develop</h3>
+<p>As we discussed above, a development workflow that requires data scientists to clone a repo, set up a virtualenv, work on a new branch, write and run unit tests, and push code to be reviewed, is a relatively high burden compared to their desire to experiment and develop in a notebook environment. We address this by pairing every Ballet project with a cloud Jupyter Lab environment provided by <a href="https://mybinder.org/">Binder</a></p>
+<p><img alt="Launch binder from project repo" src="{files}/images/ballet-status-report/launch_binder.gif"></p>
+<h3>Validate, validate, validate</h3>
+<p>Suppose that a prospective contributor has developed the <code>Lot area unskewed</code> feature shown above and wants to contribute it to the upstream project. Just as in typical software project, new code contributions must be thoroughly evaluated for quality before being accepted, so too must we evaluate contributions of logical features. Here, Ballet identifies analogues for unit testing and integration testing: feature testing and streaming logical feature selection.</p>
+<p><em>Feature testing</em> consists of two steps, a feature API check and a project structure check. Broadly, these ensure that the user-contributed feature provides the proper API and successfully deals with common error situations, such as intermediate computations producing missing or non-numeric values.</p>
+<p><em>Streaming logical feature selection</em> evaluates feature contributions in terms of their impact on machine learning performance. Does the feature engineering pipeline have better predictive performance with or without the proposed feature? TODO</p>
+<h3>Submit where you code</h3>
+<p>TODO</p>
+<h3>Automate as much as possible</h3>
+<p>TODO</p>
+<h2>Conclusion</h2>
+<p>Interested by these ideas? The <a href="https://github.com/HDI-Project/ballet-predict-house-prices">ballet-predict-house-prices</a> project welcomes new collaborators. You can also use Ballet to set up your own collaboration or <a href="https://www.micahsmith.com/contact">get in touch</a> with me directly.</p>
+<h3>notes</h3>
+<p>who is my intended audience?
+=&gt; data scientists who might want to collaborate</p>
+<p>what is my argument?
+=&gt; need to convince them briefly of the benefits of collaboration in open-source and make them curious about why there have not been larger collaborations in the sense that i define. now give a high level idea of the ballet framework by making analogies with software engineering. describe one application of these ideas to feature engineering. introduce the demo for feature engineering in house price prediction. next, what is the best development workflow for this collaboration? identify issues with using low-level git commands, setting up development environment, etc: data scientists prefer to work in notebook environments instead. Bridge this gap by creating an interface that allows contribution to repos directly from a notebook environment. even further, build this on top of mybinder. result is end-to-end data science workflow + ability to contribute done in cloud.</p>
+<p>what is my invitation?
+=&gt; check out the demo project, try to contribute a feature, use the existing pipeline in your own model. leave feedback (how) or even better complete the full survey.</p>
+<h2>begin</h2>
+<p>quick description of ballet</p>
+<p>quick description of ballet-predict-house-prices</p>
+<p>description of</p>
+<h3>Further reading</h3>
+<ul>
+<li><a href="https://www.micahsmith.com/contact">Ask me for a preprint</a> of the full-length paper on Ballet.</li>
+<li><a href="https://hdi-project.github.io/ballet/">Read about the Ballet framework</a>.</li>
+<li>In March, I attended MLSys 2020 where I presented a live demonstration of Ballet. <a href="https://www.micahsmith.com/blog/2020/03/mlsys-2020-recap">Check out my account of the conference</a> or <a href="https://www.micahsmith.com/files/balletdemo_mlsys2020.pdf">read the short paper about my demonstration</a>.</li>
+<li><a href="https://github.com/HDI-Project/ballet-predict-house-prices">Join a collaboration</a> in feature engineering for house price prediction.</li>
+</ul>
+<div class="footnote">
+<hr>
+<ol>
+<li id="fn:1">
+<p>In predictive ML projects, the output of the project is not a software library, but rather a trained model capable of serving predictions for new datapoints.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div><script src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+  </div>
+  <div class="tag-cloud">
+    <p>
+      <a href="https://www.micahsmith.com/tag/ballet.html">ballet</a>
+      <a href="https://www.micahsmith.com/tag/feature-engineering.html">feature engineering</a>
+      <a href="https://www.micahsmith.com/tag/machine-learning.html">machine learning</a>
+    </p>
+  </div>
+
+
+
+
+
+<!-- Disqus -->
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'micahsmith';
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>
+        Please enable JavaScript to view comments.
+
+</noscript>
+<!-- End Disqus -->
+</article>
+
+    <footer>
+<p>&copy; Micah Smith 2020</p>
+<p>    Powered by <a href="http://getpelican.com" target="_blank">Pelican</a> - <a href="https://github.com/alexandrevicenzi/flex" target="_blank">Flex</a> theme by <a href="http://alexandrevicenzi.com" target="_blank">Alexandre Vicenzi</a>
+</p>    </footer>
+  </main>
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " Micah Smith ",
+  "url" : "https://www.micahsmith.com",
+  "image": "/images/micah.jpg",
+  "description": ""
+}
+</script>
+
+</body>
+</html>
