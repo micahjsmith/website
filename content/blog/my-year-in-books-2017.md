@@ -11,7 +11,7 @@ book every two days on her Kindle. And it might seem like very many for my frien
 who read so much from dense textbooks that the thought of reading a lone novel
 strikes them with agony. But it was a good target for me.
 
-@micahjsmith/status/827249777247125504
+t@micahjsmith/status/827249777247125504
 
 I also tweeted after each completed book both as a measure of public accountability and as
 the beginning of conversations. With just a couple days to spare, I've completed my 17th and

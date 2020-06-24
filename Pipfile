@@ -14,4 +14,4 @@ Markdown = "==3.1.1"
 python-oembed = "*"
 
 [requires]
-python_version = ">=3.8"
+python_version = "3.8"
