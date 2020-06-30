@@ -131,7 +131,7 @@ So a feature engineering pipeline is composed of many individual features. These
 
 A development workflow that requires data scientists to clone a repo, set up a virtualenv, work on a new branch, write and run unit tests, and push code to be reviewed, is a relatively high burden compared to their desire to experiment and develop in a notebook environment. To support setting up a development environment, we pair every Ballet project with a Jupyter Lab environment that can be easily built from the repository contents, leveraging [Binder](https://mybinder.org/) to run Lab in the cloud.
 
-![Launch binder from project repo]({files}/images/ballet-status-report/launch_binder.gif)
+![Launch binder from project repo]({static}/images/ballet-status-report/launch_binder.gif)
 
 ### Validate, validate, validate
 
@@ -161,11 +161,19 @@ The second time is when feature submissions have been received by the upstream p
 
 ### Submit where you code
 
-To support contributing code to be reviewed, we create a Lab extension to submit patches of data science code to the upstream repository directly within the Lab interface and transparently to the user. Data scientists can authenticate themselves with GitHub, select a source code cell block from their notebook that defines a new feature, and submit the source code all with one click. Under the hood, the extension forks the repo on behalf of the user, creates a new Python module at the expected location within the package, populate the module with the desired source code, commits the changes, pushes the results to the fork, and creates a new pull request to the upstream repo.
+To support contributing code to be reviewed, we create a Lab extension to submit patches of data science code to the upstream repository directly within the Lab interface and transparently to the user. Data scientists can select the code that defines the new feature they want to submit and submit it from Jupyter Lab with one click.
 
-![Submit feature]({files}/images/ballet-status-report/submit_feature.gif)
+First, they can authenticate themselves with GitHub. This allows the Lab extension to take actions on their behalf, avoiding the need for the data scientist to run any low-level git commands themselves.
 
-The end result is that data scientists develop entirely within the notebook without having to switch tools or refactor their code when they want to "productionize" it.
+![Authenticate with GitHub]({static}/images/ballet-status-report/auth_with_github.gif)
+
+Under the hood, the extension forks the repo on behalf of the user, creates a new Python module at the expected location within the package, populate the module with the desired source code, commits the changes, pushes the results to the fork, and creates a new pull request to the upstream repo.
+
+![Submit feature]({static}/images/ballet-status-report/submit_feature.gif)
+
+The end result is that data scientists develop entirely within the notebook without having to switch tools or refactor their code when they want to "productionize" it. They can view the PR that was created on their behalf but that is not even the main focus of their work.
+
+![View feature]({static}/images/ballet-status-report/view_feature.gif)
 
 ### Automate as much as possible
 
