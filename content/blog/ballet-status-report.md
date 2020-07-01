@@ -23,7 +23,7 @@ There is great potential impact of large-scale, collaborative data science to ad
 
 * In the time of COVID, many data scientists could join together to build an open-source predictive model for new cases in different geographies or easily extend a model to cover their own location, complementing legacy models produced by independent research groups and government agencies.
 
-* The [Fragile Families Challenge](fragilefamilieschallenge.org/) tasks researchers and data scientists with predicting outcomes like GPA and eviction for a set of disadvantaged children, with the goal to yield insights to improve the lives of disadvantaged children in the US. To build a model for the Fragile Families Survey dataset requires trying to understand the 208,000 line codebook.
+* The [Fragile Families Challenge](fragilefamilieschallenge.org/) tasks researchers and data scientists with predicting outcomes like GPA and eviction for a set of disadvantaged children, with the goal to yield insights to improve the lives of disadvantaged children in the US. To build a model for the Fragile Families Survey dataset requires trying to understand the 208,000 line codebook. Other similar survey datasets also contain key insights for social science researchers but have a huge cost in terms of preparing data for analysis and designing features for causal inference or predictive modeling.
 
 * The [crash-model](https://github.com/insight-lane/crash-model) project is an application to predict car crashes and thereby direct safety interventions to the most dangerous intersections and road segments.
 
@@ -52,7 +52,7 @@ To address these challenges, I've been working on a new way to facilitate collab
 
 The first part of the approach is based on finding ways to decompose the data science process into modular patches — standalone units of contribution — that can be intelligently combined, representing objects like "feature", "labeling function", or "prediction task definition". Prospective contributors work in parallel to write patches and submit them to an open-source repo where our framework provides functionality to identify and merge high-quality contributions and compose the accepted patches into a single product.
 
-The second part of the approach is meeting data scientists where they are — the notebook — as the primary IDE. After prototyping a new feature, say, within a notebook, using our interface a data scientist can transparently submit the code that defines that feature only as a pull request to the upstream project repo without bothering themselves with any git details.
+The second part of the approach is meeting data scientists where they are — the notebook — as the primary IDE. After prototyping a new feature, say, within a notebook, using our interface a data scientist can transparently submit the code that defines that feature as a pull request (PR) to the upstream project repo without bothering themselves with any git details.
 
 We instantiate these ideas in [Ballet](https://github.com/HDI-Project/ballet), a software framework for collaborative data science. It initially supports collaborative feature engineering on tabular data, which will be the focus of this post. But keep in mind that this is one instance of the ideas behind Ballet, and that they apply equally to other areas of data science, with a plugin to support data programming for document classification in development.
 
@@ -68,7 +68,7 @@ Let's take a closer look at these ideas through the case of a collaboration on f
 
 ### Completed feature engineering pipeline
 
-Let's first imagine for the purpose of induction that the project has already been completed. What is the product that has been made available to the data science community? It is an end-to-end feature engineering pipeline that can be fit on existing house price data and used to extract feature values from unseen house records. The project can be pip-installed by a totally different set of developers, and the feature engineering pipeline can then be inserted into some other ML pipeline.
+Let's first imagine for the purpose of induction that the project is already underway. What is the product that is being made available to the data science community? It is an end-to-end feature engineering pipeline that can be fit on existing house price data and used to extract feature values from unseen house records. The project can be pip-installed by a totally different set of developers, and the feature engineering pipeline can then be inserted into some other ML pipeline.
 
 ```python
 from ballet_predict_house_prices.load_data import load_data
@@ -80,6 +80,8 @@ mapper = build(X_df_tr, y_df_tr).mapper_X
 
 mapper.transform(X_df_te)
 ```
+
+What is notable about this already is that the feature engineering pipeline itself is exposed as a "mapper" object that provides a fit/transform API. This means that developers can create the pipeline and learn parameters from a training data set, while others can install the pipeline and extract features for their own data. In contrast, in many modeling efforts features are extracted in a single end-to-end script which relies on data already being split into train and test sets and often leaks information from the test set to the feature engineering, such as column means for imputation or knowledge about column skew in the test set.
 
 ### One feature at a time
 
@@ -116,7 +118,7 @@ pipeline = FeatureEngineeringPipeline([feature1, feature2, feature3])
 pipeline.fit_transform(X_df)
 ```
 
-The pipeline extracts feature values more or less as follows (replacing `fit_transform` with just `transform` after training).
+The pipeline extracts feature values more or less as follows (replacing `fit_transform` with just `transform` after training). Under the hood we use a `DataFrameMapper` from the [*sklearn_pandas*](https://github.com/scikit-learn-contrib/sklearn-pandas) project. This is similar to the functionality provided by *sklearn*'s recent [`ColumnTransformer`](https://scikit-learn.org/stable/modules/compose.html#column-transformer), to which we may migrate if *sklearn* reaches feature parity.
 
 ```python
 # pseudocode
@@ -137,11 +139,13 @@ A development workflow that requires data scientists to clone a repo, set up a v
 
 ![Launch binder from project repo]({static}/images/ballet-status-report/launch_binder.gif)
 
+Each Ballet project, like *ballet-predict-house-prices* can be rendered from a provided template using the `ballet quickstart` CLI. The resulting repo is pre-configured for launch within Binder with a Ballet-specific Jupyter Lab extension installed.
+
 ### Validate, validate, validate
 
 Suppose that a prospective contributor has developed the `Lot area unskewed` feature shown above and wants to contribute it to the upstream project. Just as in a typical software project, new code contributions must be thoroughly evaluated for quality before being accepted. What does that mean for evaluating quality of logical features? Here, Ballet identifies analogues for unit testing and integration testing: feature testing and streaming logical feature selection.
 
-*Feature testing* consists of two steps, a feature API check and a project structure check. Broadly, these ensure that the user-contributed feature provides the proper API and successfully deals with common error situations, such as intermediate computations producing missing or non-numeric values.
+*Feature testing* broadly ensures that the user-contributed feature provides the proper API and successfully deals with common error situations, such as intermediate computations producing missing or non-numeric values.
 
 *Streaming logical feature selection* evaluates feature contributions in terms of their impact on machine learning performance as they arrive to the project repo. Does the feature engineering pipeline have better predictive performance with or without the proposed feature? Performance can be measured in several ways and the outcome must be estimated statistically.
 
@@ -165,33 +169,45 @@ The second time is when feature submissions have been received by the upstream p
 
 ### Submit where you code
 
-To support contributing code to be reviewed, we create a Lab extension to submit patches of data science code to the upstream repository directly within the Lab interface and transparently to the user. Data scientists can select the code that defines the new feature they want to submit and submit it from Jupyter Lab with one click.
+To support contributing code to be reviewed, we create a [Jupyter Lab extension](https://github.com/HDI-Project/ballet-submit-labextension) to submit patches of data science code to the upstream repository directly within the Lab interface and transparently to the user. Data scientists can select the code that defines the new feature they want to submit and submit it from Jupyter Lab with one click.
 
 First, they can authenticate themselves with GitHub. This allows the Lab extension to take actions on their behalf, avoiding the need for the data scientist to run any low-level git commands themselves.
 
 ![Authenticate with GitHub]({static}/images/ballet-status-report/auth_with_github.gif)
 
-Under the hood, the extension forks the repo on behalf of the user, creates a new Python module at the expected location within the package, populate the module with the desired source code, commits the changes, pushes the results to the fork, and creates a new pull request to the upstream repo.
+Under the hood, the extension forks the repo on behalf of the user, creates a new Python module at the expected path within the package, populates the module with the desired source code, commits the changes, pushes the results to the fork, and creates a new PR to the upstream repo.
 
 ![Submit feature]({static}/images/ballet-status-report/submit_feature.gif)
 
-The end result is that data scientists develop entirely within the notebook without having to switch tools or refactor their code when they want to "productionize" it. They can view the PR that was created on their behalf but that is not even the main focus of their work.
+The end result is that data scientists develop entirely within the notebook without having to switch tools or refactor their code when they want to "productionize" it. They can even view the PR that was created on their behalf if they want.
 
 ![View feature]({static}/images/ballet-status-report/view_feature.gif)
 
 ### Automate as much as possible
 
-As the project begins to receive submissions of new logical features from contributors, project maintainers have the burden of validating the proposed features and responding to pull requests. As the number of collaborators and features scales up, this burden can become prohibitive to sustainably maintaining an open-source project. It can be especially difficult because just reading the code in a PR may not be enough for a human to validate data science code — a quantitative evaluation is necessary in most cases to ensure the feature values improve the performance of the pipeline.
+As the project begins to receive submissions of new logical features from contributors, project maintainers have the burden of validating the proposed features and responding to PRs. As the number of collaborators and features scales up, this burden can become prohibitive to sustainably maintaining an open-source project. It can be especially difficult because just reading the code in a PR may not be enough for a human to validate data science code — a quantitative evaluation is necessary in most cases to ensure the feature values improve the performance of the pipeline.
 
 The way to support maintainers and ensure the sustainability of the project is to automate as much of project maintenance as possible.
 
 When a new PR is opened, an extended version of the validation tests described above are run by a continuous integration service provider, like Travis CI. In addition to feature testing and streaming logical feature selection, the CI tests also ensure that the PR places the new module at the correct path in the project.
 
-![View test results]({static}/images/ballet-status-report/run_tests.png)
+Here we can see that on a PR to the *ballet-predict-house-prices* project, there are four jobs that are run.
+
+1. The project structure validation job passed, indicating that the user has placed their feature at the correct path within the project (here within `src/ballet_predict_house_prices/features/contrib`) and named their subpackage and module appropriately.
+
+2. The feature API validation job failed, indicating that the feature failed to successfully extract feature values for unseen data. There's not much to dig into here, as this example shows a degenerate feature where no transformer was provided. In other situations, the PR submitter can look into the Travis CI logs to see a detailed accounting of the failures of their feature with opportunities to improve it.
+
+3. The feature acceptance evaluation failed, indicating that the feature (which already was degenerate anyway) failed to improve the performance of the existing feature engineering pipeline. This is one phase of the streaming logical feature selection algorithm used by this Ballet project, the second of which is the pruning evaluation to follow.
+
+4. The feature pruning evaluation succeeded, which isn't super interesting here – the pruning phase of the feature selection algorithm runs only when a feature has been merged to the master branch to determine if it has made any existing features redundant. Here the pruning phase was skipped since it was not run from the master branch and the job succeeded as a result.
+
+<img style="border: 1px solid black;" src="{static}/images/ballet-status-report/run_tests.png" alt="View test results" width="600">
 
 Depending on the CI job results, the maintainer can reasonably expect to either merge or close the PR without any additional changes or discussion required. By default, Ballet supports automatically closing PRs that fail their tests using the "Ballet Bot" that can be installed for free on any Ballet project. Maintainers can even enable Ballet Bot to automatically merge PRs that pass their tests, but this is not enabled by default, because it is feasible that a contributor's code might still introduce errors/bugs into the pipeline.
 
-![Automatically close failing PRs]({static}/images/ballet-status-report/auto_close.png)
+Here we can see the actions taken by the Ballet Bot in response to the failing jobs. The bot closes the PR automatically and explains why it has done so to the user. They have the option of trying to fix the problems with their feature and submitting it again, or moving on to a new idea.
+
+<img style="border: 1px solid black;" src="{static}/images/ballet-status-report/auto_close.png" alt="Automatically close failing PRs" width="600">
 
 ## An invitation
 
