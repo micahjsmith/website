@@ -7,25 +7,27 @@ Authors: Micah Smith
 
 At MIT, we recently marked the close of one of the most turbulent academic years on record, in which academic and research activities were significantly disrupted by the emergence of the COVID-19 pandemic, which has by now, killed well over 400,000 people globally and 100,000 people in the US. As neighbors and loved ones got sick, we all asked ourselves the question, "what can I do to help?" For many of my colleagues at MIT, this meant accelerating engineering and design work on [personal protective equipment and medical devices](https://project-manus.mit.edu/) or contact tracing apps or vaccines and therapeutics.
 
-The expertise of many others did not lend itself to these direct responses. Instead, a swarm of academic and independent data scientists took to putting their skills to use to try to predict the trajectory of new infections, identify positive cases from chest X-rays, generate heat maps from foot traffic data or satellite imagery, or aggregate signs of pre-symptomatic individuals -- with varying degrees of success and statistical rigor. <!-- TODO links -->
+The expertise of many others did not lend itself to these direct responses. Instead, a swarm of academic and independent data scientists took to putting their skills to use to try to predict the trajectory of new infections, identify positive cases from chest X-rays, generate heat maps from foot traffic data or satellite imagery, or aggregate signs of pre-symptomatic individuals — with varying degrees of success and statistical rigor. <!-- TODO links -->
 
 t@masonporter/status/1273054551583555585
 
-What happens when hundreds or thousands of people try to collaborate on similar data science projects at once? Many amazing projects [do emerge](https://github.blog/2020-03-23-open-collaboration-on-covid-19/), especially in terms of the curation of [high-quality datasets](https://github.com/CSSEGISandData/COVID-19) and [exploratory analyses](https://github.com/CoronaWhy). However, as we found here -- and as we have found in similar prior situations -- there is also a lot of noise. For example, in one blog post that went viral, a data scientist claimed to detect COVID-19 cases from chest X-ray imagery with close to 100% accuracy by adapting a pre-trained Resnet model.
+What happens when hundreds or thousands of people try to collaborate on similar data science projects at once? Many amazing projects [do emerge](https://github.blog/2020-03-23-open-collaboration-on-covid-19/), especially in terms of the curation of [high-quality datasets](https://github.com/CSSEGISandData/COVID-19) and [exploratory analyses](https://github.com/CoronaWhy). However, as we found here — and as we have found in similar prior situations em — there is also a lot of noise. For example, in one blog post that went viral, a data scientist claimed to detect COVID-19 cases from chest X-ray imagery with close to 100% accuracy, an absurd claim that actually amounted to adapting a common pre-trained Resnet model and fine tuning on a dataset of only 50 images.
 
 I've been following these efforts closely, especially because I've been thinking about some of these exact same issues as part of my PhD research for several years now. The project I've been working on is *Ballet*, a software framework for collaborative data science. I'm taking this moment to provide a status report on the project. This status report will be most useful to data scientists interested in collaborating more effectively, but will also be interesting for anyone wanting to learn more about this work.
 
 ## Introduction to Ballet
 
-While the open-source model for software development has led to successful, large-scale collaborations in most software projects, it has not been nearly as successful in data science and in particular, predictive/supervised machine learning.[^1] By this, I mean projects where the output of the project is not a software library but a trained model capable of serving predictions for new data instances.
+While the open-source model for software development has led to successful, large-scale collaborations in most software projects, it has not been nearly as successful in data science and in particular, predictive/supervised machine learning.[^1] By this, I mean projects where the output of the project is not a software library but a trained model capable of serving predictions for new data instances. These models are rarely developed in open-source, and when they are, they rarely have more than a handful of collaborators.
 
 There is great potential impact of large-scale, collaborative data science to address societal problems through community-driven analysis of public datasets. I think that we have come nowhere close to the potential of this approach. Here are some examples of how collaborative data science could have an impact:
 
-* In the time of COVID, data scientists could come together to build an open-source predictive model for new cases in different geographies or easily extend a model to cover their own location, complementing legacy models produced by independent research groups and government agencies.
+* In the time of COVID, many data scientists could join together to build an open-source predictive model for new cases in different geographies or easily extend a model to cover their own location, complementing legacy models produced by independent research groups and government agencies.
 
 * The [Fragile Families Challenge](fragilefamilieschallenge.org/) tasks researchers and data scientists with predicting outcomes like GPA and eviction for a set of disadvantaged children, with the goal to yield insights to improve the lives of disadvantaged children in the US. To build a model for the Fragile Families Survey dataset requires trying to understand the 208,000 line codebook.
 
 * The [crash-model](https://github.com/insight-lane/crash-model) project is an application to predict car crashes and thereby direct safety interventions to the most dangerous intersections and road segments.
+
+Collaborative and open-source development gives us the opportunity to move the successes of machine learning beyond predicting click-through rate, recommending engaging content, and recognizing faces, and closer to applications that positively impact the way people live their lives.
 
 The table below shows the number of unique contributors to different projects in software engineering and in data science. These are the projects that I have catalogued as the largest open-source collaborations.[^2] I am always struck by the three orders of magnitude difference across project types. While there are many reasons for this disparity, I'd like to briefly touch on two of them.
 
@@ -42,17 +44,19 @@ The first is that it is difficult to decompose data science pipelines into small
 
 ### Development workflow
 
-This leads to the second reason, which is that the primary development environment and workflow for data scientists is prototyping and exploration in computational notebooks. Unfortunately, notebook-based development workflows don't fit in to traditional software engineering workflows. I love Jupyter Notebooks, and use them all of the time in my work, but [many writers](web.eecs.utk.edu/~azh/pubs/Chattopadhyay2020CHI_NotebookPainpoints.pdf) have [pointed out](https://dl.acm.org/doi/10.1145/3290605.3300500) their [drawbacks](https://dl.acm.org/doi/10.1145/3359141): difficulty managing code, sharing code and receiving feedback, replicating results, cleaning up "messes", productionizing models and analyses. The telltale sign of this mismatch in a project is a directory named something like `notebooks/` containing notebooks each authored by a single person.
+The second is that data scientists are accustomed to working in computational notebooks and have varying mastery of version control tools like git. Unfortunately, notebook-based development workflows don't fit in to traditional software engineering workflows. I love Jupyter Notebooks, and use them all of the time in my work, but [many writers](web.eecs.utk.edu/~azh/pubs/Chattopadhyay2020CHI_NotebookPainpoints.pdf) have [pointed out](https://dl.acm.org/doi/10.1145/3290605.3300500) their [drawbacks](https://dl.acm.org/doi/10.1145/3359141): difficulty managing code, sharing code and receiving feedback, replicating results, cleaning up "messes", productionizing models and analyses. The telltale sign of this mismatch in a project is a directory named something like `notebooks/` containing notebooks each authored by a single person. How can workflows be adapted to use a shared codebase and build a single product?
 
-### Addressing the challenges
+### Towards a solution
 
 To address these challenges, I've been working on a new way to facilitate collaboration in data science projects.
 
-The first part of the approach is based on finding ways to decompose the data science process into modular patches -- standalone units of contribution -- that can be intelligently combined, representing objects like "feature", "labeling function", or "prediction task definition". Prospective contributors work in parallel to write patches and submit them to an open-source repo where our framework provides functionality to identify and merge high-quality contributions and compose the accepted patches into a single product.
+The first part of the approach is based on finding ways to decompose the data science process into modular patches — standalone units of contribution — that can be intelligently combined, representing objects like "feature", "labeling function", or "prediction task definition". Prospective contributors work in parallel to write patches and submit them to an open-source repo where our framework provides functionality to identify and merge high-quality contributions and compose the accepted patches into a single product.
 
-The second part of the approach is meeting data scientists where they are -- the notebook -- as the primary IDE. After prototyping a new feature, say, within a notebook, using our interface a data scientist can transparently submit the code that defines that feature only as a pull request to the upstream project repo without bothering themselves with any git details.
+The second part of the approach is meeting data scientists where they are — the notebook — as the primary IDE. After prototyping a new feature, say, within a notebook, using our interface a data scientist can transparently submit the code that defines that feature only as a pull request to the upstream project repo without bothering themselves with any git details.
 
-In the rest of this post I will go through many of these ideas in an end-to-end example of collaborating on a house price prediction problem. Throughout this example I will be focusing on feature engineering where each patch to the project is a new feature definition. But keep in mind that this is one instance of the ideas behind Ballet, and that they may equally apply to other areas of data science.
+We instantiate these ideas in [Ballet](https://github.com/HDI-Project/ballet), a software framework for collaborative data science. It initially supports collaborative feature engineering on tabular data, which will be the focus of this post. But keep in mind that this is one instance of the ideas behind Ballet, and that they apply equally to other areas of data science, with a plugin to support data programming for document classification in development.
+
+In the rest of this post I will go through many of these ideas in an end-to-end example of collaborating on a house price prediction problem. Throughout this example I will be focusing on feature engineering where each patch to the project is a new feature definition.
 
 ## Collaborating on feature engineering for house price prediction
 
@@ -177,13 +181,17 @@ The end result is that data scientists develop entirely within the notebook with
 
 ### Automate as much as possible
 
-As the project begins to receive submissions of new logical features from contributors, project maintainers have the burden of validating the proposed features and responding to pull requests. As the number of collaborators and features scales up, this burden can become prohibitive to sustainably maintaining an open-source project. It can be especially difficult because just reading the code in a PR may not be enough for a human to validate data science code - a quantitative evaluation is necessary in most cases to ensure the feature values improve the performance of the pipeline.
+As the project begins to receive submissions of new logical features from contributors, project maintainers have the burden of validating the proposed features and responding to pull requests. As the number of collaborators and features scales up, this burden can become prohibitive to sustainably maintaining an open-source project. It can be especially difficult because just reading the code in a PR may not be enough for a human to validate data science code — a quantitative evaluation is necessary in most cases to ensure the feature values improve the performance of the pipeline.
 
 The way to support maintainers and ensure the sustainability of the project is to automate as much of project maintenance as possible.
 
 When a new PR is opened, an extended version of the validation tests described above are run by a continuous integration service provider, like Travis CI. In addition to feature testing and streaming logical feature selection, the CI tests also ensure that the PR places the new module at the correct path in the project.
 
+![View test results]({static}/images/ballet-status-report/run_tests.png)
+
 Depending on the CI job results, the maintainer can reasonably expect to either merge or close the PR without any additional changes or discussion required. By default, Ballet supports automatically closing PRs that fail their tests using the "Ballet Bot" that can be installed for free on any Ballet project. Maintainers can even enable Ballet Bot to automatically merge PRs that pass their tests, but this is not enabled by default, because it is feasible that a contributor's code might still introduce errors/bugs into the pipeline.
+
+![Automatically close failing PRs]({static}/images/ballet-status-report/auto_close.png)
 
 ## An invitation
 
