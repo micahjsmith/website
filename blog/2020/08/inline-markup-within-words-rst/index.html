@@ -1,0 +1,201 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="" />
+
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="https://www.micahsmith.com/theme/stylesheet/style.min.css">
+
+  <link rel="stylesheet" type="text/css" href="https://www.micahsmith.com/theme/pygments/github.min.css">
+  <link rel="stylesheet" type="text/css" href="https://www.micahsmith.com/theme/font-awesome/css/font-awesome.min.css">
+
+    <link href="https://www.micahsmith.com/static/custom.css" rel="stylesheet">
+
+
+
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-57970396-1', 'auto');
+  ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+<meta name="author" content="Micah Smith" />
+<meta name="description" content="I often write documentation with reStructuredText and Sphinx. Sometimes I want to refer to the plural of some programming concept, where the concept is monospace font but the plural form is in the normal font, e.g. lists. While this is easy to do in markdown: `list`s It …" />
+<meta name="keywords" content="rst, docs">
+
+<meta property="og:site_name" content="Micah Smith"/>
+<meta property="og:title" content="Inline markup within words in reStructuredText"/>
+<meta property="og:description" content="I often write documentation with reStructuredText and Sphinx. Sometimes I want to refer to the plural of some programming concept, where the concept is monospace font but the plural form is in the normal font, e.g. lists. While this is easy to do in markdown: `list`s It …"/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:url" content="https://www.micahsmith.com/blog/2020/08/inline-markup-within-words-rst"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2020-08-12 00:00:00-04:00"/>
+<meta property="article:modified_time" content=""/>
+<meta property="article:author" content="https://www.micahsmith.com/author/micah-smith.html">
+<meta property="article:section" content="programming"/>
+<meta property="article:tag" content="rst"/>
+<meta property="article:tag" content="docs"/>
+<meta property="og:image" content="/images/micah.jpg">
+
+  <title>Micah Smith &ndash; Inline markup within words in reStructuredText</title>
+
+</head>
+<body>
+  <aside>
+    <div>
+      <a href="https://www.micahsmith.com">
+        <img src="/images/micah.jpg" alt="Micah J. Smith" title="Micah J. Smith">
+      </a>
+      <h1><a href="https://www.micahsmith.com">Micah J. Smith</a></h1>
+
+
+      <nav>
+        <ul class="list">
+          <li><a href="https://www.micahsmith.com/blog">blog</a></li>
+          <li><a href="https://www.micahsmith.com/research">research</a></li>
+          <li><a href="https://www.micahsmith.com/contact">contact</a></li>
+
+        </ul>
+      </nav>
+
+      <ul class="social">
+        <li><a class="sc-twitter" href="https://twitter.com/micahjsmith" target="_blank"><i class="fa fa-twitter"></i></a></li>
+        <li><a class="sc-github" href="https://github.com/micahjsmith" target="_blank"><i class="fa fa-github"></i></a></li>
+        <li><a class="sc-stack-overflow" href="https://stackoverflow.com/users/2514228/micah-smith" target="_blank"><i class="fa fa-stack-overflow"></i></a></li>
+        <li><a class="sc-linkedin" href="https://www.linkedin.com/in/micahjsmith" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+        <li><a class="sc-key" href="https://keybase.io/micahjsmith" target="_blank"><i class="fa fa-key"></i></a></li>
+      </ul>
+    </div>
+
+
+  </aside>
+  <main>
+
+
+<article class="single">
+  <header>
+      
+    <h1 id="inline-markup-within-words-rst">Inline markup within words in reStructuredText</h1>
+    <p>
+          Posted on Wed 12 August 2020 in <a href="https://www.micahsmith.com/category/programming.html">programming</a>
+
+
+    </p>
+  </header>
+
+
+  <div>
+    <p>I often write documentation with reStructuredText and Sphinx. Sometimes I want to refer to
+the plural of some programming concept, where the concept is monospace font but the plural
+form is in the normal font, e.g. <code>list</code>s.</p>
+<p>While this is easy to do in markdown:</p>
+<div class="highlight"><pre><span></span><span class="ss">`list`</span><span class="n">s</span>
+</pre></div>
+
+
+<p>It is less apparent in rst.</p>
+<table>
+<thead>
+<tr>
+<th>rST markup</th>
+<th>output</th>
+<th>comment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>``list``s</code></td>
+<td>``list``s</td>
+<td>first attempt</td>
+</tr>
+<tr>
+<td><code>``list`` s</code></td>
+<td><code>list</code> s</td>
+<td>note the space after list, even though it's barely noticeable on my own site</td>
+</tr>
+<tr>
+<td><code>``list``\ s</code></td>
+<td><code>list</code>s</td>
+<td>need to escape the space!</td>
+</tr>
+</tbody>
+</table>
+<p><strong>💡 The key is to escape the space after the end-string of the inline markup.</strong></p>
+<p>This applies to italic font, bold font, etc. in addition to the inline literal (monospace)
+blocks.</p>
+<p>The operative part of the spec:</p>
+<blockquote>
+<p>Inline markup start-strings and end-strings are only recognized if the following conditions are met:</p>
+<p>...</p>
+<p>7. Inline markup end-strings must end a text block or be immediately followed by</p>
+<ul>
+<li>whitespace,</li>
+<li>one of the ASCII characters - . , : ; ! ? \ / ' " ) ] } &gt;</li>
+<li>or a similar non-ASCII punctuation character. [14]</li>
+</ul>
+</blockquote>
+<p>Source: <a href="https://docutils.sourceforge.io/docs/ref/rst/restructuredtext.html#inline-markup">https://docutils.sourceforge.io/docs/ref/rst/restructuredtext.html#inline-markup</a></p><script src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+  </div>
+  <div class="tag-cloud">
+    <p>
+      <a href="https://www.micahsmith.com/tag/rst.html">rst</a>
+      <a href="https://www.micahsmith.com/tag/docs.html">docs</a>
+    </p>
+  </div>
+
+
+
+
+
+<!-- Disqus -->
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'micahsmith';
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>
+        Please enable JavaScript to view comments.
+
+</noscript>
+<!-- End Disqus -->
+</article>
+
+    <footer>
+<p>&copy; Micah Smith 2020</p>
+<p>    Powered by <a href="http://getpelican.com" target="_blank">Pelican</a> - <a href="https://github.com/alexandrevicenzi/flex" target="_blank">Flex</a> theme by <a href="http://alexandrevicenzi.com" target="_blank">Alexandre Vicenzi</a>
+</p>    </footer>
+  </main>
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " Micah Smith ",
+  "url" : "https://www.micahsmith.com",
+  "image": "/images/micah.jpg",
+  "description": ""
+}
+</script>
+
+</body>
+</html>
