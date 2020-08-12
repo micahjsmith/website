@@ -40,5 +40,6 @@ The operative part of the spec:
 >    - one of the ASCII characters - . , : ; ! ? \ / ' " ) ] } >
 >    - or a similar non-ASCII punctuation character. [14]
 
+Have you found another way to do this? Let me know in the comments.
 
 Source: <https://docutils.sourceforge.io/docs/ref/rst/restructuredtext.html#inline-markup>
