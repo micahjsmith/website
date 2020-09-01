@@ -23,6 +23,7 @@ __M. Smith__, K. Lu, K. Veeramachaneni.
     "Demonstration of Ballet: A Framework for Open-source Collaborative Feature Engineering."
     MLSys 2020.
     <a target="_blank" href="{static}/files/balletdemo_mlsys2020.pdf"><i class="fa fa-file-pdf-o fa-1" aria-hidden="true"></i></a>
+    <a target="_blank" href="{static}/files/balletdemo_mlsys2020_poster.pdf"><i class="fa fa-television fa-1" aria-hidden="true"></i></a>
 
 Q. Wang, Y. Ming, Z. Jin, Q. Shen, D. Liu, __M. Smith__, K. Veeramachaneni, and H.Qu.
     "ATMSeer: Increasing Transparency and Controllability in Automated Machine Learning."
