@@ -76,3 +76,8 @@ EXTRA_PATH_METADATA = {
     'extra/CNAME': { 'path' : 'CNAME' },
     'extra/custom.css': {'path': 'static/custom.css'},
 }
+
+# Flex
+
+THEME_COLOR_AUTO_DETECT_BROWSER_PREFERENCE = True
+THEME_COLOR_ENABLE_USER_OVERRIDE = True
