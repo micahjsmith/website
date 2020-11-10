@@ -8,12 +8,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="robots" content="" />
 
-  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,400;0,700;1,400&family=Source+Sans+Pro:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" type="text/css" href="https://www.micahsmith.com/theme/stylesheet/style.min.css">
 
-  <link rel="stylesheet" type="text/css" href="https://www.micahsmith.com/theme/pygments/github.min.css">
-  <link rel="stylesheet" type="text/css" href="https://www.micahsmith.com/theme/font-awesome/css/font-awesome.min.css">
+    <link id="dark-theme-style" rel="stylesheet" type="text/css"
+          media="(prefers-color-scheme: dark)"
+    href="https://www.micahsmith.com/theme/stylesheet/dark-theme.min.css">
+
+    <link id="pygments-dark-theme" rel="stylesheet" type="text/css"
+              media="(prefers-color-scheme: dark)"
+          href="https://www.micahsmith.com/theme/pygments/monokai.min.css">
+    <link id="pygments-light-theme" rel="stylesheet" type="text/css"
+              media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
+          href="https://www.micahsmith.com/theme/pygments/github.min.css">
+
+
+  <link rel="stylesheet" type="text/css" href="https://www.micahsmith.com/theme/font-awesome/css/fontawesome.css">
+  <link rel="stylesheet" type="text/css" href="https://www.micahsmith.com/theme/font-awesome/css/brands.css">
+  <link rel="stylesheet" type="text/css" href="https://www.micahsmith.com/theme/font-awesome/css/solid.css">
 
     <link href="https://www.micahsmith.com/static/custom.css" rel="stylesheet">
 
@@ -42,37 +55,71 @@
 <meta property="og:url" content="https://www.micahsmith.com"/>
 <meta property="og:image" content="/images/micah.jpg">
 
-  <title>Micah Smith &ndash;     Category programming
-</title>
+  <title>Micah Smith &ndash; Category programming</title>
 
 </head>
-<body>
+<body >
   <aside>
     <div>
       <a href="https://www.micahsmith.com">
         <img src="/images/micah.jpg" alt="Micah J. Smith" title="Micah J. Smith">
       </a>
-      <h1><a href="https://www.micahsmith.com">Micah J. Smith</a></h1>
+
+      <h1>
+        <a href="https://www.micahsmith.com">Micah J. Smith</a>
+      </h1>
+
 
 
       <nav>
         <ul class="list">
+
           <li><a href="https://www.micahsmith.com/blog">blog</a></li>
-          <li><a href="https://www.micahsmith.com/research">research</a></li>
-          <li><a href="https://www.micahsmith.com/contact">contact</a></li>
+
+              <li>
+                <a target="_self"
+                   href="https://www.micahsmith.com/research">
+                  research
+                </a>
+              </li>
+              <li>
+                <a target="_self"
+                   href="https://www.micahsmith.com/contact">
+                  contact
+                </a>
+              </li>
 
         </ul>
       </nav>
 
       <ul class="social">
-        <li><a class="sc-twitter" href="https://twitter.com/micahjsmith" target="_blank"><i class="fa fa-twitter"></i></a></li>
-        <li><a class="sc-github" href="https://github.com/micahjsmith" target="_blank"><i class="fa fa-github"></i></a></li>
-        <li><a class="sc-stack-overflow" href="https://stackoverflow.com/users/2514228/micah-smith" target="_blank"><i class="fa fa-stack-overflow"></i></a></li>
-        <li><a class="sc-linkedin" href="https://www.linkedin.com/in/micahjsmith" target="_blank"><i class="fa fa-linkedin"></i></a></li>
-        <li><a class="sc-key" href="https://keybase.io/micahjsmith" target="_blank"><i class="fa fa-key"></i></a></li>
+          <li>
+            <a  class="sc-twitter" href="https://twitter.com/micahjsmith" target="_blank">
+              <i class="fab fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a  class="sc-github" href="https://github.com/micahjsmith" target="_blank">
+              <i class="fab fa-github"></i>
+            </a>
+          </li>
+          <li>
+            <a  class="sc-stack-overflow" href="https://stackoverflow.com/users/2514228/micah-smith" target="_blank">
+              <i class="fab fa-stack-overflow"></i>
+            </a>
+          </li>
+          <li>
+            <a  class="sc-linkedin" href="https://www.linkedin.com/in/micahjsmith" target="_blank">
+              <i class="fab fa-linkedin"></i>
+            </a>
+          </li>
+          <li>
+            <a  class="sc-key" href="https://keybase.io/micahjsmith" target="_blank">
+              <i class="fa fa-key"></i>
+            </a>
+          </li>
       </ul>
     </div>
-
 
   </aside>
   <main>
@@ -84,11 +131,9 @@
   <header>
     <h2><a href="https://www.micahsmith.com/blog/2020/08/inline-markup-within-words-rst">Inline markup within words in reStructuredText</a></h2>
     <p>
-          Posted on Wed 12 August 2020 in <a href="https://www.micahsmith.com/category/programming.html">programming</a>
+      Posted on Wed 12 August 2020 in <a href="https://www.micahsmith.com/category/programming.html">programming</a>
 
-
-          &#8226;     Tagged with
-
+          &#8226; Tagged with
               <a href="https://www.micahsmith.com/tag/rst.html">rst</a>,              <a href="https://www.micahsmith.com/tag/docs.html">docs</a>
     </p>
   </header>
@@ -102,9 +147,11 @@ form is in the normal font, e.g. <code>list</code>s.</p>
 
 
 <p>It …</p>
-      <br>
-      <a class="btn" href="https://www.micahsmith.com/blog/2020/08/inline-markup-within-words-rst">    Continue reading
-</a>
+        <br>
+        <a class="btn"
+           href="https://www.micahsmith.com/blog/2020/08/inline-markup-within-words-rst">
+          Continue reading
+        </a>
   </div>
   <hr />
 </article>
@@ -112,11 +159,9 @@ form is in the normal font, e.g. <code>list</code>s.</p>
   <header>
     <h2><a href="https://www.micahsmith.com/blog/2020/06/hidden-icon-files-macos-gdrive">Hidden Icon? files on macOS</a></h2>
     <p>
-          Posted on Mon 15 June 2020 in <a href="https://www.micahsmith.com/category/programming.html">programming</a>
+      Posted on Mon 15 June 2020 in <a href="https://www.micahsmith.com/category/programming.html">programming</a>
 
-
-          &#8226;     Tagged with
-
+          &#8226; Tagged with
               <a href="https://www.micahsmith.com/tag/macos.html">macos</a>
     </p>
   </header>
@@ -126,9 +171,11 @@ form is in the normal font, e.g. <code>list</code>s.</p>
 total 696
 -rw-------  1 micahsmith  staff  179 Nov 12  2019 Experiment Datasets.gsheet
 -rw-r--r--@ 1 micahsmith  staff …</pre></div>
-      <br>
-      <a class="btn" href="https://www.micahsmith.com/blog/2020/06/hidden-icon-files-macos-gdrive">    Continue reading
-</a>
+        <br>
+        <a class="btn"
+           href="https://www.micahsmith.com/blog/2020/06/hidden-icon-files-macos-gdrive">
+          Continue reading
+        </a>
   </div>
   <hr />
 </article>
@@ -136,11 +183,9 @@ total 696
   <header>
     <h2><a href="https://www.micahsmith.com/blog/2020/01/dataclasses-mutable-defaults">Dataclasses and mutable defaults</a></h2>
     <p>
-          Posted on Tue 14 January 2020 in <a href="https://www.micahsmith.com/category/programming.html">programming</a>
+      Posted on Tue 14 January 2020 in <a href="https://www.micahsmith.com/category/programming.html">programming</a>
 
-
-          &#8226;     Tagged with
-
+          &#8226; Tagged with
               <a href="https://www.micahsmith.com/tag/python.html">python</a>
     </p>
   </header>
@@ -152,9 +197,11 @@ elsewhere. I came across a nice feature in Python's dataclasses library that add
 similar problem.</p>
 <h3>Mutable defaults are bad</h3>
 <p>As …</p>
-      <br>
-      <a class="btn" href="https://www.micahsmith.com/blog/2020/01/dataclasses-mutable-defaults">    Continue reading
-</a>
+        <br>
+        <a class="btn"
+           href="https://www.micahsmith.com/blog/2020/01/dataclasses-mutable-defaults">
+          Continue reading
+        </a>
   </div>
   <hr />
 </article>
@@ -162,20 +209,20 @@ similar problem.</p>
   <header>
     <h2><a href="https://www.micahsmith.com/blog/2019/11/fixing-vim-invalid-argument-diffopt-iwhite">Fixing invalid argument iwhite on vimdiff</a></h2>
     <p>
-          Posted on Thu 07 November 2019 in <a href="https://www.micahsmith.com/category/programming.html">programming</a>
+      Posted on Thu 07 November 2019 in <a href="https://www.micahsmith.com/category/programming.html">programming</a>
 
-
-          &#8226;     Tagged with
-
+          &#8226; Tagged with
               <a href="https://www.micahsmith.com/tag/vim.html">vim</a>,              <a href="https://www.micahsmith.com/tag/macos.html">macos</a>,              <a href="https://www.micahsmith.com/tag/catalina.html">catalina</a>
     </p>
   </header>
   <div>
       <p>[Update from 2020-03-27 below]</p>
 <p>Vim's diff mode is a lightweight diffing tool that can be used at the command line, in particular with the <code>git diff</code> command. In a <a href="https://www.micahsmith.com/blog/2016/02/vim-diff-dumb-paths">previous post</a>, I wrote about configuring vimdiff as the git difftool for use with Matlab development (yes, way back when I …</p>
-      <br>
-      <a class="btn" href="https://www.micahsmith.com/blog/2019/11/fixing-vim-invalid-argument-diffopt-iwhite">    Continue reading
-</a>
+        <br>
+        <a class="btn"
+           href="https://www.micahsmith.com/blog/2019/11/fixing-vim-invalid-argument-diffopt-iwhite">
+          Continue reading
+        </a>
   </div>
   <hr />
 </article>
@@ -183,11 +230,9 @@ similar problem.</p>
   <header>
     <h2><a href="https://www.micahsmith.com/blog/2019/09/find-ports-in-use-on-macos">Find ports in use on macOS</a></h2>
     <p>
-          Posted on Mon 16 September 2019 in <a href="https://www.micahsmith.com/category/programming.html">programming</a>
+      Posted on Mon 16 September 2019 in <a href="https://www.micahsmith.com/category/programming.html">programming</a>
 
-
-          &#8226;     Tagged with
-
+          &#8226; Tagged with
               <a href="https://www.micahsmith.com/tag/macos.html">macos</a>,              <a href="https://www.micahsmith.com/tag/shell.html">shell</a>
     </p>
   </header>
@@ -198,9 +243,11 @@ similar problem.</p>
 
 
 <p>This is helpful if you are trying to figure out which process is using a port so that you can kill that process — for example, if you have a web server …</p>
-      <br>
-      <a class="btn" href="https://www.micahsmith.com/blog/2019/09/find-ports-in-use-on-macos">    Continue reading
-</a>
+        <br>
+        <a class="btn"
+           href="https://www.micahsmith.com/blog/2019/09/find-ports-in-use-on-macos">
+          Continue reading
+        </a>
   </div>
   <hr />
 </article>
@@ -208,11 +255,9 @@ similar problem.</p>
   <header>
     <h2><a href="https://www.micahsmith.com/blog/2019/09/trim-figure-in-latex">Trim graphics in LaTeX</a></h2>
     <p>
-          Posted on Fri 13 September 2019 in <a href="https://www.micahsmith.com/category/programming.html">programming</a>
+      Posted on Fri 13 September 2019 in <a href="https://www.micahsmith.com/category/programming.html">programming</a>
 
-
-          &#8226;     Tagged with
-
+          &#8226; Tagged with
               <a href="https://www.micahsmith.com/tag/latex.html">latex</a>
     </p>
   </header>
@@ -225,9 +270,11 @@ similar problem.</p>
 
 
 <p><code>fbox</code> is a black box around the float content so you …</p>
-      <br>
-      <a class="btn" href="https://www.micahsmith.com/blog/2019/09/trim-figure-in-latex">    Continue reading
-</a>
+        <br>
+        <a class="btn"
+           href="https://www.micahsmith.com/blog/2019/09/trim-figure-in-latex">
+          Continue reading
+        </a>
   </div>
   <hr />
 </article>
@@ -235,11 +282,9 @@ similar problem.</p>
   <header>
     <h2><a href="https://www.micahsmith.com/blog/2019/09/using-autoreload-in-ipython">Using autoreload in IPython</a></h2>
     <p>
-          Posted on Fri 13 September 2019 in <a href="https://www.micahsmith.com/category/programming.html">programming</a>
+      Posted on Fri 13 September 2019 in <a href="https://www.micahsmith.com/category/programming.html">programming</a>
 
-
-          &#8226;     Tagged with
-
+          &#8226; Tagged with
               <a href="https://www.micahsmith.com/tag/python.html">python</a>,              <a href="https://www.micahsmith.com/tag/ipython.html">ipython</a>,              <a href="https://www.micahsmith.com/tag/jupyter.html">jupyter</a>
     </p>
   </header>
@@ -258,9 +303,11 @@ similar problem.</p>
 <li>2 -&gt; reload everything</li>
 </ul>
 <p>The easiest usage of autoreload is to not <code>aimport</code> anything and set <code>%autoreload 2</code>, which causes the extension to …</p>
-      <br>
-      <a class="btn" href="https://www.micahsmith.com/blog/2019/09/using-autoreload-in-ipython">    Continue reading
-</a>
+        <br>
+        <a class="btn"
+           href="https://www.micahsmith.com/blog/2019/09/using-autoreload-in-ipython">
+          Continue reading
+        </a>
   </div>
   <hr />
 </article>
@@ -268,11 +315,9 @@ similar problem.</p>
   <header>
     <h2><a href="https://www.micahsmith.com/blog/2017/02/you-need-a-doorbell">You need a doorbell</a></h2>
     <p>
-          Posted on Fri 03 February 2017 in <a href="https://www.micahsmith.com/category/programming.html">programming</a>
+      Posted on Fri 03 February 2017 in <a href="https://www.micahsmith.com/category/programming.html">programming</a>
 
-
-          &#8226;     Tagged with
-
+          &#8226; Tagged with
               <a href="https://www.micahsmith.com/tag/life.html">life</a>,              <a href="https://www.micahsmith.com/tag/programming.html">programming</a>,              <a href="https://www.micahsmith.com/tag/python.html">python</a>,              <a href="https://www.micahsmith.com/tag/twilio.html">twilio</a>,              <a href="https://www.micahsmith.com/tag/flask.html">flask</a>
     </p>
   </header>
@@ -281,9 +326,11 @@ similar problem.</p>
 <p>I live in a graduate residence that doesn't have a buzzer system. To be granted access, my
 guests have to text/call me directly and I have to walk downstairs to let them in. Though
 this …</p>
-      <br>
-      <a class="btn" href="https://www.micahsmith.com/blog/2017/02/you-need-a-doorbell">    Continue reading
-</a>
+        <br>
+        <a class="btn"
+           href="https://www.micahsmith.com/blog/2017/02/you-need-a-doorbell">
+          Continue reading
+        </a>
   </div>
   <hr />
 </article>
@@ -291,11 +338,9 @@ this …</p>
   <header>
     <h2><a href="https://www.micahsmith.com/blog/2016/11/why-im-bailing-on-julia-for-machine-learning">Why I'm bailing on Julia for machine learning</a></h2>
     <p>
-          Posted on Fri 04 November 2016 in <a href="https://www.micahsmith.com/category/programming.html">programming</a>
+      Posted on Fri 04 November 2016 in <a href="https://www.micahsmith.com/category/programming.html">programming</a>
 
-
-          &#8226;     Tagged with
-
+          &#8226; Tagged with
               <a href="https://www.micahsmith.com/tag/julia.html">julia</a>,              <a href="https://www.micahsmith.com/tag/python.html">python</a>,              <a href="https://www.micahsmith.com/tag/ml.html">ml</a>
     </p>
   </header>
@@ -305,19 +350,29 @@ this …</p>
 <p>I'm taking graduate machine learning (6.867) this semester at MIT. There are three homework
 assignments in the course that are structured as mini-projects, in which students
 implement canonical algorithms from scratch …</p>
-      <br>
-      <a class="btn" href="https://www.micahsmith.com/blog/2016/11/why-im-bailing-on-julia-for-machine-learning">    Continue reading
-</a>
+        <br>
+        <a class="btn"
+           href="https://www.micahsmith.com/blog/2016/11/why-im-bailing-on-julia-for-machine-learning">
+          Continue reading
+        </a>
   </div>
 </article>
 
 
 
 
-
     <footer>
-<p>&copy; Micah Smith 2020</p>
-<p>    Powered by <a href="http://getpelican.com" target="_blank">Pelican</a> - <a href="https://github.com/alexandrevicenzi/flex" target="_blank">Flex</a> theme by <a href="http://alexandrevicenzi.com" target="_blank">Alexandre Vicenzi</a>
+<p>&copy; 2020 Micah Smith</p>
+<p>
+Built with <a href="http://getpelican.com" target="_blank">Pelican</a> using <a href="http://bit.ly/flex-pelican" target="_blank">Flex</a> theme
+  <span class="footer-separator">|</span>
+  Switch to the <a href="javascript:void(0)" onclick="theme.switch(`dark`)">dark</a> | <a href="javascript:void(0)" onclick="theme.switch(`light`)">light</a> | <a href="javascript:void(0)" onclick="theme.switch(`browser`)">browser</a> theme
+  <script id="dark-theme-script"
+          src="https://www.micahsmith.com/theme/dark-theme/dark-theme.min.js"
+          data-enable-auto-detect-theme="True"
+          data-default-theme="light"
+          type="text/javascript">
+  </script>
 </p>    </footer>
   </main>
 
@@ -334,6 +389,7 @@ implement canonical algorithms from scratch …</p>
   "description": ""
 }
 </script>
+
 
 </body>
 </html>

@@ -8,12 +8,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="robots" content="" />
 
-  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,400;0,700;1,400&family=Source+Sans+Pro:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" type="text/css" href="https://www.micahsmith.com/theme/stylesheet/style.min.css">
 
-  <link rel="stylesheet" type="text/css" href="https://www.micahsmith.com/theme/pygments/github.min.css">
-  <link rel="stylesheet" type="text/css" href="https://www.micahsmith.com/theme/font-awesome/css/font-awesome.min.css">
+    <link id="dark-theme-style" rel="stylesheet" type="text/css"
+          media="(prefers-color-scheme: dark)"
+    href="https://www.micahsmith.com/theme/stylesheet/dark-theme.min.css">
+
+    <link id="pygments-dark-theme" rel="stylesheet" type="text/css"
+              media="(prefers-color-scheme: dark)"
+          href="https://www.micahsmith.com/theme/pygments/monokai.min.css">
+    <link id="pygments-light-theme" rel="stylesheet" type="text/css"
+              media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
+          href="https://www.micahsmith.com/theme/pygments/github.min.css">
+
+
+  <link rel="stylesheet" type="text/css" href="https://www.micahsmith.com/theme/font-awesome/css/fontawesome.css">
+  <link rel="stylesheet" type="text/css" href="https://www.micahsmith.com/theme/font-awesome/css/brands.css">
+  <link rel="stylesheet" type="text/css" href="https://www.micahsmith.com/theme/font-awesome/css/solid.css">
 
     <link href="https://www.micahsmith.com/static/custom.css" rel="stylesheet">
 
@@ -42,37 +55,71 @@
 <meta property="og:url" content="https://www.micahsmith.com"/>
 <meta property="og:image" content="/images/micah.jpg">
 
-  <title>Micah Smith &ndash;     Tag feature engineering
-</title>
+  <title>Micah Smith &ndash; Tag feature engineering</title>
 
 </head>
-<body>
+<body >
   <aside>
     <div>
       <a href="https://www.micahsmith.com">
         <img src="/images/micah.jpg" alt="Micah J. Smith" title="Micah J. Smith">
       </a>
-      <h1><a href="https://www.micahsmith.com">Micah J. Smith</a></h1>
+
+      <h1>
+        <a href="https://www.micahsmith.com">Micah J. Smith</a>
+      </h1>
+
 
 
       <nav>
         <ul class="list">
+
           <li><a href="https://www.micahsmith.com/blog">blog</a></li>
-          <li><a href="https://www.micahsmith.com/research">research</a></li>
-          <li><a href="https://www.micahsmith.com/contact">contact</a></li>
+
+              <li>
+                <a target="_self"
+                   href="https://www.micahsmith.com/research">
+                  research
+                </a>
+              </li>
+              <li>
+                <a target="_self"
+                   href="https://www.micahsmith.com/contact">
+                  contact
+                </a>
+              </li>
 
         </ul>
       </nav>
 
       <ul class="social">
-        <li><a class="sc-twitter" href="https://twitter.com/micahjsmith" target="_blank"><i class="fa fa-twitter"></i></a></li>
-        <li><a class="sc-github" href="https://github.com/micahjsmith" target="_blank"><i class="fa fa-github"></i></a></li>
-        <li><a class="sc-stack-overflow" href="https://stackoverflow.com/users/2514228/micah-smith" target="_blank"><i class="fa fa-stack-overflow"></i></a></li>
-        <li><a class="sc-linkedin" href="https://www.linkedin.com/in/micahjsmith" target="_blank"><i class="fa fa-linkedin"></i></a></li>
-        <li><a class="sc-key" href="https://keybase.io/micahjsmith" target="_blank"><i class="fa fa-key"></i></a></li>
+          <li>
+            <a  class="sc-twitter" href="https://twitter.com/micahjsmith" target="_blank">
+              <i class="fab fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a  class="sc-github" href="https://github.com/micahjsmith" target="_blank">
+              <i class="fab fa-github"></i>
+            </a>
+          </li>
+          <li>
+            <a  class="sc-stack-overflow" href="https://stackoverflow.com/users/2514228/micah-smith" target="_blank">
+              <i class="fab fa-stack-overflow"></i>
+            </a>
+          </li>
+          <li>
+            <a  class="sc-linkedin" href="https://www.linkedin.com/in/micahjsmith" target="_blank">
+              <i class="fab fa-linkedin"></i>
+            </a>
+          </li>
+          <li>
+            <a  class="sc-key" href="https://keybase.io/micahjsmith" target="_blank">
+              <i class="fa fa-key"></i>
+            </a>
+          </li>
       </ul>
     </div>
-
 
   </aside>
   <main>
@@ -84,29 +131,37 @@
   <header>
     <h2><a href="https://www.micahsmith.com/blog/2020/06/ballet-status-report">Invitation to dance: a status report on the Ballet project</a></h2>
     <p>
-          Posted on Tue 30 June 2020 in <a href="https://www.micahsmith.com/category/research.html">research</a>
+      Posted on Tue 30 June 2020 in <a href="https://www.micahsmith.com/category/research.html">research</a>
 
-
-          &#8226;     Tagged with
-
+          &#8226; Tagged with
               <a href="https://www.micahsmith.com/tag/ballet.html">ballet</a>,              <a href="https://www.micahsmith.com/tag/feature-engineering.html">feature engineering</a>,              <a href="https://www.micahsmith.com/tag/machine-learning.html">machine learning</a>
     </p>
   </header>
   <div>
       <p>At MIT, we recently marked the close of one of the most turbulent academic years on record, in which academic and research activities were significantly disrupted by the emergence of the COVID-19 pandemic, which has by now, killed well over 400,000 people globally and 100,000 people in the …</p>
-      <br>
-      <a class="btn" href="https://www.micahsmith.com/blog/2020/06/ballet-status-report">    Continue reading
-</a>
+        <br>
+        <a class="btn"
+           href="https://www.micahsmith.com/blog/2020/06/ballet-status-report">
+          Continue reading
+        </a>
   </div>
 </article>
 
 
 
 
-
     <footer>
-<p>&copy; Micah Smith 2020</p>
-<p>    Powered by <a href="http://getpelican.com" target="_blank">Pelican</a> - <a href="https://github.com/alexandrevicenzi/flex" target="_blank">Flex</a> theme by <a href="http://alexandrevicenzi.com" target="_blank">Alexandre Vicenzi</a>
+<p>&copy; 2020 Micah Smith</p>
+<p>
+Built with <a href="http://getpelican.com" target="_blank">Pelican</a> using <a href="http://bit.ly/flex-pelican" target="_blank">Flex</a> theme
+  <span class="footer-separator">|</span>
+  Switch to the <a href="javascript:void(0)" onclick="theme.switch(`dark`)">dark</a> | <a href="javascript:void(0)" onclick="theme.switch(`light`)">light</a> | <a href="javascript:void(0)" onclick="theme.switch(`browser`)">browser</a> theme
+  <script id="dark-theme-script"
+          src="https://www.micahsmith.com/theme/dark-theme/dark-theme.min.js"
+          data-enable-auto-detect-theme="True"
+          data-default-theme="light"
+          type="text/javascript">
+  </script>
 </p>    </footer>
   </main>
 
@@ -123,6 +178,7 @@
   "description": ""
 }
 </script>
+
 
 </body>
 </html>
