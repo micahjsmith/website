@@ -4,6 +4,11 @@ Order: 01
 
 ### Publications
 
+S. Santu, M. Hassan, __M. Smith__, L. Xu, C. Zhai, and K. Veeramachaneni.
+    "A Level-wise Taxonomic Perspective on Automated Machine Learning to Date and Beyond: Challenges and Opportunities."
+    arXiv Preprint 2020.
+    <a target="_blank" href="https://arxiv.org/abs/2010.10777"><i class="fa fa-link fa-1"></i></a>
+
 __M. Smith__, C. Sala, J.M. Kanter, and K. Veeramachaneni.
     "The Machine Learning Bazaar: Harnessing the ML Ecosystem for Effective System Development."
     SIGMOD 2020.
@@ -14,13 +19,13 @@ __M. Smith__, C. Sala, J.M. Kanter, and K. Veeramachaneni.
     <a target="_blank" href="https://vimeo.com/440735079#t=4231s"><i class="fa fa-video-camera fa-1" aria-hidden="true"></i></a>
     (arXiv Preprint 1905.08942. 2019. <a target="_blank" href="https://arxiv.org/abs/1905.08942"><i class="fa fa-link fa-1"></i></a>)
 
-D. Liu,\* __M. Smith\*__, K. Veeramachaneni.
+D. Liu,\* __M. Smith\*__, and K. Veeramachaneni.
     "Understanding User-Bot Interactions for Small-Scale Automation in Open-Source Development."
     CHI 2020.
     <a target="_blank" href="{static}/files/bots_chi2020.pdf"><i class="fa fa-file-pdf-o fa-1" aria-hidden="true"></i></a>
     <a target="_blank" href="{static}/files/liu2020bots.bib"><i class="fa fa-quote-right fa-1" aria-hidden="true"></i></a>
 
-__M. Smith__, K. Lu, K. Veeramachaneni.
+__M. Smith__, K. Lu, and K. Veeramachaneni.
     "Demonstration of Ballet: A Framework for Open-source Collaborative Feature Engineering."
     MLSys 2020.
     <a target="_blank" href="{static}/files/balletdemo_mlsys2020.pdf"><i class="fa fa-file-pdf-o fa-1" aria-hidden="true"></i></a>
