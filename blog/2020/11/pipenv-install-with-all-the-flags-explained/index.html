@@ -1,0 +1,264 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,400;0,700;1,400&family=Source+Sans+Pro:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="https://www.micahsmith.com/theme/stylesheet/style.min.css">
+
+    <link id="dark-theme-style" rel="stylesheet" type="text/css"
+          media="(prefers-color-scheme: dark)"
+    href="https://www.micahsmith.com/theme/stylesheet/dark-theme.min.css">
+
+    <link id="pygments-dark-theme" rel="stylesheet" type="text/css"
+              media="(prefers-color-scheme: dark)"
+          href="https://www.micahsmith.com/theme/pygments/monokai.min.css">
+    <link id="pygments-light-theme" rel="stylesheet" type="text/css"
+              media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
+          href="https://www.micahsmith.com/theme/pygments/github.min.css">
+
+
+  <link rel="stylesheet" type="text/css" href="https://www.micahsmith.com/theme/font-awesome/css/fontawesome.css">
+  <link rel="stylesheet" type="text/css" href="https://www.micahsmith.com/theme/font-awesome/css/brands.css">
+  <link rel="stylesheet" type="text/css" href="https://www.micahsmith.com/theme/font-awesome/css/solid.css">
+
+    <link href="https://www.micahsmith.com/static/custom.css" rel="stylesheet">
+
+
+
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-57970396-1', 'auto');
+  ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+<meta name="author" content="Micah Smith" />
+<meta name="description" content="A common pattern of using pipenv in containers is to install as follows: COPY Pipfile Pipfile.lock ./ RUN pip install --upgrade pip &amp;&amp; \ pip install pipenv &amp;&amp; \ pipenv install --system --deploy --ignore-pipfile &amp;&amp; \ pipenv --clear What is going on here, exactly? How does one understand the intersection of the flags given to pipenv …" />
+<meta name="keywords" content="python, pipenv, docker">
+
+
+<meta property="og:site_name" content="Micah Smith"/>
+<meta property="og:title" content="Pipenv install with all the flags, explained"/>
+<meta property="og:description" content="A common pattern of using pipenv in containers is to install as follows: COPY Pipfile Pipfile.lock ./ RUN pip install --upgrade pip &amp;&amp; \ pip install pipenv &amp;&amp; \ pipenv install --system --deploy --ignore-pipfile &amp;&amp; \ pipenv --clear What is going on here, exactly? How does one understand the intersection of the flags given to pipenv …"/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:url" content="https://www.micahsmith.com/blog/2020/11/pipenv-install-with-all-the-flags-explained"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2020-11-19 00:00:00-05:00"/>
+<meta property="article:modified_time" content=""/>
+<meta property="article:author" content="https://www.micahsmith.com/author/micah-smith.html">
+<meta property="article:section" content="programming"/>
+<meta property="article:tag" content="python"/>
+<meta property="article:tag" content="pipenv"/>
+<meta property="article:tag" content="docker"/>
+<meta property="og:image" content="/images/micah.jpg">
+
+  <title>Micah Smith &ndash; Pipenv install with all the flags, explained</title>
+
+</head>
+<body >
+  <aside>
+    <div>
+      <a href="https://www.micahsmith.com">
+        <img src="/images/micah.jpg" alt="Micah J. Smith" title="Micah J. Smith">
+      </a>
+
+      <h1>
+        <a href="https://www.micahsmith.com">Micah J. Smith</a>
+      </h1>
+
+
+
+      <nav>
+        <ul class="list">
+
+          <li><a href="https://www.micahsmith.com/blog">blog</a></li>
+
+              <li>
+                <a target="_self"
+                   href="https://www.micahsmith.com/research">
+                  research
+                </a>
+              </li>
+              <li>
+                <a target="_self"
+                   href="https://www.micahsmith.com/contact">
+                  contact
+                </a>
+              </li>
+
+        </ul>
+      </nav>
+
+      <ul class="social">
+          <li>
+            <a  class="sc-twitter" href="https://twitter.com/micahjsmith" target="_blank">
+              <i class="fab fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a  class="sc-github" href="https://github.com/micahjsmith" target="_blank">
+              <i class="fab fa-github"></i>
+            </a>
+          </li>
+          <li>
+            <a  class="sc-stack-overflow" href="https://stackoverflow.com/users/2514228/micah-smith" target="_blank">
+              <i class="fab fa-stack-overflow"></i>
+            </a>
+          </li>
+          <li>
+            <a  class="sc-linkedin" href="https://www.linkedin.com/in/micahjsmith" target="_blank">
+              <i class="fab fa-linkedin"></i>
+            </a>
+          </li>
+          <li>
+            <a  class="sc-key" href="https://keybase.io/micahjsmith" target="_blank">
+              <i class="fa fa-key"></i>
+            </a>
+          </li>
+      </ul>
+    </div>
+
+  </aside>
+  <main>
+
+
+<article class="single">
+  <header>
+      
+    <h1 id="pipenv-install-with-all-the-flags-explained">Pipenv install with all the flags, explained</h1>
+    <p>
+      Posted on Thu 19 November 2020 in <a href="https://www.micahsmith.com/category/programming.html">programming</a>
+
+    </p>
+  </header>
+
+
+  <div>
+    <p>A common pattern of using <a href="pipenv.pypa.io/">pipenv</a> in containers is to install as follows:</p>
+<div class="highlight"><pre><span></span><span class="k">COPY</span> Pipfile Pipfile.lock ./
+<span class="k">RUN</span> pip install --upgrade pip <span class="o">&amp;&amp;</span> <span class="se">\</span>
+    pip install pipenv <span class="o">&amp;&amp;</span> <span class="se">\</span>
+    pipenv install --system --deploy --ignore-pipfile <span class="o">&amp;&amp;</span> <span class="se">\</span>
+    pipenv --clear
+</pre></div>
+
+
+<p>What is going on here, exactly? How does one understand the intersection of the flags given to pipenv? What gets installed, and from where? This has been confusing to me and others, according to various threads on the internet (<a href="https://github.com/pypa/pipenv/issues/3150">1</a>, <a href="https://stackoverflow.com/questions/52922688/pipenv-sync-and-pipenv-install-system-ignore-pipfile-in-docker-environment">2</a>, <a href="https://github.com/pypa/pipenv/issues/2227">3</a>).</p>
+<h3>Explanation</h3>
+<p>Here is my understanding after really digging into this.</p>
+<ol>
+<li><a href="https://pipenv.pypa.io/en/latest/advanced/#deploying-system-dependencies"><code>--system</code></a>: this flag means that dependencies will be installed to the system Python; no virtual environment will be created.</li>
+<li>
+<p><a href="https://pipenv.pypa.io/en/latest/advanced/#using-pipenv-for-deployments"><code>--deploy</code></a>: According to the documentation, "This will fail a build if the Pipfile.lock is out–of–date, instead of generating a new one." The important thing to note is that this step is really simple. Pipenv computes the hash of <code>Pipfile</code>. It then looks up the hash from <code>Pipfile.lock</code> and compares the two. If they are the same, then pipenv concludes that <code>Pipfile.lock</code> is up-to-date. That's the end of the impact of this flag.</p>
+<ul>
+<li>
+<p>If you look under the covers at <code>Pipfile.lock</code>, you can see it stores the hash of the <code>Pipfile</code> that it was generated from in the <code>_meta</code> section, like so:</p>
+<p><code>{
+    "_meta": {
+        "hash": {
+            "sha256": "dd9ca1ebdc0969e8187e275e07342277f4d7fc45b3fca7250b70f100891f94fa"
+        },</code></p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--ignore-pipfile</code>: This causes pipenv to, not surprisingly, ignore <code>Pipfile</code> and instead install what is directly specified in <code>Pipfile.lock</code>. However, the default behavior of this is to use the same mechanism as above to see whether the <code>Pipfile.lock</code> is out of date, and if so, to re-lock the <code>Pipfile.lock</code>. In conjunction with <code>--deploy</code>, this behavior is moot because that flag will already cause the install to fail if the files are out-of-date, and now there is no circumstance in which the lockfile will be re-locked.</p>
+</li>
+</ol>
+<p>So we have the following stylized algorithm for this install:</p>
+<div class="highlight"><pre><span></span>if hash(Pipfile) != computed hash stored in Pipfile.lock
+    fail
+else
+    for each specific dependency in Pipfile.lock
+        install the dependency using the system Python
+</pre></div>
+
+
+<p>To fully understand the behavior of any code, there is often no substitute for reading the source directly. The function to understand is <a href="https://github.com/pypa/pipenv/blob/dc377ef2d2b38b09bcf6f71ac7aa919e5ecad128/pipenv/core.py#L1199">do_init</a> in <code>pipenv/core.py</code> which is responsible for the behavior of <code>pipenv install</code> when no packages are specified at the command line. Note that both <code>do_install</code> and <code>do_sync</code> call <code>do_init</code> for the heavy lifting.</p>
+<h3>Comparison with sync</h3>
+<p>Others have noted that this behavior is similar to <code>pipenv sync</code>. Previously, there was no support for <code>pipenv sync --system</code> (in a failure of symmetry) but a recent pipenv update did introduce this feature (PR <a href="https://github.com/pypa/pipenv/pull/4441">#4441</a> included in pipenv <a href="https://pipenv.pypa.io/en/latest/changelog/#id11">2020.11.4</a>).</p>
+<p>So as of today, what is the difference between <code>pipenv sync --system</code> and <code>pipenv install --system --deploy --ignore-pipfile</code>? The differences appear to be that if the <code>Pipfile</code> exists, and if it is out-of-date, the install will fail in the latter case. If there is no Pipfile at all, then the <code>--deploy</code> flag will cause the <code>pipenv install</code> command to fail. So they are identical unless (1) Pipfile is missing or (2) Pipfile is out of date.</p>
+<p>When would you want to use <code>pipenv sync</code> instead? Well, conversely, when you are concerned about <code>Pipfile</code> and <code>Pipfile.lock</code> being out-of-date? I'd say that any test or CI job should fail if they are out-of-date. You can imagine that one test checks whether they are out-of-date and fails if so, and all remaining test and build jobs use the <code>Pipfile.lock</code> only with <code>pipenv sync</code>. This seems like it could be simpler but I still think this is less robust as it introduces a dependency on this first test, and could result in errors where a job is failing actually due to the need to re-lock <code>Pipfile.lock</code> but is displaying mysterious behavior in the meantime. Whereas I might use <code>pipenv sync</code> in development if I have been making manual changes to my <code>Pipfile</code> but now want to restore my virtualenv to a previous change or ignore the changes to my <code>Pipfile</code>.</p>
+<h3>The rest of the Dockerfile</h3>
+<p>Using pipenv and Docker together to create minimal images is something I've been working with a fair amount and plan to write another post about.</p>
+<p>Some quick notes on the snippet above:</p>
+<ul>
+<li>You almost certainly want to copy <code>Pipfile</code> and <code>Pipfile.lock</code> to the image as a first step to take advantage of Docker's build caching.</li>
+<li>Make sure you upgrade pip before issuing any pip commands -- this will help you avoid the long tail of really frustrating installation issues.</li>
+<li>Use <code>pipenv --clear</code> to conveniently clear the cache of pip, pipenv, and pip-tools. You almost certainly want to clear these build caches if you want to produce small images. And this is easier than providing <code>pip install --no-cache-dir</code> with every invocation of pip, and knocks out all of the cache clearing in one place.</li>
+<li>By chaining all of the installation commands in one <code>RUN</code> line you avoid generating multiple layers, reducing the size of your final image.</li>
+</ul><script src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+  </div>
+  <div class="tag-cloud">
+    <p>
+      <a href="https://www.micahsmith.com/tag/python.html">python</a>
+      <a href="https://www.micahsmith.com/tag/pipenv.html">pipenv</a>
+      <a href="https://www.micahsmith.com/tag/docker.html">docker</a>
+    </p>
+  </div>
+
+
+
+
+
+<!-- Disqus -->
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'micahsmith';
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>
+    Please enable JavaScript to view comments.
+</noscript>
+<!-- End Disqus -->
+</article>
+
+    <footer>
+<p>&copy; 2020 Micah Smith</p>
+<p>
+Built with <a href="http://getpelican.com" target="_blank">Pelican</a> using <a href="http://bit.ly/flex-pelican" target="_blank">Flex</a> theme
+  <span class="footer-separator">|</span>
+  Switch to the <a href="javascript:void(0)" onclick="theme.switch(`dark`)">dark</a> | <a href="javascript:void(0)" onclick="theme.switch(`light`)">light</a> | <a href="javascript:void(0)" onclick="theme.switch(`browser`)">browser</a> theme
+  <script id="dark-theme-script"
+          src="https://www.micahsmith.com/theme/dark-theme/dark-theme.min.js"
+          data-enable-auto-detect-theme="True"
+          data-default-theme="light"
+          type="text/javascript">
+  </script>
+</p>    </footer>
+  </main>
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " Micah Smith ",
+  "url" : "https://www.micahsmith.com",
+  "image": "/images/micah.jpg",
+  "description": ""
+}
+</script>
+
+
+</body>
+</html>

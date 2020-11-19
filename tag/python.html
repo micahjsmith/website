@@ -129,6 +129,35 @@
 
 <article>
   <header>
+    <h2><a href="https://www.micahsmith.com/blog/2020/11/pipenv-install-with-all-the-flags-explained">Pipenv install with all the flags, explained</a></h2>
+    <p>
+      Posted on Thu 19 November 2020 in <a href="https://www.micahsmith.com/category/programming.html">programming</a>
+
+          &#8226; Tagged with
+              <a href="https://www.micahsmith.com/tag/python.html">python</a>,              <a href="https://www.micahsmith.com/tag/pipenv.html">pipenv</a>,              <a href="https://www.micahsmith.com/tag/docker.html">docker</a>
+    </p>
+  </header>
+  <div>
+      <p>A common pattern of using <a href="pipenv.pypa.io/">pipenv</a> in containers is to install as follows:</p>
+<div class="highlight"><pre><span></span><span class="k">COPY</span> Pipfile Pipfile.lock ./
+<span class="k">RUN</span> pip install --upgrade pip <span class="o">&amp;&amp;</span> <span class="se">\</span>
+    pip install pipenv <span class="o">&amp;&amp;</span> <span class="se">\</span>
+    pipenv install --system --deploy --ignore-pipfile <span class="o">&amp;&amp;</span> <span class="se">\</span>
+    pipenv --clear
+</pre></div>
+
+
+<p>What is going on here, exactly? How does one understand the intersection of the flags given to pipenv …</p>
+        <br>
+        <a class="btn"
+           href="https://www.micahsmith.com/blog/2020/11/pipenv-install-with-all-the-flags-explained">
+          Continue reading
+        </a>
+  </div>
+  <hr />
+</article>
+<article>
+  <header>
     <h2><a href="https://www.micahsmith.com/blog/2020/01/dataclasses-mutable-defaults">Dataclasses and mutable defaults</a></h2>
     <p>
       Posted on Tue 14 January 2020 in <a href="https://www.micahsmith.com/category/programming.html">programming</a>
