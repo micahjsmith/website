@@ -1,0 +1,289 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,400;0,700;1,400&family=Source+Sans+Pro:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="https://www.micahsmith.com/theme/stylesheet/style.min.css">
+
+    <link id="dark-theme-style" rel="stylesheet" type="text/css"
+          media="(prefers-color-scheme: dark)"
+    href="https://www.micahsmith.com/theme/stylesheet/dark-theme.min.css">
+
+    <link id="pygments-dark-theme" rel="stylesheet" type="text/css"
+              media="(prefers-color-scheme: dark)"
+          href="https://www.micahsmith.com/theme/pygments/monokai.min.css">
+    <link id="pygments-light-theme" rel="stylesheet" type="text/css"
+              media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
+          href="https://www.micahsmith.com/theme/pygments/github.min.css">
+
+
+  <link rel="stylesheet" type="text/css" href="https://www.micahsmith.com/theme/font-awesome/css/fontawesome.css">
+  <link rel="stylesheet" type="text/css" href="https://www.micahsmith.com/theme/font-awesome/css/brands.css">
+  <link rel="stylesheet" type="text/css" href="https://www.micahsmith.com/theme/font-awesome/css/solid.css">
+
+    <link href="https://www.micahsmith.com/static/custom.css" rel="stylesheet">
+
+
+
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-57970396-1', 'auto');
+  ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+<meta name="author" content="Micah Smith" />
+<meta name="description" content="If you&#39;re not in a corporate environment, you&#39;re probably not sending many mail merges in which you automatically send many emails to different recipients with customized content for each recipient. I recently had to send about 150 emails during my work for a student organization I am involved in. Content …" />
+<meta name="keywords" content="gsuite, email, scripting">
+
+
+<meta property="og:site_name" content="Micah Smith"/>
+<meta property="og:title" content="The poor man&#39;s Google Sheets mail merge"/>
+<meta property="og:description" content="If you&#39;re not in a corporate environment, you&#39;re probably not sending many mail merges in which you automatically send many emails to different recipients with customized content for each recipient. I recently had to send about 150 emails during my work for a student organization I am involved in. Content …"/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:url" content="https://www.micahsmith.com/blog/2020/12/poor-mans-google-sheets-mail-merge"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2020-12-01 00:00:00-05:00"/>
+<meta property="article:modified_time" content=""/>
+<meta property="article:author" content="https://www.micahsmith.com/author/micah-smith.html">
+<meta property="article:section" content="life"/>
+<meta property="article:tag" content="gsuite"/>
+<meta property="article:tag" content="email"/>
+<meta property="article:tag" content="scripting"/>
+<meta property="og:image" content="/images/micah.jpg">
+
+  <title>Micah Smith &ndash; The poor man&#39;s Google Sheets mail merge</title>
+
+</head>
+<body >
+  <aside>
+    <div>
+      <a href="https://www.micahsmith.com">
+        <img src="/images/micah.jpg" alt="Micah J. Smith" title="Micah J. Smith">
+      </a>
+
+      <h1>
+        <a href="https://www.micahsmith.com">Micah J. Smith</a>
+      </h1>
+
+
+
+      <nav>
+        <ul class="list">
+
+          <li><a href="https://www.micahsmith.com/blog">blog</a></li>
+
+              <li>
+                <a target="_self"
+                   href="https://www.micahsmith.com/research">
+                  research
+                </a>
+              </li>
+              <li>
+                <a target="_self"
+                   href="https://www.micahsmith.com/contact">
+                  contact
+                </a>
+              </li>
+
+        </ul>
+      </nav>
+
+      <ul class="social">
+          <li>
+            <a  class="sc-twitter" href="https://twitter.com/micahjsmith" target="_blank">
+              <i class="fab fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a  class="sc-github" href="https://github.com/micahjsmith" target="_blank">
+              <i class="fab fa-github"></i>
+            </a>
+          </li>
+          <li>
+            <a  class="sc-stack-overflow" href="https://stackoverflow.com/users/2514228/micah-smith" target="_blank">
+              <i class="fab fa-stack-overflow"></i>
+            </a>
+          </li>
+          <li>
+            <a  class="sc-linkedin" href="https://www.linkedin.com/in/micahjsmith" target="_blank">
+              <i class="fab fa-linkedin"></i>
+            </a>
+          </li>
+          <li>
+            <a  class="sc-key" href="https://keybase.io/micahjsmith" target="_blank">
+              <i class="fa fa-key"></i>
+            </a>
+          </li>
+      </ul>
+    </div>
+
+  </aside>
+  <main>
+
+
+<article class="single">
+  <header>
+      
+    <h1 id="poor-mans-google-sheets-mail-merge">The poor man's Google Sheets mail merge</h1>
+    <p>
+      Posted on Tue 01 December 2020 in <a href="https://www.micahsmith.com/category/life.html">life</a>
+
+    </p>
+  </header>
+
+
+  <div>
+    <p>If you're not in a corporate environment, you're probably not sending many <a href="https://en.wikipedia.org/wiki/Mail_merge"><em>mail merges</em></a> in which you automatically send many emails to different recipients with customized content for each recipient. I recently had to send about 150 emails during my work for a student organization I am involved in. Content in the message body had to be customized for each recipient, so we couldn't use other simple mass mailing techniques like the bcc trick or creating a custom email list.</p>
+<p>At an enterprise, you'd probably use Excel/Outlook to achieve this using built-in mail merge functionality. Using Google Sheets, this is not so easy.</p>
+<p>The <a href="https://developers.google.com/gsuite/solutions/mail-merge">official solution</a> is to use Google Apps Script and Gmail Message Templates. This requires you to both to be using the Gmail client and to authorize a script someone else wrote and muck around with developer permissions. It's usually a good thing to reuse reliable code written by others! However, in some cases you may want a more lightweight solution that is more flexible.</p>
+<p>In this tutorial I show you a neat solution that just relies upon a simple Google Sheet, mailto links, and keyboard shortcuts. Using this, I was able to do a "manual" mail merge in about 5 minutes of idle clicking.</p>
+<h3>Mail merge scenario</h3>
+<p>Suppose that you have a "dataset" (sheet) of names and ages. You want to send a customized email to each person in your dataset letting them know their own age. You organize your data in a sheet without thinking at all about how you will send the emails. Preparing the emails will be done in a separate sheet.</p>
+<p><img title="Data sheet" alt="Data sheet with email address, name, and age" src="https://www.micahsmith.com/images/poor-mans-mail-merge/poor-mans-mail-merge-00.png" style="border: 1px solid black" width="30%" /></p>
+<h3>Create the message content</h3>
+<p>Create a separate sheet in which you will prepare the email messages. For columns, you will have the recipient of your email and other headers such as cc, bcc, subject, and body.</p>
+<p>Fill these columns in, possibly using formulas to merge data from your first sheet into the text.</p>
+<p>For example, to create the message body, we use this formula:</p>
+<div class="highlight"><pre><span></span>=&quot;Hello &quot; &amp; Data!B2 &amp; &quot;,
+You are &quot; &amp; Data!C2 &amp; &quot; years old.
+Bye!&quot;
+</pre></div>
+
+
+<p>You should compose the body in a separate text editor for a better composition experience, and substitute in placeholders for formulas when you transfer it to the spreadsheet. Note that rich text formatting (font size, font style, hyperlinks) will not transfer to the prepared emails.<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup></p>
+<p>You will be left with something like this:</p>
+<p><img title="Mail merge sheet" alt="Mail merge sheet after creating message content" src="https://www.micahsmith.com/images/poor-mans-mail-merge/poor-mans-mail-merge-01.png" style="border: 1px solid black" /></p>
+<h3>Create the mailto link</h3>
+<p>Use a formula to create a mailto link from the message content<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>.</p>
+<p><a href="https://en.wikipedia.org/wiki/Mailto">Mailto links</a> are URLs of the form <code>mailto:</code> that allow you to request an email message to be prepared with different parameters, such as the recipient, the subject line, and the body. These are mostly used just to turn your contact address into a link that opens in someone's email client, but can be much more useful. You can even specify arbitrary email headers (<a href="https://tools.ietf.org/html/rfc6068">spec</a>).</p>
+<div class="highlight"><pre><span></span>=HYPERLINK(
+    &quot;mailto:&quot; &amp; A2
+    &amp; &quot;?&quot;
+    &amp; JOIN(
+        &quot;&amp;&quot;,
+        $B$1 &amp; &quot;=&quot; &amp; ENCODEURL(B2),
+        $C$1 &amp; &quot;=&quot; &amp; ENCODEURL(C2),
+        $D$1 &amp; &quot;=&quot; &amp; ENCODEURL(D2),
+        $E$1 &amp; &quot;=&quot; &amp; ENCODEURL(E2),
+    ),
+    &quot;send&quot;
+)
+</pre></div>
+
+
+<p>This will create a link that looks like this:</p>
+<div class="highlight"><pre><span></span>mailto:foo@example.com?cc=&amp;bcc=qux%40test.org&amp;subject=Your%20age&amp;body=Hello%20Foo%2C%0AYou%20are%2038%20years%20old.%0ABye%21&amp;
+</pre></div>
+
+
+<p><a href="mailto:foo@example.com?cc=&amp;bcc=qux%40test.org&amp;subject=Your%20age&amp;body=Hello%20Foo%2C%0AYou%20are%2038%20years%20old.%0ABye%21&amp;">Try me to see how this looks in your own email client!</a></p>
+<p>Your email client should show you a prepared message with the To, Bcc, Subject, and Body fields already filled out (in the case of this URL). You will now send the email right away without further modification.</p>
+<p><img src="https://www.micahsmith.com/images/poor-mans-mail-merge/poor-mans-mail-merge-sample-email.png" width="30%" /></p>
+<p>Some notes:</p>
+<ul>
+<li>most email clients will also insert your email signature if you have one configured</li>
+<li>the fields are all URL-encoded using <code>ENCODEURL</code> so that they will render correctly in the prepared message</li>
+<li>to send an email to multiple recipients, you can include the addresses within the single cell separated by commas.</li>
+<li>it's okay to leave any of the cells blank, such as the cc or bcc fields, <code>&amp;cc=</code> is allowed by the spec.</li>
+<li>the formula has a trailing <code>&amp;</code> but this is allowed by the spec.</li>
+</ul>
+<p><img title="Mail merge sheet" alt="Mail merge sheet after creating mailto link" src="https://www.micahsmith.com/images/poor-mans-mail-merge/poor-mans-mail-merge-02.png" style="border: 1px solid black" /></p>
+<h3>Send emails in a batch</h3>
+<p>Select a group of 5-10 cells in the "Link" column. Then use a keyboard shortcut <sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup> to click the hyperlink, such as <kbd>Option</kbd> <kbd>Enter</kbd>. Depending on your mail client, this will open <em>n</em> windows, with the prepared message ready to send in each of them. You can rapidly use keyboard shortcuts to send them, such as <kbd>Command</kbd> <kbd>Enter</kbd> for either AirMail or Gmail.</p>
+<p>When the emails in a batch have successfully been sent, mark them in the sheet accordingly.</p>
+<h4>A note on Gmail</h4>
+<p>If you want to use the Gmail web application as your mail client, then you need to configure your browser appropriately. Chrome was easiest to configure for me, even though I prefer Firefox for almost everything. See <a href="https://wiki.carleton.edu/display/itskb/Configuring+Mailto+links+to+use+Gmail">here</a>.</p>
+<p>If you use Gmail, then you will have <em>n</em> tabs in your browser window. You can tab through them in order with <kbd>Control</kbd> <kbd>Tab</kbd>. On each tab, use the keyboard shortcut to send the message and immediately navigate to the next tab while the message is sending. The behavior of Gmail's standalone compose window is that if the message sends successfully, the tab will close itself. So if all of your messages send successfully, you will be left with a single tab, which is your spreadsheet. You can then continue with the next batch.</p>
+<h3>Conclusion</h3>
+<p>That's it! This setup requires no scripting or use of developer tools and you can use any email client. It's a reasonable approach if you are sending 10 – 500 emails that need to be customized.</p>
+<p>You can also check out <a href="https://docs.google.com/spreadsheets/d/1jSSIMBfyAZYgrtlg-9_E8W0ZDm2Py98SdqauKUaD-qY/edit?usp=sharing">this demo spreadsheet</a>.</p>
+<p>Let me know in the comments if you find this helpful or have any improvements on this approach.</p>
+<div class="footnote">
+<hr>
+<ol>
+<li id="fn:1">
+<p>There may be better ways to create this formula that doesn't require adding separate lines for each header, maybe using <a href="https://support.google.com/docs/answer/3093275?hl=en"><code>ARRAYFORMULA</code></a> or something beyond my Google Sheets expertise. Let me know in the comments if you figure this out.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:2">
+<p>You can probably paste raw HTML markup into the body cell and then figure out how this can best be sent in your email client, maybe be providing a header like <code>Content-Type: text/html; charset="UTF-8"</code> as another parameter in the mailto URL, but I haven't looked into this.&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:3">
+<p>I'll refer to various keyboard shortcuts, which reflects my setup of macOS. Please substitute the relevant keyboard shortcuts for your own setup.&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div><script src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+  </div>
+  <div class="tag-cloud">
+    <p>
+      <a href="https://www.micahsmith.com/tag/gsuite.html">gsuite</a>
+      <a href="https://www.micahsmith.com/tag/email.html">email</a>
+      <a href="https://www.micahsmith.com/tag/scripting.html">scripting</a>
+    </p>
+  </div>
+
+
+
+
+
+<!-- Disqus -->
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'micahsmith';
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>
+    Please enable JavaScript to view comments.
+</noscript>
+<!-- End Disqus -->
+</article>
+
+    <footer>
+<p>&copy; 2020 Micah Smith</p>
+<p>
+Built with <a href="http://getpelican.com" target="_blank">Pelican</a> using <a href="http://bit.ly/flex-pelican" target="_blank">Flex</a> theme
+  <span class="footer-separator">|</span>
+  Switch to the <a href="javascript:void(0)" onclick="theme.switch(`dark`)">dark</a> | <a href="javascript:void(0)" onclick="theme.switch(`light`)">light</a> | <a href="javascript:void(0)" onclick="theme.switch(`browser`)">browser</a> theme
+  <script id="dark-theme-script"
+          src="https://www.micahsmith.com/theme/dark-theme/dark-theme.min.js"
+          data-enable-auto-detect-theme="True"
+          data-default-theme="light"
+          type="text/javascript">
+  </script>
+</p>    </footer>
+  </main>
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " Micah Smith ",
+  "url" : "https://www.micahsmith.com",
+  "image": "/images/micah.jpg",
+  "description": ""
+}
+</script>
+
+
+</body>
+</html>
