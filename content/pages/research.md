@@ -4,9 +4,14 @@ Order: 01
 
 ### Publications
 
+M. Smith, J. Cito, K. Lu, K. Veeramachaneni.
+    "Enabling collaborative data science development with the Ballet framework."
+    arXiv Preprint 2012.07816. 2020.
+    <a target="_blank" href="https://arxiv.org/abs/2012.07816"><i class="fa fa-link fa-1"></i></a>
+
 S. Santu, M. Hassan, __M. Smith__, L. Xu, C. Zhai, and K. Veeramachaneni.
     "A Level-wise Taxonomic Perspective on Automated Machine Learning to Date and Beyond: Challenges and Opportunities."
-    arXiv Preprint 2020.
+    arXiv Preprint 2010.10777. 2020.
     <a target="_blank" href="https://arxiv.org/abs/2010.10777"><i class="fa fa-link fa-1"></i></a>
 
 __M. Smith__, C. Sala, J.M. Kanter, and K. Veeramachaneni.
