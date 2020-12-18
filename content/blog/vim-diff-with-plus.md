@@ -1,6 +1,6 @@
 Title: Using vimdiff with dumb paths
 Date: 2016-02-02
-Category: coding
+Category: programming
 Tags: vim, git, matlab
 Slug: vim-diff-dumb-paths
 
