@@ -119,3 +119,20 @@ def github(c):
     c.run('ghp-import -b {github_pages_branch} '
           '-m {commit_message} '
           '-p {deploy_path}'.format(**CONFIG))
+
+
+@task
+def create_post(c, title=None):
+    import jinja2
+    from slugify import slugify
+    import datetime
+    env = jinja2.Environment(loader=jinja2.FileSystemLoader('./templates'))
+    template = env.get_template('post.md.jinja')
+    today = datetime.date.today().isoformat()
+    slug = slugify(title) if title is not None else None
+    s = template.render(today=today, title=title, slug=slug)
+    p = f'./content/blog/{slug or "newpost"}.md'
+    with open(p, 'w') as f:
+        f.write(s)
+
+    print(f'New post rendered to {p}')
