@@ -46,25 +46,24 @@
 <!-- End Google Analytics -->
 
 <meta name="author" content="Micah Smith" />
-<meta name="description" content="Here is the content" />
-<meta name="keywords" content="tag1, tag2">
+<meta name="description" content="I&#39;m excited to share that we have posted a preprint to arXiv of our paper, &#34;Enabling collaborative data science development with the Ballet framework.&#34; This preprint summarizes our work on the Ballet framework for collaborative, open-source data science development. Though there is much potential in building predictive models in an …" />
+<meta name="keywords" content="ballet">
 
 
 <meta property="og:site_name" content="Micah Smith"/>
-<meta property="og:title" content="Title"/>
-<meta property="og:description" content="Here is the content"/>
+<meta property="og:title" content="Preprint of Ballet"/>
+<meta property="og:description" content="I&#39;m excited to share that we have posted a preprint to arXiv of our paper, &#34;Enabling collaborative data science development with the Ballet framework.&#34; This preprint summarizes our work on the Ballet framework for collaborative, open-source data science development. Though there is much potential in building predictive models in an …"/>
 <meta property="og:locale" content="en_US"/>
-<meta property="og:url" content="https://www.micahsmith.com/blog/drafts/slug-slug-slug"/>
+<meta property="og:url" content="https://www.micahsmith.com/blog/2020/12/preprint-of-ballet"/>
 <meta property="og:type" content="article"/>
-<meta property="article:published_time" content="2030-01-01 00:00:00-05:00"/>
+<meta property="article:published_time" content="2020-12-18 00:00:00-05:00"/>
 <meta property="article:modified_time" content=""/>
 <meta property="article:author" content="https://www.micahsmith.com/author/micah-smith.html">
-<meta property="article:section" content="category"/>
-<meta property="article:tag" content="tag1"/>
-<meta property="article:tag" content="tag2"/>
+<meta property="article:section" content="research"/>
+<meta property="article:tag" content="ballet"/>
 <meta property="og:image" content="/images/micah.jpg">
 
-  <title>Micah Smith &ndash; Title</title>
+  <title>Micah Smith &ndash; Preprint of Ballet</title>
 
 </head>
 <body >
@@ -137,21 +136,25 @@
 <article class="single">
   <header>
       
-    <h1 id="slug-slug-slug">Title</h1>
+    <h1 id="preprint-of-ballet">Preprint of Ballet</h1>
     <p>
-      Posted on Tue 01 January 2030 in <a href="https://www.micahsmith.com/category/category.html">category</a>
+      Posted on Fri 18 December 2020 in <a href="https://www.micahsmith.com/category/research.html">research</a>
 
     </p>
   </header>
 
 
   <div>
-    <p>Here is the content</p><script src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <p>I'm excited to share that <a href="https://arxiv.org/abs/2012.07816">we have posted a preprint to arXiv</a> of our paper, "Enabling collaborative data science development with the Ballet framework." This preprint summarizes our work on the Ballet framework for collaborative, open-source data science development.</p>
+<p>Though there is much potential in building predictive models in an collaborative, open-source setting, we haven't seen anything on the same scale that exists in open-source software. The main obstacle we identify is that existing informal ways to collaboration in data science don't allow a project to scale beyond a handful of collaborators. To address this, we introduce a conceptual framework for data science collaboration, based on defining modular data science <em>patches</em> – like feature definitions – that can be automatically combined into <em>products</em> – like a feature engineering pipeline. The <em>acceptance procedure</em> for a proposed patch is that it not only should pass some predefined unit tests that it works correctly, but it should also pass an evaluation of its machine learning performance, such as a streaming feature selection algorithm. We instantiate these ideas in <a href="https://github.com/HDI-Project/ballet">Ballet</a>, a general framework that comes with first class support for feature engineering collaborations. Ballet automatically collects feature definitions from a repository and composes them into an executable feature engineering pipeline, and provides functionality to validate contributed feature definitions both locally and in a continuous integration (CI) environment. At any time, consumers can install the latest version of the project and be assured that they will have access to a pipeline that will extract high-quality features for their data.</p>
+<p>Contributors to a Ballet project can use <a href="https://github.com/HDI-Project/ballet-assemble">Assemblé</a>, a cloud-based development workflow, to easily develop feature definitions in a familiar notebook environment using an interactive client. The completed feature definitions can be formulated as pull requests and submitted to the upstream project without leaving the notebook with a one-click experience. But at the end of the day, a Ballet project is just a git repository, so experienced contributors can develop locally using their preferred tooling.</p>
+<p>We evaluate Ballet in a detailed mixed-methods case study of an income prediction problem. In <a href="https://github.com/HDI-Project/ballet-predict-census-income">predict-census-income</a>, 26 data scientists from around the world successfully contributed features to a feature engineering pipeline for predicting income from raw responses to the U.S. Census American Community Survey. The ML performance of the collaboratively generated features coupled with AutoML beats several baselines, showing the potential of hybrid human-machine systems for challenging tasks. We found that participants highly valued the workflow enabled by Assemblé, and that as a result, software engineering background did not have a significant effect on either participant experience or performance. Rather, domain expertise (i.e. working with survey data or Census data) was the most important background for success in the task. The collaborative nature of the project meant that many contributors appreciated learning by example and referred to existing features contributed by others in order to inform their own feature development. However, there was a need for additional support for distribution of work so that variables that were under-explored in features written by others could be highlighted as a potential input for new features.</p>
+<p>I've written about this project in a variety of places, such as in an <a href="http://learningsys.org/nips18/assets/papers/15CameraReadySubmissionneurips_sysml_2018-8.pdf">initial workshop paper</a>, a <a href="https://www.micahsmith.com/blog/2020/03/mlsys-2020-recap">demo</a> of a collaborative project, and a recent <a href="https://www.micahsmith.com/blog/2020/06/ballet-status-report">status report</a> on the project.</p>
+<p>Please check it out and feel free to <a href="https://www.micahsmith.com/contact">share</a> any feedback.</p><script src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
   </div>
   <div class="tag-cloud">
     <p>
-      <a href="https://www.micahsmith.com/tag/tag1.html">tag1</a>
-      <a href="https://www.micahsmith.com/tag/tag2.html">tag2</a>
+      <a href="https://www.micahsmith.com/tag/ballet.html">ballet</a>
     </p>
   </div>
 
