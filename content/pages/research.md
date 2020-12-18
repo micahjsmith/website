@@ -18,7 +18,7 @@ __M. Smith__, C. Sala, J.M. Kanter, and K. Veeramachaneni.
     "The Machine Learning Bazaar: Harnessing the ML Ecosystem for Effective System Development."
     SIGMOD 2020.
     <a target="_blank" href="https://doi.org/10.1145/3318464.3386146"><i class="fa fa-link fa-1"></i></a>
-    <a target="_blank" href="{static}/files/mlbazaar_sigmod20.pdf"><i class="fa fa-file-pdf-o fa-1" aria-hidden="true"></i></a>
+    <a target="_blank" href="{static}/files/mlbazaar_sigmod20.pdf"><i class="fa fa-file-pdf fa-1" aria-hidden="true"></i></a>
     <a target="_blank" href="{static}/files/mlbazaar-sigmod-presentation-2020-06-16.pdf"><i class="fa fa-film fa-1" aria-hidden="true"></i></a>
     <a target="_blank" href="{static}/files/smith2020mlbazaar.bib"><i class="fa fa-quote-right fa-1" aria-hidden="true"></i></a>
     <a target="_blank" href="https://vimeo.com/440735079#t=4231s"><i class="fa fa-video-camera fa-1" aria-hidden="true"></i></a>
@@ -27,48 +27,48 @@ __M. Smith__, C. Sala, J.M. Kanter, and K. Veeramachaneni.
 D. Liu<sup>=</sup>, __M. Smith__<sup>=</sup>, and K. Veeramachaneni.
     "Understanding User-Bot Interactions for Small-Scale Automation in Open-Source Development."
     CHI 2020.
-    <a target="_blank" href="{static}/files/bots_chi2020.pdf"><i class="fa fa-file-pdf-o fa-1" aria-hidden="true"></i></a>
+    <a target="_blank" href="{static}/files/bots_chi2020.pdf"><i class="fa fa-file-pdf fa-1" aria-hidden="true"></i></a>
     <a target="_blank" href="{static}/files/liu2020bots.bib"><i class="fa fa-quote-right fa-1" aria-hidden="true"></i></a>
 
 __M. Smith__, K. Lu, and K. Veeramachaneni.
     "Demonstration of Ballet: A Framework for Open-source Collaborative Feature Engineering."
     MLSys 2020.
-    <a target="_blank" href="{static}/files/balletdemo_mlsys2020.pdf"><i class="fa fa-file-pdf-o fa-1" aria-hidden="true"></i></a>
-    <a target="_blank" href="{static}/files/balletdemo_mlsys2020_poster.pdf"><i class="fa fa-television fa-1" aria-hidden="true"></i></a>
+    <a target="_blank" href="{static}/files/balletdemo_mlsys2020.pdf"><i class="fa fa-file-pdf fa-1" aria-hidden="true"></i></a>
+    <a target="_blank" href="{static}/files/balletdemo_mlsys2020_poster.pdf"><i class="fa fa-tv fa-1" aria-hidden="true"></i></a>
 
 Q. Wang, Y. Ming, Z. Jin, Q. Shen, D. Liu, __M. Smith__, K. Veeramachaneni, and H.Qu.
     "ATMSeer: Increasing Transparency and Controllability in Automated Machine Learning."
     CHI 2019.
     <a target="_blank" href="https://dl.acm.org/citation.cfm?id=3300911"><i class="fa fa-link fa-1" aria-hidden="true"></i></a>
-    <a target="_blank" href="https://arxiv.org/abs/1902.05009"><i class="fa fa-file-pdf-o fa-1"></i></a>
+    <a target="_blank" href="https://arxiv.org/abs/1902.05009"><i class="fa fa-file-pdf fa-1"></i></a>
     <a target="_blank" href="{static}/files/wang2019atmseer.bib"><i class="fa fa-quote-right fa-1" aria-hidden="true"></i></a>
 
 
 __M. Smith__, K. Lu, and K. Veeramachaneni.
     "Ballet: A lightweight framework for open-source, collaborative feature engineering."
     Workshop on Systems for ML and Open Source Software at NeurIPS 2018.
-    <a target="_blank" href="http://learningsys.org/nips18/assets/papers/15CameraReadySubmissionneurips_sysml_2018-8.pdf"><i class="fa fa-file-pdf-o fa-1" aria-hidden="true"></i></a>
-    <a target="_blank" href="{static}/files/ballet-neurips-sysml-2018-poster.pdf"><i class="fa fa-television fa-1" aria-hidden="true"></i></a>
+    <a target="_blank" href="http://learningsys.org/nips18/assets/papers/15CameraReadySubmissionneurips_sysml_2018-8.pdf"><i class="fa fa-file-pdf fa-1" aria-hidden="true"></i></a>
+    <a target="_blank" href="{static}/files/ballet-neurips-sysml-2018-poster.pdf"><i class="fa fa-tv fa-1" aria-hidden="true"></i></a>
     <a target="_blank" href="{static}/files/smith2018ballet.bib"><i class="fa fa-quote-right fa-1" aria-hidden="true"></i></a>
 
 __M. Smith__.
     "Scaling Collaborative Open Data Science."
     MIT S.M. Thesis 2018.
     <a target="_blank" href="https://dspace.mit.edu/handle/1721.1/117819"><i class="fa fa-link fa-1" aria-hidden="true"></i></a>
-    <a target="_blank" href="{static}/files/Micah J Smith SM Thesis.pdf"><i class="fa fa-file-pdf-o fa-1" aria-hidden="true"></i></a>
+    <a target="_blank" href="{static}/files/Micah J Smith SM Thesis.pdf"><i class="fa fa-file-pdf fa-1" aria-hidden="true"></i></a>
     <a target="_blank" href="{static}/files/smith2018scaling.bib"><i class="fa fa-quote-right fa-1" aria-hidden="true"></i></a>
 
 __M. Smith__, R. Wedge, and K. Veeramachaneni.
     "FeatureHub: towards collaborative data science."
     DSAA 2017.
-    <a target="_blank" href="{static}/files/featurehub-smith.pdf"><i class="fa fa-file-pdf-o fa-1" aria-hidden="true"></i></a>
+    <a target="_blank" href="{static}/files/featurehub-smith.pdf"><i class="fa fa-file-pdf fa-1" aria-hidden="true"></i></a>
     <a target="_blank" href="{static}/files/smith2017feature.bib"><i class="fa fa-quote-right fa-1" aria-hidden="true"></i></a>
     <a target="_blank" href="{static}/files/featurehub-dsaa-presentation-oct-2017.pdf"><i class="fa fa-film fa-1" aria-hidden="true"></i></a>
 
 J. Cambronero<sup>=</sup>, J. Feser<sup>=</sup>, __M. Smith__<sup>=</sup>, and S. Madden.
     "Query optimization for dynamic imputation."
     VLDB 2017.
-    <a target="_blank" href="http://www.vldb.org/pvldb/vol10/p1310-feser.pdf"><i class="fa fa-file-pdf-o fa-1" aria-hidden="true"></i></a>
+    <a target="_blank" href="http://www.vldb.org/pvldb/vol10/p1310-feser.pdf"><i class="fa fa-file-pdf fa-1" aria-hidden="true"></i></a>
     <a target="_blank" href="{static}/files/cambronero2017query.bib"><i class="fa fa-quote-right fa-1" aria-hidden="true"></i></a>
 
 ### Miscellany
@@ -98,7 +98,7 @@ M. Del Negro, M. Giannoni, E. Moszkowski, S. Shahanaghi, and __M. Smith__. "The 
 M. Del Negro, M. Giannoni, and C. Patterson. 2012.  "The forward guidance
     puzzle." Staff Reports 574, Federal Reserve Bank of New York, revised 01 Dec 2015.
     (substantial contribution)
-    <a target="_blank" href="https://www.newyorkfed.org/medialibrary/media/research/staff_reports/sr574.html"><i class="fa fa-file-pdf-o fa-1" area-hidden="true"></i></a>
+    <a target="_blank" href="https://www.newyorkfed.org/medialibrary/media/research/staff_reports/sr574.html"><i class="fa fa-file-pdf fa-1" area-hidden="true"></i></a>
 
 A. Fuster, B. Zafar, and __M. Smith__. "Just Released: 2015 SCE Housing Survey Shows
     Households Optimistic about Housing Market." Liberty Street Economics, May 28, 2015.
