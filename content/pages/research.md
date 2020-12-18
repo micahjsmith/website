@@ -4,7 +4,7 @@ Order: 01
 
 ### Publications
 
-M. Smith, J. Cito, K. Lu, K. Veeramachaneni.
+__M. Smith__, J. Cito, K. Lu, K. Veeramachaneni.
     "Enabling collaborative data science development with the Ballet framework."
     arXiv Preprint 2012.07816. 2020.
     <a target="_blank" href="https://arxiv.org/abs/2012.07816"><i class="fa fa-link fa-1"></i></a>
@@ -24,7 +24,7 @@ __M. Smith__, C. Sala, J.M. Kanter, and K. Veeramachaneni.
     <a target="_blank" href="https://vimeo.com/440735079#t=4231s"><i class="fa fa-video-camera fa-1" aria-hidden="true"></i></a>
     (arXiv Preprint 1905.08942. 2019. <a target="_blank" href="https://arxiv.org/abs/1905.08942"><i class="fa fa-link fa-1"></i></a>)
 
-D. Liu,\* __M. Smith\*__, and K. Veeramachaneni.
+D. Liu<sup>=</sup>, __M. Smith__<sup>=</sup>, and K. Veeramachaneni.
     "Understanding User-Bot Interactions for Small-Scale Automation in Open-Source Development."
     CHI 2020.
     <a target="_blank" href="{static}/files/bots_chi2020.pdf"><i class="fa fa-file-pdf-o fa-1" aria-hidden="true"></i></a>
@@ -65,7 +65,7 @@ __M. Smith__, R. Wedge, and K. Veeramachaneni.
     <a target="_blank" href="{static}/files/smith2017feature.bib"><i class="fa fa-quote-right fa-1" aria-hidden="true"></i></a>
     <a target="_blank" href="{static}/files/featurehub-dsaa-presentation-oct-2017.pdf"><i class="fa fa-film fa-1" aria-hidden="true"></i></a>
 
-J. Cambronero\*, J. Feser\*, __M. Smith\*__, and S. Madden.
+J. Cambronero<sup>=</sup>, J. Feser<sup>=</sup>, __M. Smith__<sup>=</sup>, and S. Madden.
     "Query optimization for dynamic imputation."
     VLDB 2017.
     <a target="_blank" href="http://www.vldb.org/pvldb/vol10/p1310-feser.pdf"><i class="fa fa-file-pdf-o fa-1" aria-hidden="true"></i></a>
