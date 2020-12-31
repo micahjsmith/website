@@ -1,5 +1,6 @@
 import logging
 import os.path
+from collections import defaultdict
 from copy import deepcopy
 from functools import total_ordering
 from typing import List
@@ -104,7 +105,14 @@ class BibliographyGenerator(Generator):
             bibliography.extend(new_references)
 
         self.bibliography = bibliography
-        self._update_context(('bibliography', ))
+
+        # organize into collections
+        self.bibliography_collections = defaultdict(list)
+        for ref in self.bibliography:
+            collection = ref.meta.get('collection', 'Other')
+            self.bibliography_collections[collection].append(ref)
+
+        self._update_context(('bibliography', 'bibliography_collections', ))
 
     def generate_output(self, writer):
         pass
