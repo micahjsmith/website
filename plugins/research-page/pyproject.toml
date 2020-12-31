@@ -8,6 +8,7 @@ readme = "README.md"
 keywords = ["pelican", "plugin"]
 repository = "https://github.com/micahjsmith/pelican-research-page"
 documentation = "https://docs.getpelican.com"
+include = ["pelican/plugins/research_page/data/templates/research.html"]
 packages = [
     { include = "pelican" },
 ]

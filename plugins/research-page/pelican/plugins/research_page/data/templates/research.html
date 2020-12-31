@@ -1,0 +1,22 @@
+{% extends "!theme/page.html" %}
+
+{% block page_content %}
+{{ page.content }}
+
+{% for ref in bibliography %}
+<p id="{{ ref.meta.key }}">
+    <a class="jump" href="#{{ ref.meta.key }}"></a>
+    {% for author in ref.fields.author -%}
+        {% if loop.last %} and {% endif %}{{ author.get('given') }} {{ author.family }}{% if not loop.last %}, {% else %}.{% endif %}
+        {# {% if author.me %}<strong>{% endif %}{{ author.name }}{% if author.me %}</strong>{% endif %}{% if not loop.last %}, {% else %}.{% endif %} #}
+    {%- endfor %}
+    "{{ ref.fields.title }}."
+    {{ ref.fields.container_title_short or ref.fields.container_title }}.
+    {{ ref.fields.get('issued', {}).get('year') }}.
+    {% for link in ref.fields.get('custom', {}).get('links', []) %}
+        <a target="_blank" href="{{ link.href }}"><i class="fa fa-{{ link.kind }} fa-1"></i></a>
+    {% endfor %}
+</p>
+{% endfor %}
+
+{% endblock %}
