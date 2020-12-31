@@ -66,8 +66,9 @@ DEFAULT_PAGINATION = False
 # RELATIVE_URLS = True
 
 # Plugins
+import pelican.plugins.research_page
 PLUGIN_PATHS = ['plugins', 'plugins/pelican-embed-tweet']
-PLUGINS = ['render_math', 'embed_tweet']
+PLUGINS = ['render_math', 'embed_tweet', pelican.plugins.research_page]
 JINJA_ENVIRONMENT = {}
 
 # Static content
