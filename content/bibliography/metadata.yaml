@@ -1,0 +1,64 @@
+- key: cambronero2017query
+  metadata:
+    links:
+      - href: https://www.vldb.org/pvldb/vol10/p1310-feser.pdf
+        icon: file-pdf
+- key: liu2020understanding
+  metadata:
+    links:
+      - href: /files/bots_chi2020.pdf
+        icon: file-pdf
+- key: santu2020levelwise
+  metadata:
+    links:
+      - href: https://arxiv.org/abs/2010.10777
+        icon: link
+- key: smith2017featurehub
+  metadata:
+    links:
+      - href: https://arxiv.org/abs/2010.10777
+        icon: link
+- key: smith2018ballet
+  metadata:
+    links:
+      - href: http://learningsys.org/nips18/assets/papers/15CameraReadySubmissionneurips_sysml_2018-8.pdf
+        icon: file-pdf
+      - href: /files/ballet-neurips-sysml-2018-poster.pdf
+        icon: tv
+- key: smith2018scaling
+  metadata:
+    links:
+      - href: https://dspace.mit.edu/handle/1721.1/117819
+        icon: link
+      - href: "/files/Micah J Smith SM Thesis.pdf"
+        icon: file-pdf
+- key: smith2020demonstration
+  metadata:
+    links:
+      - href: /files/balletdemo_mlsys2020.pdf
+        icon: file-pdf
+      - href: /files/balletdemo_mlsys2020_poster.pdf
+        icon: tv
+- key: smith2020enabling
+  metadata:
+    links:
+      - href: https://arxiv.org/abs/2012.07816
+        icon: link
+- key: smith2020machine
+  metadata:
+    links:
+      - href: https://doi.org/10.1145/3318464.3386146
+        icon: link
+      - href: /files/mlbazaar_sigmod20.pdf
+        icon: file-pdf
+      - href: /files/mlbazaar-sigmod-presentation-2020-06-16.pdf
+        icon: film
+      - href: https://vimeo.com/440735079#t=4231s
+        icon: video-camera
+- key: wang2019atmseer
+  metadata:
+    links:
+      - href: https://dl.acm.org/citation.cfm?id=3300911
+        icon: link
+      - href: https://arxiv.org/abs/1902.05009
+        icon: file-pdf
