@@ -3,16 +3,18 @@
 {% block page_content %}
 {{ page.content }}
 
-{% for ref in bibliography %}
-<p id="{{ ref.meta.key }}">
+{% for ref in bibliography | sort(reverse=True, attribute='sortkey') %}
+<p class="ref" id="{{ ref.meta.key }}">
     <a class="jump" href="#{{ ref.meta.key }}"></a>
+    <span class="ref-author-list">
     {% for author in ref.fields.author -%}
-        {% if loop.last %} and {% endif %}{{ author.get('given') }} {{ author.family }}{% if not loop.last %}, {% else %}.{% endif %}
+        {% if loop.last and not loop.first %} and {% endif %}<span class="ref-author" data-given="{{ author.get('given') }}" data-family="{{ author.family }}">{{ author.get('given') }} {{ author.family }}</span>{% if not loop.last %}, {% else %}.{% endif %}
         {# {% if author.me %}<strong>{% endif %}{{ author.name }}{% if author.me %}</strong>{% endif %}{% if not loop.last %}, {% else %}.{% endif %} #}
     {%- endfor %}
-    "{{ ref.fields.title }}."
-    {{ ref.fields.container_title_short or ref.fields.container_title }}.
-    {{ ref.fields.get('issued', {}).get('year') }}.
+    </span>
+    <span class="ref-title">"{{ ref.fields.title }}."</span>
+    <span class="ref-container">{{ ref.fields.container_title_short or ref.fields.container_title or (ref.fields.type | title) or 'Other' }}.</span>
+    <span class="ref-date">{{ ref.fields.get('issued', {}).get('year') }}.</span>
     {% for link in ref.fields.get('custom', {}).get('links', []) %}
         <a target="_blank" href="{{ link.href }}"><i class="fa fa-{{ link.kind }} fa-1"></i></a>
     {% endfor %}
