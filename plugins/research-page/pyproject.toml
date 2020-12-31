@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "pelican-research-page"
-version = "0.0.0"
+version = "0.1.0"
 description = "Research page compiled from bibliography file"
 authors = ["Micah Smith <micahjsmith@gmail.com>"]
 license = "MIT"
@@ -32,7 +32,7 @@ classifiers = [
 python = "^3.6"
 pelican = "^4.5"
 citeproc-py = "^0.5.1"
-pyyaml = "^0.2.5"
+pyyaml = "^5.3"
 
 [tool.poetry.dev-dependencies]
 black = {version = "^19.10b0", allow-prereleases = true}
