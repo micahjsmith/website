@@ -43,14 +43,14 @@ _lt = AlwaysLessThan()
 
 class Reference:
 
-    def __init__(self, ref: citeproc.source.Reference, meta: dict = None):
+    def __init__(self, ref: citeproc.source.Reference, metadata: dict = None):
         self.fields = dict(ref)
-        self.meta = {
+        self.metadata = {
             'key': ref.key,
             'type': ref.type,
         }
-        if meta is not None:
-            self.meta.update(meta)
+        if metadata is not None:
+            self.metadata.update(metadata)
 
     @property
     def sortkey(self):
@@ -139,15 +139,15 @@ class BibliographyGenerator(Generator):
         for item in extra_metadata:
             key = item['key']
             for ref in bibliography:
-                if ref.meta.get('key') == key:
-                    ref.meta.update(item['metadata'])
+                if ref.metadata.get('key') == key:
+                    ref.metadata.update(item['metadata'])
 
         self.bibliography = bibliography
 
         # organize into collections
         self.bibliography_collections = defaultdict(list)
         for ref in self.bibliography:
-            collection = ref.meta.get('collection', 'Other')
+            collection = ref.metadata.get('collection', 'Other')
             self.bibliography_collections[collection].append(ref)
 
         self._update_context(('bibliography', 'bibliography_collections', ))
