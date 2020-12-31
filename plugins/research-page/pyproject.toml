@@ -31,7 +31,8 @@ classifiers = [
 [tool.poetry.dependencies]
 python = "^3.6"
 pelican = "^4.5"
-markdown = {version = "^3.2.2", optional = true}
+citeproc-py = "^0.5.1"
+pyyaml = "^0.2.5"
 
 [tool.poetry.dev-dependencies]
 black = {version = "^19.10b0", allow-prereleases = true}
