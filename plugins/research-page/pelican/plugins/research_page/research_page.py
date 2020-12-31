@@ -10,8 +10,10 @@ from pelican.generators import Generator
 
 try:
     import citeproc
+    import yaml
 except ImportError:
     citeproc = None
+    yaml = None
 
 logger = logging.getLogger(__name__)
 
@@ -25,6 +27,7 @@ DEFAULT_SETTINGS = {
     'BIBLIOGRAPHY_PATHS': ['bibliography'],
     'BIBLIOGRAPHY_EXCLUDES': [],
     'BIBLIOGRAPHY_EXTENSIONS': ['bib'],
+    'BIBLIOGRAPHY_METADATA_EXTENSIONS': ['yml', 'yaml'],
     # 'BIBLIOGRAPHY_ORDER_BY': lambda ref: -ref.issued.year,  # TODO
 }
 
@@ -81,6 +84,13 @@ def read_references(base_path, path, context):
     return references
 
 
+def read_metadata(base_path, path):
+    source_path = os.path.join(base_path, path)
+    if source_path.endswith('yml') or source_path.endswith('yaml'):
+        with open(source_path, 'r') as f:
+            return yaml.safe_load(f)  # List[Dict]
+
+
 class BibliographyGenerator(Generator):
 
     def generate_context(self):
@@ -103,6 +113,34 @@ class BibliographyGenerator(Generator):
 
             logger.debug(f'Read {len(new_references)} references from {file}')
             bibliography.extend(new_references)
+
+        # add extra key-value pairs for matching citation keys
+        extra_metadata = []
+        for file in self.get_files(
+            self.settings['BIBLIOGRAPHY_PATHS'],
+            exclude=self.settings['BIBLIOGRAPHY_EXCLUDES'],
+            extensions=self.settings['BIBLIOGRAPHY_METADATA_EXTENSIONS'],
+        ):
+            logger.debug(f'Reading extra metadata from {file}')
+            try:
+                new_metadata = read_metadata(
+                    base_path=self.path, path=file)
+            except Exception as e:
+                logger.error(
+                    'Could not process %s\n%s', file, e,
+                    exc_info=self.settings.get('DEBUG', False))
+                continue
+
+            logger.debug(
+                f'Read {len(new_metadata)} extra metadata entries fro {file}')
+            extra_metadata.extend(new_metadata)
+
+        # lazy O(n^2)
+        for item in extra_metadata:
+            key = item['key']
+            for ref in bibliography:
+                if ref.meta.get('key') == key:
+                    ref.meta.update(item['metadata'])
 
         self.bibliography = bibliography
 

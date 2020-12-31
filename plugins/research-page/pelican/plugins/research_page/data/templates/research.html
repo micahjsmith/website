@@ -15,8 +15,8 @@
     <span class="ref-title">"{{ ref.fields.title }}."</span>
     <span class="ref-container">{{ ref.fields.container_title_short or ref.fields.container_title or (ref.fields.type | title) or 'Other' }}.</span>
     <span class="ref-date">{{ ref.fields.get('issued', {}).get('year') }}.</span>
-    {% for link in ref.fields.get('custom', {}).get('links', []) %}
-        <a target="_blank" href="{{ link.href }}"><i class="fa fa-{{ link.kind }} fa-1"></i></a>
+    {% for link in ref.meta.get('links', []) %}
+        <a target="_blank" href="{{ link.href }}"><i class="fa fa-{{ link.icon }} fa-1"></i></a>
     {% endfor %}
 </p>
 {% endfor %}
