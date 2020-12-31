@@ -139,10 +139,10 @@
   </header>
   <div>
       <p>For a while I've tolerated files named <code>Icon?</code> that appear in my console <code>ls</code> and <code>git status</code> output on macOS as well as in some IDE file trees like in Atom:</p>
-<div class="highlight"><pre><span></span>$ \ls -Al
+<div class="highlight"><pre><span></span><code>$ \ls -Al
 total 696
 -rw-------  1 micahsmith  staff  179 Nov 12  2019 Experiment Datasets.gsheet
--rw-r--r--@ 1 micahsmith  staff …</pre></div>
+-rw-r--r--@ 1 micahsmith  staff …</code></pre></div>
         <br>
         <a class="btn"
            href="https://www.micahsmith.com/blog/2020/06/hidden-icon-files-macos-gdrive">
@@ -184,9 +184,8 @@ total 696
   </header>
   <div>
       <p>How to find ports that are already "in use" on macOS:</p>
-<div class="highlight"><pre><span></span>sudo lsof -P -i TCP -s TCP:LISTEN
-</pre></div>
-
+<div class="highlight"><pre><span></span><code>sudo lsof -P -i TCP -s TCP:LISTEN
+</code></pre></div>
 
 <p>This is helpful if you are trying to figure out which process is using a port so that you can kill that process — for example, if you have a web server …</p>
         <br>

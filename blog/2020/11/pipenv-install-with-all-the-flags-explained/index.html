@@ -148,13 +148,12 @@
 
   <div>
     <p>A common pattern of using <a href="pipenv.pypa.io/">pipenv</a> in containers is to install as follows:</p>
-<div class="highlight"><pre><span></span><span class="k">COPY</span> Pipfile Pipfile.lock ./
+<div class="highlight"><pre><span></span><code><span class="k">COPY</span> Pipfile Pipfile.lock ./
 <span class="k">RUN</span> pip install --upgrade pip <span class="o">&amp;&amp;</span> <span class="se">\</span>
     pip install pipenv <span class="o">&amp;&amp;</span> <span class="se">\</span>
     pipenv install --system --deploy --ignore-pipfile <span class="o">&amp;&amp;</span> <span class="se">\</span>
     pipenv --clear
-</pre></div>
-
+</code></pre></div>
 
 <p>What is going on here, exactly? How does one understand the intersection of the flags given to pipenv? What gets installed, and from where? This has been confusing to me and others, according to various threads on the internet (<a href="https://github.com/pypa/pipenv/issues/3150">1</a>, <a href="https://stackoverflow.com/questions/52922688/pipenv-sync-and-pipenv-install-system-ignore-pipfile-in-docker-environment">2</a>, <a href="https://github.com/pypa/pipenv/issues/2227">3</a>).</p>
 <h3>Explanation</h3>
@@ -179,13 +178,12 @@
 </li>
 </ol>
 <p>So we have the following stylized algorithm for this install:</p>
-<div class="highlight"><pre><span></span>if hash(Pipfile) != computed hash stored in Pipfile.lock
+<div class="highlight"><pre><span></span><code>if hash(Pipfile) != computed hash stored in Pipfile.lock
     fail
 else
     for each specific dependency in Pipfile.lock
         install the dependency using the system Python
-</pre></div>
-
+</code></pre></div>
 
 <p>To fully understand the behavior of any code, there is often no substitute for reading the source directly. The function to understand is <a href="https://github.com/pypa/pipenv/blob/dc377ef2d2b38b09bcf6f71ac7aa919e5ecad128/pipenv/core.py#L1199">do_init</a> in <code>pipenv/core.py</code> which is responsible for the behavior of <code>pipenv install</code> when no packages are specified at the command line. Note that both <code>do_install</code> and <code>do_sync</code> call <code>do_init</code> for the heavy lifting.</p>
 <h3>Comparison with sync</h3>

@@ -158,11 +158,10 @@
 <p>Create a separate sheet in which you will prepare the email messages. For columns, you will have the recipient of your email and other headers such as cc, bcc, subject, and body.</p>
 <p>Fill these columns in, possibly using formulas to merge data from your first sheet into the text.</p>
 <p>For example, to create the message body, we use this formula:</p>
-<div class="highlight"><pre><span></span>=&quot;Hello &quot; &amp; Data!B2 &amp; &quot;,
+<div class="highlight"><pre><span></span><code>=&quot;Hello &quot; &amp; Data!B2 &amp; &quot;,
 You are &quot; &amp; Data!C2 &amp; &quot; years old.
 Bye!&quot;
-</pre></div>
-
+</code></pre></div>
 
 <p>You should compose the body in a separate text editor for a better composition experience, and substitute in placeholders for formulas when you transfer it to the spreadsheet. Note that rich text formatting (font size, font style, hyperlinks) will not transfer to the prepared emails.<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup></p>
 <p>You will be left with something like this:</p>
@@ -170,7 +169,7 @@ Bye!&quot;
 <h3>Create the mailto link</h3>
 <p>Use a formula to create a mailto link from the message content<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>.</p>
 <p><a href="https://en.wikipedia.org/wiki/Mailto">Mailto links</a> are URLs of the form <code>mailto:</code> that allow you to request an email message to be prepared with different parameters, such as the recipient, the subject line, and the body. These are mostly used just to turn your contact address into a link that opens in someone's email client, but can be much more useful. You can even specify arbitrary email headers (<a href="https://tools.ietf.org/html/rfc6068">spec</a>).</p>
-<div class="highlight"><pre><span></span>=HYPERLINK(
+<div class="highlight"><pre><span></span><code>=HYPERLINK(
     &quot;mailto:&quot; &amp; A2
     &amp; &quot;?&quot;
     &amp; JOIN(
@@ -182,13 +181,11 @@ Bye!&quot;
     ),
     &quot;send&quot;
 )
-</pre></div>
-
+</code></pre></div>
 
 <p>This will create a link that looks like this:</p>
-<div class="highlight"><pre><span></span>mailto:foo@example.com?cc=&amp;bcc=qux%40test.org&amp;subject=Your%20age&amp;body=Hello%20Foo%2C%0AYou%20are%2038%20years%20old.%0ABye%21&amp;
-</pre></div>
-
+<div class="highlight"><pre><span></span><code>mailto:foo@example.com?cc=&amp;bcc=qux%40test.org&amp;subject=Your%20age&amp;body=Hello%20Foo%2C%0AYou%20are%2038%20years%20old.%0ABye%21&amp;
+</code></pre></div>
 
 <p><a href="mailto:foo@example.com?cc=&amp;bcc=qux%40test.org&amp;subject=Your%20age&amp;body=Hello%20Foo%2C%0AYou%20are%2038%20years%20old.%0ABye%21&amp;">Try me to see how this looks in your own email client!</a></p>
 <p>Your email client should show you a prepared message with the To, Bcc, Subject, and Body fields already filled out (in the case of this URL). You will now send the email right away without further modification.</p>

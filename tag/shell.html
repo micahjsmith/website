@@ -139,9 +139,8 @@
   </header>
   <div>
       <p>How to find ports that are already "in use" on macOS:</p>
-<div class="highlight"><pre><span></span>sudo lsof -P -i TCP -s TCP:LISTEN
-</pre></div>
-
+<div class="highlight"><pre><span></span><code>sudo lsof -P -i TCP -s TCP:LISTEN
+</code></pre></div>
 
 <p>This is helpful if you are trying to figure out which process is using a port so that you can kill that process — for example, if you have a web server …</p>
         <br>

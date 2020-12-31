@@ -148,15 +148,14 @@
     <p>Many venues for submitting research in computer science and other academic fields follow a double-blind review process, in which the authors should be anonymous to the reviewers. This can cause conflicts with ideas from <em>open science</em> or with the evaluation of software contributions as any linked GitHub repositories can contain identifying information about the authors. In this post I'll describe how I set up my LaTeX projects to facilitate double blind submission.</p>
 <h3>Example document</h3>
 <p>Imagine that we have written the following highly-complex research paper in LaTeX:</p>
-<div class="highlight"><pre><span></span><span class="k">\documentclass</span><span class="na">[sigconf,anonymous]</span><span class="nb">{</span>acmart<span class="nb">}</span>
+<div class="highlight"><pre><span></span><code><span class="k">\documentclass</span><span class="na">[sigconf,anonymous]</span><span class="nb">{</span>acmart<span class="nb">}</span>
 <span class="k">\begin</span><span class="nb">{</span>document<span class="nb">}</span>
 <span class="k">\author</span><span class="nb">{</span>Micah Smith<span class="nb">}</span>
 <span class="k">\title</span><span class="nb">{</span>Title<span class="nb">}</span>
 <span class="k">\maketitle</span>
 Here is my code: <span class="k">\url</span><span class="nb">{</span>https://github.com/micahjsmith/code<span class="nb">}</span>.
 <span class="k">\end</span><span class="nb">{</span>document<span class="nb">}</span>
-</pre></div>
-
+</code></pre></div>
 
 <p>We're using the popular <code>acmart</code> class file which is used in computer science conferences like CHI, SIGMOD, KDD, etc. This class has an <code>anonymous</code> option which serves to anonymize the author list anywhere it appears. But the repo I have linked still gives away identifying information: the organization name appears in the URL and if one clicks through, the name of the authors and institution appear prominently.</p>
 <h3>Anonymizing the repo</h3>
@@ -169,22 +168,20 @@ Here is my code: <span class="k">\url</span><span class="nb">{</span>https://git
 </ul>
 <p>A better approach is to use a service like <a href="https://anonymous.4open.science">Anonymous GitHub</a>, which proxies requests to your live GitHub repository and strips identifying information based on your custom configuration. To use Anonymous GitHub, paste the URL of a GitHub repository and list of terms to anonymize from every file; terms will be replaced with <code>XXX</code>.</p>
 <p>In our case, we want to anonymize the terms <code>Micah Smith</code> and <code>MIT</code>. So we could start with the following term list:</p>
-<div class="highlight"><pre><span></span><span class="err">Micah Smith</span>
+<div class="highlight"><pre><span></span><code><span class="err">Micah Smith</span>
 <span class="err">MIT</span>
-</pre></div>
-
+</code></pre></div>
 
 <p>The problem with this is that the linked software has been released under the MIT License, so a reviewer viewing the README or LICENSE would see the license is called <code>XXX License</code> (because it has been anonymized) and conclude that the author is from MIT, breaking the anonymity. Other substring matches could cause issues in similar situations.</p>
 <p>The solution is to take advantage of the (undocumented) full regex matching that Anonymous GitHub will perform. Each line can contain an <a href="https://docs.python.org/3/library/re.html#regular-expression-syntax">arbitrary Python regex</a>. Thus we can match <code>MIT</code> only when it is <em>not</em> followed by the characters <code>License</code> using a <em>negative lookahead</em>:</p>
-<div class="highlight"><pre><span></span><span class="err">Micah Smith</span>
+<div class="highlight"><pre><span></span><code><span class="err">Micah Smith</span>
 <span class="err">MIT(?! License)</span>
-</pre></div>
-
+</code></pre></div>
 
 <p>The result is an anonymized repo that can be shared with reviewers: <a href="https://anonymous.4open.science/r/ca687570-8de0-40db-b918-6c97fa9d7f7b/">https://anonymous.4open.science/r/ca687570-8de0-40db-b918-6c97fa9d7f7b/</a></p>
 <h3>Referencing the repo</h3>
 <p>We could just copy and paste the new link into our LaTeX document, but that's too easy, isn't it? A flexible approach is to store the original URL and the anonymized URL in variables and place the appropriate one into the text based on whether the version being compiled is anonymized or not.</p>
-<div class="highlight"><pre><span></span><span class="k">\documentclass</span><span class="na">[sigconf,anonymous]</span><span class="nb">{</span>acmart<span class="nb">}</span>
+<div class="highlight"><pre><span></span><code><span class="k">\documentclass</span><span class="na">[sigconf,anonymous]</span><span class="nb">{</span>acmart<span class="nb">}</span>
 
 <span class="k">\newcommand</span><span class="nb">{</span><span class="k">\repourl</span><span class="nb">}{</span>https://github.com/micahjsmith/code<span class="nb">}</span>
 
@@ -201,8 +198,7 @@ Here is my code: <span class="k">\url</span><span class="nb">{</span>https://git
 <span class="k">\maketitle</span>
 Here is my code: <span class="k">\url</span><span class="nb">{</span><span class="k">\repourl</span><span class="nb">}</span>.
 <span class="k">\end</span><span class="nb">{</span>document<span class="nb">}</span>
-</pre></div>
-
+</code></pre></div>
 
 <p>In this case, I searched the <code>acmart.cls</code> class file for the <code>anonymous</code> flag finding the command <code>\if@ACM@anonymous</code>. You can freely use this command as a switch within your document if you <a href="https://tex.stackexchange.com/a/8353">jump through the usual \makeatletter/\makeatother hoops</a>. For a different document format, different logic would be needed. For example, <code>IEEEtran.cls</code> defines the <code>\ifCLASSOPTIONpeerreview</code> conditional, but fewer IEEE conferences use double-blind review.</p>
 <p>When (when!) your paper is accepted, you can simply remove the <code>anonymous</code> flag from your document class declaration, and the original link will replace the anonymized link without needing to look through the document.</p>

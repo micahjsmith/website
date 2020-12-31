@@ -150,21 +150,19 @@
     <p>[Update from 2020-03-27 below]</p>
 <p>Vim's diff mode is a lightweight diffing tool that can be used at the command line, in particular with the <code>git diff</code> command. In a <a href="https://www.micahsmith.com/blog/2016/02/vim-diff-dumb-paths">previous post</a>, I wrote about configuring vimdiff as the git difftool for use with Matlab development (yes, way back when I was actually writing Matlab code).</p>
 <p>Recently, I've been getting errors using vimdiff of the following (showing manual invocation rather than through <code>git diff</code>):</p>
-<div class="highlight"><pre><span></span>$ vimdiff
+<div class="highlight"><pre><span></span><code>$ vimdiff
 Error detected <span class="k">while</span> processing /Users/micahsmith/.vimrc:
 line   <span class="m">65</span>:
 E474: Invalid argument: <span class="nv">diffopt</span><span class="o">+=</span>iwhite
 Press ENTER or <span class="nb">type</span> <span class="nb">command</span> to <span class="k">continue</span>
-</pre></div>
-
+</code></pre></div>
 
 <p>The corresponding section of my .vimrc file is as follows:</p>
-<div class="highlight"><pre><span></span><span class="c">&quot;Ignore whitespace with vimdiff</span>
+<div class="highlight"><pre><span></span><code><span class="c">&quot;Ignore whitespace with vimdiff</span>
 <span class="k">if</span> &amp;<span class="nb">diff</span>
     <span class="k">set</span> <span class="nb">diffopt</span><span class="p">+=</span>iwhite
 <span class="k">endif</span>
-</pre></div>
-
+</code></pre></div>
 
 <p>Had a new version of vim been released that deprecated this <code>diffopt</code> option? No, <code>iwhite</code> still appeared in the manual under <code>:help diffopt</code>. This error was driving me crazy, as when I ran <code>git diff</code> when there were many changed files, this error message would display for me to acknowledge between every file comparison.</p>
 <p>After beating my head against the wall for a while, I finally figured out the issue. Most of my frustration is environment specific, but it does seem like MacOS Catalina bundled a different version of vim that removed support for the <code>iwhite</code> option. I'm not going to dive into it too thoroughly, but if you confirm that Catalina is to blame, let me know in the comments.</p>
@@ -188,7 +186,7 @@ Catalina and I was able to identify the problem more clearly and find a solution
 Catalina vim version did not drop support for iwhite. Rather, the problem is that somehow 
 the default setting which includes <code>internal</code> is invalid for the version of vim installed.
 Here is a log demonstrating the issue.</p>
-<div class="highlight"><pre><span></span>$ /usr/bin/vim -u NONE
+<div class="highlight"><pre><span></span><code>$ /usr/bin/vim -u NONE
 :set diffopt?
   <span class="nv">diffopt</span><span class="o">=</span>internal,filler
 :set <span class="nv">diffopt</span><span class="o">+=</span>iwhite
@@ -199,8 +197,7 @@ E474: Invalid argument: <span class="nv">diffopt</span><span class="o">=</span>i
 :set <span class="nv">diffopt</span><span class="o">+=</span>iwhite
 :set diffopt?
   <span class="nv">diffopt</span><span class="o">=</span>filler,iwhite
-</pre></div>
-
+</code></pre></div>
 
 <p>Summary</p>
 <ul>
@@ -218,19 +215,18 @@ E474: Invalid argument: <span class="nv">diffopt</span><span class="o">=</span>i
 <li>first remove <code>internal</code> from the list of options</li>
 <li>then add your desired options</li>
 </ul>
-<div class="highlight"><pre><span></span><span class="k">if</span> &amp;<span class="nb">diff</span>
+<div class="highlight"><pre><span></span><code><span class="k">if</span> &amp;<span class="nb">diff</span>
     <span class="k">set</span> <span class="nb">diffopt</span><span class="p">-=</span>internal
     <span class="k">set</span> <span class="nb">diffopt</span><span class="p">+=</span>iwhite
 <span class="k">endif</span>
-</pre></div>
-
+</code></pre></div>
 
 <p>My version of vim FWIW:</p>
-<div class="highlight"><pre><span></span>$ /usr/bin/vim --version
+<div class="highlight"><pre><span></span><code>$ /usr/bin/vim --version
 VIM - Vi IMproved <span class="m">8</span>.1 <span class="o">(</span><span class="m">2018</span> May <span class="m">18</span>, compiled Dec <span class="m">13</span> <span class="m">2019</span> <span class="m">14</span>:45:40<span class="o">)</span>
 Included patches: <span class="m">1</span>-503, <span class="m">505</span>-680, <span class="m">682</span>-1312
 Compiled by roo<a href="https://twitter.com/apple">@apple</a>.com
-</pre></div><script src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+</code></pre></div><script src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
   </div>
   <div class="tag-cloud">
     <p>

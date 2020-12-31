@@ -222,7 +222,7 @@
 
 <h3>Completed feature engineering pipeline</h3>
 <p>Let's first imagine for the purpose of induction that the project is already underway. What is the product that is being made available to the data science community? It is an end-to-end feature engineering pipeline that can be fit on existing house price data and used to extract feature values from unseen house records. The project can be pip-installed by a totally different set of developers, and the feature engineering pipeline can then be inserted into some other ML pipeline.</p>
-<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ballet_predict_house_prices.load_data</span> <span class="kn">import</span> <span class="n">load_data</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">ballet_predict_house_prices.load_data</span> <span class="kn">import</span> <span class="n">load_data</span>
 <span class="n">X_df_tr</span><span class="p">,</span> <span class="n">y_df_tr</span> <span class="o">=</span> <span class="n">load_data</span><span class="p">(</span><span class="n">input_dir</span><span class="o">=</span><span class="s1">&#39;./data/train&#39;</span><span class="p">)</span>
 <span class="n">X_df_te</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">load_data</span><span class="p">(</span><span class="n">input_dir</span><span class="o">=</span><span class="s1">&#39;./data/test&#39;</span><span class="p">)</span>
 
@@ -230,8 +230,7 @@
 <span class="n">mapper</span> <span class="o">=</span> <span class="n">build</span><span class="p">(</span><span class="n">X_df_tr</span><span class="p">,</span> <span class="n">y_df_tr</span><span class="p">)</span><span class="o">.</span><span class="n">mapper_X</span>
 
 <span class="n">mapper</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_df_te</span><span class="p">)</span>
-</pre></div>
-
+</code></pre></div>
 
 <p>What is notable about this already is that the feature engineering pipeline itself is exposed as a "mapper" object that provides a fit/transform API. This means that developers can create the pipeline and learn parameters from a training data set, while others can install the pipeline and extract features for their own data. In contrast, in many modeling efforts features are extracted in a single end-to-end script which relies on data already being split into train and test sets and often leaks information from the test set to the feature engineering, such as column means for imputation or knowledge about column skew in the test set.</p>
 <h3>One feature at a time</h3>
@@ -239,7 +238,7 @@
 <p>The key here is the insight that feature engineering can be represented as a dataflow graph over individual features. We structure code that extracts a group of feature values as an individual patch, calling these <em>logical features</em>. Individual features are represented as individual Python modules, stored in the git source, and "collected" dynamically by the Ballet framework.</p>
 <p>As one plugin for Ballet, we create a small embedded language for feature engineering. Users are responsible for declaring one or more input columns to their feature and one or more sklearn-style transformers that sequentially operate on these columns. We supplement the many high-quality transformers available in <code>sklearn</code> and elsewhere with feature engineering primitives. This makes it easier to rewrite imperative Pandas code to be modular and robust to unseen data.</p>
 <p>Here's how it looks. The user has requested the <code>Lot Area</code> variable from the raw dataset, which contains noisy measurements of each house's lot area. They propose to first conditionally unskew this variable by taking the log of the lot area if the skew on the training data is greater than some threshold (here at <code>0.75</code>). Then any houses that have missing lot areas are imputed with the mean of the training lot area. (If the imputation were done first, the level of skew in the training data would be artificially less as new observations would be added at the mean.)</p>
-<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ballet</span> <span class="kn">import</span> <span class="n">Feature</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">ballet</span> <span class="kn">import</span> <span class="n">Feature</span>
 <span class="kn">from</span> <span class="nn">ballet.eng</span> <span class="kn">import</span> <span class="n">ConditionalTransformer</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">sklearn.impute</span> <span class="kn">import</span> <span class="n">SimpleImputer</span>
@@ -253,25 +252,22 @@
 <span class="p">]</span>
 <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;Lot area unskewed&#39;</span>
 <span class="n">feature</span> <span class="o">=</span> <span class="n">Feature</span><span class="p">(</span><span class="nb">input</span><span class="o">=</span><span class="nb">input</span><span class="p">,</span> <span class="n">transformer</span><span class="o">=</span><span class="n">transformer</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">)</span>
-</pre></div>
-
+</code></pre></div>
 
 <p><code>Feature</code> objects can then be composed as part of a <code>FeatureEngineeringPipeline</code>, which in turn provides a transformer API:</p>
-<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ballet.pipeline</span> <span class="kn">import</span> <span class="n">FeatureEngineeringPipeline</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">ballet.pipeline</span> <span class="kn">import</span> <span class="n">FeatureEngineeringPipeline</span>
 <span class="n">pipeline</span> <span class="o">=</span> <span class="n">FeatureEngineeringPipeline</span><span class="p">([</span><span class="n">feature1</span><span class="p">,</span> <span class="n">feature2</span><span class="p">,</span> <span class="n">feature3</span><span class="p">])</span>
 <span class="n">pipeline</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X_df</span><span class="p">)</span>
-</pre></div>
-
+</code></pre></div>
 
 <p>The pipeline extracts feature values more or less as follows (replacing <code>fit_transform</code> with just <code>transform</code> after training). Under the hood we use a <code>DataFrameMapper</code> from the <a href="https://github.com/scikit-learn-contrib/sklearn-pandas"><em>sklearn_pandas</em></a> project. This is similar to the functionality provided by <em>sklearn</em>'s recent <a href="https://scikit-learn.org/stable/modules/compose.html#column-transformer"><code>ColumnTransformer</code></a>, to which we may migrate if <em>sklearn</em> reaches feature parity.</p>
-<div class="highlight"><pre><span></span><span class="c1"># pseudocode</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># pseudocode</span>
 <span class="k">for</span> <span class="n">feature</span> <span class="ow">in</span> <span class="n">features</span><span class="p">:</span>
   <span class="n">x</span> <span class="o">=</span> <span class="n">X_df</span><span class="p">[</span><span class="nb">input</span><span class="p">]</span>
   <span class="k">for</span> <span class="n">transformer</span> <span class="ow">in</span> <span class="n">feature</span><span class="o">.</span><span class="n">transformer</span><span class="p">:</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">transformer</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
   <span class="k">yield</span> <span class="n">x</span>
-</pre></div>
-
+</code></pre></div>
 
 <p>The Ballet <a href="https://hdi-project.github.io/ballet/feature_engineering_guide.html">Feature Engineering Guide</a> provides a more full discussion.</p>
 <p>So a feature engineering pipeline is composed of many individual features. These features are developed independently and in parallel by contributors to the project. Remember, the same ideas apply to other parts of the data science process in addition to feature engineering, but feature engineering is the focus of the <code>ballet-predict-house-prices</code> project and is supported by the plugin that I've just described.</p>
@@ -286,15 +282,14 @@
 <p>If the feature fails any of these tests, it will be rejected and will not become a part of the composite feature engineering pipeline. This ensures that at all points, the pipeline can be used by downstream collaborators as part of their modeling process and patching it always improves the performance of the end-to-end model.</p>
 <p>In a Ballet development workflow, these tests happen twice.</p>
 <p>First, features can be tested locally, within the notebook, using an API exposed by the Ballet library. Any failures are reported with suggestions for addressing them.</p>
-<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ballet.validation.feature_api</span> <span class="kn">import</span> <span class="n">validate_feature_api</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">ballet.validation.feature_api</span> <span class="kn">import</span> <span class="n">validate_feature_api</span>
 <span class="n">validate_feature_api</span><span class="p">(</span><span class="n">feature</span><span class="p">,</span> <span class="n">X_df</span><span class="p">,</span> <span class="n">y_df</span><span class="p">)</span>
 <span class="c1"># True</span>
 
 <span class="kn">from</span> <span class="nn">ballet.validation.feature_acceptance</span> <span class="kn">import</span> <span class="n">validate_feature_acceptance</span>
 <span class="n">validate_feature_acceptance</span><span class="p">(</span><span class="n">feature</span><span class="p">,</span> <span class="n">X_df</span><span class="p">,</span> <span class="n">y_df</span><span class="p">)</span>
 <span class="c1"># True</span>
-</pre></div>
-
+</code></pre></div>
 
 <p>The second time is when feature submissions have been received by the upstream project, discussed below.</p>
 <h3>Submit where you code</h3>

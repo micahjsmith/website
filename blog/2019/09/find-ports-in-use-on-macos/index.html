@@ -147,16 +147,14 @@
 
   <div>
     <p>How to find ports that are already "in use" on macOS:</p>
-<div class="highlight"><pre><span></span>sudo lsof -P -i TCP -s TCP:LISTEN
-</pre></div>
-
+<div class="highlight"><pre><span></span><code>sudo lsof -P -i TCP -s TCP:LISTEN
+</code></pre></div>
 
 <p>This is helpful if you are trying to figure out which process is using a port so that you can kill that process — for example, if you have a web server running in the background but now want to re-use that port for a different server.</p>
 <p>Output of this command looks as follows:</p>
-<div class="highlight"><pre><span></span>COMMAND     PID       USER   FD   TYPE             DEVICE SIZE/OFF NODE NAME
+<div class="highlight"><pre><span></span><code>COMMAND     PID       USER   FD   TYPE             DEVICE SIZE/OFF NODE NAME
 node      65167 micahsmith   23u  IPv4 0x86f43d8b9392d21f      0t0  TCP *:8080 (LISTEN)
-</pre></div>
-
+</code></pre></div>
 
 <p>This shows the results for a node http-server listening on port 8080. One could then kill this server using the PID shown.</p>
 <h2>Explanation</h2>

@@ -148,9 +148,8 @@
     <p>How to trim a figure in LaTeX.</p>
 <p>You've already inserted the figure into a <code>figure</code> environment and now want to trim excess whitespace.</p>
 <p>Start adjusting from here:</p>
-<div class="highlight"><pre><span></span><span class="k">\fbox</span><span class="nb">{</span><span class="k">\includegraphics</span><span class="na">[clip=true, trim={0 0 0 0}, width=\linewidth]</span><span class="nb">{</span>myfigure<span class="nb">}}</span>
-</pre></div>
-
+<div class="highlight"><pre><span></span><code><span class="k">\fbox</span><span class="nb">{</span><span class="k">\includegraphics</span><span class="na">[clip=true, trim={0 0 0 0}, width=\linewidth]</span><span class="nb">{</span>myfigure<span class="nb">}}</span>
+</code></pre></div>
 
 <p><code>fbox</code> is a black box around the float content so you can see where your figure ends and where the rest of the page begins. Now, adjust the numbers in the <code>trim</code> option and recompile. The four numbers represent pixels to trim off from the left, bottom, right and top of the figure. After you have trimmed your figure as close as you can to the actual content, remove the <code>fbox</code> and you are set.</p>
 <p>Source: <a href="http://mirror.las.iastate.edu/tex-archive/macros/latex/required/graphics/grfguide.pdf">http://mirror.las.iastate.edu/tex-archive/macros/latex/required/graphics/grfguide.pdf</a></p><script src="//platform.twitter.com/widgets.js" charset="utf-8"></script>

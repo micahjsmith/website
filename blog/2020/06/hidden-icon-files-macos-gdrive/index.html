@@ -146,14 +146,13 @@
 
   <div>
     <p>For a while I've tolerated files named <code>Icon?</code> that appear in my console <code>ls</code> and <code>git status</code> output on macOS as well as in some IDE file trees like in Atom:</p>
-<div class="highlight"><pre><span></span>$ \ls -Al
+<div class="highlight"><pre><span></span><code>$ \ls -Al
 total 696
 -rw-------  1 micahsmith  staff  179 Nov 12  2019 Experiment Datasets.gsheet
 -rw-r--r--@ 1 micahsmith  staff    0 Nov  2  2018 Icon?
 -rw-------  1 micahsmith  staff  179 Aug 19  2018 test_20180818193120513976.gsheet
 -rw-------  1 micahsmith  staff  179 Nov 12  2019 test_20180818193120513976_v1.gsheet
-</pre></div>
-
+</code></pre></div>
 
 <p>Why does the file <code>Icon?</code> appear and what is responsible for creating it? There is a nice discussion I found <a href="https://superuser.com/q/298785">on superuser</a>. The short answer is that in my case, the Google Drive desktop client ("Backup and Sync") for MacOS takes advantage of built-in Finder functionality to use a special icon for folders that are shared in Drive. The file that appears as <code>Icon?</code> <a href="https://superuser.com/a/298798">is actually</a> a "hidden file" with the icon image itself stored in a non-empty "resource fork".</p>
 <p>Though the Superuser answer does not expand on this, the reason the literal carriage return character appears as a <code>?</code> is because the default behavior of <code>ls</code> is equivalent to <code>ls -q</code> which sets:</p>
@@ -163,9 +162,8 @@ total 696
 <p>I don't care about these details and I appreciate the integration with Drive, Dropbox, etc. with Finder. But I don't want these to show up in my console output.</p>
 <h3>Ignoring <code>Icon?</code> files in <code>git status</code></h3>
 <p>Add to your global gitignore in <code>~/.gitignore</code>:</p>
-<div class="highlight"><pre><span></span>Icon[^M]
-</pre></div>
-
+<div class="highlight"><pre><span></span><code>Icon[^M]
+</code></pre></div>
 
 <p>Gitignore uses <a href="https://docs.python.org/3/library/fnmatch.html">fnmatch</a> syntax<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>, so to match a literal carriage return character it can be enclosed within square brackets. To enter the literal carriage return character into Vim, for example, I use <kbd>Ctrl</kbd> <kbd>k</kbd> <kbd>C</kbd> <kbd>R</kbd> (see <code>:help digraphs</code> and  <code>:help digraph-table</code>) which then appears as <code>^M</code>.<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup></p>
 <p>If you entered the literal <code>Icon?</code> into a <code>.gitignore</code> file, it would also hide this file, but only by accident, because the <code>?</code> pattern matches any character, so the pattern would also match <code>Iconz</code> for example.</p>

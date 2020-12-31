@@ -180,13 +180,12 @@
   </header>
   <div>
       <p>A common pattern of using <a href="pipenv.pypa.io/">pipenv</a> in containers is to install as follows:</p>
-<div class="highlight"><pre><span></span><span class="k">COPY</span> Pipfile Pipfile.lock ./
+<div class="highlight"><pre><span></span><code><span class="k">COPY</span> Pipfile Pipfile.lock ./
 <span class="k">RUN</span> pip install --upgrade pip <span class="o">&amp;&amp;</span> <span class="se">\</span>
     pip install pipenv <span class="o">&amp;&amp;</span> <span class="se">\</span>
     pipenv install --system --deploy --ignore-pipfile <span class="o">&amp;&amp;</span> <span class="se">\</span>
     pipenv --clear
-</pre></div>
-
+</code></pre></div>
 
 <p>What is going on here, exactly? How does one understand the intersection of the flags given to pipenv …</p>
         <br>
@@ -212,9 +211,8 @@
 the plural of some programming concept, where the concept is monospace font but the plural
 form is in the normal font, e.g. <code>list</code>s.</p>
 <p>While this is easy to do in markdown:</p>
-<div class="highlight"><pre><span></span><span class="n n-Quoted">`list`</span><span class="n">s</span>
-</pre></div>
-
+<div class="highlight"><pre><span></span><code><span class="ss">`list`</span><span class="n">s</span>
+</code></pre></div>
 
 <p>It …</p>
         <br>
@@ -257,10 +255,10 @@ form is in the normal font, e.g. <code>list</code>s.</p>
   </header>
   <div>
       <p>For a while I've tolerated files named <code>Icon?</code> that appear in my console <code>ls</code> and <code>git status</code> output on macOS as well as in some IDE file trees like in Atom:</p>
-<div class="highlight"><pre><span></span>$ \ls -Al
+<div class="highlight"><pre><span></span><code>$ \ls -Al
 total 696
 -rw-------  1 micahsmith  staff  179 Nov 12  2019 Experiment Datasets.gsheet
--rw-r--r--@ 1 micahsmith  staff …</pre></div>
+-rw-r--r--@ 1 micahsmith  staff …</code></pre></div>
         <br>
         <a class="btn"
            href="https://www.micahsmith.com/blog/2020/06/hidden-icon-files-macos-gdrive">
@@ -395,9 +393,8 @@ similar problem.</p>
   </header>
   <div>
       <p>How to find ports that are already "in use" on macOS:</p>
-<div class="highlight"><pre><span></span>sudo lsof -P -i TCP -s TCP:LISTEN
-</pre></div>
-
+<div class="highlight"><pre><span></span><code>sudo lsof -P -i TCP -s TCP:LISTEN
+</code></pre></div>
 
 <p>This is helpful if you are trying to figure out which process is using a port so that you can kill that process — for example, if you have a web server …</p>
         <br>
@@ -422,9 +419,8 @@ similar problem.</p>
       <p>How to trim a figure in LaTeX.</p>
 <p>You've already inserted the figure into a <code>figure</code> environment and now want to trim excess whitespace.</p>
 <p>Start adjusting from here:</p>
-<div class="highlight"><pre><span></span><span class="k">\fbox</span><span class="nb">{</span><span class="k">\includegraphics</span><span class="na">[clip=true, trim={0 0 0 0}, width=\linewidth]</span><span class="nb">{</span>myfigure<span class="nb">}}</span>
-</pre></div>
-
+<div class="highlight"><pre><span></span><code><span class="k">\fbox</span><span class="nb">{</span><span class="k">\includegraphics</span><span class="na">[clip=true, trim={0 0 0 0}, width=\linewidth]</span><span class="nb">{</span>myfigure<span class="nb">}}</span>
+</code></pre></div>
 
 <p><code>fbox</code> is a black box around the float content so you …</p>
         <br>
@@ -447,11 +443,10 @@ similar problem.</p>
   </header>
   <div>
       <p>Using the autoreload extension.</p>
-<div class="highlight"><pre><span></span><span class="o">%</span><span class="n">load_ext</span> <span class="n">autoreload</span>
+<div class="highlight"><pre><span></span><code><span class="o">%</span><span class="n">load_ext</span> <span class="n">autoreload</span>
 <span class="o">%</span><span class="n">aimport</span> <span class="n">mymodule</span>
 <span class="o">%</span><span class="n">autoreload</span> <span class="mi">1</span>
-</pre></div>
-
+</code></pre></div>
 
 <p>The <code>autoreload</code> command understands three levels:</p>
 <ul>

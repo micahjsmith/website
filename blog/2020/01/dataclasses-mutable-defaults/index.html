@@ -154,7 +154,7 @@ similar problem.</p>
 <p>As a reminder, in this example, every invocation of foo without a parameter for <code>d</code>
 provided by the caller would modify the <em>same</em> default dictionary (equivalent to the second
 example). </p>
-<div class="highlight"><pre><span></span><span class="c1"># this...</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># this...</span>
 <span class="k">def</span> <span class="nf">foo</span><span class="p">(</span><span class="n">d</span><span class="o">=</span><span class="p">{}):</span>
     <span class="o">...</span>
 
@@ -162,13 +162,12 @@ example). </p>
 <span class="n">default</span> <span class="o">=</span> <span class="p">{}</span>  <span class="c1"># this is a global object!</span>
 <span class="k">def</span> <span class="nf">foo</span><span class="p">(</span><span class="n">d</span><span class="o">=</span><span class="n">default</span><span class="p">):</span>
     <span class="o">...</span>
-</pre></div>
-
+</code></pre></div>
 
 <p>You always want to instead use a value like <code>None</code> and check in the function or method body
 whether a default needs to be supplied, and document the function's behavior accordingly as
 it cannot be inferred from the type signatures.</p>
-<div class="highlight"><pre><span></span><span class="c1"># better</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># better</span>
 <span class="k">def</span> <span class="nf">foo</span><span class="p">(</span><span class="n">d</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Does foo</span>
 
@@ -178,17 +177,15 @@ it cannot be inferred from the type signatures.</p>
     <span class="k">if</span> <span class="n">d</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">d</span> <span class="o">=</span> <span class="p">{}</span>
     <span class="o">...</span>
-</pre></div>
-
+</code></pre></div>
 
 <h3>Named tuples</h3>
 <p>A similar gotcha is using mutable defaults for named tuples.</p>
-<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">NamedTuple</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">NamedTuple</span>
 
 <span class="k">class</span> <span class="nc">Foo</span><span class="p">(</span><span class="n">NamedTuple</span><span class="p">):</span>
     <span class="n">d</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="p">{}</span>  <span class="c1"># no</span>
-</pre></div>
-
+</code></pre></div>
 
 <p>Again, every instance of <code>Foo</code> that uses the default value will share a reference to a
 single underlying object. Instead, set the default to <code>None</code> and require consumers to check
@@ -198,13 +195,12 @@ whether <code>d is None</code>.</p>
 better in every way. One feature I recently discovered is the <a href="https://docs.python.org/3/library/dataclasses.html#default-factory-functions">ability to use a default
 factory</a> to
 avoid this issue.</p>
-<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">dataclass</span><span class="p">,</span> <span class="n">field</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">dataclass</span><span class="p">,</span> <span class="n">field</span>
 
 <span class="nd">@dataclass</span>
 <span class="k">class</span> <span class="nc">Foo</span><span class="p">:</span>
     <span class="n">d</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">dict</span><span class="p">)</span>
-</pre></div>
-
+</code></pre></div>
 
 <p>With this paradigm, every time a default needs to be supplied for <code>d</code>, the factory function
 will be called, creating a new dictionary object each time and side-stepping the gotcha.

@@ -177,19 +177,17 @@ couple DIY logistic regression examples.</p>
     for my assignment.</li>
 <li><em>RegERMs.jl</em>: Doesn't even load on Julia 0.5, last commit over a year ago.</li>
 </ul>
-<div class="highlight"><pre><span></span><span class="err">julia&gt; Pkg.add(&quot;RegERMs&quot;)</span>
+<div class="highlight"><pre><span></span><code><span class="err">julia&gt; Pkg.add(&quot;RegERMs&quot;)</span>
 <span class="c">ERROR: unsatisfiable package requirements detected: no feasible version could be found</span>
 <span class="err">for package: Optim</span>
-</pre></div>
-
+</code></pre></div>
 
 <ul>
 <li><em>Regression.jl</em>: Doesn't even load on Julia 0.5, last commit over a year ago.</li>
 </ul>
-<div class="highlight"><pre><span></span><span class="err">julia&gt; using Regression</span>
+<div class="highlight"><pre><span></span><code><span class="err">julia&gt; using Regression</span>
 <span class="c">ERROR: LoadError: LoadError: LoadError: UndefVarError: FloatingPoint not defined</span>
-</pre></div>
-
+</code></pre></div>
 
 <p>So <em>GLM.jl</em> is our only option. And at this, a new Julia user might be lucky to even find it.
 It's not immediate from the JuliaStats blurb that <em>GLM.jl</em> can be used for logistic regression,
@@ -197,11 +195,10 @@ and there's no mention of "logistic" neither in the documentation nor in the rep
 besides a comment in a test case. (An astute user, of course, may note that <code>LogitLink</code> is
 relevant, and will likely be aware of the features of the popular R package.)</p>
 <p>But it's not too bad to fit a logistic regression model using <em>GLM.jl</em>:</p>
-<div class="highlight"><pre><span></span><span class="err">using GLM, DataFrames</span>
+<div class="highlight"><pre><span></span><code><span class="err">using GLM, DataFrames</span>
 <span class="err">df = DataFrame(x = rand(10,1), y = rand([0,1], 10))</span>
 <span class="err">model = fit(GeneralizedLinearModel, y ~ x, df, Binomial(), LogitLink())</span>
-</pre></div>
-
+</code></pre></div>
 
 <p>Note as well that the DIY logistic regression attempts that rank highly in search results (like
 <a href="http://stackoverflow.com/questions/32703119/logistic-regression-in-julia-using-optim-jl">here</a>
@@ -213,14 +210,13 @@ comes up in results for Julia queries.</p>
 regularization. <em>GLM.jl</em> doesn't provide this functionality and the other seeming possibilities
 were non-functional <em>RegERMs.jl</em>. I was out of luck. I switched to <code>sklearn</code> for the rest of
 the problem.</p>
-<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LogisticRegression</span>
 <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="kp">round</span><span class="p">()</span>
 <span class="n">model</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">(</span><span class="n">penalty</span><span class="o">=</span><span class="s1">&#39;l1&#39;</span><span class="p">)</span>
 <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">)</span>
-</pre></div>
-
+</code></pre></div>
 
 <p>After later investigation, I did realize that <em>GLMNet.jl</em>, which wraps the <code>glmnet</code> Fortran library,
 would have done the job, with sufficient user effort. </p>
