@@ -1,11 +1,15 @@
 - key: cambronero2017query
   metadata:
     links:
+      - href: https://dl.acm.org/doi/10.14778/3137628.3137641
+        icon: link
       - href: https://www.vldb.org/pvldb/vol10/p1310-feser.pdf
         icon: file-pdf
 - key: liu2020understanding
   metadata:
     links:
+      - href: https://dl.acm.org/doi/10.1145/3334480.3382998
+        icon: link
       - href: /files/bots_chi2020.pdf
         icon: file-pdf
 - key: santu2020levelwise
@@ -18,6 +22,8 @@
     links:
       - href: https://arxiv.org/abs/2010.10777
         icon: link
+      - href: /file/featurehub-smith.pdf
+        icon: file-pdf
 - key: smith2018ballet
   metadata:
     links:
@@ -54,7 +60,7 @@
       - href: /files/mlbazaar-sigmod-presentation-2020-06-16.pdf
         icon: film
       - href: https://vimeo.com/440735079#t=4231s
-        icon: video-camera
+        icon: video
 - key: wang2019atmseer
   metadata:
     links:
