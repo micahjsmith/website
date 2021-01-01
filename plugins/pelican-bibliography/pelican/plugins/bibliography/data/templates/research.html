@@ -1,5 +1,45 @@
 {% extends "!theme/page.html" %}
 
+{% block meta %}
+{{ super() }}
+
+<style>
+/* jump links for research page, adapted from 6031 */
+.margin {
+  position: fixed;
+  height: 100%;
+}
+
+a.jump {
+  opacity: 0;
+  position: absolute;
+  left: 2em;
+  padding: 0 2em 2em 2em;
+  transition: opacity .5s 0s;
+}
+
+a.jump::after {
+  content: '#';
+}
+
+.margin:hover ~ * a.jump,
+p:hover > a.jump,
+a.jump:hover {
+  opacity: 1;
+  transition: opacity .5s 0s;
+}
+
+[id]:target {
+  animation: highlightout 3s;
+}
+@keyframes highlightout {
+  from { background: #fcf8e3; }
+}
+/* end of jump links */
+
+</style>
+{% endblock %}
+
 {% block page_content %}
 {{ page.content }}
 
