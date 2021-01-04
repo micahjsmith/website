@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "d3855ccd03e7f610491d34464fcf99389aa90c420faff3d3e753dcaeb2cfabf8"
+            "sha256": "8cf39e47518d9c2f2010a102f529a6ff8bf40b179ab839d43aa4dc1408d6d7fd"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -150,8 +150,8 @@
             "index": "pypi",
             "version": "==4.5.3"
         },
-        "pelican-research-page": {
-            "path": "./plugins/research-page",
+        "pelican-bibliography": {
+            "path": "./plugins/pelican-bibliography",
             "version": "==0.1.0"
         },
         "pygments": {
