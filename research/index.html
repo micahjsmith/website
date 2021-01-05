@@ -57,6 +57,44 @@
 
 
 
+
+<style>
+
+/* jump links for research page, adapted from 6031 */
+.margin {
+  position: fixed;
+  height: 100%;
+}
+
+a.jump {
+  opacity: 0;
+  position: absolute;
+  left: 2em;
+  padding: 0 2em 2em 2em;
+  transition: opacity .5s 0s;
+}
+
+a.jump::after {
+  content: '#';
+}
+
+.margin:hover ~ * a.jump,
+p:hover > a.jump,
+a.jump:hover {
+  opacity: 1;
+  transition: opacity .5s 0s;
+}
+
+[id]:target {
+  animation: highlightout 3s;
+}
+@keyframes highlightout {
+  from { background: #fcf8e3; }
+}
+/* end of jump links */
+</style>
+
+
   <title>Micah Smith &ndash; research</title>
 
 </head>
@@ -133,108 +171,340 @@
     <h1 id="research">research</h1>
   </header>
   <div>
-<p>This is my complete bibliography with links to articles, presentations, posters, and videos. Make sure to check my <a href="/blog">blog</a> as well for additional informal discussion of some of this research.</p><script src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+<p>This is my (mostly) complete bibliography with links to articles, presentations, posters, videos, and suggest citations. Make sure to check my <a href="/blog">blog</a> as well for additional informal discussion of some of this research.</p><script src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 <h2>Publications</h2>
 <p class="ref" id="smith2020enabling">
     <a class="jump" href="#smith2020enabling"></a>
     <span class="ref-author-list">
-<span class="ref-author" data-given="Micah J." data-family="Smith">Micah J. Smith</span>, <span class="ref-author" data-given="Jürgen" data-family="Cito">Jürgen Cito</span>, <span class="ref-author" data-given="Kelvin" data-family="Lu">Kelvin Lu</span>,  and <span class="ref-author" data-given="Kalyan" data-family="Veeramachaneni">Kalyan Veeramachaneni</span>.    </span>
+<span class="ref-author"
+            data-given="Micah J." data-family="Smith">Micah J. Smith</span>, <span class="ref-author"
+            data-given="Jürgen" data-family="Cito">Jürgen Cito</span>, <span class="ref-author"
+            data-given="Kelvin" data-family="Lu">Kelvin Lu</span>,  and <span class="ref-author"
+            data-given="Kalyan" data-family="Veeramachaneni">Kalyan Veeramachaneni</span>.    </span>
     <span class="ref-title">"Enabling Collaborative Data Science Development with the Ballet Framework."</span>
     <span class="ref-container">arXiv:2012.07816 [cs].</span>
     <span class="ref-date">2020.</span>
-        <a target="_blank" href="https://arxiv.org/abs/2012.07816"><i class="fa fa-link fa-1"></i></a>
+    <a target="_blank" href="https://arxiv.org/abs/2012.07816"><i class="fa fa-link fa-1"></i></a>
+    <a target="_blank" href="https://www.micahsmith.com/files/bib/smith2020enabling.bib">
+    <i class="fa fa-quote-right fa-1"></i>
+</a>
 </p>
 <p class="ref" id="santu2020levelwise">
     <a class="jump" href="#santu2020levelwise"></a>
     <span class="ref-author-list">
-<span class="ref-author" data-given="Shubhra Kanti Karmaker" data-family="Santu">Shubhra Kanti Karmaker Santu</span>, <span class="ref-author" data-given="Md. Mahadi" data-family="Hassan">Md. Mahadi Hassan</span>, <span class="ref-author" data-given="Micah J." data-family="Smith">Micah J. Smith</span>, <span class="ref-author" data-given="Lei" data-family="Xu">Lei Xu</span>, <span class="ref-author" data-given="ChengXiang" data-family="Zhai">ChengXiang Zhai</span>,  and <span class="ref-author" data-given="Kalyan" data-family="Veeramachaneni">Kalyan Veeramachaneni</span>.    </span>
+<span class="ref-author"
+            data-given="Shubhra Kanti Karmaker" data-family="Santu">Shubhra Kanti Karmaker Santu</span>, <span class="ref-author"
+            data-given="Md. Mahadi" data-family="Hassan">Md. Mahadi Hassan</span>, <span class="ref-author"
+            data-given="Micah J." data-family="Smith">Micah J. Smith</span>, <span class="ref-author"
+            data-given="Lei" data-family="Xu">Lei Xu</span>, <span class="ref-author"
+            data-given="ChengXiang" data-family="Zhai">ChengXiang Zhai</span>,  and <span class="ref-author"
+            data-given="Kalyan" data-family="Veeramachaneni">Kalyan Veeramachaneni</span>.    </span>
     <span class="ref-title">"A Level-Wise Taxonomic Perspective on Automated Machine Learning to Date and Beyond: Challenges and Opportunities."</span>
     <span class="ref-container">arXiv:2010.10777 [cs].</span>
     <span class="ref-date">2020.</span>
-        <a target="_blank" href="https://arxiv.org/abs/2010.10777"><i class="fa fa-link fa-1"></i></a>
+    <a target="_blank" href="https://arxiv.org/abs/2010.10777"><i class="fa fa-link fa-1"></i></a>
+    <a target="_blank" href="https://www.micahsmith.com/files/bib/santu2020levelwise.bib">
+    <i class="fa fa-quote-right fa-1"></i>
+</a>
 </p>
 <p class="ref" id="liu2020understanding">
     <a class="jump" href="#liu2020understanding"></a>
     <span class="ref-author-list">
-<span class="ref-author" data-given="Dongyu" data-family="Liu">Dongyu Liu</span>, <span class="ref-author" data-given="Micah J." data-family="Smith">Micah J. Smith</span>,  and <span class="ref-author" data-given="Kalyan" data-family="Veeramachaneni">Kalyan Veeramachaneni</span>.    </span>
+<span class="ref-author"
+            data-given="Dongyu" data-family="Liu">Dongyu Liu</span>, <span class="ref-author"
+            data-given="Micah J." data-family="Smith">Micah J. Smith</span>,  and <span class="ref-author"
+            data-given="Kalyan" data-family="Veeramachaneni">Kalyan Veeramachaneni</span>.    </span>
     <span class="ref-title">"Understanding User-Bot Interactions for Small-Scale Automation in Open-Source Development."</span>
     <span class="ref-container">Extended Abstracts of the 2020 CHI Conference on Human Factors in Computing Systems.</span>
     <span class="ref-date">2020.</span>
-        <a target="_blank" href="https://dl.acm.org/doi/10.1145/3334480.3382998"><i class="fa fa-link fa-1"></i></a>
-        <a target="_blank" href="/files/bots_chi2020.pdf"><i class="fa fa-file-pdf fa-1"></i></a>
+    <a target="_blank" href="https://dl.acm.org/doi/10.1145/3334480.3382998"><i class="fa fa-link fa-1"></i></a>
+    <a target="_blank" href="/files/bots_chi2020.pdf"><i class="fa fa-file-pdf fa-1"></i></a>
+    <a target="_blank" href="https://www.micahsmith.com/files/bib/liu2020understanding.bib">
+    <i class="fa fa-quote-right fa-1"></i>
+</a>
 </p>
 <p class="ref" id="smith2020demonstration">
     <a class="jump" href="#smith2020demonstration"></a>
     <span class="ref-author-list">
-<span class="ref-author" data-given="Micah J." data-family="Smith">Micah J. Smith</span>, <span class="ref-author" data-given="Kelvin" data-family="Lu">Kelvin Lu</span>,  and <span class="ref-author" data-given="Kalyan" data-family="Veeramachaneni">Kalyan Veeramachaneni</span>.    </span>
+<span class="ref-author"
+            data-given="Micah J." data-family="Smith">Micah J. Smith</span>, <span class="ref-author"
+            data-given="Kelvin" data-family="Lu">Kelvin Lu</span>,  and <span class="ref-author"
+            data-given="Kalyan" data-family="Veeramachaneni">Kalyan Veeramachaneni</span>.    </span>
     <span class="ref-title">"Demonstration of Ballet: A Framework for Open-Source Collaborative Feature Engineering."</span>
     <span class="ref-container">Proceedings of the 3rd MLSys Conference.</span>
     <span class="ref-date">2020.</span>
-        <a target="_blank" href="/files/balletdemo_mlsys2020.pdf"><i class="fa fa-file-pdf fa-1"></i></a>
-        <a target="_blank" href="/files/balletdemo_mlsys2020_poster.pdf"><i class="fa fa-tv fa-1"></i></a>
+    <a target="_blank" href="/files/balletdemo_mlsys2020.pdf"><i class="fa fa-file-pdf fa-1"></i></a>
+    <a target="_blank" href="/files/balletdemo_mlsys2020_poster.pdf"><i class="fa fa-tv fa-1"></i></a>
+    <a target="_blank" href="https://www.micahsmith.com/files/bib/smith2020demonstration.bib">
+    <i class="fa fa-quote-right fa-1"></i>
+</a>
 </p>
 <p class="ref" id="smith2020machine">
     <a class="jump" href="#smith2020machine"></a>
     <span class="ref-author-list">
-<span class="ref-author" data-given="Micah J." data-family="Smith">Micah J. Smith</span>, <span class="ref-author" data-given="Carles" data-family="Sala">Carles Sala</span>, <span class="ref-author" data-given="James Max" data-family="Kanter">James Max Kanter</span>,  and <span class="ref-author" data-given="Kalyan" data-family="Veeramachaneni">Kalyan Veeramachaneni</span>.    </span>
+<span class="ref-author"
+            data-given="Micah J." data-family="Smith">Micah J. Smith</span>, <span class="ref-author"
+            data-given="Carles" data-family="Sala">Carles Sala</span>, <span class="ref-author"
+            data-given="James Max" data-family="Kanter">James Max Kanter</span>,  and <span class="ref-author"
+            data-given="Kalyan" data-family="Veeramachaneni">Kalyan Veeramachaneni</span>.    </span>
     <span class="ref-title">"The Machine Learning Bazaar: Harnessing the ML Ecosystem for Effective System Development."</span>
     <span class="ref-container">Proceedings of the 2020 ACM SIGMOD International Conference on Management of Data.</span>
     <span class="ref-date">2020.</span>
-        <a target="_blank" href="https://doi.org/10.1145/3318464.3386146"><i class="fa fa-link fa-1"></i></a>
-        <a target="_blank" href="/files/mlbazaar_sigmod20.pdf"><i class="fa fa-file-pdf fa-1"></i></a>
-        <a target="_blank" href="/files/mlbazaar-sigmod-presentation-2020-06-16.pdf"><i class="fa fa-film fa-1"></i></a>
-        <a target="_blank" href="https://vimeo.com/440735079#t=4231s"><i class="fa fa-video fa-1"></i></a>
+    <a target="_blank" href="https://doi.org/10.1145/3318464.3386146"><i class="fa fa-link fa-1"></i></a>
+    <a target="_blank" href="/files/mlbazaar_sigmod20.pdf"><i class="fa fa-file-pdf fa-1"></i></a>
+    <a target="_blank" href="/files/mlbazaar-sigmod-presentation-2020-06-16.pdf"><i class="fa fa-film fa-1"></i></a>
+    <a target="_blank" href="https://vimeo.com/440735079#t=4231s"><i class="fa fa-video fa-1"></i></a>
+    <a target="_blank" href="https://www.micahsmith.com/files/bib/smith2020machine.bib">
+    <i class="fa fa-quote-right fa-1"></i>
+</a>
 </p>
 <p class="ref" id="wang2019atmseer">
     <a class="jump" href="#wang2019atmseer"></a>
     <span class="ref-author-list">
-<span class="ref-author" data-given="Qianwen" data-family="Wang">Qianwen Wang</span>, <span class="ref-author" data-given="Yao" data-family="Ming">Yao Ming</span>, <span class="ref-author" data-given="Zhihua" data-family="Jin">Zhihua Jin</span>, <span class="ref-author" data-given="Qiaomu" data-family="Shen">Qiaomu Shen</span>, <span class="ref-author" data-given="Dongyu" data-family="Liu">Dongyu Liu</span>, <span class="ref-author" data-given="Micah J." data-family="Smith">Micah J. Smith</span>, <span class="ref-author" data-given="Kalyan" data-family="Veeramachaneni">Kalyan Veeramachaneni</span>,  and <span class="ref-author" data-given="Huamin" data-family="Qu">Huamin Qu</span>.    </span>
+<span class="ref-author"
+            data-given="Qianwen" data-family="Wang">Qianwen Wang</span>, <span class="ref-author"
+            data-given="Yao" data-family="Ming">Yao Ming</span>, <span class="ref-author"
+            data-given="Zhihua" data-family="Jin">Zhihua Jin</span>, <span class="ref-author"
+            data-given="Qiaomu" data-family="Shen">Qiaomu Shen</span>, <span class="ref-author"
+            data-given="Dongyu" data-family="Liu">Dongyu Liu</span>, <span class="ref-author"
+            data-given="Micah J." data-family="Smith">Micah J. Smith</span>, <span class="ref-author"
+            data-given="Kalyan" data-family="Veeramachaneni">Kalyan Veeramachaneni</span>,  and <span class="ref-author"
+            data-given="Huamin" data-family="Qu">Huamin Qu</span>.    </span>
     <span class="ref-title">"ATMSeer: Increasing Transparency and Controllability in Automated Machine Learning."</span>
     <span class="ref-container">Proceedings of the 2019 CHI Conference on Human Factors in Computing Systems.</span>
     <span class="ref-date">2019.</span>
-        <a target="_blank" href="https://dl.acm.org/citation.cfm?id=3300911"><i class="fa fa-link fa-1"></i></a>
-        <a target="_blank" href="https://arxiv.org/abs/1902.05009"><i class="fa fa-file-pdf fa-1"></i></a>
+    <a target="_blank" href="https://dl.acm.org/citation.cfm?id=3300911"><i class="fa fa-link fa-1"></i></a>
+    <a target="_blank" href="https://arxiv.org/abs/1902.05009"><i class="fa fa-file-pdf fa-1"></i></a>
+    <a target="_blank" href="https://www.micahsmith.com/files/bib/wang2019atmseer.bib">
+    <i class="fa fa-quote-right fa-1"></i>
+</a>
 </p>
 <p class="ref" id="smith2018ballet">
     <a class="jump" href="#smith2018ballet"></a>
     <span class="ref-author-list">
-<span class="ref-author" data-given="Micah J." data-family="Smith">Micah J. Smith</span>, <span class="ref-author" data-given="Kelvin" data-family="Lu">Kelvin Lu</span>,  and <span class="ref-author" data-given="Kalyan" data-family="Veeramachaneni">Kalyan Veeramachaneni</span>.    </span>
+<span class="ref-author"
+            data-given="Micah J." data-family="Smith">Micah J. Smith</span>, <span class="ref-author"
+            data-given="Kelvin" data-family="Lu">Kelvin Lu</span>,  and <span class="ref-author"
+            data-given="Kalyan" data-family="Veeramachaneni">Kalyan Veeramachaneni</span>.    </span>
     <span class="ref-title">"Ballet: A Lightweight Framework for Open-Source, Collaborative Feature Engineering."</span>
     <span class="ref-container">Workshop on Systems for Machine Learning and Open Source Software at NeuRIPS 2018.</span>
     <span class="ref-date">2018.</span>
-        <a target="_blank" href="http://learningsys.org/nips18/assets/papers/15CameraReadySubmissionneurips_sysml_2018-8.pdf"><i class="fa fa-file-pdf fa-1"></i></a>
-        <a target="_blank" href="/files/ballet-neurips-sysml-2018-poster.pdf"><i class="fa fa-tv fa-1"></i></a>
+    <a target="_blank" href="http://learningsys.org/nips18/assets/papers/15CameraReadySubmissionneurips_sysml_2018-8.pdf"><i class="fa fa-file-pdf fa-1"></i></a>
+    <a target="_blank" href="/files/ballet-neurips-sysml-2018-poster.pdf"><i class="fa fa-tv fa-1"></i></a>
+    <a target="_blank" href="https://www.micahsmith.com/files/bib/smith2018ballet.bib">
+    <i class="fa fa-quote-right fa-1"></i>
+</a>
 </p>
 <p class="ref" id="smith2018scaling">
     <a class="jump" href="#smith2018scaling"></a>
     <span class="ref-author-list">
-<span class="ref-author" data-given="Micah J." data-family="Smith">Micah J. Smith</span>.    </span>
+<span class="ref-author"
+            data-given="Micah J." data-family="Smith">Micah J. Smith</span>.    </span>
     <span class="ref-title">"Scaling Collaborative Open Data Science."</span>
     <span class="ref-container">Thesis.</span>
     <span class="ref-date">2018.</span>
-        <a target="_blank" href="https://dspace.mit.edu/handle/1721.1/117819"><i class="fa fa-link fa-1"></i></a>
-        <a target="_blank" href="/files/Micah J Smith SM Thesis.pdf"><i class="fa fa-file-pdf fa-1"></i></a>
+    <a target="_blank" href="https://dspace.mit.edu/handle/1721.1/117819"><i class="fa fa-link fa-1"></i></a>
+    <a target="_blank" href="/files/Micah J Smith SM Thesis.pdf"><i class="fa fa-file-pdf fa-1"></i></a>
+    <a target="_blank" href="https://www.micahsmith.com/files/bib/smith2018scaling.bib">
+    <i class="fa fa-quote-right fa-1"></i>
+</a>
 </p>
 <p class="ref" id="smith2017featurehub">
     <a class="jump" href="#smith2017featurehub"></a>
     <span class="ref-author-list">
-<span class="ref-author" data-given="Micah J." data-family="Smith">Micah J. Smith</span>, <span class="ref-author" data-given="Roy" data-family="Wedge">Roy Wedge</span>,  and <span class="ref-author" data-given="Kalyan" data-family="Veeramachaneni">Kalyan Veeramachaneni</span>.    </span>
+<span class="ref-author"
+            data-given="Micah J." data-family="Smith">Micah J. Smith</span>, <span class="ref-author"
+            data-given="Roy" data-family="Wedge">Roy Wedge</span>,  and <span class="ref-author"
+            data-given="Kalyan" data-family="Veeramachaneni">Kalyan Veeramachaneni</span>.    </span>
     <span class="ref-title">"FeatureHub: Towards Collaborative Data Science."</span>
     <span class="ref-container">2017 IEEE International Conference on Data Science and Advanced Analytics (DSAA).</span>
     <span class="ref-date">2017.</span>
-        <a target="_blank" href="https://arxiv.org/abs/2010.10777"><i class="fa fa-link fa-1"></i></a>
-        <a target="_blank" href="/file/featurehub-smith.pdf"><i class="fa fa-file-pdf fa-1"></i></a>
+    <a target="_blank" href="https://arxiv.org/abs/2010.10777"><i class="fa fa-link fa-1"></i></a>
+    <a target="_blank" href="/file/featurehub-smith.pdf"><i class="fa fa-file-pdf fa-1"></i></a>
+    <a target="_blank" href="https://www.micahsmith.com/files/bib/smith2017featurehub.bib">
+    <i class="fa fa-quote-right fa-1"></i>
+</a>
 </p>
 <p class="ref" id="cambronero2017query">
     <a class="jump" href="#cambronero2017query"></a>
     <span class="ref-author-list">
-<span class="ref-author" data-given="José" data-family="Cambronero">José Cambronero</span>, <span class="ref-author" data-given="John K." data-family="Feser">John K. Feser</span>, <span class="ref-author" data-given="Micah J." data-family="Smith">Micah J. Smith</span>,  and <span class="ref-author" data-given="Samuel" data-family="Madden">Samuel Madden</span>.    </span>
+<span class="ref-author"
+            data-given="José" data-family="Cambronero">José Cambronero</span>, <span class="ref-author"
+            data-given="John K." data-family="Feser">John K. Feser</span>, <span class="ref-author"
+            data-given="Micah J." data-family="Smith">Micah J. Smith</span>,  and <span class="ref-author"
+            data-given="Samuel" data-family="Madden">Samuel Madden</span>.    </span>
     <span class="ref-title">"Query Optimization for Dynamic Imputation."</span>
     <span class="ref-container">Proceedings of the VLDB Endowment.</span>
     <span class="ref-date">2017.</span>
-        <a target="_blank" href="https://dl.acm.org/doi/10.14778/3137628.3137641"><i class="fa fa-link fa-1"></i></a>
-        <a target="_blank" href="https://www.vldb.org/pvldb/vol10/p1310-feser.pdf"><i class="fa fa-file-pdf fa-1"></i></a>
+    <a target="_blank" href="https://dl.acm.org/doi/10.14778/3137628.3137641"><i class="fa fa-link fa-1"></i></a>
+    <a target="_blank" href="https://www.vldb.org/pvldb/vol10/p1310-feser.pdf"><i class="fa fa-file-pdf fa-1"></i></a>
+    <a target="_blank" href="https://www.micahsmith.com/files/bib/cambronero2017query.bib">
+    <i class="fa fa-quote-right fa-1"></i>
+</a>
+</p>
+<p class="ref" id="delnegro2017great">
+    <a class="jump" href="#delnegro2017great"></a>
+    <span class="ref-author-list">
+<span class="ref-author"
+            data-given="Marco" data-family="Del Negro">Marco Del Negro</span>, <span class="ref-author"
+            data-given="Gauti" data-family="Eggertsson">Gauti Eggertsson</span>, <span class="ref-author"
+            data-given="Andrea" data-family="Ferrero">Andrea Ferrero</span>,  and <span class="ref-author"
+            data-given="Nobuhiro" data-family="Kiyotaki">Nobuhiro Kiyotaki</span>.    </span>
+    <span class="ref-title">"The Great
+  Escape? A Quantitative Evaluation of the Fed's Liquidity Facilities."</span>
+    <span class="ref-container">American Economic Review.</span>
+    <span class="ref-date">2017.</span>
+<span class="ref-note">(Substantial contribution)</span>    <a target="_blank" href="https://www.aeaweb.org/articles?id=10.1257/aer.20121660"><i class="fa fa-link fa-1"></i></a>
+    <a target="_blank" href="https://www.micahsmith.com/files/bib/delnegro2017great.bib">
+    <i class="fa fa-quote-right fa-1"></i>
+</a>
+</p>
+<p class="ref" id="delnegro2016macro">
+    <a class="jump" href="#delnegro2016macro"></a>
+    <span class="ref-author-list">
+<span class="ref-author"
+            data-given="Marco" data-family="Del Negro">Marco Del Negro</span>, <span class="ref-author"
+            data-given="Marc" data-family="Giannoni">Marc Giannoni</span>,  and <span class="ref-author"
+            data-given="Micah J." data-family="Smith">Micah J. Smith</span>.    </span>
+    <span class="ref-title">"The Macro Effects of the Recent Swing in Financial Conditions."</span>
+    <span class="ref-container">Report.</span>
+    <span class="ref-date">2016.</span>
+    <a target="_blank" href="https://libertystreeteconomics.newyorkfed.org/2016/05/the-macro-effects-of-the-recent-swing-in-financial-conditions.html"><i class="fa fa-link fa-1"></i></a>
+    <a target="_blank" href="https://www.micahsmith.com/files/bib/delnegro2016macro.bib">
+    <i class="fa fa-quote-right fa-1"></i>
+</a>
+</p>
+<p class="ref" id="delnegro2015frbny">
+    <a class="jump" href="#delnegro2015frbny"></a>
+    <span class="ref-author-list">
+<span class="ref-author"
+            data-given="Marco" data-family="Del Negro">Marco Del Negro</span>, <span class="ref-author"
+            data-given="Marc" data-family="Giannoni">Marc Giannoni</span>, <span class="ref-author"
+            data-given="Pearl" data-family="Li">Pearl Li</span>, <span class="ref-author"
+            data-given="Erica" data-family="Moszkowski">Erica Moszkowski</span>,  and <span class="ref-author"
+            data-given="Micah J." data-family="Smith">Micah J. Smith</span>.    </span>
+    <span class="ref-title">"The FRBNY DSGE Model Meets Julia."</span>
+    <span class="ref-container">Article.</span>
+    <span class="ref-date">2015.</span>
+    <a target="_blank" href="https://libertystreeteconomics.newyorkfed.org/2015/12/the-frbny-dsge-model-meets-julia.html"><i class="fa fa-link fa-1"></i></a>
+    <a target="_blank" href="https://www.micahsmith.com/files/bib/delnegro2015frbny.bib">
+    <i class="fa fa-quote-right fa-1"></i>
+</a>
+</p>
+<p class="ref" id="cranko2015julia">
+    <a class="jump" href="#cranko2015julia"></a>
+    <span class="ref-author-list">
+<span class="ref-author"
+            data-given="Zac" data-family="Cranko">Zac Cranko</span>, <span class="ref-author"
+            data-given="Pearl" data-family="Li">Pearl Li</span>, <span class="ref-author"
+            data-given="Spencer" data-family="Lyon">Spencer Lyon</span>, <span class="ref-author"
+            data-given="Erica" data-family="Moszkowski">Erica Moszkowski</span>, <span class="ref-author"
+            data-given="Micah J." data-family="Smith">Micah J. Smith</span>,  and <span class="ref-author"
+            data-given="Pablo" data-family="Winant">Pablo Winant</span>.    </span>
+    <span class="ref-title">"The DSGE MATLAB to Julia Transition: Improvements and Challenges."</span>
+    <span class="ref-container">Article.</span>
+    <span class="ref-date">2015.</span>
+    <a target="_blank" href="https://github.com/FRBNY-DSGE/DSGE.jl/blob/v0.1.0/doc/MatlabToJuliaTransition.md"><i class="fa fa-link fa-1"></i></a>
+    <a target="_blank" href="https://www.micahsmith.com/files/bib/cranko2015julia.bib">
+    <i class="fa fa-quote-right fa-1"></i>
+</a>
+</p>
+<p class="ref" id="delnegro2015frbny1">
+    <a class="jump" href="#delnegro2015frbny1"></a>
+    <span class="ref-author-list">
+<span class="ref-author"
+            data-given="Marco" data-family="Del Negro">Marco Del Negro</span>, <span class="ref-author"
+            data-given="Marc" data-family="Giannoni">Marc Giannoni</span>, <span class="ref-author"
+            data-given="Erica" data-family="Moszkowski">Erica Moszkowski</span>, <span class="ref-author"
+            data-given="Sara" data-family="Shahanaghi">Sara Shahanaghi</span>,  and <span class="ref-author"
+            data-given="Micah J." data-family="Smith">Micah J. Smith</span>.    </span>
+    <span class="ref-title">"The FRBNY DSGE Model Forecast - November 2015."</span>
+    <span class="ref-container">Article.</span>
+    <span class="ref-date">2015.</span>
+    <a target="_blank" href="https://libertystreeteconomics.newyorkfed.org/2015/12/the-frbny-dsge-model-forecastnovember-2015.html"><i class="fa fa-link fa-1"></i></a>
+    <a target="_blank" href="https://www.micahsmith.com/files/bib/delnegro2015frbny1.bib">
+    <i class="fa fa-quote-right fa-1"></i>
+</a>
+</p>
+<p class="ref" id="fuster2015just">
+    <a class="jump" href="#fuster2015just"></a>
+    <span class="ref-author-list">
+<span class="ref-author"
+            data-given="Andreas" data-family="Fuster">Andreas Fuster</span>, <span class="ref-author"
+            data-given="Basit" data-family="Zafar">Basit Zafar</span>,  and <span class="ref-author"
+            data-given="Micah J." data-family="Smith">Micah J. Smith</span>.    </span>
+    <span class="ref-title">"Just Released: 2015 SCE Housing Survey Shows Households Optimistic about Housing Market."</span>
+    <span class="ref-container">Article.</span>
+    <span class="ref-date">2015.</span>
+    <a target="_blank" href="https://libertystreeteconomics.newyorkfed.org/2015/05/just-released-2015-sce-housing-survey-shows-households-optimistic-about-housing-market.html"><i class="fa fa-link fa-1"></i></a>
+    <a target="_blank" href="https://www.micahsmith.com/files/bib/fuster2015just.bib">
+    <i class="fa fa-quote-right fa-1"></i>
+</a>
+</p>
+<p class="ref" id="fuster2015survey">
+    <a class="jump" href="#fuster2015survey"></a>
+    <span class="ref-author-list">
+<span class="ref-author"
+            data-given="Andreas" data-family="Fuster">Andreas Fuster</span>, <span class="ref-author"
+            data-given="Basit" data-family="Zafar">Basit Zafar</span>,  and <span class="ref-author"
+            data-given="Micah J." data-family="Smith">Micah J. Smith</span>.    </span>
+    <span class="ref-title">"Survey of Consumer Expectations: Housing Survey - 2015: Report."</span>
+    <span class="ref-container">Article.</span>
+    <span class="ref-date">2015.</span>
+    <a target="_blank" href="https://www.newyorkfed.org/medialibrary/interactives/sce/sce/downloads/data/2015-SCE-Housing-Survey.pdf"><i class="fa fa- fa-1"></i></a>
+    <a target="_blank" href="https://www.micahsmith.com/files/bib/fuster2015survey.bib">
+    <i class="fa fa-quote-right fa-1"></i>
+</a>
+</p>
+<p class="ref" id="delnegro2015why">
+    <a class="jump" href="#delnegro2015why"></a>
+    <span class="ref-author-list">
+<span class="ref-author"
+            data-given="Marco" data-family="Del Negro">Marco Del Negro</span>, <span class="ref-author"
+            data-given="Marc" data-family="Giannoni">Marc Giannoni</span>, <span class="ref-author"
+            data-given="Matthew" data-family="Cocci">Matthew Cocci</span>, <span class="ref-author"
+            data-given="Sara" data-family="Shahanaghi">Sara Shahanaghi</span>,  and <span class="ref-author"
+            data-given="Micah J." data-family="Smith">Micah J. Smith</span>.    </span>
+    <span class="ref-title">"Why are interest rates so low?."</span>
+    <span class="ref-container">Article.</span>
+    <span class="ref-date">2015.</span>
+    <a target="_blank" href="https://libertystreeteconomics.newyorkfed.org/2015/05/why-are-interest-rates-so-low.html"><i class="fa fa-link fa-1"></i></a>
+    <a target="_blank" href="https://www.micahsmith.com/files/bib/delnegro2015why.bib">
+    <i class="fa fa-quote-right fa-1"></i>
+</a>
+</p>
+<p class="ref" id="delnegro2015frbny2">
+    <a class="jump" href="#delnegro2015frbny2"></a>
+    <span class="ref-author-list">
+<span class="ref-author"
+            data-given="Marco" data-family="Del Negro">Marco Del Negro</span>, <span class="ref-author"
+            data-given="Marc" data-family="Giannoni">Marc Giannoni</span>, <span class="ref-author"
+            data-given="Matthew" data-family="Cocci">Matthew Cocci</span>, <span class="ref-author"
+            data-given="Sara" data-family="Shahanaghi">Sara Shahanaghi</span>,  and <span class="ref-author"
+            data-given="Micah J." data-family="Smith">Micah J. Smith</span>.    </span>
+    <span class="ref-title">"The FRBNY DSGE Model Forecast - April 2015."</span>
+    <span class="ref-container">Article.</span>
+    <span class="ref-date">2015.</span>
+    <a target="_blank" href="http://libertystreeteconomics.newyorkfed.org/2015/05/the-frbny-dsge-model-forecast-april-2015.html"><i class="fa fa-link fa-1"></i></a>
+    <a target="_blank" href="https://www.micahsmith.com/files/bib/delnegro2015frbny2.bib">
+    <i class="fa fa-quote-right fa-1"></i>
+</a>
+</p>
+<p class="ref" id="delnegro2012forward">
+    <a class="jump" href="#delnegro2012forward"></a>
+    <span class="ref-author-list">
+<span class="ref-author"
+            data-given="Marco" data-family="Del Negro">Marco Del Negro</span>, <span class="ref-author"
+            data-given="Marc" data-family="Giannoni">Marc Giannoni</span>,  and <span class="ref-author"
+            data-given="Christina" data-family="Patterson">Christina Patterson</span>.    </span>
+    <span class="ref-title">"The forward guidance puzzle."</span>
+    <span class="ref-container">Report.</span>
+    <span class="ref-date">2012.</span>
+<span class="ref-note">(Substantial contribution)</span>    <a target="_blank" href="https://www.newyorkfed.org/medialibrary/media/research/staff_reports/sr574.html"><i class="fa fa-link fa-1"></i></a>
+    <a target="_blank" href="https://www.micahsmith.com/files/bib/delnegro2012forward.bib">
+    <i class="fa fa-quote-right fa-1"></i>
+</a>
 </p>
 
   </div>
