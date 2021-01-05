@@ -5,3 +5,7 @@ ul.social a.sc-key {
 .ref-author[data-given="Micah J."][data-family="Smith"] {
   font-weight: bold;
 }
+
+.ref > .ref-note {
+  font-style: italic;
+}

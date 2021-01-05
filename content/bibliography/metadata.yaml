@@ -68,3 +68,55 @@
         icon: link
       - href: https://arxiv.org/abs/1902.05009
         icon: file-pdf
+- key: delnegro2017great
+  metadata:
+    links:
+      - href: https://www.aeaweb.org/articles?id=10.1257/aer.20121660
+        icon: link
+    note: Substantial contribution
+- key: delnegro2016macro
+  metadata:
+    links:
+      - href: https://libertystreeteconomics.newyorkfed.org/2016/05/the-macro-effects-of-the-recent-swing-in-financial-conditions.html
+        icon: link
+- key: delnegro2015frbny
+  metadata:
+    links:
+      - href: https://libertystreeteconomics.newyorkfed.org/2015/12/the-frbny-dsge-model-meets-julia.html
+        icon: link
+- key: cranko2015julia
+  metadata:
+    links:
+      - href: https://github.com/FRBNY-DSGE/DSGE.jl/blob/v0.1.0/doc/MatlabToJuliaTransition.md
+        icon: link
+- key: delnegro2015frbny1
+  metadata:
+    links:
+      - href: https://libertystreeteconomics.newyorkfed.org/2015/12/the-frbny-dsge-model-forecastnovember-2015.html
+        icon: link
+- key: delnegro2012forward
+  metadata:
+    links:
+      - href: https://www.newyorkfed.org/medialibrary/media/research/staff_reports/sr574.html
+        icon: link
+    note: Substantial contribution
+- key: fuster2015just
+  metadata:
+    links:
+      - href: https://libertystreeteconomics.newyorkfed.org/2015/05/just-released-2015-sce-housing-survey-shows-households-optimistic-about-housing-market.html
+        icon: link
+- key: fuster2015survey
+  metadata:
+    links:
+      - href: https://www.newyorkfed.org/medialibrary/interactives/sce/sce/downloads/data/2015-SCE-Housing-Survey.pdf
+        type: file-pdf
+- key: delnegro2015why
+  metadata:
+    links:
+      - href: https://libertystreeteconomics.newyorkfed.org/2015/05/why-are-interest-rates-so-low.html
+        icon: link
+- key: delnegro2015frbny2
+  metadata:
+    links:
+      - href: http://libertystreeteconomics.newyorkfed.org/2015/05/the-frbny-dsge-model-forecast-april-2015.html
+        icon: link
