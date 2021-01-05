@@ -61,6 +61,7 @@
         icon: film
       - href: https://vimeo.com/440735079#t=4231s
         icon: video
+    note: Previously at arXiv:1905.08942 [cs]
 - key: wang2019atmseer
   metadata:
     links:
@@ -68,6 +69,7 @@
         icon: link
       - href: https://arxiv.org/abs/1902.05009
         icon: file-pdf
+    note: Also at arXiv:1902.05009 [cs]
 - key: delnegro2017great
   metadata:
     links:
