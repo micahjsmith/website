@@ -66,9 +66,8 @@ DEFAULT_PAGINATION = False
 # RELATIVE_URLS = True
 
 # Plugins
-import pelican.plugins.bibliography
 PLUGIN_PATHS = ['plugins', 'plugins/pelican-embed-tweet']
-PLUGINS = ['render_math', 'embed_tweet', pelican.plugins.bibliography]
+PLUGINS = ['render_math', 'embed_tweet', 'pelican.plugins.bibliography']
 JINJA_ENVIRONMENT = {}
 
 # Static content
@@ -78,7 +77,9 @@ EXTRA_PATH_METADATA = {
     'extra/custom.css': {'path': 'static/custom.css'},
 }
 
-# Flex
-
+# Flex theme
 THEME_COLOR_AUTO_DETECT_BROWSER_PREFERENCE = True
 THEME_COLOR_ENABLE_USER_OVERRIDE = True
+
+# Bibliography plugin
+BIBLIOGRAPHY_WRITE_CITATIONS = True

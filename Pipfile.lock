@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "8cf39e47518d9c2f2010a102f529a6ff8bf40b179ab839d43aa4dc1408d6d7fd"
+            "sha256": "f20d4f3f6e1502f0cf446fc4b2abe5033d5f3ca2d92f815f79ee35708cfcc6dd"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -159,8 +159,12 @@
             "version": "==4.5.4"
         },
         "pelican-bibliography": {
-            "path": "./plugins/pelican-bibliography",
-            "version": "==0.3.0"
+            "hashes": [
+                "sha256:51e77cff62a6922b71dd16db1cf6ac001c0f79375579be695033338551466f64",
+                "sha256:e066de15c8cbd33dd27ff7493b272deb47fb2b68f27524adfba9f53cbe3865e6"
+            ],
+            "index": "pypi",
+            "version": "==0.4.0"
         },
         "pybtex": {
             "hashes": [
