@@ -12,6 +12,11 @@
         icon: link
       - href: /files/bots_chi2020.pdf
         icon: file-pdf
+    acceptance:
+      submissions: 772
+      accepted: 323
+      rate: 41.8
+      source: https://chi2021.acm.org/information/4600.html
 - key: santu2020levelwise
   metadata:
     links:
