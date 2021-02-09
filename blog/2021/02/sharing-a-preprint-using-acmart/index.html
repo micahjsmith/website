@@ -1,0 +1,246 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,400;0,700;1,400&family=Source+Sans+Pro:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="https://www.micahsmith.com/theme/stylesheet/style.min.css">
+
+    <link id="dark-theme-style" rel="stylesheet" type="text/css"
+          media="(prefers-color-scheme: dark)"
+    href="https://www.micahsmith.com/theme/stylesheet/dark-theme.min.css">
+
+    <link id="pygments-dark-theme" rel="stylesheet" type="text/css"
+              media="(prefers-color-scheme: dark)"
+          href="https://www.micahsmith.com/theme/pygments/monokai.min.css">
+    <link id="pygments-light-theme" rel="stylesheet" type="text/css"
+              media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
+          href="https://www.micahsmith.com/theme/pygments/github.min.css">
+
+
+  <link rel="stylesheet" type="text/css" href="https://www.micahsmith.com/theme/font-awesome/css/fontawesome.css">
+  <link rel="stylesheet" type="text/css" href="https://www.micahsmith.com/theme/font-awesome/css/brands.css">
+  <link rel="stylesheet" type="text/css" href="https://www.micahsmith.com/theme/font-awesome/css/solid.css">
+
+    <link href="https://www.micahsmith.com/static/custom.css" rel="stylesheet">
+
+
+
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-57970396-1', 'auto');
+  ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+<meta name="author" content="Micah Smith" />
+<meta name="description" content="Congratulations! You just submitted a paper to an ACM conference. While you are waiting to receive peer reviews, you may want to share a preprint with your colleagues. Here&#39;s what you should not do -- send the exact file that you created as part of your submission. This is still anonymized …" />
+<meta name="keywords" content="latex">
+
+
+<meta property="og:site_name" content="Micah Smith"/>
+<meta property="og:title" content="Sharing a preprint using acmart"/>
+<meta property="og:description" content="Congratulations! You just submitted a paper to an ACM conference. While you are waiting to receive peer reviews, you may want to share a preprint with your colleagues. Here&#39;s what you should not do -- send the exact file that you created as part of your submission. This is still anonymized …"/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:url" content="https://www.micahsmith.com/blog/2021/02/sharing-a-preprint-using-acmart"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2021-02-08 00:00:00-05:00"/>
+<meta property="article:modified_time" content=""/>
+<meta property="article:author" content="https://www.micahsmith.com/author/micah-smith.html">
+<meta property="article:section" content="research"/>
+<meta property="article:tag" content="latex"/>
+<meta property="og:image" content="/images/micah.jpg">
+
+  <title>Micah Smith &ndash; Sharing a preprint using acmart</title>
+
+</head>
+<body >
+  <aside>
+    <div>
+      <a href="https://www.micahsmith.com">
+        <img src="/images/micah.jpg" alt="Micah J. Smith" title="Micah J. Smith">
+      </a>
+
+      <h1>
+        <a href="https://www.micahsmith.com">Micah J. Smith</a>
+      </h1>
+
+
+
+      <nav>
+        <ul class="list">
+
+          <li><a href="https://www.micahsmith.com/blog">blog</a></li>
+
+              <li>
+                <a target="_self"
+                   href="https://www.micahsmith.com/research">
+                  research
+                </a>
+              </li>
+              <li>
+                <a target="_self"
+                   href="https://www.micahsmith.com/contact">
+                  contact
+                </a>
+              </li>
+
+        </ul>
+      </nav>
+
+      <ul class="social">
+          <li>
+            <a  class="sc-twitter" href="https://twitter.com/micahjsmith" target="_blank">
+              <i class="fab fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a  class="sc-github" href="https://github.com/micahjsmith" target="_blank">
+              <i class="fab fa-github"></i>
+            </a>
+          </li>
+          <li>
+            <a  class="sc-stack-overflow" href="https://stackoverflow.com/users/2514228/micah-smith" target="_blank">
+              <i class="fab fa-stack-overflow"></i>
+            </a>
+          </li>
+          <li>
+            <a  class="sc-linkedin" href="https://www.linkedin.com/in/micahjsmith" target="_blank">
+              <i class="fab fa-linkedin"></i>
+            </a>
+          </li>
+          <li>
+            <a  class="sc-key" href="https://keybase.io/micahjsmith" target="_blank">
+              <i class="fa fa-key"></i>
+            </a>
+          </li>
+      </ul>
+    </div>
+
+  </aside>
+  <main>
+
+
+<article class="single">
+  <header>
+      
+    <h1 id="sharing-a-preprint-using-acmart">Sharing a preprint using acmart</h1>
+    <p>
+      Posted on Mon 08 February 2021 in <a href="https://www.micahsmith.com/category/research.html">research</a>
+
+    </p>
+  </header>
+
+
+  <div>
+    <p>Congratulations! You just submitted a paper to an ACM conference. While you are waiting to receive peer reviews, you may want to share a preprint with your colleagues.</p>
+<p>Here's what you should <em>not</em> do -- send the exact file that you created as part of your submission. This is still anonymized, contains distracting ACM metadata in the header/footer, and does not correctly indicate that this paper is unpublished and not for distribution.</p>
+<h3>Approach 1 - authordraft option</h3>
+<p>Instead, here is how to edit your TeX files to create and distribute a preprint that looks great.</p>
+<p>Thanks to careful design of the <code>acmart</code> class, you can mostly just set options in your <code>documentclass</code> declaration.</p>
+<p>Let's supposed you've submitted a paper to a conference that uses the <code>acmsmall</code> template. You might have initially declared the document class as follows:</p>
+<div class="highlight"><pre><span></span><code><span class="k">\documentclass</span><span class="na">[acmsmall,anonymous,review]</span><span class="nb">{</span>acmart<span class="nb">}</span>
+</code></pre></div>
+
+<p>How do you convert this into a shareable preprint?</p>
+<ol>
+<li>Remove <code>anonymous</code>. No explanation needed.</li>
+<li>Add <code>authordraft</code>. This option is appropriate for "author's drafts that are not intended for distribution". It adds a watermark that says "Unpublished working draft. Not for distribution" and also enables the <code>review</code> and <code>timestamp</code> options.</li>
+<li>Add <code>review=false</code> and <code>timestamp=false</code>.  These options are otherwise enabled by <code>authordraft</code>. This is personal preference, but when sending a document to colleagues, I want the reading experience to be as close as possible to as if they were viewing a published work. Thus these options will disable the red line numbers that would appear in the left margin, and remove the timestamp that would appear in the footer.</li>
+<li>Add <code>nonacm</code>. This removes all ACM conference and copyright information. For the purposes of sharing with colleagues, this is just noise as you don't know that your paper will be published at any specific venue.</li>
+<li>Add <code>screen</code>. This isn't usually suggested in sample submissions for some reason, but is good to add now that you can, in that the PDF is compiled for the "screen" (aka, a computer...) and hyperlinks are colorized.</li>
+</ol>
+<p>Here is the final result:</p>
+<div class="highlight"><pre><span></span><code><span class="k">\documentclass</span><span class="na">[acmsmall,screen,authordraft,nonacm,review=false,timestamp=false]</span><span class="nb">{</span>acmart<span class="nb">}</span>
+</code></pre></div>
+
+<h3>Approach 2 - preprint footer</h3>
+<p>Note that <code>authordraft</code> adds a watermark in the center of the page. If you prefer a different approach, you could instead set <code>authorversion</code>, which configures acmart to produce a version "for the author's personal use" (by adding a notice on the first page accordingly) -- this is something that would be appropriate for posting on your personal website for example.</p>
+<div class="highlight"><pre><span></span><code><span class="k">\documentclass</span><span class="na">[acmsmall,screen,authorversion,nonacm]</span><span class="nb">{</span>acmart<span class="nb">}</span>
+</code></pre></div>
+
+<p>But you now need to indicate in another location that this a preprint. One option is to add a custom footer.</p>
+<p>Here is one way to achieve that. The <code>fancyhdr</code> package is what is used under the hood to create headers and footers in many documents including the acmart-derived layouts. After a dive through <code>acmart.sty</code>, it turns out that we need to set our custom footer in an <code>AtBeginDocument</code> block. Otherwise, since <code>acmart</code> sets its own <code>fancyfoot</code> in an <code>AtBeginDocument</code> block, if we defined it in our own preamble it would get redefined.</p>
+<div class="highlight"><pre><span></span><code><span class="k">\usepackage</span><span class="nb">{</span>fancyhdr<span class="nb">}</span>
+<span class="k">\AtBeginDocument</span><span class="nb">{</span><span class="c">%</span>
+    <span class="k">\addtolength</span><span class="nb">{</span><span class="k">\footskip</span><span class="nb">}{</span>2.0<span class="k">\baselineskip</span><span class="nb">}</span><span class="c">%</span>
+    <span class="k">\fancyfoot</span><span class="na">[L]</span><span class="nb">{</span><span class="k">\textit</span><span class="nb">{</span><span class="k">\textbf</span><span class="nb">{</span>Preprint --- do not distribute.<span class="nb">}}}</span><span class="c">%</span>
+<span class="nb">}</span>
+</code></pre></div>
+
+<h3>References</h3>
+<ul>
+<li><a href="https://www.acm.org/binaries/content/assets/publications/consolidated-tex-template/acmart.pdf">acmart documentation</a>. See in particular section 2.3 ("Top Matter").</li>
+<li><a href="http://mirror.las.iastate.edu/tex-archive/macros/latex/contrib/fancyhdr/fancyhdr.pdf">fancyhdr documentation</a></li>
+</ul><script src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+  </div>
+  <div class="tag-cloud">
+    <p>
+      <a href="https://www.micahsmith.com/tag/latex.html">latex</a>
+    </p>
+  </div>
+
+
+
+
+
+<!-- Disqus -->
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'micahsmith';
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>
+    Please enable JavaScript to view comments.
+</noscript>
+<!-- End Disqus -->
+</article>
+
+    <footer>
+<p>&copy; 2021 Micah Smith</p>
+<p>
+Built with <a href="http://getpelican.com" target="_blank">Pelican</a> using <a href="http://bit.ly/flex-pelican" target="_blank">Flex</a> theme
+  <span class="footer-separator">|</span>
+  Switch to the <a href="javascript:void(0)" onclick="theme.switch(`dark`)">dark</a> | <a href="javascript:void(0)" onclick="theme.switch(`light`)">light</a> | <a href="javascript:void(0)" onclick="theme.switch(`browser`)">browser</a> theme
+  <script id="dark-theme-script"
+          src="https://www.micahsmith.com/theme/dark-theme/dark-theme.min.js"
+          data-enable-auto-detect-theme="True"
+          data-default-theme="light"
+          type="text/javascript">
+  </script>
+</p>    </footer>
+  </main>
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " Micah Smith ",
+  "url" : "https://www.micahsmith.com",
+  "image": "/images/micah.jpg",
+  "description": ""
+}
+</script>
+
+
+</body>
+</html>
