@@ -5,6 +5,11 @@
         icon: link
       - href: https://www.vldb.org/pvldb/vol10/p1310-feser.pdf
         icon: file-pdf
+    acceptance:
+      submissions: 750
+      accepted: 133
+      rate: 17.7
+      source: notes
 - key: liu2020understanding
   metadata:
     links:
