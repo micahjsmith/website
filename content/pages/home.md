@@ -11,6 +11,6 @@ I'm also an experienced software developer and ML engineer. I've helped build an
 
 [Talk to me]({filename}/pages/contact.md) about research, ML, and software development... as well as public transit, crosswords, BBQ, running, basketball, tennis, fantasy sports, house plants, reading, chess, politics, and more!
 
-You can also [read my blog]({filename}/pages/blog.md) for various musings about the above.
+You can also [read my blog](/blog) for various musings about the above.
 
 Everything on this site reflects my personal views only.
