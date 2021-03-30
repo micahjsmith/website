@@ -1,3 +1,8 @@
+- key: smith2021meeting
+  metadata:
+    links:
+      - href: https://arxiv.org/abs/2103.15787
+        icon: link
 - key: cambronero2017query
   metadata:
     links:
