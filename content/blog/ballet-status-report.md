@@ -54,7 +54,7 @@ The first part of the approach is based on finding ways to decompose the data sc
 
 The second part of the approach is meeting data scientists where they are — the notebook — as the primary IDE. After prototyping a new feature, say, within a notebook, using our interface a data scientist can transparently submit the code that defines that feature as a pull request (PR) to the upstream project repo without bothering themselves with any git details.
 
-We instantiate these ideas in [Ballet](https://github.com/HDI-Project/ballet), a software framework for collaborative data science. It initially supports collaborative feature engineering on tabular data, which will be the focus of this post. But keep in mind that this is one instance of the ideas behind Ballet, and that they apply equally to other areas of data science, with a plugin to support data programming for document classification in development.
+We instantiate these ideas in [Ballet](https://github.com/ballet/ballet), a software framework for collaborative data science. It initially supports collaborative feature engineering on tabular data, which will be the focus of this post. But keep in mind that this is one instance of the ideas behind Ballet, and that they apply equally to other areas of data science, with a plugin to support data programming for document classification in development.
 
 In the rest of this post I will go through many of these ideas in an end-to-end example of collaborating on a house price prediction problem. Throughout this example I will be focusing on feature engineering where each patch to the project is a new feature definition.
 
@@ -169,7 +169,7 @@ The second time is when feature submissions have been received by the upstream p
 
 ### Submit where you code
 
-To support contributing code to be reviewed, we create a [Jupyter Lab extension](https://github.com/HDI-Project/ballet-submit-labextension) to submit patches of data science code to the upstream repository directly within the Lab interface and transparently to the user. Data scientists can select the code that defines the new feature they want to submit and submit it from Jupyter Lab with one click.
+To support contributing code to be reviewed, we create a [Jupyter Lab extension](https://github.com/ballet/ballet-assemble) to submit patches of data science code to the upstream repository directly within the Lab interface and transparently to the user. Data scientists can select the code that defines the new feature they want to submit and submit it from Jupyter Lab with one click.
 
 First, they can authenticate themselves with GitHub. This allows the Lab extension to take actions on their behalf, avoiding the need for the data scientist to run any low-level git commands themselves.
 

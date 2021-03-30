@@ -1,11 +1,11 @@
 Title: Attending MLSys 2020
 Date: 2020-02-02
 Category: research
-Tags: 
+Tags:
 Slug: attending-mlsys-2020
 Authors: Micah Smith
 
-Our demonstration of [Ballet](https://github.com/HDI-Project/ballet) was recently accepted
+Our demonstration of [Ballet](https://github.com/ballet/ballet) was recently accepted
 at the Conference on ML and Systems (MLSys 2020). I will be attending the conference March
 2-4 to present a live demonstration of our framework for real-time, collaborative feature
 engineering. I'm looking forward to attending the conference, visiting Austin, TX, and

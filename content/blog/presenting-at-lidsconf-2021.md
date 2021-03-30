@@ -5,7 +5,7 @@ Tags: ballet, mit
 Slug: presenting-at-lidsconf-2021
 Authors: Micah Smith
 
-Last month was the [26th LIDS Student Conference](https://lidsconf.mit.edu/2021/), which was held virtually. I was happy to give a talk entitled, "A New Approach to Collaborative Data Science with the Ballet Framework," which presents some of our work from our [paper on Ballet](https://www.micahsmith.com/research/#smith2020enabling). It was great to see the creativity with which the organizers approached the virtual conference format, especially since I served in the (much easier, in retrospect) role of Conference Organizer for the [2018 conference](https://lidsconf.mit.edu/2018/).
+Last month was the [26th LIDS Student Conference](https://lidsconf.mit.edu/2021/), which was held virtually. I was happy to give a talk entitled, "A New Approach to Collaborative Data Science with the Ballet Framework," which presents some of our work from our [paper on Ballet]({filename}/pages/research.md#smith2020enabling). It was great to see the creativity with which the organizers approached the virtual conference format, especially since I served in the (much easier, in retrospect) role of Conference Organizer for the [2018 conference](https://lidsconf.mit.edu/2018/).
 
 My presentation is now up and you can watch it here:
 
