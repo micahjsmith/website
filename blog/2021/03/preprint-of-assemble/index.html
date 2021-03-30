@@ -1,0 +1,230 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,400;0,700;1,400&family=Source+Sans+Pro:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="https://www.micahsmith.com/theme/stylesheet/style.min.css">
+
+    <link id="dark-theme-style" rel="stylesheet" type="text/css"
+          media="(prefers-color-scheme: dark)"
+    href="https://www.micahsmith.com/theme/stylesheet/dark-theme.min.css">
+
+    <link id="pygments-dark-theme" rel="stylesheet" type="text/css"
+              media="(prefers-color-scheme: dark)"
+          href="https://www.micahsmith.com/theme/pygments/monokai.min.css">
+    <link id="pygments-light-theme" rel="stylesheet" type="text/css"
+              media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
+          href="https://www.micahsmith.com/theme/pygments/github.min.css">
+
+
+  <link rel="stylesheet" type="text/css" href="https://www.micahsmith.com/theme/font-awesome/css/fontawesome.css">
+  <link rel="stylesheet" type="text/css" href="https://www.micahsmith.com/theme/font-awesome/css/brands.css">
+  <link rel="stylesheet" type="text/css" href="https://www.micahsmith.com/theme/font-awesome/css/solid.css">
+
+    <link href="https://www.micahsmith.com/static/custom.css" rel="stylesheet">
+
+
+
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-57970396-1', 'auto');
+  ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+<meta name="author" content="Micah Smith" />
+<meta name="description" content="I&#39;m excited to share that we have posted a preprint to arXiv of our paper, &#34;Meeting in the notebook: a notebook-based environment for micro-submissions in data science collaborations.&#34; This preprint describes the design and implementation of Assemblé, a development environment for data science collaborations that is targeted to Ballet. This …" />
+<meta name="keywords" content="ballet">
+
+
+<meta property="og:site_name" content="Micah Smith"/>
+<meta property="og:title" content="Preprint of Assemblé"/>
+<meta property="og:description" content="I&#39;m excited to share that we have posted a preprint to arXiv of our paper, &#34;Meeting in the notebook: a notebook-based environment for micro-submissions in data science collaborations.&#34; This preprint describes the design and implementation of Assemblé, a development environment for data science collaborations that is targeted to Ballet. This …"/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:url" content="https://www.micahsmith.com/blog/2021/03/preprint-of-assemble"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2021-03-30 00:00:00-04:00"/>
+<meta property="article:modified_time" content=""/>
+<meta property="article:author" content="https://www.micahsmith.com/author/micah-smith.html">
+<meta property="article:section" content="research"/>
+<meta property="article:tag" content="ballet"/>
+<meta property="og:image" content="/images/micah.jpg">
+
+  <title>Micah Smith &ndash; Preprint of Assemblé</title>
+
+</head>
+<body >
+  <aside>
+    <div>
+      <a href="https://www.micahsmith.com">
+        <img src="/images/micah.jpg" alt="Micah J. Smith" title="Micah J. Smith">
+      </a>
+
+      <h1>
+        <a href="https://www.micahsmith.com">Micah J. Smith</a>
+      </h1>
+
+
+
+      <nav>
+        <ul class="list">
+
+          <li><a href="https://www.micahsmith.com/blog">blog</a></li>
+
+              <li>
+                <a target="_self"
+                   href="https://www.micahsmith.com/research">
+                  research
+                </a>
+              </li>
+              <li>
+                <a target="_self"
+                   href="https://www.micahsmith.com/contact">
+                  contact
+                </a>
+              </li>
+
+        </ul>
+      </nav>
+
+      <ul class="social">
+          <li>
+            <a  class="sc-twitter" href="https://twitter.com/micahjsmith" target="_blank">
+              <i class="fab fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a  class="sc-github" href="https://github.com/micahjsmith" target="_blank">
+              <i class="fab fa-github"></i>
+            </a>
+          </li>
+          <li>
+            <a  class="sc-stack-overflow" href="https://stackoverflow.com/users/2514228/micah-smith" target="_blank">
+              <i class="fab fa-stack-overflow"></i>
+            </a>
+          </li>
+          <li>
+            <a  class="sc-linkedin" href="https://www.linkedin.com/in/micahjsmith" target="_blank">
+              <i class="fab fa-linkedin"></i>
+            </a>
+          </li>
+          <li>
+            <a  class="sc-key" href="https://keybase.io/micahjsmith" target="_blank">
+              <i class="fa fa-key"></i>
+            </a>
+          </li>
+      </ul>
+    </div>
+
+  </aside>
+  <main>
+
+
+<article class="single">
+  <header>
+      
+    <h1 id="preprint-of-assemble">Preprint of Assemblé</h1>
+    <p>
+      Posted on Tue 30 March 2021 in <a href="https://www.micahsmith.com/category/research.html">research</a>
+
+    </p>
+  </header>
+
+
+  <div>
+    <p>I'm excited to share that we have <a href="https://arxiv.org/abs/2103.15787">posted a preprint to arXiv</a> of our <a href="https://www.micahsmith.com/research#smith2021meeting">paper</a>, "Meeting in the notebook: a notebook-based environment for micro-submissions in data science collaborations." This preprint describes the design and implementation of <a href="https://github.com/ballet/ballet-assemble">Assemblé</a>, a development environment for data science collaborations that is targeted to <a href="https://www.micahsmith.com/tag/ballet.html">Ballet</a>. This is joint work with Jürgen Cito and Kalyan Veeramachaneni.</p>
+<p>A data science collaboration facilitated by Ballet focuses the effort of individual contributors in creating small modules that can be composed into a single data science pipeline, such as feature definitions that can be composed into a feature engineering pipeline. We found both in small formative studies and in larger case studies that while data science developers succeeded in creating feature definitions after a period of exploratory analysis, they then struggled to "close the loop" and extract the feature definition from their Jupyter Notebook in order to contribute it back to the upstream repository.</p>
+<p>If you are familiar with software development processes, <a href="https://ballet.github.io/ballet/contributor_guide.html#local-feature-development-workflow">this would otherwise entail</a>:</p>
+<ol>
+<li>Fork the upstream project.</li>
+<li>Clone the fork locally.</li>
+<li>Install the project into a new virtualenv.</li>
+<li>Create a new branch to work on the new feature definition.</li>
+<li>Start a new feature by creating empty source files at the right file paths (i.e. <code>ballet start-new-feature</code>)</li>
+<li>Copy the feature definition from your notebook into the new source file, additionally extracting any imports/symbols defined in earlier code cells.</li>
+<li>Test the new feature definition works using the command line validator (i.e. <code>ballet validate</code>).</li>
+<li>Commit the changes.</li>
+<li>Push the branch to the fork.</li>
+<li>Create a pull request, using either a client like <code>hub</code> or via the GitHub UI.</li>
+</ol>
+<p>We call this <em>patch contribution task</em>. This task is difficult to complete with high fidelity, especially for data science developers who are less familiar with this type of process.</p>
+<p>To address this, we made the insight that data science developers <em>are already successfully working within the notebook environment</em> and that the patch contribution task can then be automated under certain conditions without forcing the use of other tools. We operationalize this by creating a development environment on top of JupyterLab, Binder, and Ballet that brings all of the pieces together to support exploratory analysis, feature definition creation, and patch contribution all within the notebook, <em>meeting developers where they already are</em>.</p>
+<p>First, Assemblé uses Binder to allow a Ballet project to be launched from a badge in the project's README with the project source code and all dependencies already installed. Next, developers can use Ballet's interactive client to load data, explore data and existing features, create their own feature definition, and validate it from within the notebook. Then, instead of forcing developers to switch to a different set of tooling and wrestle with details of git workflows, Assemblé provides a one-click "Submit" button that allows developers to select a feature definition from code cells within their messy notebook and cause it to be automatically formulated as a well-structured pull request to the upstream shared repository.</p>
+<p>The result of this is that data science developers can collaborate using the pull request model of open-source development without even knowing that git is being used being the scenes, as these low-level details are completely abstracted away.</p>
+<video autoplay=true loop=true muted=true width="640" height="480"
+       name="Video Name" src="https://www.micahsmith.com/images/assemble-submit-feature.mov"></video>
+
+<p>The user interface of Assemblé is a bit bare (mainly because I'm not the best front-end developer!), so one thing we are working on is improving this experience. One example is by providing more visibility into the steps that are automated during the submission process which helps developers understand more about how Ballet works. We're also exploring two new directions for this work. The first is to meet developers in the notebook even more by exposing the pull request review process within the JupyterLab environment, for example by showing the pull request review outcomes of the feature definitions that they have submitted as well as those submitted by others, and surfacing failures and potential fixes for rejected PRs. The second is to make it even easier to identify patches to submit by allowing developers to automatically "collect" pieces of the feature definition that have been defined across cells by using automated tools such as the <a href="https://github.com/microsoft/gather">gather</a> extension, which uses program slicing techniques to identify program dependencies.</p>
+<p>Please check it out and feel free to <a href="https://www.micahsmith.com/contact">share any feedback</a>.</p><script src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+  </div>
+  <div class="tag-cloud">
+    <p>
+      <a href="https://www.micahsmith.com/tag/ballet.html">ballet</a>
+    </p>
+  </div>
+
+
+
+
+
+<!-- Disqus -->
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'micahsmith';
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>
+    Please enable JavaScript to view comments.
+</noscript>
+<!-- End Disqus -->
+</article>
+
+    <footer>
+<p>&copy; 2021 Micah Smith</p>
+<p>
+Built with <a href="http://getpelican.com" target="_blank">Pelican</a> using <a href="http://bit.ly/flex-pelican" target="_blank">Flex</a> theme
+  <span class="footer-separator">|</span>
+  Switch to the <a href="javascript:void(0)" onclick="theme.switch(`dark`)">dark</a> | <a href="javascript:void(0)" onclick="theme.switch(`light`)">light</a> | <a href="javascript:void(0)" onclick="theme.switch(`browser`)">browser</a> theme
+  <script id="dark-theme-script"
+          src="https://www.micahsmith.com/theme/dark-theme/dark-theme.min.js"
+          data-enable-auto-detect-theme="True"
+          data-default-theme="light"
+          type="text/javascript">
+  </script>
+</p>    </footer>
+  </main>
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " Micah Smith ",
+  "url" : "https://www.micahsmith.com",
+  "image": "/images/micah.jpg",
+  "description": ""
+}
+</script>
+
+
+</body>
+</html>
