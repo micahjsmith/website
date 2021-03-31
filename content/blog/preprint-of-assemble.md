@@ -29,12 +29,12 @@ To address this, we made the insight that data science developers *are already s
 First, Assemblé uses Binder to allow a Ballet project to be launched from a badge in the project's README with the project source code and all dependencies already installed. Next, developers can use Ballet's interactive client to load data, explore data and existing features, create their own feature definition, and validate it from within the notebook.
 
 <video autoplay=true loop=true muted=true width="480" height="360"
-       name="Launch Assemblé" src="{static}/images/preprint-of-assemble/launch-assemble-imovie-1080p.mp4"></video>
+       name="Launch Assemblé" src="{static}/images/preprint-of-assemble/launch-assemble.mp4"></video>
 
 Then, instead of forcing developers to switch to a different set of tooling and wrestle with details of git workflows, Assemblé provides a one-click "Submit" button that allows developers to select a feature definition from code cells within their messy notebook and cause it to be automatically formulated as a well-structured pull request to the upstream shared repository.
 
 <video autoplay=true loop=true muted=true width="480" height="360"
-       name="Submit Feature" src="{static}/images/preprint-of-assemble/submit-feature-imovie.mp4"></video>
+       name="Submit Feature" src="{static}/images/preprint-of-assemble/submit-feature.mp4"></video>
 
 The result of all this is that data science developers can collaborate using the pull request model of open-source development without even knowing that git is being used being the scenes, as these low-level details are completely abstracted away.
 
