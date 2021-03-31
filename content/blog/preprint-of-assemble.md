@@ -22,17 +22,24 @@ If you are familiar with software development processes, [this would otherwise e
 1. Push the branch to the fork.
 1. Create a pull request, using either a client like `hub` or via the GitHub UI.
 
-We call this *patch contribution task*. This task is difficult to complete with high fidelity, especially for data science developers who are less familiar with this type of process.
+We call this the *patch contribution task*. This task is difficult to complete with high fidelity, especially for data science developers who are less familiar with this type of process.
 
 To address this, we made the insight that data science developers *are already successfully working within the notebook environment* and that the patch contribution task can then be automated under certain conditions without forcing the use of other tools. We operationalize this by creating a development environment on top of JupyterLab, Binder, and Ballet that brings all of the pieces together to support exploratory analysis, feature definition creation, and patch contribution all within the notebook, *meeting developers where they already are*.
 
-First, Assemblé uses Binder to allow a Ballet project to be launched from a badge in the project's README with the project source code and all dependencies already installed. Next, developers can use Ballet's interactive client to load data, explore data and existing features, create their own feature definition, and validate it from within the notebook. Then, instead of forcing developers to switch to a different set of tooling and wrestle with details of git workflows, Assemblé provides a one-click "Submit" button that allows developers to select a feature definition from code cells within their messy notebook and cause it to be automatically formulated as a well-structured pull request to the upstream shared repository.
+First, Assemblé uses Binder to allow a Ballet project to be launched from a badge in the project's README with the project source code and all dependencies already installed. Next, developers can use Ballet's interactive client to load data, explore data and existing features, create their own feature definition, and validate it from within the notebook.
 
-The result of this is that data science developers can collaborate using the pull request model of open-source development without even knowing that git is being used being the scenes, as these low-level details are completely abstracted away.
+<video autoplay=true loop=true muted=true width="480" height="360"
+       name="Launch Assemblé" src="{static}/images/preprint-of-assemble/launch-assemble-imovie-1080p.mp4"></video>
 
-<video autoplay=true loop=true muted=true width="640" height="480"
-       name="Video Name" src="{static}/images/assemble-submit-feature.mov"></video>
+Then, instead of forcing developers to switch to a different set of tooling and wrestle with details of git workflows, Assemblé provides a one-click "Submit" button that allows developers to select a feature definition from code cells within their messy notebook and cause it to be automatically formulated as a well-structured pull request to the upstream shared repository.
 
-The user interface of Assemblé is a bit bare (mainly because I'm not the best front-end developer!), so one thing we are working on is improving this experience. One example is by providing more visibility into the steps that are automated during the submission process which helps developers understand more about how Ballet works. We're also exploring two new directions for this work. The first is to meet developers in the notebook even more by exposing the pull request review process within the JupyterLab environment, for example by showing the pull request review outcomes of the feature definitions that they have submitted as well as those submitted by others, and surfacing failures and potential fixes for rejected PRs. The second is to make it even easier to identify patches to submit by allowing developers to automatically "collect" pieces of the feature definition that have been defined across cells by using automated tools such as the [gather](https://github.com/microsoft/gather) extension, which uses program slicing techniques to identify program dependencies.
+<video autoplay=true loop=true muted=true width="480" height="360"
+       name="Submit Feature" src="{static}/images/preprint-of-assemble/submit-feature-imovie.mp4"></video>
+
+The result of all this is that data science developers can collaborate using the pull request model of open-source development without even knowing that git is being used being the scenes, as these low-level details are completely abstracted away.
+
+The user interface of Assemblé is a bit bare (mainly because I'm not the best front-end developer!), so one thing we are working on is improving this experience. One example is by providing more visibility into the steps that are automated during the submission process which helps developers understand more about how Ballet works.
+
+We're also exploring two new directions for this work. The first is to meet developers in the notebook even more by exposing the pull request review process within the JupyterLab environment, for example by showing the pull request review outcomes of the feature definitions that they have submitted as well as those submitted by others, and surfacing failures and potential fixes for rejected PRs. The second is to make it even easier to identify patches to submit by allowing developers to automatically "collect" pieces of the feature definition that have been defined across cells by using automated tools such as the [gather](https://github.com/microsoft/gather) extension, which uses program slicing techniques to identify program dependencies.
 
 Please check it out and feel free to [share any feedback]({filename}/pages/contact.md).
