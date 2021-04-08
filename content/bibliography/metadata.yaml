@@ -3,6 +3,8 @@
     links:
       - href: https://arxiv.org/abs/2103.15787
         icon: link
+      - href: https://arxiv.org/pdf/2103.15787.pdf
+        icon: file-pdf
 - key: cambronero2017query
   metadata:
     links:
@@ -32,6 +34,8 @@
     links:
       - href: https://arxiv.org/abs/2010.10777
         icon: link
+      - href: https://arxiv.org/pdf/2010.10777.pdf
+        icon: file-pdf
 - key: smith2017featurehub
   metadata:
     links:
@@ -65,6 +69,8 @@
     links:
       - href: https://arxiv.org/abs/2012.07816
         icon: link
+      - href: https://arxiv.org/pdf/2012.07816.pdf
+        icon: file-pdf
 - key: smith2020machine
   metadata:
     links:
@@ -90,6 +96,8 @@
     links:
       - href: https://www.aeaweb.org/articles?id=10.1257/aer.20121660
         icon: link
+      - href: https://www.newyorkfed.org/medialibrary/media/research/staff_reports/sr520.pdf
+        icon: file-pdf
     note: Substantial contribution
 - key: delnegro2016macro
   metadata:
@@ -114,8 +122,8 @@
 - key: delnegro2012forward
   metadata:
     links:
-      - href: https://www.newyorkfed.org/medialibrary/media/research/staff_reports/sr574.html
-        icon: link
+        href: https://www.newyorkfed.org/medialibrary/media/research/staff_reports/sr574.pdf
+        icon: file-pdf 
     note: Substantial contribution
 - key: fuster2015just
   metadata:
@@ -126,7 +134,9 @@
   metadata:
     links:
       - href: https://www.newyorkfed.org/medialibrary/interactives/sce/sce/downloads/data/2015-SCE-Housing-Survey.pdf
-        type: file-pdf
+        icon: file-pdf
+      - href: https://www.newyorkfed.org/medialibrary/interactives/sce/sce/downloads/data/SCE-housing-chart-packet-2015.pdf
+        icon: film
 - key: delnegro2015why
   metadata:
     links:
