@@ -1,5 +1,6 @@
 Title: The poor man's Google Sheets mail merge
 Date: 2020-12-01
+Modified: 2021-05-20
 Category: life
 Tags: gsuite, email, scripting
 Slug: poor-mans-google-sheets-mail-merge
@@ -33,7 +34,7 @@ You are " & Data!C2 & " years old.
 Bye!"
 ```
 
-You should compose the body in a separate text editor for a better composition experience, and substitute in placeholders for formulas when you transfer it to the spreadsheet. Note that rich text formatting (font size, font style, hyperlinks) will not transfer to the prepared emails.[^2]
+You should compose the body in a separate text editor for a better composition experience, and substitute in placeholders for formulas when you transfer it to the spreadsheet.
 
 You will be left with something like this:
 
@@ -44,7 +45,7 @@ You will be left with something like this:
 
 Use a formula to create a mailto link from the message content[^1].
 
-[Mailto links](https://en.wikipedia.org/wiki/Mailto) are URLs of the form `mailto:` that allow you to request an email message to be prepared with different parameters, such as the recipient, the subject line, and the body. These are mostly used just to turn your contact address into a link that opens in someone's email client, but can be much more useful. You can even specify arbitrary email headers ([spec](https://tools.ietf.org/html/rfc6068)).
+[Mailto links](https://en.wikipedia.org/wiki/Mailto) are URLs of the form `mailto:` that allow you to request an email message to be prepared with different parameters, such as the recipient, the subject line, and the body. These are mostly used just to turn your contact address into a link that opens in someone's email client, but can be much more useful. You can even specify arbitrary email headers (spec at [RFC 6068](https://tools.ietf.org/html/rfc6068)).
 
 ```text
 =HYPERLINK(
@@ -85,11 +86,44 @@ Some notes:
 
 ### Send emails in a batch
 
-Select a group of 5-10 cells in the "Link" column. Then use a keyboard shortcut [^3] to click the hyperlink, such as <kbd>Option</kbd> <kbd>Enter</kbd>. Depending on your mail client, this will open *n* windows, with the prepared message ready to send in each of them. You can rapidly use keyboard shortcuts to send them, such as <kbd>Command</kbd> <kbd>Enter</kbd> for either AirMail or Gmail.
+Select a group of 5-10 cells in the "Link" column. Then use a keyboard shortcut [^2] to click the hyperlink, such as <kbd>Option</kbd> <kbd>Enter</kbd>. Depending on your mail client, this will open *n* windows, with the prepared message ready to send in each of them. You can rapidly use keyboard shortcuts to send them, such as <kbd>Command</kbd> <kbd>Enter</kbd> for either AirMail or Gmail.
 
 When the emails in a batch have successfully been sent, mark them in the sheet accordingly.
 
-#### A note on Gmail
+### Rich text formatting
+
+Note that rich text formatting (font size, font style, hyperlinks) will not transfer to a Sheets cell if you copy-and-paste. Instead, you should try to export your document to HTML and then copy the raw HTML into a cell. In most email clients, they will correctly interpret a mailto link that has encoded HTML by converting the content back into rich text in the email editor and setting the content type header to `text/html` appropriately.
+
+One detail is that Sheets does not allow the `"` character to appear in the middle of a string in a formula nor is it possible to escape it. If you can, just substitute the `'` character. If you must use the double quote, the best solution is to concatenate the formula `CHAR(34)` (which encodes a double quote) in the middle of a string.
+
+#### Example
+
+Let's say you are trying to include both HTML markup and a double quote in a formula cell to use in a mailto link.
+
+Cell input
+
+```text
+="According to Wikipedia, <a class='font-style: italic;'
+href='https://en.wikipedia.org/wiki/Oncideres_mirador'>Oncideres mirador</a> is
+" & CHAR(34) & "a species of beetle in the family Cerambycidae" & CHAR(34) &
+"."
+```
+
+Cell output
+
+```html
+According to Wikipedia, <a class='font-style: italic;'
+href='https://en.wikipedia.org/wiki/Oncideres_mirador'>Oncideres mirador</a> is
+"a species of beetle in the family Cerambycidae".
+```
+
+HTML output
+
+> According to Wikipedia, [*Oncideres mirador*](https://en.wikipedia.org/wiki/Oncideres_mirador) is "a species of beetle in the family Cerambycidae".
+
+Of course, you don't have to do anything crazy like this if you are not using formulas in the cell. You can just paste the HTML in directly.
+
+### A note on Gmail
 
 If you want to use the Gmail web application as your mail client, then you need to configure your browser appropriately. Chrome was easiest to configure for me, even though I prefer Firefox for almost everything. See [here](https://wiki.carleton.edu/display/itskb/Configuring+Mailto+links+to+use+Gmail).
 
@@ -105,6 +139,4 @@ Let me know in the comments if you find this helpful or have any improvements on
 
 [^1]: There may be better ways to create this formula that doesn't require adding separate lines for each header, maybe using [`ARRAYFORMULA`](https://support.google.com/docs/answer/3093275?hl=en) or something beyond my Google Sheets expertise. Let me know in the comments if you figure this out.
 
-[^2]: You can probably paste raw HTML markup into the body cell and then figure out how this can best be sent in your email client, maybe be providing a header like `Content-Type: text/html; charset="UTF-8"` as another parameter in the mailto URL, but I haven't looked into this.
-
-[^3]: I'll refer to various keyboard shortcuts, which reflects my setup of macOS. Please substitute the relevant keyboard shortcuts for your own setup.
+[^2]: I'll refer to various keyboard shortcuts, which reflects my setup of macOS. Please substitute the relevant keyboard shortcuts for your own setup.
