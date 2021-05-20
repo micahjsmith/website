@@ -57,7 +57,7 @@
 <meta property="og:url" content="https://www.micahsmith.com/blog/2020/12/poor-mans-google-sheets-mail-merge"/>
 <meta property="og:type" content="article"/>
 <meta property="article:published_time" content="2020-12-01 00:00:00-05:00"/>
-<meta property="article:modified_time" content=""/>
+<meta property="article:modified_time" content="2021-05-20 00:00:00-04:00"/>
 <meta property="article:author" content="https://www.micahsmith.com/author/micah-smith.html">
 <meta property="article:section" content="life"/>
 <meta property="article:tag" content="gsuite"/>
@@ -163,12 +163,12 @@ You are &quot; &amp; Data!C2 &amp; &quot; years old.
 Bye!&quot;
 </code></pre></div>
 
-<p>You should compose the body in a separate text editor for a better composition experience, and substitute in placeholders for formulas when you transfer it to the spreadsheet. Note that rich text formatting (font size, font style, hyperlinks) will not transfer to the prepared emails.<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup></p>
+<p>You should compose the body in a separate text editor for a better composition experience, and substitute in placeholders for formulas when you transfer it to the spreadsheet.</p>
 <p>You will be left with something like this:</p>
 <p><img title="Mail merge sheet" alt="Mail merge sheet after creating message content" src="https://www.micahsmith.com/images/poor-mans-mail-merge/poor-mans-mail-merge-01.png" style="border: 1px solid black" /></p>
 <h3>Create the mailto link</h3>
 <p>Use a formula to create a mailto link from the message content<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>.</p>
-<p><a href="https://en.wikipedia.org/wiki/Mailto">Mailto links</a> are URLs of the form <code>mailto:</code> that allow you to request an email message to be prepared with different parameters, such as the recipient, the subject line, and the body. These are mostly used just to turn your contact address into a link that opens in someone's email client, but can be much more useful. You can even specify arbitrary email headers (<a href="https://tools.ietf.org/html/rfc6068">spec</a>).</p>
+<p><a href="https://en.wikipedia.org/wiki/Mailto">Mailto links</a> are URLs of the form <code>mailto:</code> that allow you to request an email message to be prepared with different parameters, such as the recipient, the subject line, and the body. These are mostly used just to turn your contact address into a link that opens in someone's email client, but can be much more useful. You can even specify arbitrary email headers (spec at <a href="https://tools.ietf.org/html/rfc6068">RFC 6068</a>).</p>
 <div class="highlight"><pre><span></span><code>=HYPERLINK(
     &quot;mailto:&quot; &amp; A2
     &amp; &quot;?&quot;
@@ -200,9 +200,32 @@ Bye!&quot;
 </ul>
 <p><img title="Mail merge sheet" alt="Mail merge sheet after creating mailto link" src="https://www.micahsmith.com/images/poor-mans-mail-merge/poor-mans-mail-merge-02.png" style="border: 1px solid black" /></p>
 <h3>Send emails in a batch</h3>
-<p>Select a group of 5-10 cells in the "Link" column. Then use a keyboard shortcut <sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup> to click the hyperlink, such as <kbd>Option</kbd> <kbd>Enter</kbd>. Depending on your mail client, this will open <em>n</em> windows, with the prepared message ready to send in each of them. You can rapidly use keyboard shortcuts to send them, such as <kbd>Command</kbd> <kbd>Enter</kbd> for either AirMail or Gmail.</p>
+<p>Select a group of 5-10 cells in the "Link" column. Then use a keyboard shortcut <sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup> to click the hyperlink, such as <kbd>Option</kbd> <kbd>Enter</kbd>. Depending on your mail client, this will open <em>n</em> windows, with the prepared message ready to send in each of them. You can rapidly use keyboard shortcuts to send them, such as <kbd>Command</kbd> <kbd>Enter</kbd> for either AirMail or Gmail.</p>
 <p>When the emails in a batch have successfully been sent, mark them in the sheet accordingly.</p>
-<h4>A note on Gmail</h4>
+<h3>Rich text formatting</h3>
+<p>Note that rich text formatting (font size, font style, hyperlinks) will not transfer to a Sheets cell if you copy-and-paste. Instead, you should try to export your document to HTML and then copy the raw HTML into a cell. In most email clients, they will correctly interpret a mailto link that has encoded HTML by converting the content back into rich text in the email editor and setting the content type header to <code>text/html</code> appropriately.</p>
+<p>One detail is that Sheets does not allow the <code>"</code> character to appear in the middle of a string in a formula nor is it possible to escape it. If you can, just substitute the <code>'</code> character. If you must use the double quote, the best solution is to concatenate the formula <code>CHAR(34)</code> (which encodes a double quote) in the middle of a string.</p>
+<h4>Example</h4>
+<p>Let's say you are trying to include both HTML markup and a double quote in a formula cell to use in a mailto link.</p>
+<p>Cell input</p>
+<div class="highlight"><pre><span></span><code>=&quot;According to Wikipedia, &lt;a class=&#39;font-style: italic;&#39;
+href=&#39;https://en.wikipedia.org/wiki/Oncideres_mirador&#39;&gt;Oncideres mirador&lt;/a&gt; is
+&quot; &amp; CHAR(34) &amp; &quot;a species of beetle in the family Cerambycidae&quot; &amp; CHAR(34) &amp;
+&quot;.&quot;
+</code></pre></div>
+
+<p>Cell output</p>
+<div class="highlight"><pre><span></span><code>According to Wikipedia, <span class="p">&lt;</span><span class="nt">a</span> <span class="na">class</span><span class="o">=</span><span class="s">&#39;font-style: italic;&#39;</span>
+<span class="na">href</span><span class="o">=</span><span class="s">&#39;https://en.wikipedia.org/wiki/Oncideres_mirador&#39;</span><span class="p">&gt;</span>Oncideres mirador<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span> is
+&quot;a species of beetle in the family Cerambycidae&quot;.
+</code></pre></div>
+
+<p>HTML output</p>
+<blockquote>
+<p>According to Wikipedia, <a href="https://en.wikipedia.org/wiki/Oncideres_mirador"><em>Oncideres mirador</em></a> is "a species of beetle in the family Cerambycidae".</p>
+</blockquote>
+<p>Of course, you don't have to do anything crazy like this if you are not using formulas in the cell. You can just paste the HTML in directly.</p>
+<h3>A note on Gmail</h3>
 <p>If you want to use the Gmail web application as your mail client, then you need to configure your browser appropriately. Chrome was easiest to configure for me, even though I prefer Firefox for almost everything. See <a href="https://wiki.carleton.edu/display/itskb/Configuring+Mailto+links+to+use+Gmail">here</a>.</p>
 <p>If you use Gmail, then you will have <em>n</em> tabs in your browser window. You can tab through them in order with <kbd>Control</kbd> <kbd>Tab</kbd>. On each tab, use the keyboard shortcut to send the message and immediately navigate to the next tab while the message is sending. The behavior of Gmail's standalone compose window is that if the message sends successfully, the tab will close itself. So if all of your messages send successfully, you will be left with a single tab, which is your spreadsheet. You can then continue with the next batch.</p>
 <h3>Conclusion</h3>
@@ -216,10 +239,7 @@ Bye!&quot;
 <p>There may be better ways to create this formula that doesn't require adding separate lines for each header, maybe using <a href="https://support.google.com/docs/answer/3093275?hl=en"><code>ARRAYFORMULA</code></a> or something beyond my Google Sheets expertise. Let me know in the comments if you figure this out.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
 </li>
 <li id="fn:2">
-<p>You can probably paste raw HTML markup into the body cell and then figure out how this can best be sent in your email client, maybe be providing a header like <code>Content-Type: text/html; charset="UTF-8"</code> as another parameter in the mailto URL, but I haven't looked into this.&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
-</li>
-<li id="fn:3">
-<p>I'll refer to various keyboard shortcuts, which reflects my setup of macOS. Please substitute the relevant keyboard shortcuts for your own setup.&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+<p>I'll refer to various keyboard shortcuts, which reflects my setup of macOS. Please substitute the relevant keyboard shortcuts for your own setup.&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
 </li>
 </ol>
 </div><script src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
