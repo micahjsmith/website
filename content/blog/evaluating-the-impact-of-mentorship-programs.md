@@ -1,9 +1,8 @@
 Title: Evaluating the impact of mentorship programs
-Date: 2021-06-02
+Date: 2021-06-04
 Category: life
 Slug: evaluating-the-impact-of-mentorship-programs
 Authors: Micah Smith
-Status: draft
 
 One initiative that I have been working on for the past year at MIT is the [EECS Graduate Application Assistance Program](https://www.thrive-eecs.mit.edu/gaap) (EECS GAAP), both as an organizer and as a mentor. EECS GAAP is a program that pairs underrepresented applicants to the MIT EECS department with graduate student mentors.
 
