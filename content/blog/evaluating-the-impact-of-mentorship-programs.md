@@ -12,7 +12,7 @@ In EECS GAAP, applicants and their mentors worked closely together during the Fa
 
 Together with several other student leaders and many volunteers, we have recently wrapped up our first year.  I encourage you to learn more about our program by reading our [launch post](https://www.thrive-eecs.mit.edu/news-eecs-gaap-launch) or [the press coverage from MIT News](https://news.mit.edu/2020/gaap-mentorship-encourages-underrepresented-students-eecs-1013). Our program is one of many that have been sprouting up around the US in computer science departments and others, and there is a long history of mentorship programs in many academic arenas.
 
-**Today, I want to write about one technical problem that arises in mentorship programs. That is, do they work?**
+**Today, I want to write about one technical problem that arises in mentorship programs. That is, do they work? And can we provide a method to answer this question quantitatively.**
 
 ### Do they work?
 
