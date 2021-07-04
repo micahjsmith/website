@@ -71,6 +71,7 @@
         icon: link
       - href: https://arxiv.org/pdf/2012.07816.pdf
         icon: file-pdf
+    note: To appear at CSCW 2021
 - key: smith2020machine
   metadata:
     links:
@@ -82,7 +83,7 @@
         icon: film
       - href: https://vimeo.com/440735079#t=4231s
         icon: video
-    note: Previously published at arXiv:1905.08942 [cs]
+    note: Also published at arXiv:1905.08942 [cs]
 - key: wang2019atmseer
   metadata:
     links:
@@ -123,7 +124,7 @@
   metadata:
     links:
         href: https://www.newyorkfed.org/medialibrary/media/research/staff_reports/sr574.pdf
-        icon: file-pdf 
+        icon: file-pdf
     note: Substantial contribution
 - key: fuster2015just
   metadata:
