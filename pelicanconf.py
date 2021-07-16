@@ -53,11 +53,12 @@ DRAFT_PAGE_SAVE_AS = 'drafts/{slug}/index.html'
 GITHUB_URL = 'https://github.com/micahjsmith'
 TWITTER_USERNAME = 'micahjsmith'
 SOCIAL = (
-    ('twitter', 'https://twitter.com/micahjsmith'),
-    ('github', 'https://github.com/micahjsmith'),
-    ('stack-overflow', 'https://stackoverflow.com/users/2514228/micah-smith'),
-    ('linkedin', 'https://www.linkedin.com/in/micahjsmith'),
-    ('key', 'https://keybase.io/micahjsmith'), # use fa-key for keybase.io
+    ('twitter', 'fab fa-twitter', 'https://twitter.com/micahjsmith'),
+    ('github', 'fab fa-github', 'https://github.com/micahjsmith'),
+    ('stack-overflow', 'fab fa-stack-overflow', 'https://stackoverflow.com/users/2514228/micah-smith'),
+    ('linkedin', 'fab fa-linkedin', 'https://www.linkedin.com/in/micahjsmith'),
+    ('scholar', 'ai ai-google-scholar', 'https://scholar.google.com/citations?user=uVr9PooAAAAJ'),
+    # ('key', 'fa fa-key', 'https://keybase.io/micahjsmith'),
 )
 
 DEFAULT_PAGINATION = False

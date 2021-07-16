@@ -2,6 +2,10 @@ ul.social a.sc-key {
   background-color: #3ba2fc;
 }
 
+ul.social a.sc-scholar {
+  background-color: #ea4335;
+}
+
 .ref-author[data-given="Micah J."][data-family="Smith"] {
   font-weight: bold;
 }

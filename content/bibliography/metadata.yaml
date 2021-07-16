@@ -29,13 +29,14 @@
       accepted: 323
       rate: 41.8
       source: https://chi2021.acm.org/information/4600.html
-- key: santu2020levelwise
+- key: santu2020automl
   metadata:
     links:
       - href: https://arxiv.org/abs/2010.10777
         icon: link
       - href: https://arxiv.org/pdf/2010.10777.pdf
         icon: file-pdf
+    note: To appear in ACM Computer Surveys
 - key: smith2017featurehub
   metadata:
     links:
@@ -43,6 +44,11 @@
         icon: link
       - href: /file/featurehub-smith.pdf
         icon: file-pdf
+    acceptance:
+      submissions: 156
+      accepted: 40
+      rate: 25.6
+      source: https://ieeexplore.ieee.org/document/8259754
 - key: smith2018ballet
   metadata:
     links:
@@ -83,14 +89,24 @@
         icon: film
       - href: https://vimeo.com/440735079#t=4231s
         icon: video
+    acceptance:
+      submissions: 48
+      accepted: 21
+      rate: 43.75
+      source: https://dl.acm.org/doi/proceedings/10.1145/3318464#acceptance-rates
     note: Also published at arXiv:1905.08942 [cs]
 - key: wang2019atmseer
   metadata:
     links:
-      - href: https://dl.acm.org/citation.cfm?id=3300911
+      - href: https://doi.org/10.1145/3290605.3300911
         icon: link
       - href: https://arxiv.org/abs/1902.05009
         icon: file-pdf
+    acceptance:
+      submissions: 2958
+      accepted: 703
+      rate: 23.7
+      source: https://dl.acm.org/doi/proceedings/10.1145/3290605#acceptance-rates
     note: Also published at arXiv:1902.05009 [cs]
 - key: delnegro2017great
   metadata:
