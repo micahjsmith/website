@@ -70,14 +70,16 @@
         icon: file-pdf
       - href: /files/balletdemo_mlsys2020_poster.pdf
         icon: tv
-- key: smith2020enabling
+- key: smith2021enabling
   metadata:
     links:
       - href: https://arxiv.org/abs/2012.07816
         icon: link
-      - href: https://arxiv.org/pdf/2012.07816.pdf
+      - href: https://doi.org/10.1145/3479575
+        icon: link
+      - href: /files/ballet_cscw21.pdf
         icon: file-pdf
-    note: To appear at CSCW 2021
+    note: Also published at arXiv:2012.07816 [cs]
 - key: smith2020machine
   metadata:
     links:
