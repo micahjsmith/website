@@ -1,3 +1,8 @@
+- key: smith2021collaborative
+  metadata:
+    links:
+      - href: "/files/papers/Smith - 2021 - Collaborative Open and Automated Data Science.pdf"
+        icon: file-pdf
 - key: smith2021meeting
   metadata:
     links:
