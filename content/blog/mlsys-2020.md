@@ -61,7 +61,7 @@ many people had stopped by my booth as they found feature engineering to be a ma
 challenge within their organization or within projects they had worked on.
 
 You can read more short paper on the demonstration
-[here]({static}/files/balletdemo_mlsys2020.pdf) and I am always happy to chat about this
+[here]({static}/files/papers/Smith et al. - 2020 - Demonstration of Ballet A Framework for Open-Source Collaborative Feature Engineering.pdf) and I am always happy to chat about this
 project with anyone who is interested, either in person or via [email](/contact).
 
 ### Everything else

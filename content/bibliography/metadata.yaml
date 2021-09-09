@@ -8,7 +8,7 @@
 - key: cambronero2017query
   metadata:
     links:
-      - href: https://dl.acm.org/doi/10.14778/3137628.3137641
+      - href: https://doi.org/10.14778/3137628.3137641
         icon: link
       - href: https://www.vldb.org/pvldb/vol10/p1310-feser.pdf
         icon: file-pdf
@@ -20,9 +20,9 @@
 - key: liu2020understanding
   metadata:
     links:
-      - href: https://dl.acm.org/doi/10.1145/3334480.3382998
+      - href: https://doi.org/10.1145/3334480.3382998
         icon: link
-      - href: /files/bots_chi2020.pdf
+      - href: "/files/papers/Liu et al. - 2020 - Understanding User-Bot Interactions for Small-Scale Automation in Open-Source Development.pdf"
         icon: file-pdf
     acceptance:
       submissions: 772
@@ -40,9 +40,9 @@
 - key: smith2017featurehub
   metadata:
     links:
-      - href: https://arxiv.org/abs/2010.10777
+      - href: https://doi.org/10.1109/DSAA.2017.66
         icon: link
-      - href: /file/featurehub-smith.pdf
+      - href: "/files/papers/Smith et al. - 2018 - FeatureHub Towards Collaborative Data Science.pdf"
         icon: file-pdf
     acceptance:
       submissions: 156
@@ -54,21 +54,21 @@
     links:
       - href: http://learningsys.org/nips18/assets/papers/15CameraReadySubmissionneurips_sysml_2018-8.pdf
         icon: file-pdf
-      - href: /files/ballet-neurips-sysml-2018-poster.pdf
+      - href: "/files/posters/Smith et al. - 2018 - Ballet A lightweight framework for open-source, collaborative feature engineering - poster.pdf"
         icon: tv
 - key: smith2018scaling
   metadata:
     links:
       - href: https://dspace.mit.edu/handle/1721.1/117819
         icon: link
-      - href: "/files/Micah J Smith SM Thesis.pdf"
+      - href: "/files/papers/Smith - 2018 - Scaling Collaborative Open Data Science.pdf"
         icon: file-pdf
 - key: smith2020demonstration
   metadata:
     links:
-      - href: /files/balletdemo_mlsys2020.pdf
+      - href: "/files/papers/Smith et al. - 2020 - Demonstration of Ballet A Framework for Open-Source Collaborative Feature Engineering.pdf"
         icon: file-pdf
-      - href: /files/balletdemo_mlsys2020_poster.pdf
+      - href: "/files/posters/Smith et al. - 2020 - Demonstration of Ballet A Framework for Open-Source Collaborative Feature Engineering - poster.pdf"
         icon: tv
 - key: smith2021enabling
   metadata:
@@ -77,7 +77,7 @@
         icon: link
       - href: https://doi.org/10.1145/3479575
         icon: link
-      - href: /files/ballet_cscw2021.pdf
+      - href: "/files/papers/Smith et al. - 2021 - Enabling Collaborative Data Science Development with the Ballet Framework.pdf"
         icon: file-pdf
     note: Also published at arXiv:2012.07816 [cs]
 - key: smith2020machine
@@ -85,9 +85,9 @@
     links:
       - href: https://doi.org/10.1145/3318464.3386146
         icon: link
-      - href: /files/mlbazaar_sigmod20.pdf
+      - href: "/files/papers/Smith et al. - 2020 - The Machine Learning Bazaar Harnessing the ML Ecosystem for Effective System Development.pdf"
         icon: file-pdf
-      - href: /files/mlbazaar-sigmod-presentation-2020-06-16.pdf
+      - href: "/files/presentations/Smith et al. - 2020 - The Machine Learning Bazaar Harnessing the ML Ecosystem for Effective System Development - presentation.pdf"
         icon: film
       - href: https://vimeo.com/440735079#t=4231s
         icon: video

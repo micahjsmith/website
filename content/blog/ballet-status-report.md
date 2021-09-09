@@ -221,7 +221,7 @@ You can also use Ballet to set up your own collaboration or [get in touch]({file
 
 - [Ask me for a preprint]({filename}/pages/contact.md) of the full-length paper on Ballet.
 - [Read about the Ballet framework](https://hdi-project.github.io/ballet/).
-- [Check out my account of MLSys 2020]({filename}mlsys-2020.md) where I presented a live demo of Ballet or [read the short paper about my demo]({static}/files/balletdemo_mlsys2020.pdf).
+- [Check out my account of MLSys 2020]({filename}mlsys-2020.md) where I presented a live demo of Ballet or [read the short paper about my demo]({static}/files/papers/Smith et al. - 2020 - Demonstration of Ballet A Framework for Open-Source Collaborative Feature Engineering.pdf).
 - [Join a collaboration](https://github.com/HDI-Project/ballet-predict-house-prices) in feature engineering for house price prediction.
 
 [^1]: In predictive ML projects, the output of the project is not a software library, but rather a trained model capable of serving predictions for new datapoints.
