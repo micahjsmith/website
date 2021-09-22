@@ -25,7 +25,7 @@
 - key: liu2020understanding
   metadata:
     links:
-      - href: https://doi.org/10.1145/3334480.3382998
+      - href: https://dl.acm.org/doi/10.1145/3334480.3382998?cid=99659198339
         icon: link
       - href: "/files/papers/Liu et al. - 2020 - Understanding User-Bot Interactions for Small-Scale Automation in Open-Source Development.pdf"
         icon: file-pdf
@@ -88,7 +88,7 @@
 - key: smith2020machine
   metadata:
     links:
-      - href: https://doi.org/10.1145/3318464.3386146
+      - href: https://dl.acm.org/doi/10.1145/3318464.3386146?cid=99659198339
         icon: link
       - href: "/files/papers/Smith et al. - 2020 - The Machine Learning Bazaar Harnessing the ML Ecosystem for Effective System Development.pdf"
         icon: file-pdf
@@ -105,7 +105,7 @@
 - key: wang2019atmseer
   metadata:
     links:
-      - href: https://doi.org/10.1145/3290605.3300911
+      - href: https://dl.acm.org/doi/10.1145/3290605.3300911?cid=99659198339
         icon: link
       - href: https://arxiv.org/abs/1902.05009
         icon: file-pdf
