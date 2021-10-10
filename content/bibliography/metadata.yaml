@@ -34,14 +34,12 @@
       accepted: 323
       rate: 41.8
       source: https://chi2021.acm.org/information/4600.html
-- key: santu2020automl
+- key: santu2021automl
   metadata:
     links:
-      - href: https://arxiv.org/abs/2010.10777
+      - href: https://dl.acm.org/doi/10.1145/3470918?cid=99659198339
         icon: link
-      - href: https://arxiv.org/pdf/2010.10777.pdf
-        icon: file-pdf
-    note: To appear in ACM Computer Surveys
+    note: Also published at arXiv:2010.10777 [cs]
 - key: smith2017featurehub
   metadata:
     links:
