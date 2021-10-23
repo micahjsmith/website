@@ -76,8 +76,6 @@
 - key: smith2021enabling
   metadata:
     links:
-      - href: https://arxiv.org/abs/2012.07816
-        icon: link
       - href: https://doi.org/10.1145/3479575
         icon: link
       - href: "/files/papers/Smith et al. - 2021 - Enabling Collaborative Data Science Development with the Ballet Framework.pdf"
