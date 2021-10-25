@@ -51,7 +51,7 @@ Micah Smith
 MIT(?! License)
 ```
 
-The result is an anonymized repo that can be shared with reviewers: <https://anonymous.4open.science/r/ca687570-8de0-40db-b918-6c97fa9d7f7b/>
+The result is an anonymized repo that can be shared with reviewers: <https://anonymous.4open.science/r/code-7E01>
 
 ### Referencing the repo
 
@@ -65,7 +65,7 @@ We could just copy and paste the new link into our LaTeX document, but that's to
 % can be placed in 'anonymize.tex' and input to the main file
 \makeatletter
   \if@ACM@anonymous
-    \renewcommand{\repourl}{https://anonymous.4open.science/r/ca687570-8de0-40db-b918-6c97fa9d7f7b/}
+    \renewcommand{\repourl}{https://anonymous.4open.science/r/code-7E01}
   \fi
 \makeatother
 
