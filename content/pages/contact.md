@@ -6,11 +6,5 @@ Order: 02
 
 Replace the deli meats or kitchen appliances with obvious values:
 
-- `micahjsmithroastbeefgmailturkeycom`
-- `micahstoastermitblenderedu`
-
-### Office
-
-MIT Stata Center  
-32 Vassar St, Room 32-D712  
-Cambridge, MA 02139
+- `micahjsmith roastbeef gmail turkey com`
+- `micahs toaster alum mixer mit blender edu`
