@@ -78,7 +78,7 @@
     links:
       - href: https://doi.org/10.1145/3479575
         icon: link
-      - href: "/files/papers/Smith et al. - 2021 - Enabling Collaborative Data Science Development with the Ballet Framework.pdf"
+      - href: https://dl.acm.org/doi/pdf/10.1145/3479575
         icon: file-pdf
     note: Also published at arXiv:2012.07816 [cs]
 - key: smith2020machine
