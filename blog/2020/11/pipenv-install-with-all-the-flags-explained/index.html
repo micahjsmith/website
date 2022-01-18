@@ -152,8 +152,8 @@
 
   <div>
     <p>A common pattern of using <a href="pipenv.pypa.io/">pipenv</a> in containers is to install as follows:</p>
-<div class="highlight"><pre><span></span><code><span class="k">COPY</span> Pipfile Pipfile.lock ./
-<span class="k">RUN</span> pip install --upgrade pip <span class="o">&amp;&amp;</span> <span class="se">\</span>
+<div class="highlight"><pre><span></span><code><span class="k">COPY</span><span class="w"> </span>Pipfile Pipfile.lock ./
+<span class="k">RUN</span><span class="w"> </span>pip install --upgrade pip <span class="o">&amp;&amp;</span> <span class="se">\</span>
     pip install pipenv <span class="o">&amp;&amp;</span> <span class="se">\</span>
     pipenv install --system --deploy --ignore-pipfile <span class="o">&amp;&amp;</span> <span class="se">\</span>
     pipenv --clear

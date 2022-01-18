@@ -159,9 +159,9 @@ projects. However, this means that many paths relative to the git top-level dire
 with <code>+</code>. Of course, this applies to any path beginning with a <code>+</code>, though this is otherwise an
 uncommon naming convention.</p>
 <p>Suppose that your project looks like this:</p>
-<div class="highlight"><pre><span></span><code><span class="err">+code/</span>
-<span class="err">  foo.m</span>
-<span class="err">  bar.m</span>
+<div class="highlight"><pre><span></span><code>+code/
+  foo.m
+  bar.m
 </code></pre></div>
 
 <p>You might want to use vim to diff your two files:</p>
@@ -169,9 +169,9 @@ uncommon naming convention.</p>
 </code></pre></div>
 
 <p>But vim will tell you:</p>
-<div class="highlight"><pre><span></span><code><span class="err">Error detected while processing command line:</span>
-<span class="c">E492: Not an editor comamnd: code/foo.m</span>
-<span class="c">E492: Not an editor comamnd: code/bar.m</span>
+<div class="highlight"><pre><span></span><code><span class="nv">Error</span> <span class="nv">detected</span> <span class="k">while</span> <span class="nv">processing</span> <span class="nv">command</span> <span class="nv">line</span>:
+<span class="nv">E492</span>: <span class="nv">Not</span> <span class="nv">an</span> <span class="nv">editor</span> <span class="nv">comamnd</span>: <span class="nv">code</span><span class="o">/</span><span class="nv">foo</span>.<span class="nv">m</span>
+<span class="nv">E492</span>: <span class="nv">Not</span> <span class="nv">an</span> <span class="nv">editor</span> <span class="nv">comamnd</span>: <span class="nv">code</span><span class="o">/</span><span class="nv">bar</span>.<span class="nv">m</span>
 </code></pre></div>
 
 <p>What's going on? Vim interprets <code>+</code> as the start of a command-line argument (beyond
@@ -180,7 +180,7 @@ the typical <code>-</code>) and fails to find options/commands called <code>code
 <p>Simply tell vimdiff somehow that the paths you are specifying are not options. (By the way,
 note that vimdiff is pretty much just an alias for <code>vim -d</code>.)</p>
 <p>We could prefix them with the current directory:</p>
-<div class="highlight"><pre><span></span><code><span class="err">vimdiff ./+code/foo.m ./+code/bar.m</span>
+<div class="highlight"><pre><span></span><code>vimdiff ./+code/foo.m ./+code/bar.m
 </code></pre></div>
 
 <p>Better yet, note that the <code>--</code> option</p>
@@ -189,13 +189,13 @@ note that vimdiff is pretty much just an alias for <code>vim -d</code>.)</p>
 a file  name. This can be used to edit a filename that starts with a '-'.</p>
 </blockquote>
 <p>Or, in our case, to edit a filename that starts with a <code>+</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="err">vimdiff -- +code/foo.m +code/bar.m</span>
+<div class="highlight"><pre><span></span><code>vimdiff -- +code/foo.m +code/bar.m
 </code></pre></div>
 
 <h2>Bringing git into the picture</h2>
 <p>We now update <code>+code/foo.m</code> and want to compare to the previous commit. Using git's
 <code>difftool</code> command, we diff all modified git-tracked files using a tool of our choice:</p>
-<div class="highlight"><pre><span></span><code><span class="err">git difftool --tool=vimdiff</span>
+<div class="highlight"><pre><span></span><code><span class="n">git</span><span class="w"> </span><span class="n">difftool</span><span class="w"> </span><span class="o">--</span><span class="k">tool</span><span class="o">=</span><span class="n">vimdiff</span><span class="w"></span>
 </code></pre></div>
 
 <p>Unfortunately, we run into the same problem as before.</p>
@@ -218,19 +218,19 @@ containing the contents of the diff pre-image and REMOTE is set to the name of t
 file containing the contents of the diff post-image.</p>
 </blockquote>
 <p>We can do</p>
-<div class="highlight"><pre><span></span><code><span class="err">git config --global difftool.vimdiff.cmd &#39;vimdiff -- $LOCAL $REMOTE&#39;</span>
+<div class="highlight"><pre><span></span><code><span class="n">git</span><span class="w"> </span><span class="n">config</span><span class="w"> </span><span class="o">--</span><span class="n">global</span><span class="w"> </span><span class="n">difftool</span><span class="o">.</span><span class="n">vimdiff</span><span class="o">.</span><span class="n">cmd</span><span class="w"> </span><span class="s1">&#39;vimdiff -- $LOCAL $REMOTE&#39;</span><span class="w"></span>
 </code></pre></div>
 
 <p>That'll do it. While you're at it, why not update your <code>~/.gitconfig</code> with the following handy
 diff-related settings:</p>
-<div class="highlight"><pre><span></span><code><span class="k">[alias]</span>
-    <span class="na">d</span>   <span class="o">=</span> <span class="s">difftool</span>
-<span class="k">[diff]</span>
-    <span class="na">tool</span> <span class="o">=</span> <span class="s">vimdiff</span>
-<span class="k">[difftool]</span>
-    <span class="na">prompt</span> <span class="o">=</span> <span class="s">false</span>
-<span class="k">[difftool &quot;vimdiff&quot;]</span>
-    <span class="na">cmd</span> <span class="o">=</span> <span class="s">vimdiff -- $LOCAL $REMOTE</span>
+<div class="highlight"><pre><span></span><code><span class="k">[alias]</span><span class="w"></span>
+<span class="w">    </span><span class="na">d</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="s">difftool</span><span class="w"></span>
+<span class="k">[diff]</span><span class="w"></span>
+<span class="w">    </span><span class="na">tool</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">vimdiff</span><span class="w"></span>
+<span class="k">[difftool]</span><span class="w"></span>
+<span class="w">    </span><span class="na">prompt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">false</span><span class="w"></span>
+<span class="k">[difftool &quot;vimdiff&quot;]</span><span class="w"></span>
+<span class="w">    </span><span class="na">cmd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">vimdiff -- $LOCAL $REMOTE</span><span class="w"></span>
 </code></pre></div>
 
 <p>Most people will likely never come across this problem: none of their paths are this crazy,
