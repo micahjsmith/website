@@ -3,6 +3,8 @@
     links:
       - href: "/files/papers/Smith - 2021 - Collaborative Open and Automated Data Science.pdf"
         icon: file-pdf
+      - href: https://dspace.mit.edu/handle/1721.1/140016
+        icon: link
 - key: smith2021meeting
   metadata:
     links:
