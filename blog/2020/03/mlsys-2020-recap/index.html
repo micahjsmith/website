@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="HandheldFriendly" content="True" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="robots" content="" />
+  <meta name="robots" content="" />
 
   <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,400;0,700;1,400&family=Source+Sans+Pro:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
 
@@ -24,17 +24,18 @@
           href="https://www.micahsmith.com/theme/pygments/github.min.css">
 
 
+
   <link rel="stylesheet" type="text/css" href="https://www.micahsmith.com/theme/font-awesome/css/fontawesome.css">
   <link rel="stylesheet" type="text/css" href="https://www.micahsmith.com/theme/font-awesome/css/brands.css">
   <link rel="stylesheet" type="text/css" href="https://www.micahsmith.com/theme/font-awesome/css/solid.css">
   <link rel="stylesheet" type="text/css" href="https://www.micahsmith.com/theme/academicicons/css/academicicons.min.css">
 
-    <link href="https://www.micahsmith.com/static/custom.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="https://www.micahsmith.com/static/custom.css">
 
 
 
 
-<!-- Google Analytics -->
+
 <script type="text/javascript">
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -44,8 +45,6 @@
   ga('create', 'UA-57970396-1', 'auto');
   ga('send', 'pageview');
 </script>
-<!-- End Google Analytics -->  
-
 
  
 
@@ -70,71 +69,82 @@
 
   <title>Micah Smith &ndash; MLSys 2020 Recap</title>
 
+
 </head>
 <body >
-  <aside>
-    <div>
-      <a href="https://www.micahsmith.com/">
-        <img src="/images/micah.jpg" alt="Micah J. Smith" title="Micah J. Smith">
-      </a>
 
-      <h1>
-        <a href="https://www.micahsmith.com/">Micah J. Smith</a>
-      </h1>
+<aside>
+  <div>
+    <a href="https://www.micahsmith.com/">
+      <img src="/images/micah.jpg" alt="Micah J. Smith" title="Micah J. Smith">
+    </a>
+
+    <h1>
+      <a href="https://www.micahsmith.com/">Micah J. Smith</a>
+    </h1>
 
 
 
-      <nav>
-        <ul class="list">
+    <nav>
+      <ul class="list">
 
-          <li><a href="https://www.micahsmith.com/blog">blog</a></li>
+        <li><a href="https://www.micahsmith.com/blog">blog</a></li>
 
-              <li>
-                <a target="_self"
-                   href="https://www.micahsmith.com/research">
-                  research
-                </a>
-              </li>
-              <li>
-                <a target="_self"
-                   href="https://www.micahsmith.com/contact">
-                  contact
-                </a>
-              </li>
 
-        </ul>
-      </nav>
+            <li>
+              <a target="_self"
+                 href="https://www.micahsmith.com/research">
+                research
+              </a>
+            </li>
+            <li>
+              <a target="_self"
+                 href="https://www.micahsmith.com/contact">
+                contact
+              </a>
+            </li>
 
-      <ul class="social">
-          <li>
-            <a class="sc-twitter" href="https://twitter.com/micahjsmith" target="_blank">
-              <i class="fab fa-twitter"></i>
-            </a>
-          </li>
-          <li>
-            <a class="sc-github" href="https://github.com/micahjsmith" target="_blank">
-              <i class="fab fa-github"></i>
-            </a>
-          </li>
-          <li>
-            <a class="sc-stack-overflow" href="https://stackoverflow.com/users/2514228/micah-smith" target="_blank">
-              <i class="fab fa-stack-overflow"></i>
-            </a>
-          </li>
-          <li>
-            <a class="sc-linkedin" href="https://www.linkedin.com/in/micahjsmith" target="_blank">
-              <i class="fab fa-linkedin"></i>
-            </a>
-          </li>
-          <li>
-            <a class="sc-scholar" href="https://scholar.google.com/citations?user=uVr9PooAAAAJ" target="_blank">
-              <i class="ai ai-google-scholar"></i>
-            </a>
-          </li>
       </ul>
-    </div>
+    </nav>
 
-  </aside>
+    <ul class="social">
+      <li>
+        <a class="sc-mastodon"
+rel="me"           href="https://mastodon.social/@micahjsmith"
+           target="_blank">
+          <i class="fa-brands fa-mastodon"></i>
+        </a>
+      </li>
+      <li>
+        <a class="sc-github"
+           href="https://github.com/micahjsmith"
+           target="_blank">
+          <i class="fa-brands fa-github"></i>
+        </a>
+      </li>
+      <li>
+        <a class="sc-stack-overflow"
+           href="https://stackoverflow.com/users/2514228/micah-smith"
+           target="_blank">
+          <i class="fa-brands fa-stack-overflow"></i>
+        </a>
+      </li>
+      <li>
+        <a class="sc-linkedin"
+           href="https://www.linkedin.com/in/micahjsmith"
+           target="_blank">
+          <i class="fa-brands fa-linkedin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="sc-scholar" href="https://scholar.google.com/citations?user=uVr9PooAAAAJ" target="_blank">
+          <i class="ai ai-google-scholar"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+</aside>
   <main>
 
 
@@ -211,7 +221,7 @@ folks in the systems and ML space. Here are a couple of projects that stood out 
     great for everything, in the context of deep learning where training costs are already
     quite high, training an ensemble usually requires a linear increase in training time,
     which can be prohibitive. Previous research had proposed methods of speeding up this
-    process, such as by creating snapshot ensembles in which after each <span class="math">\(n\)</span> epochs a
+    process, such as by creating snapshot ensembles in which after each $n$ epochs a
     snapshot of the model is taken and the snapshots are ensembled together after training
     is completed. The cost to train a snapshot ensemble is the same as the cost to train a
     single model, and interestingly they still perform better than a single model. However,
@@ -268,64 +278,7 @@ and a lot of the most interesting work is being done in industry, to be sure. I 
 back next year when the conference will be located in the Bay Area.</p>
 <p><a name="myfootnote1">1</a>: By data science project, I mean an end-to-end pipeline that can
 actually make predictions for new data instances. An ML library like Tensorflow is not a
-data science project in this respect.</p>
-<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
-    var align = "center",
-        indent = "0em",
-        linebreak = "false";
-
-    if (false) {
-        align = (screen.width < 768) ? "left" : align;
-        indent = (screen.width < 768) ? "0em" : indent;
-        linebreak = (screen.width < 768) ? 'true' : linebreak;
-    }
-
-    var mathjaxscript = document.createElement('script');
-    var location_protocol = (false) ? 'https' : document.location.protocol;
-    if (location_protocol !== 'http' && location_protocol !== 'https') location_protocol = 'https:';
-    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
-    mathjaxscript.type = 'text/javascript';
-    mathjaxscript.src = location_protocol + '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
-    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
-        "MathJax.Hub.Config({" +
-        "    config: ['MMLorHTML.js']," +
-        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' }, Macros: {} }," +
-        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
-        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
-        "    displayAlign: '"+ align +"'," +
-        "    displayIndent: '"+ indent +"'," +
-        "    showMathMenu: true," +
-        "    messageStyle: 'normal'," +
-        "    tex2jax: { " +
-        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
-        "        displayMath: [ ['$$','$$'] ]," +
-        "        processEscapes: true," +
-        "        preview: 'TeX'," +
-        "    }, " +
-        "    'HTML-CSS': { " +
-        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
-        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
-        "    }, " +
-        "}); " +
-        "if ('default' !== 'default') {" +
-            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
-                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
-                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
-                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
-                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
-                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
-            "});" +
-            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
-                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
-                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
-                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
-                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
-                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
-            "});" +
-        "}";
-    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
-}
-</script><script src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+data science project in this respect.</p><script src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
   </div>
   <div class="tag-cloud">
     <p>
@@ -333,6 +286,7 @@ data science project in this respect.</p>
       <a href="https://www.micahsmith.com/tag/mlsys.html">mlsys</a>
     </p>
   </div>
+
 
 
 
@@ -354,7 +308,7 @@ data science project in this respect.</p>
 <!-- End Disqus -->
 </article>
 
-    <footer>
+<footer>
 <p>&copy; 2022 Micah Smith</p>
 <p>
 Built with <a href="http://getpelican.com" target="_blank">Pelican</a> using <a href="http://bit.ly/flex-pelican" target="_blank">Flex</a> theme
@@ -366,11 +320,7 @@ Built with <a href="http://getpelican.com" target="_blank">Pelican</a> using <a 
           data-default-theme="light"
           type="text/javascript">
   </script>
-</p>    </footer>
-  </main>
-
-
-
+</p></footer>  </main>
 
 <script type="application/ld+json">
 {
@@ -382,6 +332,5 @@ Built with <a href="http://getpelican.com" target="_blank">Pelican</a> using <a 
   "description": ""
 }
 </script>
-
 </body>
 </html>

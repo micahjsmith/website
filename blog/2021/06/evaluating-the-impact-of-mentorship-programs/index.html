@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="HandheldFriendly" content="True" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="robots" content="" />
+  <meta name="robots" content="" />
 
   <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,400;0,700;1,400&family=Source+Sans+Pro:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
 
@@ -24,17 +24,18 @@
           href="https://www.micahsmith.com/theme/pygments/github.min.css">
 
 
+
   <link rel="stylesheet" type="text/css" href="https://www.micahsmith.com/theme/font-awesome/css/fontawesome.css">
   <link rel="stylesheet" type="text/css" href="https://www.micahsmith.com/theme/font-awesome/css/brands.css">
   <link rel="stylesheet" type="text/css" href="https://www.micahsmith.com/theme/font-awesome/css/solid.css">
   <link rel="stylesheet" type="text/css" href="https://www.micahsmith.com/theme/academicicons/css/academicicons.min.css">
 
-    <link href="https://www.micahsmith.com/static/custom.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="https://www.micahsmith.com/static/custom.css">
 
 
 
 
-<!-- Google Analytics -->
+
 <script type="text/javascript">
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -44,8 +45,6 @@
   ga('create', 'UA-57970396-1', 'auto');
   ga('send', 'pageview');
 </script>
-<!-- End Google Analytics -->  
-
 
  
 
@@ -68,71 +67,82 @@
 
   <title>Micah Smith &ndash; Evaluating the impact of mentorship programs</title>
 
+
 </head>
 <body >
-  <aside>
-    <div>
-      <a href="https://www.micahsmith.com/">
-        <img src="/images/micah.jpg" alt="Micah J. Smith" title="Micah J. Smith">
-      </a>
 
-      <h1>
-        <a href="https://www.micahsmith.com/">Micah J. Smith</a>
-      </h1>
+<aside>
+  <div>
+    <a href="https://www.micahsmith.com/">
+      <img src="/images/micah.jpg" alt="Micah J. Smith" title="Micah J. Smith">
+    </a>
+
+    <h1>
+      <a href="https://www.micahsmith.com/">Micah J. Smith</a>
+    </h1>
 
 
 
-      <nav>
-        <ul class="list">
+    <nav>
+      <ul class="list">
 
-          <li><a href="https://www.micahsmith.com/blog">blog</a></li>
+        <li><a href="https://www.micahsmith.com/blog">blog</a></li>
 
-              <li>
-                <a target="_self"
-                   href="https://www.micahsmith.com/research">
-                  research
-                </a>
-              </li>
-              <li>
-                <a target="_self"
-                   href="https://www.micahsmith.com/contact">
-                  contact
-                </a>
-              </li>
 
-        </ul>
-      </nav>
+            <li>
+              <a target="_self"
+                 href="https://www.micahsmith.com/research">
+                research
+              </a>
+            </li>
+            <li>
+              <a target="_self"
+                 href="https://www.micahsmith.com/contact">
+                contact
+              </a>
+            </li>
 
-      <ul class="social">
-          <li>
-            <a class="sc-twitter" href="https://twitter.com/micahjsmith" target="_blank">
-              <i class="fab fa-twitter"></i>
-            </a>
-          </li>
-          <li>
-            <a class="sc-github" href="https://github.com/micahjsmith" target="_blank">
-              <i class="fab fa-github"></i>
-            </a>
-          </li>
-          <li>
-            <a class="sc-stack-overflow" href="https://stackoverflow.com/users/2514228/micah-smith" target="_blank">
-              <i class="fab fa-stack-overflow"></i>
-            </a>
-          </li>
-          <li>
-            <a class="sc-linkedin" href="https://www.linkedin.com/in/micahjsmith" target="_blank">
-              <i class="fab fa-linkedin"></i>
-            </a>
-          </li>
-          <li>
-            <a class="sc-scholar" href="https://scholar.google.com/citations?user=uVr9PooAAAAJ" target="_blank">
-              <i class="ai ai-google-scholar"></i>
-            </a>
-          </li>
       </ul>
-    </div>
+    </nav>
 
-  </aside>
+    <ul class="social">
+      <li>
+        <a class="sc-mastodon"
+rel="me"           href="https://mastodon.social/@micahjsmith"
+           target="_blank">
+          <i class="fa-brands fa-mastodon"></i>
+        </a>
+      </li>
+      <li>
+        <a class="sc-github"
+           href="https://github.com/micahjsmith"
+           target="_blank">
+          <i class="fa-brands fa-github"></i>
+        </a>
+      </li>
+      <li>
+        <a class="sc-stack-overflow"
+           href="https://stackoverflow.com/users/2514228/micah-smith"
+           target="_blank">
+          <i class="fa-brands fa-stack-overflow"></i>
+        </a>
+      </li>
+      <li>
+        <a class="sc-linkedin"
+           href="https://www.linkedin.com/in/micahjsmith"
+           target="_blank">
+          <i class="fa-brands fa-linkedin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="sc-scholar" href="https://scholar.google.com/citations?user=uVr9PooAAAAJ" target="_blank">
+          <i class="ai ai-google-scholar"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+</aside>
   <main>
 
 
@@ -195,12 +205,12 @@
 
 <p>Read on to see more of the technical details.</p>
 <h4>Preliminaries</h4>
-<p>Let <span class="math">\(n\)</span> be the number of students who apply to participate in the program.
-Let <span class="math">\(n^t\)</span> be the number of students who can be matched with mentors in the program (due to a limited number of mentors who are volunteering).
-Assume that if a student can't be offered a mentor, they will receive no other support from the program.<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup> Thus let <span class="math">\(n^c\)</span> be the number of students who are not offered mentors, and <span class="math">\(n^t + n^c = n\)</span>.</p>
+<p>Let $n$ be the number of students who apply to participate in the program.
+Let $n^t$ be the number of students who can be matched with mentors in the program (due to a limited number of mentors who are volunteering).
+Assume that if a student can't be offered a mentor, they will receive no other support from the program.<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup> Thus let $n^c$ be the number of students who are not offered mentors, and $n^t + n^c = n$.</p>
 <h4>Control groups</h4>
-<p>If a student is deemed to be eligible to the program, then accept them at random with probability <span class="math">\(\frac{n^t}{n}\)</span>. This leads to a treatment group (offered a mentor) of size <span class="math">\(n^t\)</span> and a control group (not offered a mentor) of size <span class="math">\(n^c\)</span>. Given this randomization, we can assume that latent characteristics of the two groups are similar.</p>
-<p>We know <span class="math">\(n^t\)</span> exactly at the beginning of the program, but will have to estimate <span class="math">\(n\)</span>. One approach is to carry forward the previous year's number of applications. Another approach is to use <span class="math">\(2*n^t\)</span> to form groups of equal size. If there are additional students who arrive "late" (beyond the number of students expected), then they have to be rejected anyway (there are still no more mentors) but they should not be included in the control group because their characteristics may be different. If <span class="math">\(n\)</span> is smaller, then the mentors can be matched more quickly and the pairs can get to work sooner.</p>
+<p>If a student is deemed to be eligible to the program, then accept them at random with probability $\frac{n^t}{n}$. This leads to a treatment group (offered a mentor) of size $n^t$ and a control group (not offered a mentor) of size $n^c$. Given this randomization, we can assume that latent characteristics of the two groups are similar.</p>
+<p>We know $n^t$ exactly at the beginning of the program, but will have to estimate $n$. One approach is to carry forward the previous year's number of applications. Another approach is to use $2*n^t$ to form groups of equal size. If there are additional students who arrive "late" (beyond the number of students expected), then they have to be rejected anyway (there are still no more mentors) but they should not be included in the control group because their characteristics may be different. If $n$ is smaller, then the mentors can be matched more quickly and the pairs can get to work sooner.</p>
 <h4>Secure computation of admissions numbers</h4>
 <p>We now care about the following quantities:</p>
 <table>
@@ -212,27 +222,27 @@ Assume that if a student can't be offered a mentor, they will receive no other s
 </thead>
 <tbody>
 <tr>
-<td><span class="math">\(s^t\)</span></td>
+<td>$s^t$</td>
 <td>the number of students in the <strong>treatment</strong> group who actually <strong>submit</strong> their application to the department</td>
 </tr>
 <tr>
-<td><span class="math">\(s^c\)</span></td>
+<td>$s^c$</td>
 <td>the number of students in the <strong>control</strong> group who actually <strong>submit</strong> their application to the department</td>
 </tr>
 <tr>
-<td><span class="math">\(a^t\)</span></td>
+<td>$a^t$</td>
 <td>the number of students in the <strong>treatment</strong> group who are <strong>admitted</strong> to the department</td>
 </tr>
 <tr>
-<td><span class="math">\(a^c\)</span></td>
+<td>$a^c$</td>
 <td>the number of students in the <strong>control</strong> group who are <strong>admitted</strong> to the department</td>
 </tr>
 <tr>
-<td><span class="math">\(e^t\)</span></td>
+<td>$e^t$</td>
 <td>the number of students in the <strong>treatment</strong> group who <strong>enroll</strong> in the department</td>
 </tr>
 <tr>
-<td><span class="math">\(e^c\)</span></td>
+<td>$e^c$</td>
 <td>the number of students in the <strong>control</strong> group who <strong>enroll</strong> in the department</td>
 </tr>
 </tbody>
@@ -251,27 +261,27 @@ Assume that if a student can't be offered a mentor, they will receive no other s
 </ul>
 <p>To address this, we can use algorithms for <a href="https://en.wikipedia.org/wiki/Private_set_intersection">private set intersection</a> (PSI), with modifications for private set intersection cardinality (PSIC), given that we do not need to know the intersecting elements but just their count.</p>
 <p>This is not my area of expertise, but I did a brief literature review, and found that there are many algorithms for PSI. Applications include private contact list discovery and private advertising conversion detection.</p>
-<p>For example, <a href="https://www.cs.princeton.edu/~mfreed/docs/FNP04-pm.pdf">Freedman, Nissim, and Pinkas</a> present a variety of protocols for <em>private matching</em> including derivative problems like private set intersection cardinality (which they call private cardinality matching). These protocols are based on existing homomorphic encryption systems, which are cryptosystems that preserve the group homomorphism of addition and allows multiplication by a constant. Preserving the group homomorphism of addition means that given Enc(<span class="math">\(m_1\)</span>) and Enc(<span class="math">\(m_2\)</span>), the encryptions of two secret values, one can efficiently compute Enc(<span class="math">\(m_1 + m_2\)</span>) without knowledge of the private key. Preserving multiplication by a constant is defined similarly. The elements in the set are encoded in a domain of a fixed size and then represented as the roots of a polynomial. The coefficients of the polynomial are encrypted and sent to a counterparty, who does some additional operations involving evaluating the polynomial on their own inputs, multiplying and adding by carefully chosen values, and encrypting the result. The cardinality protocol is described in Section 4.4 of the paper.</p>
+<p>For example, <a href="https://www.cs.princeton.edu/~mfreed/docs/FNP04-pm.pdf">Freedman, Nissim, and Pinkas</a> present a variety of protocols for <em>private matching</em> including derivative problems like private set intersection cardinality (which they call private cardinality matching). These protocols are based on existing homomorphic encryption systems, which are cryptosystems that preserve the group homomorphism of addition and allows multiplication by a constant. Preserving the group homomorphism of addition means that given Enc($m_1$) and Enc($m_2$), the encryptions of two secret values, one can efficiently compute Enc($m_1 + m_2$) without knowledge of the private key. Preserving multiplication by a constant is defined similarly. The elements in the set are encoded in a domain of a fixed size and then represented as the roots of a polynomial. The coefficients of the polynomial are encrypted and sent to a counterparty, who does some additional operations involving evaluating the polynomial on their own inputs, multiplying and adding by carefully chosen values, and encrypting the result. The cardinality protocol is described in Section 4.4 of the paper.</p>
 <p>Much recent work (using improved techniques compared to homomorphic encryption) seems to focus on providing efficient algorithms, securing against malicious actors, or supporting multiple parties. We have a very simple use case with a small dataset (on the order of thousands), no malicious actors, and only two parties.</p>
-<p>There are several open-source implementations of PSIC protocols. For example, <a href="https://eprint.iacr.org/2021/243.pdf">Garimella et al</a> provide a <a href="https://github.com/osu-crypto/PSI-analytics">C++ implementation</a> of PSIC (as well as other functions of the intersection) based on <em>oblivious transfer</em> that can compute the cardinality of intersection on <span class="math">\(2^{12}\)</span> = 4,096 items in around 8 seconds with about 3MB of communication. (There were 3,742 applicants to MIT EECS in 2020). <a href="https://github.com/OpenMined/PSI">OpenMined/PSI</a> also implements PSIC based on elliptic-curve Diffie-Helman and Golomb-coded sets (but does not include a reference to a proof of security). I'm sure there are other implementations that I didn't find in my limited search.</p>
+<p>There are several open-source implementations of PSIC protocols. For example, <a href="https://eprint.iacr.org/2021/243.pdf">Garimella et al</a> provide a <a href="https://github.com/osu-crypto/PSI-analytics">C++ implementation</a> of PSIC (as well as other functions of the intersection) based on <em>oblivious transfer</em> that can compute the cardinality of intersection on $2^{12}$ = 4,096 items in around 8 seconds with about 3MB of communication. (There were 3,742 applicants to MIT EECS in 2020). <a href="https://github.com/OpenMined/PSI">OpenMined/PSI</a> also implements PSIC based on elliptic-curve Diffie-Helman and Golomb-coded sets (but does not include a reference to a proof of security). I'm sure there are other implementations that I didn't find in my limited search.</p>
 <p>You could argue that these private computational protocols are an over-engineered solution. You might be right. We could probably contract some law firm or trusted third party who could compare the sets of names directly. Yet this would still violate our promises of confidentiality. And given the sensitivity of the admissions data, it is unlikely such a party could be agreed upon.</p>
 <h4>Statistical tests</h4>
-<p>Let's focus on the outcome of admissions, but we can repeat the same analysis for other outcomes. Let <span class="math">\(A^t\)</span> be a random variable equal to <span class="math">\(1\)</span> if a treated student is admitted and <span class="math">\(0\)</span> otherwise, and let <span class="math">\(A^c\)</span> be a corresponding random variable for control students.  The null hypothesis is that the means of <span class="math">\(A^t\)</span> and <span class="math">\(A^c\)</span> are identical, i.e. that there is no difference in the admission rate between GAAP participants vs a control group with similar characteristics.</p>
-<p>We have that <span class="math">\(\bar{A^t} = \frac{a^t}{n^t}\)</span> is the sample mean of <span class="math">\(A^t\)</span> and <span class="math">\(\bar{A^c} = \frac{a^c}{n^c}\)</span> is the sample mean of <span class="math">\(A^c\)</span>. We can reasonably assume that the variance of <span class="math">\(A^t\)</span> and <span class="math">\(A^c\)</span> are similar. Thus we can use a simple <a href="https://en.wikipedia.org/wiki/Student%27s_t-test#Equal_or_unequal_sample_sizes,_similar_variances_(1/2_%3C_sX1/sX2_%3C_2)">independent two-sample t-test</a>.</p>
-<p>The test statistic <span class="math">\(t\)</span> is given by</p>
-<div class="math">$$
+<p>Let's focus on the outcome of admissions, but we can repeat the same analysis for other outcomes. Let $A^t$ be a random variable equal to $1$ if a treated student is admitted and $0$ otherwise, and let $A^c$ be a corresponding random variable for control students.  The null hypothesis is that the means of $A^t$ and $A^c$ are identical, i.e. that there is no difference in the admission rate between GAAP participants vs a control group with similar characteristics.</p>
+<p>We have that $\bar{A^t} = \frac{a^t}{n^t}$ is the sample mean of $A^t$ and $\bar{A^c} = \frac{a^c}{n^c}$ is the sample mean of $A^c$. We can reasonably assume that the variance of $A^t$ and $A^c$ are similar. Thus we can use a simple <a href="https://en.wikipedia.org/wiki/Student%27s_t-test#Equal_or_unequal_sample_sizes,_similar_variances_(1/2_%3C_sX1/sX2_%3C_2)">independent two-sample t-test</a>.</p>
+<p>The test statistic $t$ is given by</p>
+<p>$$
 t = \frac{
     \frac{a^t}{n^t} - \frac{a^c}{n^c}
 }{
     s_p \cdot \sqrt{\frac{1}{n^t} + \frac{1}{n^c}}
 }
-$$</div>
+$$</p>
 <p>where</p>
-<div class="math">$$
+<p>$$
 s_p = \sqrt{\frac{(n^t-1) s^2_t + (n^c-1) s^2_c}{n - 2}}
-$$</div>
+$$</p>
 <p>is an estimator of the pooled standard deviation of the two samples.</p>
-<p>Now we can obtain standard p-values from <span class="math">\(t\)</span>.</p>
+<p>Now we can obtain standard p-values from $t$.</p>
 <p>Using SciPy:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">ttest_ind_from_stats</span>
 <span class="n">mean_t</span> <span class="o">=</span> <span class="n">a_t</span><span class="o">/</span><span class="n">n_t</span>
@@ -284,9 +294,9 @@ $$</div>
 <h3>Some hypotheses</h3>
 <p>This method is one way of evaluating the impact of mentorship on admissions outcomes. Now, to be clear, EECS GAAP has not implemented this method, nor did we have a program structure in our first year that would allow us to implement this even if we had wanted to. So without having done this analysis, I will pre-register hypotheses about how I think mentorship programs</p>
 <p>I'll now pre-register hypotheses without having done this type of analysis.</p>
-<p><strong>H1</strong>: <span class="math">\(A^t &gt; A^c\)</span>. ("Students who receive mentorship are likely to be admitted at a higher rate than those who do not.") This is the most important hypothesis. If not, the fundamental thesis of application assistance programs is basically wrong and it's difficult to justify the effort put into the program.</p>
-<p><strong>H2</strong>: <span class="math">\(S^t &gt; S^c\)</span>. ("Students who receive mentorship are likely to submit their applications at a higher rate.") If this hypothesis is not confirmed, it's not a big deal. One could obtain this result without using expert mentors (i.e. the nagging parents effect). It could also be that students realize through working with their mentors that the program is not the right fit for them for whatever reason and they should focus their efforts elsewhere.</p>
-<p><strong>H3</strong>: <span class="math">\(E^t = E^c\)</span>. ("Among all students who are admitted, students who had received mentorship enroll at the same rate as those who did not.") That is, I don't think the null hypothesis will be rejected that there was no effect on enrollment yield. I do think that there is an effect of mentors in "selling" the institution and in making applicants feel like they have a more personal connection. However, I think that there are other really strong factors that lead students to choose certain schools so this effect may not dominate. Also, this is where other DEI efforts should come into play (generally creating a more inclusive campus, having programming at visit days targeted to underrepresented students, etc.).</p>
+<p><strong>H1</strong>: $A^t &gt; A^c$. ("Students who receive mentorship are likely to be admitted at a higher rate than those who do not.") This is the most important hypothesis. If not, the fundamental thesis of application assistance programs is basically wrong and it's difficult to justify the effort put into the program.</p>
+<p><strong>H2</strong>: $S^t &gt; S^c$. ("Students who receive mentorship are likely to submit their applications at a higher rate.") If this hypothesis is not confirmed, it's not a big deal. One could obtain this result without using expert mentors (i.e. the nagging parents effect). It could also be that students realize through working with their mentors that the program is not the right fit for them for whatever reason and they should focus their efforts elsewhere.</p>
+<p><strong>H3</strong>: $E^t = E^c$. ("Among all students who are admitted, students who had received mentorship enroll at the same rate as those who did not.") That is, I don't think the null hypothesis will be rejected that there was no effect on enrollment yield. I do think that there is an effect of mentors in "selling" the institution and in making applicants feel like they have a more personal connection. However, I think that there are other really strong factors that lead students to choose certain schools so this effect may not dominate. Also, this is where other DEI efforts should come into play (generally creating a more inclusive campus, having programming at visit days targeted to underrepresented students, etc.).</p>
 <h3>Drawbacks and limitations</h3>
 <p>There are several drawbacks to this method that program designers should consider carefully.</p>
 <ol>
@@ -320,69 +330,13 @@ $$</div>
 <p>This was not true about EECS GAAP, because we did offer other resources or group programming to eligible students.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
 </li>
 </ol>
-</div>
-<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
-    var align = "center",
-        indent = "0em",
-        linebreak = "false";
-
-    if (false) {
-        align = (screen.width < 768) ? "left" : align;
-        indent = (screen.width < 768) ? "0em" : indent;
-        linebreak = (screen.width < 768) ? 'true' : linebreak;
-    }
-
-    var mathjaxscript = document.createElement('script');
-    var location_protocol = (false) ? 'https' : document.location.protocol;
-    if (location_protocol !== 'http' && location_protocol !== 'https') location_protocol = 'https:';
-    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
-    mathjaxscript.type = 'text/javascript';
-    mathjaxscript.src = location_protocol + '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
-    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
-        "MathJax.Hub.Config({" +
-        "    config: ['MMLorHTML.js']," +
-        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' }, Macros: {} }," +
-        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
-        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
-        "    displayAlign: '"+ align +"'," +
-        "    displayIndent: '"+ indent +"'," +
-        "    showMathMenu: true," +
-        "    messageStyle: 'normal'," +
-        "    tex2jax: { " +
-        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
-        "        displayMath: [ ['$$','$$'] ]," +
-        "        processEscapes: true," +
-        "        preview: 'TeX'," +
-        "    }, " +
-        "    'HTML-CSS': { " +
-        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
-        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
-        "    }, " +
-        "}); " +
-        "if ('default' !== 'default') {" +
-            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
-                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
-                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
-                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
-                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
-                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
-            "});" +
-            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
-                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
-                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
-                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
-                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
-                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
-            "});" +
-        "}";
-    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
-}
-</script><script src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+</div><script src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
   </div>
   <div class="tag-cloud">
     <p>
     </p>
   </div>
+
 
 
 
@@ -404,7 +358,7 @@ $$</div>
 <!-- End Disqus -->
 </article>
 
-    <footer>
+<footer>
 <p>&copy; 2022 Micah Smith</p>
 <p>
 Built with <a href="http://getpelican.com" target="_blank">Pelican</a> using <a href="http://bit.ly/flex-pelican" target="_blank">Flex</a> theme
@@ -416,11 +370,7 @@ Built with <a href="http://getpelican.com" target="_blank">Pelican</a> using <a 
           data-default-theme="light"
           type="text/javascript">
   </script>
-</p>    </footer>
-  </main>
-
-
-
+</p></footer>  </main>
 
 <script type="application/ld+json">
 {
@@ -432,6 +382,5 @@ Built with <a href="http://getpelican.com" target="_blank">Pelican</a> using <a 
   "description": ""
 }
 </script>
-
 </body>
 </html>
