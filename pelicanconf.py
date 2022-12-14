@@ -49,12 +49,11 @@ DRAFT_PAGE_SAVE_AS = 'drafts/{slug}/index.html'
 # Social widget
 GITHUB_URL = 'https://github.com/micahjsmith'
 SOCIAL = (
-    ('mastodon', 'fab fa-mastodon', 'https://mastodon.social/@micahjsmith'),
-    ('github', 'fab fa-github', 'https://github.com/micahjsmith'),
-    ('stack-overflow', 'fab fa-stack-overflow', 'https://stackoverflow.com/users/2514228/micah-smith'),
-    ('linkedin', 'fab fa-linkedin', 'https://www.linkedin.com/in/micahjsmith'),
-    ('scholar', 'ai ai-google-scholar', 'https://scholar.google.com/citations?user=uVr9PooAAAAJ'),
-    # ('key', 'fa fa-key', 'https://keybase.io/micahjsmith'),
+    ('mastodon', 'https://mastodon.social/@micahjsmith'),
+    ('github', 'https://github.com/micahjsmith'),
+    ('stack-overflow', 'https://stackoverflow.com/users/2514228/micah-smith'),
+    ('linkedin', 'https://www.linkedin.com/in/micahjsmith'),
+    ('scholar', 'https://scholar.google.com/citations?user=uVr9PooAAAAJ'),
 )
 
 DEFAULT_PAGINATION = False
