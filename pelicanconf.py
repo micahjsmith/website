@@ -1,7 +1,4 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*- #
-from __future__ import unicode_literals
-
+#!/usr/bin/env python3
 import datetime
 
 AUTHOR = 'Micah Smith'
@@ -51,9 +48,8 @@ DRAFT_PAGE_SAVE_AS = 'drafts/{slug}/index.html'
 
 # Social widget
 GITHUB_URL = 'https://github.com/micahjsmith'
-TWITTER_USERNAME = 'micahjsmith'
 SOCIAL = (
-    ('twitter', 'fab fa-twitter', 'https://twitter.com/micahjsmith'),
+    ('mastodon', 'fab fa-mastodon', 'https://mastodon.social/@micahjsmith'),
     ('github', 'fab fa-github', 'https://github.com/micahjsmith'),
     ('stack-overflow', 'fab fa-stack-overflow', 'https://stackoverflow.com/users/2514228/micah-smith'),
     ('linkedin', 'fab fa-linkedin', 'https://www.linkedin.com/in/micahjsmith'),
