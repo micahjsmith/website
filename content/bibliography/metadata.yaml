@@ -1,3 +1,11 @@
+- key: lehman2023need
+  metadata:
+    links:
+      - href: https://arxiv.org/abs/2302.08091
+        icon: link
+      - href: https://arxiv.org/pdf/2302.08091.pdf
+        icon: file-pdf
+    note: To appear at CHIL 2023
 - key: smith2021collaborative
   metadata:
     links:
