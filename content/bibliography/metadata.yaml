@@ -1,11 +1,11 @@
 - key: lehman2023need
   metadata:
     links:
-      - href: https://arxiv.org/abs/2302.08091
+      - href: https://proceedings.mlr.press/v209/eric23a
         icon: link
-      - href: https://arxiv.org/pdf/2302.08091.pdf
+      - href: https://proceedings.mlr.press/v209/eric23a/eric23a.pdf
         icon: file-pdf
-    note: To appear at CHIL 2023
+    note: Also published at arXiv:2302.08091 [cs]
 - key: smith2021collaborative
   metadata:
     links:
